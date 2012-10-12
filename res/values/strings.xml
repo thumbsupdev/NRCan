@@ -13,9 +13,9 @@
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
     
+   
     
-    
-    <!-- METADATA TABLE -->
+    <!-- METADATA TABLE comment -->
     <string name="metadata_label_workspace">Workspace</string>
     <string name="metadata_label_projectName">Project Name</string>
     <string name="metadata_label_projectCode">Project Code</string>
