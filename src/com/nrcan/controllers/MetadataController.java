@@ -109,6 +109,8 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		Button button1;
 		Button button2;
 		Button button3;
+		Button button4;
+		Button button5;
 	}
 	
 }
