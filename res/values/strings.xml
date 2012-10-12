@@ -12,5 +12,18 @@
     <string name="label_northing">Northing (m):</string>
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
+    
+    
+    <!-- METADATA TABLE -->
+    <string name="metadata_label_workspace">Workspace</string>
+    <string name="metadata_label_projectName">Project Name</string>
+    <string name="metadata_label_projectCode">Project Code</string>
+    <string name="metadata_label_projectLeader">Project Leader</string>
+    <string name="metadata_label_projectType">Project Type</string>
+    
+    <string name="metadata_label_geologistName">Geologist Name</string>
+    <string name="metadata_label_geologistCode">Project Code</string>
+    <string name="metadata_label_cameraPrefix">Camera Prefix</string>
+    <string name="metadata_label_selectMapProjection">Select Map Projection</string>
 
 </resources>
