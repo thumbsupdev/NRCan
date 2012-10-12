@@ -5,8 +5,8 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_station">Station:</string>
-    <string name="label_traverse">Trav:</string>
-    <string name="label_date">Date:</string>
+    <string name="station_label_traverse">Trav:</string>
+    <string name="station_label_date">Date:</string>
     <string name="label_elevation">Elev (m):</string>
     <string name="label_easting">Easting (m):</string>
     <string name="label_northing">Northing (m):</string>

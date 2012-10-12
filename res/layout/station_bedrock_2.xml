@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textSize="25dp"
-            android:text="@string/label_traverse" />
+            android:text="@string/station_label_traverse" />
 
         <EditText
             android:id="@+id/editText1"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textSize="25dp"
-            android:text="@string/label_date" />
+            android:text="@string/station_label_date" />
 
         <Spinner
             android:id="@+id/spinner1"

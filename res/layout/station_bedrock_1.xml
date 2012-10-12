@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_traverse" />
+            android:text="@string/station_label_traverse" />
 
         <EditText
             android:id="@+id/station_text_traverse"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_date" />
+            android:text="@string/station_label_date" />
 
         <Spinner
             android:id="@+id/spinner1"
