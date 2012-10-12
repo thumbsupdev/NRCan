@@ -22,7 +22,7 @@
                 android:id="@+id/metadata_editText_workspace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25dp" >
+                android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>
             
         </LinearLayout>
@@ -45,7 +45,7 @@
                 android:id="@+id/metadata_editText_projectName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25dp" >
+                android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>
 
         </LinearLayout>
@@ -68,8 +68,52 @@
                 android:id="@+id/metadata_editText_projectCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25dp" >
+                android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>
+
+        </LinearLayout>
+        
+         <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/metadata_label_projectLeader"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/metadata_editText_projectLeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge" >
+            </EditText>
+
+        </LinearLayout>
+        
+         <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/metadata_label_projectType"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
