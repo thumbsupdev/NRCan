@@ -14,6 +14,7 @@
     <string name="label_longitude">Longitude:</string>
     
     
+    
     <!-- METADATA TABLE -->
     <string name="metadata_label_workspace">Workspace</string>
     <string name="metadata_label_projectName">Project Name</string>
