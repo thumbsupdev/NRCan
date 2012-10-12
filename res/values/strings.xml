@@ -25,5 +25,7 @@
     <string name="metadata_label_geologistCode">Project Code</string>
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
+    
+    <!-- test -->
 
 </resources>
