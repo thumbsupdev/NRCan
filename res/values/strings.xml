@@ -13,6 +13,8 @@
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
     
+    <!-- TAB HOST -->
+    
     
     <!-- METADATA TABLE -->
     <string name="metadata_label_workspace">Workspace</string>
