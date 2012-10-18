@@ -7,6 +7,9 @@
     <string name="title_station">Station:</string>
     <string name="station_label_traverse">Trav:</string>
     <string name="station_label_date">Date:</string>
+    
+    <!-- Thing 1 & Thing 2 -->
+    
     <string name="label_elevation">Elev (m):</string>
     <string name="label_easting">Easting (m):</string>
     <string name="label_northing">Northing (m):</string>
@@ -15,11 +18,6 @@
     
     
     <!-- METADATA TABLE -->
-    <string name="metadata_label_workspace">Workspace</string>
-    <string name="metadata_label_projectName">Project Name</string>
-    <string name="metadata_label_projectCode">Project Code</string>
-    <string name="metadata_label_projectLeader">Project Leader</string>
-    <string name="metadata_label_projectType">Project Type</string>
     
     <string name="metadata_label_geologistName">Geologist Name</string>
     <string name="metadata_label_geologistCode">Project Code</string>
