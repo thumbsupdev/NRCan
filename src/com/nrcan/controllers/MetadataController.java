@@ -43,9 +43,9 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		{
 			TabHolder holder;
 			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.metadata_buttons, null);
+			convertView = mInflater.inflate(R.layout.tab_host_1, null);
 			
-			holder.button1 = (Button) convertView.findViewById(R.id.metadata_tab1);
+			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
 			holder.button1.setOnClickListener(new View.OnClickListener() {
 
 				public void onClick(View v) {
@@ -54,7 +54,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 				}
 			});
 			
-			holder.button2 = (Button) convertView.findViewById(R.id.metadata_tab2);
+			holder.button2 = (Button) convertView.findViewById(R.id.tab_host_button2);
 			holder.button2.setOnClickListener(new View.OnClickListener() {
 
 				public void onClick(View v) {
@@ -62,7 +62,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					notifyDataSetChanged();
 				}
 			});
-			holder.button3 = (Button) convertView.findViewById(R.id.metadata_tab3);
+			holder.button3 = (Button) convertView.findViewById(R.id.tab_host_button3);
 			holder.button3.setOnClickListener(new View.OnClickListener() {
 
 				public void onClick(View v) {
