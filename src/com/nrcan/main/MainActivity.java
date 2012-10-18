@@ -29,6 +29,7 @@ public class MainActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
         
         Button button1 = (Button) findViewById(R.id.buttonSave);
     	button1.setOnClickListener(new View.OnClickListener() {
@@ -47,18 +48,6 @@ public class MainActivity extends ListActivity {
     	
     	setListAdapter(adap1);
     	lv2.setAdapter(adap2);
-        
-        flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
-        
-        flipper.addView(lv1);
-        flipper.addView(lv2);
-        
-        //LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        //View v1 = inflater.inflate(R.layout.metadata, null);
-        //View v2 = inflater.inflate(R.layout.station_bedrock_1, null);
-        
-        //flipper.addView(v1);
-        //flipper.addView(v2);
     }
 
     @Override

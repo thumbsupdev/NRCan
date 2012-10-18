@@ -20,6 +20,7 @@
     <string name="station_label_partner">Partner</string>
     <string name="station_button_airphoto">L</string>
     <string name="station_label_stationnote">Station Note (254 chars max)</string>
+    <string name="station_label_sincelaststationnote">Since last station Note (254 chars max)</string>
     
     <!-- TAB HOST NUMBERS -->
     <string name="tabhost_1">1</string>

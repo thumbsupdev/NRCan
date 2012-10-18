@@ -21,7 +21,7 @@ public final class R {
         public static final int llProject=0x7f070006;
         public static final int llStationBedrock=0x7f070007;
         public static final int lltop1=0x7f070000;
-        public static final int menu_settings=0x7f070030;
+        public static final int menu_settings=0x7f070032;
         public static final int metadata_editText_projectCode=0x7f07000c;
         public static final int metadata_editText_projectName=0x7f07000b;
         public static final int metadata_editText_workspace=0x7f07000a;
@@ -39,6 +39,7 @@ public final class R {
         public static final int station_label_outcropsize=0x7f070022;
         public static final int station_label_partner=0x7f070027;
         public static final int station_label_physenviron=0x7f070020;
+        public static final int station_label_sincelaststationnote=0x7f07002b;
         public static final int station_label_stationnote=0x7f070029;
         public static final int station_label_traverse=0x7f07000d;
         public static final int station_spinner_elevation=0x7f070013;
@@ -53,13 +54,14 @@ public final class R {
         public static final int station_text_longitude=0x7f07001b;
         public static final int station_text_northing=0x7f070017;
         public static final int station_text_outcropsize=0x7f070023;
+        public static final int station_text_sincelaststationnote=0x7f07002c;
         public static final int station_text_stationnote=0x7f07002a;
         public static final int station_text_traverse=0x7f07000e;
-        public static final int tab_host_button1=0x7f07002b;
-        public static final int tab_host_button2=0x7f07002c;
-        public static final int tab_host_button3=0x7f07002d;
-        public static final int tab_host_button4=0x7f07002e;
-        public static final int tab_host_button5=0x7f07002f;
+        public static final int tab_host_button1=0x7f07002d;
+        public static final int tab_host_button2=0x7f07002e;
+        public static final int tab_host_button3=0x7f07002f;
+        public static final int tab_host_button4=0x7f070030;
+        public static final int tab_host_button5=0x7f070031;
         public static final int textView1=0x7f070009;
         public static final int textViewMainID=0x7f070002;
         public static final int textViewMainTitle=0x7f070003;
@@ -97,17 +99,17 @@ public final class R {
         public static final int app_name=0x7f040000;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040002;
-        public static final int metadata_label_cameraPrefix=0x7f040020;
-        public static final int metadata_label_geologistCode=0x7f04001f;
-        public static final int metadata_label_geologistName=0x7f04001e;
-        public static final int metadata_label_projectCode=0x7f04001b;
-        public static final int metadata_label_projectLeader=0x7f04001c;
-        public static final int metadata_label_projectName=0x7f04001a;
-        public static final int metadata_label_projectType=0x7f04001d;
-        public static final int metadata_label_selectMapProjection=0x7f040021;
+        public static final int metadata_label_cameraPrefix=0x7f040021;
+        public static final int metadata_label_geologistCode=0x7f040020;
+        public static final int metadata_label_geologistName=0x7f04001f;
+        public static final int metadata_label_projectCode=0x7f04001c;
+        public static final int metadata_label_projectLeader=0x7f04001d;
+        public static final int metadata_label_projectName=0x7f04001b;
+        public static final int metadata_label_projectType=0x7f04001e;
+        public static final int metadata_label_selectMapProjection=0x7f040022;
         /**  METADATA TABLE 
          */
-        public static final int metadata_label_workspace=0x7f040019;
+        public static final int metadata_label_workspace=0x7f04001a;
         public static final int station_button_airphoto=0x7f040012;
         public static final int station_label_airphoto=0x7f040010;
         public static final int station_label_date=0x7f040006;
@@ -121,15 +123,16 @@ public final class R {
         public static final int station_label_outcropsize=0x7f04000f;
         public static final int station_label_partner=0x7f040011;
         public static final int station_label_physenviron=0x7f04000e;
+        public static final int station_label_sincelaststationnote=0x7f040014;
         public static final int station_label_stationnote=0x7f040013;
         public static final int station_label_traverse=0x7f040005;
         /**  TAB HOST NUMBERS 
          */
-        public static final int tabhost_1=0x7f040014;
-        public static final int tabhost_2=0x7f040015;
-        public static final int tabhost_3=0x7f040016;
-        public static final int tabhost_4=0x7f040017;
-        public static final int tabhost_5=0x7f040018;
+        public static final int tabhost_1=0x7f040015;
+        public static final int tabhost_2=0x7f040016;
+        public static final int tabhost_3=0x7f040017;
+        public static final int tabhost_4=0x7f040018;
+        public static final int tabhost_5=0x7f040019;
         public static final int title_activity_main=0x7f040003;
         public static final int title_station=0x7f040004;
     }
