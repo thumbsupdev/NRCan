@@ -34,11 +34,26 @@
     <string name="earthmat_label_detail">Detail</string>
     <string name="earthmat_label_unit">Unit</string>
     <string name="earthmat_label_occursAs">Occurs As</string>
+    
     <string name="earthmat_label_structure">Structure</string>
     <string name="earthmat_label_Texture">Texture</string>
     <string name="earthmat_label_composition">Composition</string>
     
     
+    <string name="earthmat_label_grnCry">Grn/Cry</string>
+    <string name="earthmat_label_defFabric">Def fabric</string>
+    <string name="earthmat_label_bedThick">bedThick</string>
+    
+    <string name="earthmat_label_rock">Rock</string>
+    <string name="earthmat_label_mineral">Mineral</string>
+    <string name="earthmat_label_mode">Mode</string>
+    <string name="earthmat_label_description">Description (254 chars max)</string>
+    
+    <string name="earthmat_label_colour">Colour</string>
+    <string name="earthmat_label_fresh">Fresh</string>
+    <string name="earthmat_label_weathered">Weathered</string>
+    <string name="earthmat_label_index">Index</string>
+    <string name="earthmat_label_magSusceptibility">Mag Susceptibility (10-3 SI)</string>
     <!-- test -->
 
 </resources>

@@ -77,15 +77,27 @@ public final class R {
     public static final class string {
         public static final int app_name=0x7f040000;
         public static final int earthmat_label_Texture=0x7f04001b;
+        public static final int earthmat_label_bedThick=0x7f04001f;
+        public static final int earthmat_label_colour=0x7f040024;
         public static final int earthmat_label_composition=0x7f04001c;
+        public static final int earthmat_label_defFabric=0x7f04001e;
+        public static final int earthmat_label_description=0x7f040023;
         public static final int earthmat_label_detail=0x7f040017;
+        public static final int earthmat_label_fresh=0x7f040025;
+        public static final int earthmat_label_grnCry=0x7f04001d;
         /**   Bedrock 
          */
         public static final int earthmat_label_group=0x7f040015;
+        public static final int earthmat_label_index=0x7f040027;
+        public static final int earthmat_label_magSusceptibility=0x7f040028;
+        public static final int earthmat_label_mineral=0x7f040021;
+        public static final int earthmat_label_mode=0x7f040022;
         public static final int earthmat_label_occursAs=0x7f040019;
+        public static final int earthmat_label_rock=0x7f040020;
         public static final int earthmat_label_structure=0x7f04001a;
         public static final int earthmat_label_type=0x7f040016;
         public static final int earthmat_label_unit=0x7f040018;
+        public static final int earthmat_label_weathered=0x7f040026;
         public static final int hello_world=0x7f040001;
         public static final int label_date=0x7f040006;
         public static final int label_easting=0x7f040008;
