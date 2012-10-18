@@ -28,6 +28,17 @@
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
     
+    <!--  Bedrock -->
+    <string name="earthmat_label_group">Group</string>
+    <string name="earthmat_label_type">Type</string>
+    <string name="earthmat_label_detail">Detail</string>
+    <string name="earthmat_label_unit">Unit</string>
+    <string name="earthmat_label_occursAs">Occurs As</string>
+    <string name="earthmat_label_structure">Structure</string>
+    <string name="earthmat_label_Texture">Texture</string>
+    <string name="earthmat_label_composition">Composition</string>
+    
+    
     <!-- test -->
 
 </resources>
