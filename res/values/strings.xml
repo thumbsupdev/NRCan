@@ -13,6 +13,12 @@
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
     
+    <!-- TAB HOST NUMBERS -->
+    <string name="tabhost_1">1</string>
+    <string name="tabhost_2">2</string>
+    <string name="tabhost_3">3</string>
+    <string name="tabhost_4">4</string>
+    <string name="tabhost_5">5</string>
     
     <!-- METADATA TABLE -->
     <string name="metadata_label_workspace">Workspace</string>
@@ -25,5 +31,5 @@
     <string name="metadata_label_geologistCode">Project Code</string>
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
-
+    
 </resources>
