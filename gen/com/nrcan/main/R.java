@@ -86,7 +86,8 @@ public final class R {
         public static final int metadata_label_projectName=0x7f04000d;
         public static final int metadata_label_projectType=0x7f040010;
         public static final int metadata_label_selectMapProjection=0x7f040014;
-        /**  METADATA TABLE 
+        /**  TAB HOST 
+ METADATA TABLE 
          */
         public static final int metadata_label_workspace=0x7f04000c;
         public static final int title_activity_main=0x7f040003;
