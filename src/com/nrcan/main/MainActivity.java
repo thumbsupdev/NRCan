@@ -1,6 +1,7 @@
 package com.nrcan.main;
 
 import com.nrcan.controllers.MetadataController;
+import com.nrcan.controllers.StationBedrockController;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -14,8 +15,13 @@ import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
+	
 	private MetadataController adap1;
+	private StationBedrockController adap2;
+	
 	private ListView lv1;
+	private ListView lv2;
+	
 	SQLiteDatabase db;
 	ViewFlipper flipper;
 
@@ -34,19 +40,25 @@ public class MainActivity extends ListActivity {
     	//initializeDatabase();
     	
     	lv1 = getListView();
-    	adap1 = new MetadataController(this, this);
-    	setListAdapter(adap1);
+    	lv2 = (ListView)findViewById(R.id.listStationBedrock);
     	
-    	//lv2
+    	adap1 = new MetadataController(this, this);
+    	adap2 = new StationBedrockController(this, this);
+    	
+    	setListAdapter(adap1);
+    	lv2.setAdapter(adap2);
         
         flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
         
-        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View v1 = inflater.inflate(R.layout.metadata, null);
-        View v2 = inflater.inflate(R.layout.station_bedrock_3, null);
+        flipper.addView(lv1);
+        flipper.addView(lv2);
         
-        flipper.addView(v1);
-        flipper.addView(v2);
+        //LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        //View v1 = inflater.inflate(R.layout.metadata, null);
+        //View v2 = inflater.inflate(R.layout.station_bedrock_1, null);
+        
+        //flipper.addView(v1);
+        //flipper.addView(v2);
     }
 
     @Override
