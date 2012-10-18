@@ -38,7 +38,6 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
 		if(position == 0)
 		{
 			TabHolder holder;
@@ -111,7 +110,6 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		Button button3;
 		Button button4;
 		Button button5;
-		Button button6;
 	}
 	
 }
