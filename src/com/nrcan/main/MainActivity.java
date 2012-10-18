@@ -36,6 +36,8 @@ public class MainActivity extends ListActivity {
     	lv1 = getListView();
     	adap1 = new MetadataController(this, this);
     	setListAdapter(adap1);
+    	
+    	//lv2
         
         flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
         
