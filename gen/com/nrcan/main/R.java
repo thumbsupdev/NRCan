@@ -19,7 +19,7 @@ public final class R {
         public static final int buttonSave=0x7f070004;
         public static final int llProject=0x7f070006;
         public static final int lltop1=0x7f070000;
-        public static final int menu_settings=0x7f07002c;
+        public static final int menu_settings=0x7f070031;
         public static final int metadata_editText_projectCode=0x7f07000a;
         public static final int metadata_editText_projectName=0x7f070009;
         public static final int metadata_editText_workspace=0x7f070008;
@@ -56,6 +56,11 @@ public final class R {
         public static final int station_text_outcropsize=0x7f070024;
         public static final int station_text_stationnote=0x7f07002b;
         public static final int station_text_traverse=0x7f07000f;
+        public static final int tab_host_button1=0x7f07002c;
+        public static final int tab_host_button2=0x7f07002d;
+        public static final int tab_host_button3=0x7f07002e;
+        public static final int tab_host_button4=0x7f07002f;
+        public static final int tab_host_button5=0x7f070030;
         public static final int textView1=0x7f070007;
         public static final int textViewMainID=0x7f070002;
         public static final int textViewMainTitle=0x7f070003;
@@ -81,6 +86,11 @@ public final class R {
         public static final int station_bedrock_4=0x7f030010;
         public static final int station_surficial=0x7f030011;
         public static final int structure=0x7f030012;
+        public static final int tab_host_1=0x7f030013;
+        public static final int tab_host_2=0x7f030014;
+        public static final int tab_host_3=0x7f030015;
+        public static final int tab_host_4=0x7f030016;
+        public static final int tab_host_5=0x7f030017;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
