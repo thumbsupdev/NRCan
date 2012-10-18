@@ -54,7 +54,8 @@
             android:text="SAVE" >
         </Button>
     </LinearLayout>
-
+
+
      <ViewFlipper
          android:id="@+id/viewFlipper1"
          android:layout_width="match_parent"
@@ -71,6 +72,25 @@
 
             <ListView
                 android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStationBedrock"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listStationBedrock"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
