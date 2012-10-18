@@ -41,7 +41,7 @@ public class MainActivity extends ListActivity {
         
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View v1 = inflater.inflate(R.layout.metadata, null);
-        View v2 = inflater.inflate(R.layout.station_bedrock_1, null);
+        View v2 = inflater.inflate(R.layout.station_bedrock_3, null);
         
         flipper.addView(v1);
         flipper.addView(v2);

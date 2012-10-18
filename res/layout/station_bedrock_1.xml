@@ -3,215 +3,153 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:weightSum="1" >
-    
-
-
+    android:padding="10dp" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
-
-        <TextView
-            android:id="@+id/station_label_traverse"
+        android:orientation="horizontal" >
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/station_label_traverse" />
+            android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/station_label_traverse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/station_label_traverse"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/station_text_traverse"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+            	android:layout_marginRight="20dp"
+                android:inputType="number" >
+
+                <requestFocus />
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="28dp" >
+
+            <TextView
+                android:id="@+id/station_label_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/station_label_date"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/station_button_date"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+            	android:layout_marginRight="20dp"
+                android:text="@string/station_label_date" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/station_label_elevation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_elevation"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
         <EditText
-            android:id="@+id/station_text_traverse"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="number" >
-
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/station_label_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/station_label_date" />
+        android:id="@+id/station_text_elevation"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
         <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="0dp"
+            android:id="@+id/station_spinner_elevation"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_vertical"
-            android:layout_weight="1" />
-
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+        
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/station_label_easting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_easting"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/station_text_easting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <TextView
-            android:id="@+id/station_label_elevation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_elevation" />
+    <TextView
+        android:id="@+id/station_label_northing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_northing"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="number" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center_vertical"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/station_text_northing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <TextView
-            android:id="@+id/station_label_easting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_easting" />
+    <TextView
+        android:id="@+id/station_label_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_latitude"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
-    
-    <LinearLayout
+    <EditText
+        android:id="@+id/station_text_latitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <TextView
-            android:id="@+id/station_label_northing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_northing" />
+    <TextView
+        android:id="@+id/station_label_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_longitude"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
-    
-    <LinearLayout
+    <EditText
+        android:id="@+id/station_text_longitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
-
-        <TextView
-            android:id="@+id/station_label_latitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_latitude" />
-
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:weightSum="1" >
-
-        <TextView
-            android:id="@+id/station_label_longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/label_longitude" />
-
-        <EditText
-            android:id="@+id/editText6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-
-    </LinearLayout>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
 </LinearLayout>
