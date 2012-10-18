@@ -28,7 +28,7 @@
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
     
-    <!--  Bedrock -->
+ <!-- EARHTMAT-BEDROCK TABLE -->
     <string name="earthmat_label_group">Group</string>
     <string name="earthmat_label_type">Type</string>
     <string name="earthmat_label_detail">Detail</string>
@@ -36,13 +36,13 @@
     <string name="earthmat_label_occursAs">Occurs As</string>
     
     <string name="earthmat_label_structure">Structure</string>
-    <string name="earthmat_label_Texture">Texture</string>
+    <string name="earthmat_label_texture">Texture</string>
     <string name="earthmat_label_composition">Composition</string>
     
     
     <string name="earthmat_label_grnCry">Grn/Cry</string>
     <string name="earthmat_label_defFabric">Def fabric</string>
-    <string name="earthmat_label_bedThick">bedThick</string>
+    <string name="earthmat_label_bedThick">Bed Thick</string>
     
     <string name="earthmat_label_rock">Rock</string>
     <string name="earthmat_label_mineral">Mineral</string>
@@ -53,7 +53,18 @@
     <string name="earthmat_label_fresh">Fresh</string>
     <string name="earthmat_label_weathered">Weathered</string>
     <string name="earthmat_label_index">Index</string>
-    <string name="earthmat_label_magSusceptibility">Mag Susceptibility (10-3 SI)</string>
-    <!-- test -->
+    <string name="earthmat_label_magSusceptibility">Mag Susceptibility (10&#8211;3 SI)</string>
+   
+    <string name="earthmat_label_fossil">Fossil</string>
+    <string name="earthmat_label_fossilNote">Fossil Note (254 chars max)</string>
+    
+    <string name="earthmat_label_contactRelationships">Contact Relationships</string>
+    <string name="earthmat_label_upper">Upper</string>
+    <string name="earthmat_label_lower">Lower</string>
+    <string name="earthmat_label_contactDescription">Contact Description (254 chars max)</string>
+    
+    <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
+    <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
+    <!-- END EARHTMAT-BEDROCK TABLE -->
 
 </resources>
