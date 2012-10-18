@@ -8,11 +8,12 @@
     <string name="station_label_traverse">Trav:</string>
     <string name="station_label_date">Date:</string>
     
-    <!-- Thing 1 & Thing 2 -->
-    
     <string name="label_elevation">Elev (m):</string>
     <string name="label_easting">Easting (m):</string>
     <string name="label_northing">Northing (m):</string>
+    
+    <!-- Thing 3 & Thin 4 -->
+    
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
     
