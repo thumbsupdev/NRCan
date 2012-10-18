@@ -78,8 +78,9 @@ public final class R {
         public static final int station_bedrock_1=0x7f03000d;
         public static final int station_bedrock_2=0x7f03000e;
         public static final int station_bedrock_3=0x7f03000f;
-        public static final int station_surficial=0x7f030010;
-        public static final int structure=0x7f030011;
+        public static final int station_bedrock_4=0x7f030010;
+        public static final int station_surficial=0x7f030011;
+        public static final int structure=0x7f030012;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
@@ -88,17 +89,17 @@ public final class R {
         public static final int app_name=0x7f040000;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040002;
-        public static final int metadata_label_cameraPrefix=0x7f04001b;
-        public static final int metadata_label_geologistCode=0x7f04001a;
-        public static final int metadata_label_geologistName=0x7f040019;
-        public static final int metadata_label_projectCode=0x7f040016;
-        public static final int metadata_label_projectLeader=0x7f040017;
-        public static final int metadata_label_projectName=0x7f040015;
-        public static final int metadata_label_projectType=0x7f040018;
-        public static final int metadata_label_selectMapProjection=0x7f04001c;
+        public static final int metadata_label_cameraPrefix=0x7f040020;
+        public static final int metadata_label_geologistCode=0x7f04001f;
+        public static final int metadata_label_geologistName=0x7f04001e;
+        public static final int metadata_label_projectCode=0x7f04001b;
+        public static final int metadata_label_projectLeader=0x7f04001c;
+        public static final int metadata_label_projectName=0x7f04001a;
+        public static final int metadata_label_projectType=0x7f04001d;
+        public static final int metadata_label_selectMapProjection=0x7f040021;
         /**  METADATA TABLE 
          */
-        public static final int metadata_label_workspace=0x7f040014;
+        public static final int metadata_label_workspace=0x7f040019;
         public static final int station_button_airphoto=0x7f040012;
         public static final int station_label_airphoto=0x7f040010;
         public static final int station_label_date=0x7f040006;
@@ -114,6 +115,13 @@ public final class R {
         public static final int station_label_physenviron=0x7f04000e;
         public static final int station_label_stationnote=0x7f040013;
         public static final int station_label_traverse=0x7f040005;
+        /**  TAB HOST NUMBERS 
+         */
+        public static final int tabhost_1=0x7f040014;
+        public static final int tabhost_2=0x7f040015;
+        public static final int tabhost_3=0x7f040016;
+        public static final int tabhost_4=0x7f040017;
+        public static final int tabhost_5=0x7f040018;
         public static final int title_activity_main=0x7f040003;
         public static final int title_station=0x7f040004;
     }

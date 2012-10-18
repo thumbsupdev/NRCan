@@ -21,6 +21,13 @@
     <string name="station_button_airphoto">L</string>
     <string name="station_label_stationnote">Station Note (254 chars max)</string>
     
+    <!-- TAB HOST NUMBERS -->
+    <string name="tabhost_1">1</string>
+    <string name="tabhost_2">2</string>
+    <string name="tabhost_3">3</string>
+    <string name="tabhost_4">4</string>
+    <string name="tabhost_5">5</string>
+    
     
     <!-- METADATA TABLE -->
     <string name="metadata_label_workspace">Workspace</string>
