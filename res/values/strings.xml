@@ -5,26 +5,31 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_station">Station:</string>
-    <string name="station_label_traverse">Trav:</string>
-    <string name="station_label_date">Date:</string>
-    
+    <string name="label_traverse">Trav:</string>
+    <string name="label_date">Date:</string>
     <string name="label_elevation">Elev (m):</string>
     <string name="label_easting">Easting (m):</string>
     <string name="label_northing">Northing (m):</string>
-    
-    <!-- Thing 3 & Thin 4 -->
-    
     <string name="label_latitude">Latitude:</string>
     <string name="label_longitude">Longitude:</string>
     
+    <!-- TAB HOST NUMBERS -->
+    <string name="tabhost_1">1</string>
+    <string name="tabhost_2">2</string>
+    <string name="tabhost_3">3</string>
+    <string name="tabhost_4">4</string>
+    <string name="tabhost_5">5</string>
     
     <!-- METADATA TABLE -->
+    <string name="metadata_label_workspace">Workspace</string>
+    <string name="metadata_label_projectName">Project Name</string>
+    <string name="metadata_label_projectCode">Project Code</string>
+    <string name="metadata_label_projectLeader">Project Leader</string>
+    <string name="metadata_label_projectType">Project Type</string>
     
     <string name="metadata_label_geologistName">Geologist Name</string>
     <string name="metadata_label_geologistCode">Project Code</string>
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
     
-    <!-- test -->
-
 </resources>
