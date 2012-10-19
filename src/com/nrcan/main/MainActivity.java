@@ -30,7 +30,7 @@ public class MainActivity extends ListActivity {
 	private ListView lv3;
 	private ListView lv4;
 	private ListView lv5;
-	
+    // test comment	
 	SQLiteDatabase db;
 	ViewFlipper flipper;
 
