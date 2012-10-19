@@ -1,6 +1,5 @@
 package com.nrcan.controllers;
 
-import com.nrcan.controllers.MetadataController.TabHolder;
 import com.nrcan.main.R;
 
 import android.app.Activity;
@@ -18,7 +17,7 @@ public class StationBedrockController  extends BaseAdapter implements Filterable
 	private Activity activity;
 	private Context context;
 	private int tab;
-	
+
 	public StationBedrockController(Context context, Activity activity) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
@@ -27,7 +26,7 @@ public class StationBedrockController  extends BaseAdapter implements Filterable
 	}
 
 	public int getCount() {
-		return 2;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
@@ -39,87 +38,45 @@ public class StationBedrockController  extends BaseAdapter implements Filterable
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
-		if(position == 0)
+		if(tab == 1)
 		{
 			TabHolder holder;
 			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.tab_host_4, null);
-			
-			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
-			holder.button1.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 1;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button2 = (Button) convertView.findViewById(R.id.tab_host_button2);
-			holder.button2.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 2;
-					notifyDataSetChanged();
-				}
-			});
-			holder.button3 = (Button) convertView.findViewById(R.id.tab_host_button3);
-			holder.button3.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 3;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button4 = (Button) convertView.findViewById(R.id.tab_host_button4);
-			holder.button4.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 4;
-					notifyDataSetChanged();
-				}
-			});
-			
+			convertView = mInflater.inflate(R.layout.station_bedrock_1, null);
 			convertView.setTag(holder);
 		}
-		else if (position == 1)
+		else if (tab == 2)
 		{
-			if(tab == 1)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.station_bedrock_1, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 2)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.station_bedrock_2, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 3)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.station_bedrock_3, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 4)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
-				convertView.setTag(holder);
-			}
+			TabHolder holder;
+			holder = new TabHolder();
+			convertView = mInflater.inflate(R.layout.station_bedrock_2, null);
+			convertView.setTag(holder);
 		}
-		
+		else if (tab == 3)
+		{
+			TabHolder holder;
+			holder = new TabHolder();
+			convertView = mInflater.inflate(R.layout.station_bedrock_3, null);
+			convertView.setTag(holder);
+		}
+		else if (tab == 4)
+		{
+			TabHolder holder;
+			holder = new TabHolder();
+			convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
+			convertView.setTag(holder);
+		}
+
 		return convertView;
 	}
 
 	public Filter getFilter() {
 		return null;
+	}
+
+	public void setTab(int tabNum) {
+		this.tab = tabNum;
+		notifyDataSetChanged();
 	}
 
 	static class TabHolder {
@@ -128,5 +85,5 @@ public class StationBedrockController  extends BaseAdapter implements Filterable
 		Button button3;
 		Button button4;
 	}
-	
+
 }
