@@ -6,14 +6,14 @@
     android:padding="10dp" >
     
     <TextView
-        android:id="@+id/station_label_obstype"
+        android:id="@+id/structure_label_attitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_obstype"
+        android:text="@string/structure_label_attitude"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/station_spinner_obstype"
+            android:id="@+id/structure_spinner_attitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -21,14 +21,14 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/station_label_outcropqual"
+        android:id="@+id/structure_label_younging"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_outcropqual"
+        android:text="@string/structure_label_younging"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/station_spinner_outcropqual"
+            android:id="@+id/structure_spinner_younging"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -36,14 +36,14 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/station_label_physenviron"
+        android:id="@+id/structure_label_generation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_physenviron"
+        android:text="@string/structure_label_generation"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/station_spinner_physenviron"
+            android:id="@+id/structure_spinner_generation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -51,57 +51,44 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/station_label_outcropsize"
+        android:id="@+id/structure_label_strain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_outcropsize"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <EditText
-        android:id="@+id/station_text_outcropsize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:inputType="text" />
-    
-    <TextView
-        android:id="@+id/station_label_airphoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/station_label_airphoto"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        
-        <EditText
-        android:id="@+id/station_text_airphoto"
-        android:layout_width="281dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:inputType="text" />
-
-        <Button
-        android:id="@+id/station_button_airphoto"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="@string/station_button_airphoto" />
-        
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/station_label_partner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/station_label_partner"
+        android:text="@string/structure_label_strain"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/station_spinner_partner"
+            android:id="@+id/structure_spinner_strain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/structure_label_flattening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_flattening"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/structure_spinner_flattening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/structure_label_related"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_related"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/structure_spinner_related"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

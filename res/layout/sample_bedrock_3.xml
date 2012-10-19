@@ -6,14 +6,14 @@
     android:padding="10dp" >
     
     <TextView
-        android:id="@+id/station_label_stationnote"
+        android:id="@+id/sample_label_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_stationnote"
+        android:text="@string/sample_label_note"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/station_text_stationnote"
+        android:id="@+id/sample_text_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

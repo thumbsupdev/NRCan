@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
      	android:layout_marginRight="20dp"
-        android:ems="10"
         android:inputType="textMultiLine"
         android:lines="12"
         android:maxLength="254" >

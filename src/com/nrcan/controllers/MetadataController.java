@@ -62,14 +62,14 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			{
 				TabHolder holder;
 				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.photo, null);
+				convertView = mInflater.inflate(R.layout.photo_1, null);
 				convertView.setTag(holder);
 			}
 			else if (tab == 2)
 			{
 				TabHolder holder;
 				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.structure, null);
+				convertView = mInflater.inflate(R.layout.structure_1, null);
 				convertView.setTag(holder);
 			}
 			else if (tab == 3)

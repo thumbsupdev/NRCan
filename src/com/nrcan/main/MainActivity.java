@@ -1,7 +1,10 @@
 package com.nrcan.main;
 
 import com.nrcan.controllers.MetadataController;
+import com.nrcan.controllers.PhotoController;
+import com.nrcan.controllers.SampleBedrockController;
 import com.nrcan.controllers.StationBedrockController;
+import com.nrcan.controllers.StructureController;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -18,9 +21,15 @@ public class MainActivity extends ListActivity {
 	
 	private MetadataController adap1;
 	private StationBedrockController adap2;
+	private SampleBedrockController adap3;
+	private StructureController adap4;
+	private PhotoController adap5;
 	
 	private ListView lv1;
 	private ListView lv2;
+	private ListView lv3;
+	private ListView lv4;
+	private ListView lv5;
 	
 	SQLiteDatabase db;
 	ViewFlipper flipper;
@@ -42,12 +51,21 @@ public class MainActivity extends ListActivity {
     	
     	lv1 = getListView();
     	lv2 = (ListView)findViewById(R.id.listStationBedrock);
+    	lv3 = (ListView)findViewById(R.id.listSampleBedrock);
+    	lv4 = (ListView)findViewById(R.id.listStructure);
+    	lv5 = (ListView)findViewById(R.id.listPhoto);
     	
     	adap1 = new MetadataController(this, this);
     	adap2 = new StationBedrockController(this, this);
+    	adap3 = new SampleBedrockController(this, this);
+    	adap4 = new StructureController(this, this);
+    	adap5 = new PhotoController(this, this);
     	
     	setListAdapter(adap1);
     	lv2.setAdapter(adap2);
+    	lv3.setAdapter(adap3);
+    	lv4.setAdapter(adap4);
+    	lv5.setAdapter(adap5);
     }
 
     @Override

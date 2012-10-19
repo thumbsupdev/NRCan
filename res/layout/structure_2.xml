@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+    
+    <TextView
+        android:id="@+id/structure_label_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_method"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/structure_spinner_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/structure_label_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_format"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/structure_spinner_format"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/structure_label_strike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_strike"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <EditText
+        android:id="@+id/structure_text_strike"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="-6dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0" />
+    
+    <LinearLayout
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical" >
+        
+        <Button
+        android:id="@+id/structure_button_strikeup"
+        android:layout_width="44dp"
+        android:layout_height="28dp" />
+
+        
+        <Button
+        android:id="@+id/structure_button_strikedown"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="-10dp" />
+        
+        </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/structure_seekbar_strike"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp" />
+    
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/structure_label_dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/structure_label_dip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <EditText
+        android:id="@+id/structure_text_dip"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="-6dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="0" />
+    
+    <LinearLayout
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical" >
+        
+        <Button
+        android:id="@+id/structure_button_dipup"
+        android:layout_width="44dp"
+        android:layout_height="28dp" />
+        
+        <Button
+        android:id="@+id/structure_button_dipdown"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="-10dp" />
+
+        
+        </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/structure_seekbar_dip"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp" />
+    
+    </LinearLayout>
+
+</LinearLayout>
