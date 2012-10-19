@@ -102,18 +102,19 @@ public final class R {
         public static final int earthmat_surficial=0x7f030009;
         public static final int environ_surficial=0x7f03000a;
         public static final int ma_bedrock=0x7f03000b;
-        public static final int metadata=0x7f03000c;
-        public static final int metadata_buttons=0x7f03000d;
-        public static final int pflow_surficial=0x7f03000e;
-        public static final int photo=0x7f03000f;
-        public static final int sample_bedrock=0x7f030010;
-        public static final int sample_surficial=0x7f030011;
-        public static final int soilpro_surficial=0x7f030012;
-        public static final int station_bedrock=0x7f030013;
-        public static final int station_bedrock_1=0x7f030014;
-        public static final int station_bedrock_2=0x7f030015;
-        public static final int station_surficial=0x7f030016;
-        public static final int structure=0x7f030017;
+        public static final int metadata1=0x7f03000c;
+        public static final int metadata2=0x7f03000d;
+        public static final int metadata_buttons=0x7f03000e;
+        public static final int pflow_surficial=0x7f03000f;
+        public static final int photo=0x7f030010;
+        public static final int sample_bedrock=0x7f030011;
+        public static final int sample_surficial=0x7f030012;
+        public static final int soilpro_surficial=0x7f030013;
+        public static final int station_bedrock=0x7f030014;
+        public static final int station_bedrock_1=0x7f030015;
+        public static final int station_bedrock_2=0x7f030016;
+        public static final int station_surficial=0x7f030017;
+        public static final int structure=0x7f030018;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;

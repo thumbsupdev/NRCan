@@ -66,5 +66,8 @@
     <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
     <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
     <!-- END EARHTMAT-BEDROCK TABLE -->
-
+    
+    <!-- MA - BEDROCK TABLE -->
+ 
+	<!--  END MA - BEDROCK TABLE -->
 </resources>
