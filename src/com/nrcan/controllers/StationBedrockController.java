@@ -26,7 +26,7 @@ public class StationBedrockController  extends BaseAdapter implements Filterable
 	}
 
 	public int getCount() {
-		return 4;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
