@@ -7,47 +7,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
         
-        android:padding="5dp">
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:text="@string/earthmat_label_fossil"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-        <Spinner
-            android:id="@+id/earthmat_bedrock_spinner_fossil"
-            android:layout_width="0dp"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="@string/earthmat_label_fossil"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/earthmat_bedrock_spinner_fossil"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.80"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="1" >
+            
+            <Button
+                android:id="@+id/earthmat_bedrock_button_grnCry"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="C" />
+
+            <EditText
+                android:id="@+id/earthmat_bedrock_editText_grnCry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:weightSum="1" >
-
-        <Button
-            android:id="@+id/earthmat_bedrock_button_grnCry"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.1"
-            android:text="C" />
-
-        <EditText
-            android:id="@+id/earthmat_bedrock_editText_grnCry"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.9"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,18 +67,17 @@
             android:layout_height="wrap_content"
             android:text="@string/earthmat_label_description"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
+
         <EditText
             android:id="@+id/earthmat_bedrock_editText_rockDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="31.82"
+            
             android:inputType="textMultiLine"
             android:lines="4"
             android:textAppearance="?android:attr/textAppearanceLarge" >
-
         </EditText>
     </LinearLayout>
 

@@ -26,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_fresh"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -51,6 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
+            android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_weathered"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -77,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:text="@string/earthmat_label_index"
+            android:layout_gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
@@ -110,6 +113,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.7"
+            android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_magSusceptibility"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
