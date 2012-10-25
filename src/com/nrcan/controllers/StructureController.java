@@ -45,9 +45,14 @@ public class StructureController  extends BaseAdapter implements Filterable {
 		
 			if(tab == 1)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				Structure1 holder;
+				holder = new Structure1();
 				convertView = mInflater.inflate(R.layout.structure_1, null);
+				
+				holder.spinnerClass = (Spinner)convertView.findViewById(R.id.structure_spinner_class);
+				holder.spinnerType = (Spinner)convertView.findViewById(R.id.structure_spinner_type);
+				holder.spinnerDetail = (Spinner)convertView.findViewById(R.id.structure_spinner_detail);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 2)
@@ -89,7 +94,7 @@ public class StructureController  extends BaseAdapter implements Filterable {
 	static class Structure1 {
 		Spinner spinnerClass;
 		Spinner spinnerType;
-		Spinner detail;
+		Spinner spinnerDetail;
 	}
 	
 	static class Structure2 {
@@ -115,10 +120,12 @@ public class StructureController  extends BaseAdapter implements Filterable {
 	}
 	
 	static class Structure4 {
-		
+		EditText editTextFabric;
+		EditText editTextSense;
 	}
 	
 	static class Structure5 {
+		EditText editTextNote;
 	}
 	
 }
