@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 
 public class SampleBedrockController  extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
@@ -27,7 +30,7 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 	}
 
 	public int getCount() {
-		return 2;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
@@ -39,65 +42,49 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
-		if(position == 0)
-		{
-			TabHolder holder;
-			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.tab_host_3, null);
-			
-			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
-			holder.button1.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 1;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button2 = (Button) convertView.findViewById(R.id.tab_host_button2);
-			holder.button2.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 2;
-					notifyDataSetChanged();
-				}
-			});
-			holder.button3 = (Button) convertView.findViewById(R.id.tab_host_button3);
-			holder.button3.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 3;
-					notifyDataSetChanged();
-				}
-			});
-			
-			convertView.setTag(holder);
-		}
-		else if (position == 1)
-		{
+		/*
 			if(tab == 1)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				SampleBedrock1 holder;
+				holder = new SampleBedrock1();
 				convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
+				
+				holder.spinnerType = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_type);
+				holder.spinnerPurpose = (Spinner)convertView.findViewById(R.id.sample_bedrock_label_purpose);
+				holder.buttonPurpose = (Button)convertView.findViewById(R.id.sample_bedrock_button_purpose);
+				holder.editTextPurpose = (EditText)convertView.findViewById(R.id.sample_bedrock_text_purpose);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 2)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				SampleBedrock2 holder;
+				holder = new SampleBedrock2();
 				convertView = mInflater.inflate(R.layout.sample_bedrock_2, null);
+				
+				holder.spinnerFormat = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_format);
+				holder.editTextStrike = (EditText)convertView.findViewById(R.id.sample_bedrock_text_strike);
+				holder.buttonStrikeUp = (Button)convertView.findViewById(R.id.sample_bedrock_button_strikeup);
+				holder.buttonStrikeDown = (Button)convertView.findViewById(R.id.sample_bedrock_button_strikedown);
+				holder.seekbarStrike = (SeekBar)convertView.findViewById(R.id.sample_bedrock_seekbar_strike);
+				holder.editTextDip = (EditText)convertView.findViewById(R.id.sample_bedrock_text_dip);
+				holder.buttonDipUp = (Button)convertView.findViewById(R.id.sample_bedrock_button_dipup);
+				holder.buttonDipDown = (Button)convertView.findViewById(R.id.sample_bedrock_button_dipdown);
+				holder.seekbarDip = (SeekBar)convertView.findViewById(R.id.sample_bedrock_seekbar_dip);
+				holder.spinnerSurface = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_surface);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 3)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				SampleBedrock3 holder;
+				holder = new SampleBedrock3();
 				convertView = mInflater.inflate(R.layout.sample_bedrock_3, null);
+				
+				holder.editTextNote = (EditText)convertView.findViewById(R.id.sample_bedrock_text_note);
+				
 				convertView.setTag(holder);
-			}
-		}
+			}*/
 		
 		return convertView;
 	}
@@ -106,10 +93,28 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 		return null;
 	}
 
-	static class TabHolder {
-		Button button1;
-		Button button2;
-		Button button3;
+	static class SampleBedrock1 {
+		Spinner spinnerType;
+		Spinner spinnerPurpose;
+		Button buttonPurpose;
+		EditText editTextPurpose;
+	}
+	
+	static class SampleBedrock2 {
+		Spinner spinnerFormat;
+		EditText editTextStrike;
+		Button buttonStrikeUp;
+		Button buttonStrikeDown;
+		SeekBar seekbarStrike;
+		EditText editTextDip;
+		Button buttonDipUp;
+		Button buttonDipDown;
+		SeekBar seekbarDip;
+		Spinner spinnerSurface;
+	}
+	
+	static class SampleBedrock3{
+		EditText editTextNote;
 	}
 	
 }
