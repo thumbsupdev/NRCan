@@ -6,14 +6,14 @@
     android:padding="10dp" >
     
     <TextView
-        android:id="@+id/sample_label_format"
+        android:id="@+id/sample_bedrock_label_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sample_label_format"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/sample_spinner_format"
+            android:id="@+id/sample_bedrock_spinner_format"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -21,7 +21,7 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/sample_label_strike"
+        android:id="@+id/sample_bedrock_label_strike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sample_label_strike"
@@ -33,7 +33,7 @@
         android:orientation="horizontal" >
 
     <EditText
-        android:id="@+id/station_text_strike"
+        android:id="@+id/sample_bedrock_text_strike"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -49,12 +49,12 @@
         android:layout_gravity="center_vertical" >
         
         <Button
-        android:id="@+id/sample_button_strikeup"
+        android:id="@+id/sample_bedrock_button_strikeup"
         android:layout_width="44dp"
         android:layout_height="28dp" />
         
         <Button
-        android:id="@+id/sample_button_strikedown"
+        android:id="@+id/sample_bedrock_button_strikedown"
         android:layout_width="44dp"
         android:layout_height="28dp"
         android:layout_marginTop="-10dp" />
@@ -62,7 +62,7 @@
         </LinearLayout>
 
     <SeekBar
-        android:id="@+id/sample_seekbar_strike"
+        android:id="@+id/sample_bedrock_seekbar_strike"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -72,7 +72,7 @@
     </LinearLayout>
     
     <TextView
-        android:id="@+id/sample_label_dip"
+        android:id="@+id/sample_bedrock_label_dip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sample_label_dip"
@@ -84,7 +84,7 @@
         android:orientation="horizontal" >
 
     <EditText
-        android:id="@+id/station_text_dip"
+        android:id="@+id/sample_bedrock_text_dip"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -100,12 +100,12 @@
         android:layout_gravity="center_vertical" >
         
         <Button
-        android:id="@+id/sample_button_dipup"
+        android:id="@+id/sample_bedrock_button_dipup"
         android:layout_width="44dp"
         android:layout_height="28dp" />
         
         <Button
-        android:id="@+id/sample_button_dipdown"
+        android:id="@+id/sample_bedrock_button_dipdown"
         android:layout_width="44dp"
         android:layout_height="28dp"
         android:layout_marginTop="-10dp" />
@@ -113,7 +113,7 @@
         </LinearLayout>
 
     <SeekBar
-        android:id="@+id/sample_seekbar_dip"
+        android:id="@+id/sample_bedrock_seekbar_dip"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -123,14 +123,14 @@
     </LinearLayout>
     
     <TextView
-        android:id="@+id/sample_label_surface"
+        android:id="@+id/sample_bedrock_label_surface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sample_label_surface"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/sample_spinner_surface"
+            android:id="@+id/sample_bedrock_spinner_surface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

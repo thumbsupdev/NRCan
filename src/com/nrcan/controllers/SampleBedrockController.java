@@ -42,7 +42,6 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		/*
 			if(tab == 1)
 			{
 				SampleBedrock1 holder;
@@ -84,7 +83,7 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 				holder.editTextNote = (EditText)convertView.findViewById(R.id.sample_bedrock_text_note);
 				
 				convertView.setTag(holder);
-			}*/
+			}
 		
 		return convertView;
 	}
