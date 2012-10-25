@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/cell_new_imageView1"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_weight="0.06"
@@ -32,7 +32,7 @@
 
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/cell_new_textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
@@ -41,7 +41,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/textViewNewTitle"
+                android:id="@+id/cell_new_textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.55"

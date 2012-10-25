@@ -17,7 +17,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/cell_list_textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -31,7 +31,7 @@
 
 
         <Button
-            android:id="@+id/buttonEdit"
+            android:id="@+id/cell_list_buttonEdit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.55"

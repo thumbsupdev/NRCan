@@ -60,10 +60,9 @@
          android:id="@+id/viewFlipper1"
          android:layout_width="match_parent"
          android:layout_height="match_parent" >
-
      	<LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/llProject"
+            android:id="@+id/lltmp"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
@@ -72,82 +71,6 @@
 
             <ListView
                 android:id="@android:id/list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#000000"
-                android:drawSelectorOnTop="false" >
-            </ListView>
-        </LinearLayout>
-
-     	<LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/llStationBedrock"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp" >
-
-            <ListView
-                android:id="@+id/listStationBedrock"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#000000"
-                android:drawSelectorOnTop="false" >
-            </ListView>
-        </LinearLayout>
-        
-     	<LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/llSampleBedrock"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp" >
-
-            <ListView
-                android:id="@+id/listSampleBedrock"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#000000"
-                android:drawSelectorOnTop="false" >
-            </ListView>
-        </LinearLayout>
-        
-     	<LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/llStructure"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp" >
-
-            <ListView
-                android:id="@+id/listStructure"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#000000"
-                android:drawSelectorOnTop="false" >
-            </ListView>
-        </LinearLayout>
-        
-     	<LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/llPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp" >
-
-            <ListView
-                android:id="@+id/listPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
