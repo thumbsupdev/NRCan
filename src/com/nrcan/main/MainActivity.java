@@ -99,7 +99,8 @@ public class MainActivity extends ListActivity {
     	lv4.setAdapter(adap4);
     	lv5.setAdapter(adap5);
     	*/
-    	//flipper.addView(lv1);
+    	
+    	flipper.addView(lv1);
     }
 
     @Override
