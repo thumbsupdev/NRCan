@@ -6,14 +6,14 @@
     android:padding="10dp" >
     
     <TextView
-        android:id="@+id/structure_label_class"
+        android:id="@+id/pflow_surficial_label_class"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/structure_label_class"
+        android:text="@string/pflow_label_class"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/structure_spinner_class"
+            android:id="@+id/pflow_surficial_spinner_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -21,14 +21,14 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/structure_label_type"
+        android:id="@+id/pflow_surficial_label_direction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/structure_label_type"
+        android:text="@string/pflow_label_direction"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/structure_spinner_type"
+            android:id="@+id/pflow_surficial_spinner_direction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -36,18 +36,42 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/structure_label_detail"
+        android:id="@+id/pflow_surficial_label_feature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/structure_label_detail"
+        android:text="@string/pflow_label_feature"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/structure_spinner_detail"
+            android:id="@+id/pflow_surficial_spinner_feature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
         	android:layout_marginRight="20dp"
         	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <Button
+        android:id="@+id/pflow_surficial_button_feature"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
+        android:text="@string/sample_button_purpose" />
+        
+        <EditText
+        android:id="@+id/pflow_surficial_text_feature"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:inputType="text" />
+
+        
+        
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,9 +1,11 @@
 package com.nrcan.main;
 
 import com.nrcan.controllers.MetadataController;
+import com.nrcan.controllers.PFlowSurficialController;
 import com.nrcan.controllers.PhotoController;
 import com.nrcan.controllers.SampleBedrockController;
 import com.nrcan.controllers.StationBedrockController;
+import com.nrcan.controllers.StationSurficialController;
 import com.nrcan.controllers.StructureController;
 
 import android.os.Bundle;
@@ -24,12 +26,16 @@ public class MainActivity extends ListActivity {
 	private SampleBedrockController adap3;
 	private StructureController adap4;
 	private PhotoController adap5;
+	private StationSurficialController adap6;
+	private PFlowSurficialController adap7;
 	
 	private ListView lv1;
 	private ListView lv2;
 	private ListView lv3;
 	private ListView lv4;
 	private ListView lv5;
+	private ListView lv6;
+	private ListView lv7;
 	
 	SQLiteDatabase db;
 	ViewFlipper flipper;
@@ -54,18 +60,25 @@ public class MainActivity extends ListActivity {
     	lv3 = (ListView)findViewById(R.id.listSampleBedrock);
     	lv4 = (ListView)findViewById(R.id.listStructure);
     	lv5 = (ListView)findViewById(R.id.listPhoto);
+    	lv6 = (ListView)findViewById(R.id.listStationSurficial);
+    	lv7 = (ListView)findViewById(R.id.listPFlowSurficial);
     	
     	adap1 = new MetadataController(this, this);
     	adap2 = new StationBedrockController(this, this);
     	adap3 = new SampleBedrockController(this, this);
     	adap4 = new StructureController(this, this);
     	adap5 = new PhotoController(this, this);
+    	adap6 = new StationSurficialController(this, this);
+    	adap7 = new PFlowSurficialController(this, this);
+    	
     	
     	setListAdapter(adap1);
     	lv2.setAdapter(adap2);
     	lv3.setAdapter(adap3);
     	lv4.setAdapter(adap4);
     	lv5.setAdapter(adap5);
+    	lv6.setAdapter(adap6);
+    	lv7.setAdapter(adap7);
     }
 
     @Override

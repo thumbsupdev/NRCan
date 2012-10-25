@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 
 public class StructureController  extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
@@ -27,7 +30,7 @@ public class StructureController  extends BaseAdapter implements Filterable {
 	}
 
 	public int getCount() {
-		return 2;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
@@ -40,60 +43,6 @@ public class StructureController  extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
-		if(position == 0)
-		{
-			TabHolder holder;
-			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.tab_host_5, null);
-			
-			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
-			holder.button1.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 1;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button2 = (Button) convertView.findViewById(R.id.tab_host_button2);
-			holder.button2.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 2;
-					notifyDataSetChanged();
-				}
-			});
-			holder.button3 = (Button) convertView.findViewById(R.id.tab_host_button3);
-			holder.button3.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 3;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button4 = (Button) convertView.findViewById(R.id.tab_host_button4);
-			holder.button4.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 4;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button5 = (Button) convertView.findViewById(R.id.tab_host_button5);
-			holder.button5.setOnClickListener(new View.OnClickListener() {
-
-				public void onClick(View v) {
-					tab = 5;
-					notifyDataSetChanged();
-				}
-			});
-			
-			convertView.setTag(holder);
-		}
-		else if (position == 1)
-		{
 			if(tab == 1)
 			{
 				TabHolder holder;
@@ -129,7 +78,6 @@ public class StructureController  extends BaseAdapter implements Filterable {
 				convertView = mInflater.inflate(R.layout.structure_5, null);
 				convertView.setTag(holder);
 			}
-		}
 		
 		return convertView;
 	}
@@ -138,12 +86,39 @@ public class StructureController  extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	static class TabHolder {
-		Button button1;
-		Button button2;
-		Button button3;
-		Button button4;
-		Button button5;
+	static class Structure1 {
+		Spinner spinnerClass;
+		Spinner spinnerType;
+		Spinner detail;
+	}
+	
+	static class Structure2 {
+		Spinner spinnerMethod;
+		Spinner spinnerFormat;
+		EditText editTextStrike;
+		Button buttonStrikeUp;
+		Button buttonStrikeDown;
+		SeekBar seekbarStrike;
+		EditText editTextDip;
+		Button buttonDipUp;
+		Button buttonDipDown;
+		SeekBar seekbarDip;
+	}
+	
+	static class Structure3 {
+		Spinner spinnerAttitude;
+		Spinner spinnerYounging;
+		Spinner spinnerGeneration;
+		Spinner spinnerStrain;
+		Spinner spinnerFlattening;
+		Spinner spinnerRelated;
+	}
+	
+	static class Structure4 {
+		
+	}
+	
+	static class Structure5 {
 	}
 	
 }

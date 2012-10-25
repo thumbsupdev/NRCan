@@ -6,14 +6,14 @@
     android:padding="10dp" >
     
     <TextView
-        android:id="@+id/station_bedrock_label_obstype"
+        android:id="@+id/station_surficial_label_obstype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/station_label_obstype"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/station_bedrock_spinner_obstype"
+            android:id="@+id/station_surficial_spinner_obstype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -21,44 +21,14 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/station_bedrock_label_outcropqual"
+        android:id="@+id/station_surficial_label_legendvalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_outcropqual"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Spinner
-            android:id="@+id/station_bedrock_spinner_outcropqual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-        	android:layout_marginRight="20dp"
-        	android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <TextView
-        android:id="@+id/station_bedrock_label_physenviron"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/station_label_physenviron"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Spinner
-            android:id="@+id/station_bedrock_spinner_physenviron"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-        	android:layout_marginRight="20dp"
-        	android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <TextView
-        android:id="@+id/station_bedrock_label_outcropsize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/station_label_outcropsize"
+        android:text="@string/station_label_legendvalue"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <EditText
-        android:id="@+id/station_bedrock_text_outcropsize"
+        android:id="@+id/station_surficial_text_legendvalue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -66,7 +36,52 @@
         android:inputType="text" />
     
     <TextView
-        android:id="@+id/station_bedrock_label_airphoto"
+        android:id="@+id/station_surficial_label_sitequal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_sitequal"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/station_surficial_spinner_sitequal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/station_surficial_label_physenviron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_physenviron"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/station_surficial_spinner_physenviron"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/station_surficial_label_interpretation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/station_label_interpretation"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+            android:id="@+id/station_surficial_spinner_interpretation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/station_surficial_label_airphoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/station_label_airphoto"
@@ -78,34 +93,47 @@
         android:orientation="horizontal" >
         
         <EditText
-        android:id="@+id/station_bedrock_text_airphoto"
+        android:id="@+id/station_surficial_text_airphoto"
         android:layout_width="281dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:inputType="text" />
 
         <Button
-        android:id="@+id/station_bedrock_button_airphoto"
+        android:id="@+id/station_surficial_button_airphoto"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:text="@string/station_button_airphoto" />
         
     </LinearLayout>
-
+    
     <TextView
-        android:id="@+id/station_bedrock_label_partner"
+        android:id="@+id/station_surficial_label_mapsheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/station_label_partner"
+        android:text="@string/station_label_mapsheet"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <EditText
+        android:id="@+id/station_surficial_text_mapsheet"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:inputType="text" />
 
-    <Spinner
-            android:id="@+id/station_bedrock_spinner_partner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-        	android:layout_marginRight="20dp"
-        	android:textAppearance="?android:attr/textAppearanceLarge" />
+        <Button
+        android:id="@+id/station_surficial_button_mapsheet"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="@string/station_button_airphoto" />
+        
+    </LinearLayout>
 
 </LinearLayout>

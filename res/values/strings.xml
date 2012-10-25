@@ -23,6 +23,10 @@
     <string name="station_button_airphoto">L</string>
     <string name="station_label_stationnote">Station Note (254 chars max)</string>
     <string name="station_label_sincelaststationnote">Since last station Note (254 chars max)</string>
+    <string name="station_label_legendvalue">Legend Value</string>
+    <string name="station_label_sitequal">Site Qual.</string>
+    <string name="station_label_interpretation">Interpretation</string>
+    <string name="station_label_mapsheet">Map Sheet</string>
     
     <!-- SAMPLE -->
     <string name="sample_label_type">Type*</string>
@@ -59,6 +63,18 @@
     <string name="photo_label_direction">Direction</string>
     <string name="photo_label_caption">Caption* (254 chars max)</string>
     <string name="photo_button_caption">L</string>
+    
+    <!-- PFLOW -->
+    <string name="pflow_label_class">Class*</string>
+    <string name="pflow_label_direction">Direction*</string>
+    <string name="pflow_label_feature">Feature</string>
+    <string name="pflow_label_method">Method</string>
+    <string name="pflow_label_azimuth">Azimuth</string>
+    <string name="pflow_label_plungedip">Plunge/Dip</string>
+    <string name="pflow_label_age">Age</string>
+    <string name="pflow_label_indicators"># Indicators</string>
+    <string name="pflow_label_defined">Defined</string>
+    <string name="pflow_label_relationship">Relationship</string>
     
     <!-- TAB HOST NUMBERS -->
     <string name="tabhost_1">1</string>
