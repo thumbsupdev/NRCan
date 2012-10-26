@@ -5,7 +5,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_station">Station</string>
-    
+
     <!-- STATION -->
     <string name="station_label_traverse">Trav</string>
     <string name="station_label_date">Date</string>
@@ -27,7 +27,7 @@
     <string name="station_label_sitequal">Site Qual.</string>
     <string name="station_label_interpretation">Interpretation</string>
     <string name="station_label_mapsheet">Map Sheet</string>
-    
+
     <!-- SAMPLE -->
     <string name="sample_label_type">Type*</string>
     <string name="sample_label_purpose">Purpose*</string>
@@ -37,7 +37,7 @@
     <string name="sample_label_dip">Dip</string>
     <string name="sample_label_surface">Surface</string>
     <string name="sample_label_note">Note</string>
-    
+
     <!-- STRUCTURE -->
     <string name="structure_label_class">Class*</string>
     <string name="structure_label_type">Type*</string>
@@ -55,7 +55,7 @@
     <string name="structure_label_fabric">Fabric (254 chars max)</string>
     <string name="structure_label_sense">Sense (254 chars max)</string>
     <string name="structure_label_note">Note (254 chars max)</string>
-    
+
     <!-- PHOTO -->
     <string name="photo_button_summary">S</string>
     <string name="photo_label_category">Category*</string>
@@ -63,7 +63,7 @@
     <string name="photo_label_direction">Direction</string>
     <string name="photo_label_caption">Caption* (254 chars max)</string>
     <string name="photo_button_caption">L</string>
-    
+
     <!-- PFLOW -->
     <string name="pflow_label_class">Class*</string>
     <string name="pflow_label_direction">Direction*</string>
@@ -76,64 +76,151 @@
     <string name="pflow_label_defined">Defined</string>
     <string name="pflow_label_relationship">Relationship</string>
     <string name="pflow_label_note">Note (254 chars max)</string>
-    
+
     <!-- TAB HOST NUMBERS -->
     <string name="tabhost_1">1</string>
     <string name="tabhost_2">2</string>
     <string name="tabhost_3">3</string>
     <string name="tabhost_4">4</string>
     <string name="tabhost_5">5</string>
-    
-    
-    <!-- METADATA TABLE -->
+
+    <!-- METADATA -->
     <string name="metadata_label_workspace">Workspace</string>
     <string name="metadata_label_projectName">Project Name</string>
     <string name="metadata_label_projectCode">Project Code</string>
     <string name="metadata_label_projectLeader">Project Leader</string>
     <string name="metadata_label_projectType">Project Type</string>
-    
     <string name="metadata_label_geologistName">Geologist Name</string>
     <string name="metadata_label_geologistCode">Project Code</string>
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
-    
-    <!-- EARHTMAT-BEDROCK TABLE -->
+
+    <!-- EARHTMAT BEDROCK -->
     <string name="earthmat_label_group">Group</string>
     <string name="earthmat_label_type">Type</string>
     <string name="earthmat_label_detail">Detail</string>
     <string name="earthmat_label_unit">Unit</string>
     <string name="earthmat_label_occursAs">Occurs As</string>
-    
     <string name="earthmat_label_structure">Structure</string>
     <string name="earthmat_label_texture">Texture</string>
     <string name="earthmat_label_composition">Composition</string>
-    
-    
     <string name="earthmat_label_grnCry">Grn/Cry</string>
     <string name="earthmat_label_defFabric">Def fabric</string>
     <string name="earthmat_label_bedThick">Bed Thick</string>
-    
     <string name="earthmat_label_rock">Rock</string>
     <string name="earthmat_label_mineral">Mineral</string>
     <string name="earthmat_label_mode">Mode</string>
     <string name="earthmat_label_description">Description (254 chars max)</string>
-    
     <string name="earthmat_label_colour">Colour</string>
     <string name="earthmat_label_fresh">Fresh</string>
     <string name="earthmat_label_weathered">Weathered</string>
     <string name="earthmat_label_index">Index</string>
     <string name="earthmat_label_magSusceptibility">Mag Susceptibility (10&#8211;3 SI)</string>
-   
     <string name="earthmat_label_fossil">Fossil</string>
     <string name="earthmat_label_fossilNote">Fossil Note (254 chars max)</string>
-    
     <string name="earthmat_label_contactRelationships">Contact Relationships</string>
     <string name="earthmat_label_upper">Upper</string>
     <string name="earthmat_label_lower">Lower</string>
     <string name="earthmat_label_contactDescription">Contact Description (254 chars max)</string>
-    
     <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
     <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
-    <!-- END EARHTMAT-BEDROCK TABLE -->
+
+    <!-- EARTHMAT SURFICIAL -->
+    <string name="earthmat_label_material">Material</string>
+    <string name="earthmat_label_general">General</string>
+    <string name="earthmat_label_primary">Primary</string>
+    <string name="earthmat_label_other">Other</string>
+    <string name="earthmat_label_interval">Interval</string>
+    <string name="earthmat_label_intThickness">Int Thickness</string>
+    <string name="earthmat_label_to">To (m)</string>
+    <string name="earthmat_label_from">From</string>
+    <string name="earthmat_label_lowContact">Low. Contact</string>
+    <string name="earthmat_label_interpretation">Interpretation</string>
+    <string name="earthmat_label_latContact">Lat. Contact</string>
+    <string name="earthmat_label_sorting">Sorting</string>
+    <string name="earthmat_label_matrix">Matrix</string>
+    <string name="earthmat_label_modifier">Modifier</string>
+    <string name="earthmat_label_oxidation">Oxidation</string>
+    <string name="earthmat_label_compact">Compact</string>
+    <string name="earthmat_label_h2oContent">H2O Content</string>
+    <string name="earthmat_label_jointing">Jointing</string>
+    <string name="earthmat_label_hclReact">HCL React.</string>
+    <string name="earthmat_label_fissility">Fissility</string>
+    <string name="earthmat_label_unitValue">Unit Value</string>
+    <string name="earthmat_label_clastSize">Clast Size (cm)</string>
+    <string name="earthmat_label_modal">Modal</string>
+    <string name="earthmat_label_min">Min</string>
+    <string name="earthmat_label_max">Max</string>
+    <string name="earthmat_label_clastPer">Clast%</string>
+    <string name="earthmat_label_clastForms">Clast Forms</string>
+    <string name="earthmat_label_roundness">Roundness</string>
+    <string name="earthmat_label_averageModal">Average/Modal</string>
+    <string name="earthmat_label_maximum">Maximum</string>
+    <string name="earthmat_label_minimum">Minimum</string>
+    <string name="earthmat_label_to2">to</string>
+    <string name="earthmat_label_erraticType">Erratic Type</string>
+    <string name="earthmat_label_percent">%</string>
+    <string name="earthmat_label_genFossilCategories">General Fossil Categories</string>
+    <string name="earthmat_label_notes">Notes (max. 254 characters)</string>
+
+    <!-- ENVIRON SURFICIAL -->
+    <string name="environ_label_drainage">Drainage</string>
+    <string name="environ_label_slope">Slope(degrees)</string>
+    <string name="environ_label_azimuth">Azimuth</string>
+    <string name="environ_label_permafrost">Permafrost</string>
+    <string name="environ_label_indicators">Indicators</string>
+    <string name="environ_label_depthOfAL">Depth of Active Layers (m)</string>
+    <string name="environ_label_gossan">Gossan</string>
+    <string name="environ_label_minOfImp">Mineralization of Importance</string>
+    <string name="environ_label_specificNotes">Specific Notes</string>
+    <string name="environ_label_exposureType">Exposure Type</string>
+    <string name="environ_label_vegetation">Vegetation</string>
+    <string name="environ_label_boulders">Boulders</string>
+    <string name="environ_label_boulderField">Boulderfield</string>
+    <string name="environ_label_groundCover">Ground Cover</string>
+    <string name="environ_label_pattGrnd">PatterndGrnd</string>
+    <string name="environ_label_approxWidth">Approx. Width (m)</string>
+    <string name="environ_label_environNote">Environs Note (254 chars max)</string>
+
+    <!-- SOILPRO SURFICIAL -->
+    <string name="soilpro_label_hrzThick">Hrz Thickness</string>
+    <string name="soilpro_label_depth">Depth</string>
+    <string name="soilpro_label_hrzQual">Hrz Qualifier</string>
+    <string name="soilpro_label_oHrz">O-Hrz</string>
+    <string name="soilpro_label_lfhHrz">LFH-Hrz</string>
+    <string name="soilpro_label_aHrz">A-Hrz</string>
+    <string name="soilpro_label_bHrz">B-Hrz</string>
+    <string name="soilpro_label_cHrz">C-Hrz</string>
+    <string name="soilpro_label_rHrz">R-Hrz</string>
+    <string name="soilpro_label_totalProfile">Total Profile</string>
+    <string name="soilpro_label_notes">Notes (254 chars max)</string>
+    
+    <!-- SAMPLE SURFICIAL -->
+    <string name="sample_label_Purpose">Purpse</string>
+    <string name="sample_label_horizon">Horizon</string>
+    <string name="sample_label_depthInterval">Depth/Interval (m)</string>
+    <string name="sample_label_sampleState">Sample State</string>
+    <string name="sample_label_method">Method</string>
+    <string name="sample_label_notes">Notes (254 chars max)</string>
+
+    <!-- MA -->
+    <string name="ma_label_minAlt">Min/Alter*</string>
+    <string name="ma_label_mineral">Mineral*</string>
+    <string name="ma_label_distribution">Distribution</string>
+    <string name="ma_label_unit">Unit</string>
+    <string name="ma_label_mode">Mode</string>
+    <string name="ma_label_note">Note (254 chars max)</string>
+
+    <!-- MINERAL -->
+    <string name="mineral_label_mineral">Mineral*</string>
+    <string name="mineral_label_mode">Mode*</string>
+    <string name="mineral_label_colour">Colour</string>
+    <string name="mineral_label_size">Size (mm)</string>
+    <string name="mineral_label_min">Min</string>
+    <string name="mineral_label_max">Max</string>
+    <string name="mineral_label_form">Form</string>
+    <string name="mineral_label_habit">Habit</string>
+    <string name="mineral_label_occur">Occur</string>
+    <string name="mineral_label_note">Note (254 chars. max)</string>
 
 </resources>

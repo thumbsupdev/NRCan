@@ -77,12 +77,11 @@ public class MainActivity extends ListActivity {
     	//initializeDatabase();
     	
     	lv1 = getListView();
-    	/*
+    	lv2 = (ListView)findViewById(R.id.llMetadata);
     	lv2 = (ListView)findViewById(R.id.listStationBedrock);
     	lv3 = (ListView)findViewById(R.id.listSampleBedrock);
     	lv4 = (ListView)findViewById(R.id.listStructure);
     	lv5 = (ListView)findViewById(R.id.listPhoto);
-    	*/
     	
     	adap1 = new StationBedrockController(this, this);
     	/*
@@ -100,7 +99,7 @@ public class MainActivity extends ListActivity {
     	lv5.setAdapter(adap5);
     	*/
     	
-    	flipper.addView(lv1);
+    	//flipper.addView(lv1);
     }
 
     @Override
