@@ -32,7 +32,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/earthmat_suficial_editText_clastModal"
+                android:id="@+id/earthmat_surficial_editText_clastModal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -72,7 +72,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/earthmat_suficial_editText_clastMax"
+                android:id="@+id/earthmat_surficial_editText_clastMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -92,7 +92,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/earthmat_suficial_editText_clastPer"
+                android:id="@+id/earthmat_surficial_editText_clastPer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -169,7 +169,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/earthmat_suficial_spinner_roundMax"
+                android:id="@+id/earthmat_surficial_spinner_roundMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

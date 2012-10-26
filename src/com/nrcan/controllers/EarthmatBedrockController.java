@@ -15,8 +15,7 @@ import android.widget.Filterable;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 
-public class EarthmatBedrockController extends BaseAdapter implements
-		Filterable {
+public class EarthmatBedrockController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;

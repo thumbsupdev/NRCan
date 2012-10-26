@@ -1,10 +1,6 @@
 package com.nrcan.main;
 
-import com.nrcan.controllers.MetadataController;
-import com.nrcan.controllers.PhotoController;
-import com.nrcan.controllers.SampleBedrockController;
-import com.nrcan.controllers.StationBedrockController;
-import com.nrcan.controllers.StructureController;
+import com.nrcan.controllers.*;
 
 import android.os.Bundle;
 import android.app.ListActivity;
@@ -17,11 +13,34 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
 	
-	private StationBedrockController adap1;
-	private StationBedrockController adap2;
-	private SampleBedrockController adap3;
-	private StructureController adap4;
-	private PhotoController adap5;
+	private ListController adap1;
+	private EarthmatBedrockController adap2;
+	private ListController adap3;
+	private EarthmatSurficialController adap4;
+	private ListController adap5;
+	private EnvironSurficialController adap6;
+	private ListController adap7;
+	private MABedrockController adap8;
+	private ListController adap9;
+	private MetadataController adap10;
+	private ListController adap11;
+	private MineralBedrockController adap12;
+	private ListController adap13;
+	private PFlowSurficialController adap14;
+	private ListController adap15;
+	private PhotoController adap16;
+	private ListController adap17;
+	private SampleBedrockController adap18;
+	private ListController adap19;
+	private SampleSurficialController adap20;
+	private ListController adap21;
+	private SoilProSurficialController adap22;
+	private ListController adap23;
+	private StationBedrockController adap24;
+	private ListController adap25;
+	private StationSurficialController adap26;
+	private ListController adap27;
+	private StructureController adap28;
 	
 	private ListView lv1;
 	private ListView lv2;
@@ -77,13 +96,18 @@ public class MainActivity extends ListActivity {
     	//initializeDatabase();
     	
     	lv1 = getListView();
-    	lv2 = (ListView)findViewById(R.id.llMetadata);
+    	lv2 = (ListView)findViewById(R.id.listEarthmatBedrock);
+    	
+    	/*
     	lv2 = (ListView)findViewById(R.id.listStationBedrock);
     	lv3 = (ListView)findViewById(R.id.listSampleBedrock);
     	lv4 = (ListView)findViewById(R.id.listStructure);
     	lv5 = (ListView)findViewById(R.id.listPhoto);
+    	*/
     	
-    	adap1 = new StationBedrockController(this, this);
+    	adap1 = new ListController(this, "EARTH MATERIAL");
+    	adap2 = new EarthmatBedrockController(this, this);
+    	
     	/*
     	adap2 = new StationBedrockController(this, this);
     	adap3 = new SampleBedrockController(this, this);
@@ -92,6 +116,8 @@ public class MainActivity extends ListActivity {
     	*/
     	
     	setListAdapter(adap1);
+    	lv2.setAdapter(adap2);
+    	
     	/*
     	lv2.setAdapter(adap2);
     	lv3.setAdapter(adap3);
@@ -99,7 +125,73 @@ public class MainActivity extends ListActivity {
     	lv5.setAdapter(adap5);
     	*/
     	
-    	//flipper.addView(lv1);
+    	//flipper.addView(lv2);
+
+    	Button tab_button_1 = (Button) findViewById(R.id.tab_host_button1);
+    	tab_button_1.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(1);
+			}
+		});
+    	Button tab_button_2 = (Button) findViewById(R.id.tab_host_button2);
+    	tab_button_2.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(2);
+			}
+		});
+    	Button tab_button_3 = (Button) findViewById(R.id.tab_host_button3);
+    	tab_button_3.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(3);
+			}
+		});
+    	Button tab_button_4 = (Button) findViewById(R.id.tab_host_button4);
+    	tab_button_4.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(4);
+			}
+		});
+    	Button tab_button_5 = (Button) findViewById(R.id.tab_host_button5);
+    	tab_button_5.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(5);
+			}
+		});
+    	Button tab_button_6 = (Button) findViewById(R.id.tab_host_button6);
+    	tab_button_6.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(6);
+			}
+		});
+    	Button tab_button_7 = (Button) findViewById(R.id.tab_host_button7);
+    	tab_button_7.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(7);
+			}
+		});
+    	Button tab_button_8 = (Button) findViewById(R.id.tab_host_button8);
+    	tab_button_8.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setTabs(8);
+			}
+		});
+    }
+    
+    public void setTabs(int tab) {
+		adap2.setTab(tab);
+		adap4.setTab(tab);
+		//adap6.setTab(tab);
+		adap8.setTab(tab);
+		adap10.setTab(tab);
+		adap12.setTab(tab);
+		adap14.setTab(tab);
+		adap16.setTab(tab);
+		adap18.setTab(tab);
+		adap20.setTab(tab);
+		adap22.setTab(tab);
+		adap24.setTab(tab);
+		adap26.setTab(tab);
+		adap28.setTab(tab);
     }
 
     @Override

@@ -28,7 +28,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/earthmat_surficial_editText_erraticPer"
+            android:id="@+id/earthmat_surficial_spinner_erraticPer"
             android:layout_width="0dp"
             android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
@@ -52,14 +52,14 @@
             android:weightSum="1" >
 
             <Button
-                android:id="@+id/earthmat_bedrock_button_grnCry"
+                android:id="@+id/earthmat_surficial_button_erraticClear"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:text="C" />
 
             <EditText
-                android:id="@+id/earthmat_bedrock_editText_grnCry"
+                android:id="@+id/earthmat_surficial_editText_erraticComp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
@@ -79,7 +79,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/earthmat_bedrock_editText_genFossilCategories"
+            android:id="@+id/earthmat_surficial_editText_genFossilCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

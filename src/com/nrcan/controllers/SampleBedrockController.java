@@ -91,6 +91,11 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 		return null;
 	}
 
+	public void setTab(int tabNum) {
+		this.tab = tabNum;
+		notifyDataSetChanged();
+	}
+
 	static class SampleBedrock1 {
 		Spinner spinnerType;
 		Spinner spinnerPurpose;

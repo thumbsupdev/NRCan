@@ -83,6 +83,9 @@
     <string name="tabhost_3">3</string>
     <string name="tabhost_4">4</string>
     <string name="tabhost_5">5</string>
+    <string name="tabhost_6">6</string>
+    <string name="tabhost_7">7</string>
+    <string name="tabhost_8">8</string>
 
     <!-- METADATA -->
     <string name="metadata_label_workspace">Workspace</string>

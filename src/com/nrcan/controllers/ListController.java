@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import com.nrcan.main.R;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,12 @@ import android.widget.TextView;
 
 public class ListController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
+	private Context context;
 	private String title;
 
-	public ListController (String title) {
+	public ListController (Context context, String title) {
+		this.mInflater = LayoutInflater.from(context);
+		this.context = context;
 		this.title = title;
 	}
 	
@@ -41,7 +45,7 @@ public class ListController extends BaseAdapter implements Filterable {
 		
 		convertView.setTag(holder);
 		
-		return null;
+		return convertView;
 	}
 
 	public Filter getFilter() {

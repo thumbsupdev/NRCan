@@ -29,7 +29,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/earthmat_suficial_spinner_matrix"
+                android:id="@+id/earthmat_surficial_spinner_matrix"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -101,7 +101,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/earthmat_suficial_spinner_oxidation"
+                android:id="@+id/earthmat_surficial_spinner_oxidation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -152,7 +152,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/earthmat_suficial_spinner_h2oContent"
+                android:id="@+id/earthmat_surficial_spinner_h2oContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -203,7 +203,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/earthmat_suficial_spinner_hclReact"
+                android:id="@+id/earthmat_surficial_spinner_hclReact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

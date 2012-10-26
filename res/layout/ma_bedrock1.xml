@@ -84,7 +84,7 @@
             android:weightSum="1" >
 
             <Button
-                android:id="@+id/ma_bedrock_button_mA"
+                android:id="@+id/ma_bedrock_button_mAClear"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
