@@ -9,15 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.Spinner;
 
 public class MetadataController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
 	private int tab;
-	
+
 	public MetadataController(Context context, Activity activity) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
@@ -26,7 +28,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	public int getCount() {
-		return 2;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
@@ -38,49 +40,42 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
-		if(position == 0)
-		{
-			TabHolder holder;
-			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.tab_host_1, null);
-			
-			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
-			holder.button1.setOnClickListener(new View.OnClickListener() {
+		if (tab == 1) {
+			MetaData1 holder;
+			holder = new MetaData1();
 
-				public void onClick(View v) {
-					tab = 1;
-					notifyDataSetChanged();
-				}
-			});
-			
+			convertView = mInflater.inflate(R.layout.metadata1, null);
+
+			holder.editTextWorkspace = (EditText) convertView
+					.findViewById(R.id.metadata_editText_workspace);
+			holder.editTextProjectName = (EditText) convertView
+					.findViewById(R.id.metadata_editText_projectName);
+			holder.editTextProjectCode = (EditText) convertView
+					.findViewById(R.id.metadata_editText_projectCode);
+			holder.editTextProjectLeader = (EditText) convertView
+					.findViewById(R.id.metadata_editText_projectLeader);
+			holder.spinnerProjectType = (Spinner) convertView
+					.findViewById(R.id.metadata_spinner_projectType);
+
 			convertView.setTag(holder);
+		} else if (tab == 2) {
+			MetaData2 holder;
+			holder = new MetaData2();
+			convertView = mInflater.inflate(R.layout.metadata2, null);
+
+			holder.editTextGeologistName = (EditText) convertView
+					.findViewById(R.id.metadata_editText_geologistName);
+			holder.editTextGeologistCode = (EditText) convertView
+					.findViewById(R.id.metadata_editText_geologistCode);
+			holder.spinnerCameraPrefix = (Spinner) convertView
+					.findViewById(R.id.metadata_spinner_cameraPrefix);
+			holder.spinnerMapProjection = (Spinner) convertView
+					.findViewById(R.id.metadata_spinner_selectMapProjection);
+
+			convertView.setTag(holder);
+
 		}
-		else if (position == 1)
-		{
-			if(tab == 1)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.photo_1, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 2)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.structure_1, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 3)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.ma_bedrock, null);
-				convertView.setTag(holder);
-			}
-		}
-		
+
 		return convertView;
 	}
 
@@ -88,13 +83,25 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	static class TabHolder {
-		Button button1;
-		Button button2;
-		Button button3;
-		Button button4;
-		Button button5;
-		Button button6;
+	public void setTab(int tabNum) {
+		this.tab = tabNum;
+		notifyDataSetChanged();
 	}
-	
+
+	static class MetaData1 {
+		EditText editTextWorkspace;
+		EditText editTextProjectName;
+		EditText editTextProjectCode;
+		EditText editTextProjectLeader;
+		Spinner spinnerProjectType;
+
+	}
+
+	static class MetaData2 {
+		EditText editTextGeologistName;
+		EditText editTextGeologistCode;
+		Spinner spinnerCameraPrefix;
+		Spinner spinnerMapProjection;
+
+	}
 }

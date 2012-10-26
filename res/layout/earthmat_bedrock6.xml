@@ -41,14 +41,14 @@
             android:weightSum="1" >
             
             <Button
-                android:id="@+id/earthmat_bedrock_button_grnCry"
+                android:id="@+id/earthmat_bedrock_button_fossil"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:text="C" />
 
             <EditText
-                android:id="@+id/earthmat_bedrock_editText_grnCry"
+                android:id="@+id/earthmat_bedrock_editText_fossil"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"

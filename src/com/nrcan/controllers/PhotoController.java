@@ -1,6 +1,5 @@
 package com.nrcan.controllers;
 
-import com.nrcan.controllers.MetadataController.TabHolder;
 import com.nrcan.main.R;
 
 import android.app.Activity;
@@ -10,15 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 
-public class PhotoController  extends BaseAdapter implements Filterable {
+public class PhotoController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
 	private int tab;
-	
+
 	public PhotoController(Context context, Activity activity) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
@@ -27,7 +29,7 @@ public class PhotoController  extends BaseAdapter implements Filterable {
 	}
 
 	public int getCount() {
-		return 2;
+		return 1;
 	}
 
 	public Object getItem(int arg0) {
@@ -39,51 +41,42 @@ public class PhotoController  extends BaseAdapter implements Filterable {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
-		if(position == 0)
-		{
-			TabHolder holder;
-			holder = new TabHolder();
-			convertView = mInflater.inflate(R.layout.tab_host_2, null);
-			
-			holder.button1 = (Button) convertView.findViewById(R.id.tab_host_button1);
-			holder.button1.setOnClickListener(new View.OnClickListener() {
+		if (tab == 1) {
+			Photo1 holder;
+			holder = new Photo1();
 
-				public void onClick(View v) {
-					tab = 1;
-					notifyDataSetChanged();
-				}
-			});
-			
-			holder.button2 = (Button) convertView.findViewById(R.id.tab_host_button2);
-			holder.button2.setOnClickListener(new View.OnClickListener() {
+			convertView = mInflater.inflate(R.layout.photo_1, null);
 
-				public void onClick(View v) {
-					tab = 2;
-					notifyDataSetChanged();
-				}
-			});
-			
+			holder.spinnerCategory = (Spinner) convertView
+					.findViewById(R.id.photo_spinner_category);
+			holder.editTextPhotoName = (EditText) convertView
+					.findViewById(R.id.photo_text_filename);
+			holder.editTextFileNumber = (EditText) convertView
+					.findViewById(R.id.photo_text_filenumber);
+			holder.buttonFileNumberUp = (Button) convertView
+					.findViewById(R.id.photo_button_filenumberup);
+			holder.buttonFileNumberDown = (Button) convertView
+					.findViewById(R.id.photo_button_filenumberdown);
+			holder.editTextDirection = (EditText) convertView
+					.findViewById(R.id.photo_text_direction);
+			holder.buttonDirectionUp = (Button) convertView
+					.findViewById(R.id.photo_button_directionup);
+			holder.buttonDirectionDown = (Button) convertView
+					.findViewById(R.id.photo_button_directiondown);
+			holder.seekBarDirection = (SeekBar) convertView
+					.findViewById(R.id.photo_seekbar_direction);
+
+			convertView.setTag(holder);
+		} else if (tab == 2) {
+			Photo2 holder;
+			holder = new Photo2();
+			convertView = mInflater.inflate(R.layout.photo_2, null);
+
+			holder.editTextCaption = (EditText) convertView
+					.findViewById(R.id.photo_text_caption);
+
 			convertView.setTag(holder);
 		}
-		else if (position == 1)
-		{
-			if(tab == 1)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.photo_1, null);
-				convertView.setTag(holder);
-			}
-			else if (tab == 2)
-			{
-				TabHolder holder;
-				holder = new TabHolder();
-				convertView = mInflater.inflate(R.layout.photo_2, null);
-				convertView.setTag(holder);
-			}
-		}
-		
 		return convertView;
 	}
 
@@ -91,10 +84,25 @@ public class PhotoController  extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	static class TabHolder {
-		Button button1;
-		Button button2;
+	public void setTab(int tabNum) {
+		this.tab = tabNum;
+		notifyDataSetChanged();
 	}
-	
-}
 
+	static class Photo1 {
+		Spinner spinnerCategory;
+		EditText editTextPhotoName;
+		EditText editTextFileNumber;
+		Button buttonFileNumberUp;
+		Button buttonFileNumberDown;
+		EditText editTextDirection;
+		Button buttonDirectionUp;
+		Button buttonDirectionDown;
+		SeekBar seekBarDirection;
+	}
+
+	static class Photo2 {
+		EditText editTextCaption;
+
+	}
+}
