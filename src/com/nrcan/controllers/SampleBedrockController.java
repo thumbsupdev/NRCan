@@ -1,6 +1,5 @@
 package com.nrcan.controllers;
 
-import com.nrcan.controllers.MetadataController.TabHolder;
 import com.nrcan.main.R;
 
 import android.app.Activity;

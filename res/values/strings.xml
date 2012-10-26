@@ -75,6 +75,7 @@
     <string name="pflow_label_indicators"># Indicators</string>
     <string name="pflow_label_defined">Defined</string>
     <string name="pflow_label_relationship">Relationship</string>
+    <string name="pflow_label_note">Note (254 chars max)</string>
     
     <!-- TAB HOST NUMBERS -->
     <string name="tabhost_1">1</string>

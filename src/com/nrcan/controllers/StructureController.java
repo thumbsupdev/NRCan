@@ -1,6 +1,5 @@
 package com.nrcan.controllers;
 
-import com.nrcan.controllers.MetadataController.TabHolder;
 import com.nrcan.main.R;
 
 import android.app.Activity;
@@ -57,30 +56,57 @@ public class StructureController  extends BaseAdapter implements Filterable {
 			}
 			else if (tab == 2)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				Structure2 holder;
+				holder = new Structure2();
 				convertView = mInflater.inflate(R.layout.structure_2, null);
+				
+				holder.spinnerMethod = (Spinner)convertView.findViewById(R.id.structure_spinner_method);
+				holder.spinnerFormat = (Spinner)convertView.findViewById(R.id.structure_spinner_format);
+				holder.editTextStrike = (EditText)convertView.findViewById(R.id.structure_text_strike);	
+				holder.buttonStrikeUp = (Button)convertView.findViewById(R.id.structure_button_strikeup);
+				holder.buttonStrikeDown = (Button)convertView.findViewById(R.id.structure_button_strikedown);
+				holder.seekbarStrike = (SeekBar)convertView.findViewById(R.id.structure_seekbar_strike);
+				holder.editTextDip = (EditText)convertView.findViewById(R.id.structure_text_dip);
+				holder.buttonDipUp = (Button)convertView.findViewById(R.id.structure_button_dipup);
+				holder.buttonDipDown =  (Button)convertView.findViewById(R.id.structure_button_dipdown);
+				holder.seekbarDip = (SeekBar)convertView.findViewById(R.id.structure_seekbar_dip);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 3)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				Structure3 holder;
+				holder = new Structure3();
 				convertView = mInflater.inflate(R.layout.structure_3, null);
+				
+				holder.spinnerAttitude = (Spinner)convertView.findViewById(R.id.structure_spinner_attitude);
+				holder.spinnerYounging = (Spinner)convertView.findViewById(R.id.structure_spinner_younging);
+				holder.spinnerGeneration = (Spinner)convertView.findViewById(R.id.structure_spinner_generation);
+				holder.spinnerStrain = (Spinner)convertView.findViewById(R.id.structure_spinner_strain);
+				holder.spinnerFlattening = (Spinner)convertView.findViewById(R.id.structure_spinner_flattening);
+				holder.spinnerRelated = (Spinner)convertView.findViewById(R.id.structure_spinner_related);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 4)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				Structure4 holder;
+				holder = new Structure4();
 				convertView = mInflater.inflate(R.layout.structure_4, null);
+				
+				holder.editTextFabric = (EditText)convertView.findViewById(R.id.structure_text_fabric);
+				holder.editTextSense = (EditText)convertView.findViewById(R.id.structure_text_sense);
+				
 				convertView.setTag(holder);
 			}
 			else if (tab == 5)
 			{
-				TabHolder holder;
-				holder = new TabHolder();
+				Structure5 holder;
+				holder = new Structure5();
 				convertView = mInflater.inflate(R.layout.structure_5, null);
+				
+				holder.editTextNote = (EditText)convertView.findViewById(R.id.structure_text_sense);
+				
 				convertView.setTag(holder);
 			}
 		
