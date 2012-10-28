@@ -28,7 +28,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/earthmat_surficial_spinner_vegetationPer"
+            android:id="@+id/environ_surficial_spinner_vegetationPer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

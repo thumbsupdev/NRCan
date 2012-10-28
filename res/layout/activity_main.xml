@@ -17,7 +17,7 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:layout_marginTop="3dp"
-            android:text="BACK" >
+            android:text="@string/title_back" >
         </Button>
 
         <LinearLayout
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Title Goes Here!"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </LinearLayout>
@@ -51,7 +51,7 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:layout_marginTop="3dp"
-            android:text="SAVE" >
+            android:text="@string/title_save" >
         </Button>
     </LinearLayout>
 
@@ -63,7 +63,7 @@
     
      	<LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/lltmp"
+            android:id="@+id/llEarthmatBedrock2"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:orientation="vertical"
@@ -73,7 +73,7 @@
             <ListView
                 android:id="@android:id/list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dip"
                 android:layout_weight="1"
                 android:background="#000000"
                 android:drawSelectorOnTop="false" >
@@ -96,56 +96,56 @@
                 android:orientation="horizontal" >
 				
                 <Button
-                    android:id="@+id/tab_host_button1"
+                    android:id="@+id/tab_host_1_button1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_1" />
 
                 <Button
-                    android:id="@+id/tab_host_button2"
+                    android:id="@+id/tab_host_1_button2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_2" />
 
                 <Button
-                    android:id="@+id/tab_host_button3"
+                    android:id="@+id/tab_host_1_button3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_3" />
 
                 <Button
-                    android:id="@+id/tab_host_button4"
+                    android:id="@+id/tab_host_1_button4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_4" />
 
                 <Button
-                    android:id="@+id/tab_host_button5"
+                    android:id="@+id/tab_host_1_button5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_5" />
 
                 <Button
-                    android:id="@+id/tab_host_button6"
+                    android:id="@+id/tab_host_1_button6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_6" />
 
                 <Button
-                    android:id="@+id/tab_host_button7"
+                    android:id="@+id/tab_host_1_button7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_7" />
 
                 <Button
-                    android:id="@+id/tab_host_button8"
+                    android:id="@+id/tab_host_1_button8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -156,7 +156,927 @@
             <ListView
                 android:id="@+id/listEarthmatBedrock"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llEarthmatSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listEarthmatSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llEarthmatSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_2_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_5" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_6" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_7" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listEarthmatSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llEnvironSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listEnvironSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llEnvironSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_3_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_3_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_3_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_3_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+
+                <Button
+                    android:id="@+id/tab_host_3_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_5" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listEnvironSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMABedrock2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listMABedrock2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMABedrock"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_4_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_4_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listMABedrock"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMetadata2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listMetadata2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMetadata"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_5_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_5_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listMetadata"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMineralBedrock2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listMineralBedrock2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llMineralBedrock"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_6_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_6_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_6_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_6_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listMineralBedrock"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llPFlowSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listPFlowSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llPFlowSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_7_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_7_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_7_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listPFlowSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llPhoto2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listPhoto2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_8_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_8_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSampleBedrock2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listSampleBedrock2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSampleBedrock"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_9_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_9_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_9_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listSampleBedrock"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSampleSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listSampleSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSampleSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_10_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_10_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_10_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listSampleSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSoilProSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listSoilProSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llSoilProSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_11_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_11_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listSoilProSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStationBedrock2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listStationBedrock2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStationBedrock"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_12_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_12_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_12_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_12_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listStationBedrock"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStationSurficial2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listStationSurficial2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStationSurficial"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_13_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_13_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_13_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_13_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listStationSurficial"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStructure2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <ListView
+                android:id="@+id/listStructure2"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawSelectorOnTop="false" >
+            </ListView>
+        </LinearLayout>
+
+     	<LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/llStructure"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+				
+                <Button
+                    android:id="@+id/tab_host_14_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_1" />
+
+                <Button
+                    android:id="@+id/tab_host_14_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_2" />
+
+                <Button
+                    android:id="@+id/tab_host_14_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_3" />
+
+                <Button
+                    android:id="@+id/tab_host_14_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_4" />
+
+                <Button
+                    android:id="@+id/tab_host_14_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_5" />
+				
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listStructure"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
                 android:layout_weight="1"
                 android:background="#000000"
                 android:drawSelectorOnTop="false" >

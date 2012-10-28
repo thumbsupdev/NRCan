@@ -31,16 +31,15 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 		return 1;
 	}
 
-	public Object getItem(int position) {
+	public Object getItem(int arg0) {
 		return null;
 	}
 
-	public long getItemId(int position) {
+	public long getItemId(int arg0) {
 		return 0;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-
 		if (tab == 1) {
 			EarthmatSurficial1 holder;
 			holder = new EarthmatSurficial1();

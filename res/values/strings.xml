@@ -1,10 +1,13 @@
 <resources>
 
+    <!-- APP GENERAL -->
     <string name="app_name">NRCan</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_station">Station</string>
+    <string name="title_back">BACK</string>
+    <string name="title_save">SAVE</string>
 
     <!-- STATION -->
     <string name="station_label_traverse">Trav</string>

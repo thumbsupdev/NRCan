@@ -28,7 +28,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/earthmat_surficial_spinner_groundCoverPer"
+            android:id="@+id/environ_surficial_spinner_groundCoverPer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -101,7 +101,7 @@
             android:weightSum="1" >
 
             <Button
-                android:id="@+id/enivron_surficial_button_pattGrnd_clear"
+                android:id="@+id/environ_surficial_button_pattGrnd_clear"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
@@ -128,7 +128,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Spinner
-                android:id="@+id/environ_surficial_editText_approxWidth"
+                android:id="@+id/environ_surficial_spinner_approxWidth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

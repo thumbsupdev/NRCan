@@ -48,7 +48,7 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 				convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
 				
 				holder.spinnerType = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_type);
-				holder.spinnerPurpose = (Spinner)convertView.findViewById(R.id.sample_bedrock_label_purpose);
+				holder.spinnerPurpose = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_purpose);
 				holder.buttonPurpose = (Button)convertView.findViewById(R.id.sample_bedrock_button_purpose);
 				holder.editTextPurpose = (EditText)convertView.findViewById(R.id.sample_bedrock_text_purpose);
 				
