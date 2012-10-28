@@ -2,7 +2,332 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="10dp" >
     
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <TextView
+	                android:id="@+id/soilpro_label_hrzThick"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_hrzThick"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+	                android:id="@+id/soilpro_label_depth"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="20dp"
+	                android:text="@string/soilpro_label_depth"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+	                android:id="@+id/soilpro_label_hrzQual"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="20dp"
+	                android:text="@string/soilpro_label_hrzQual"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+	</LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+	        
+	        <TextView
+	                android:id="@+id/soilpro_label_oHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_oHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_oHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+            
+	        <TextView
+	                android:id="@+id/soilpro_label_lfhHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_lfhHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_lfhHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+            
+	        <TextView
+	                android:id="@+id/soilpro_label_aHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_aHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_aHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="39dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+            
+	        <TextView
+	                android:id="@+id/soilpro_label_bHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_bHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_bHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="39dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+            
+	        <TextView
+	                android:id="@+id/soilpro_label_cHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_cHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_cHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+            <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+            
+	        <TextView
+	                android:id="@+id/soilpro_label_rHrz"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/soilpro_label_rHrz"
+	                android:textAppearance="?android:attr/textAppearanceLarge" />
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_rHrzThick"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="41dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        </LinearLayout>
+	        
+        </LinearLayout>
+        
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_depth1"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_depth2"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_depth3"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_depth4"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+	        
+        </LinearLayout>
+        
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+	        
+	        <EditText
+                android:id="@+id/soilpro_text_oHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_lfhHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_aHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_bHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_cHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+            
+	        <EditText
+                android:id="@+id/soilpro_text_rHrzQual"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+            	android:layout_marginRight="20dp"
+            	android:layout_marginLeft="10dp"
+                android:inputType="number" >
+
+            </EditText>
+        
+        </LinearLayout>
+        
+        </LinearLayout>
+        
+    <TextView
+            android:id="@+id/soilpro_label_totalProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/soilpro_label_totalProfile"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <EditText
+           android:id="@+id/soilpro_text_totalProfile"
+           android:layout_width="150dp"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="20dp"
+       	   android:layout_marginRight="20dp"
+           android:inputType="number" >
+
+    </EditText>
+    
+    <EditText
+           android:id="@+id/soilpro_text_unknownBottomText"
+           android:layout_width="50dp"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="20dp"
+       	   android:layout_marginRight="20dp"
+       	   android:layout_gravity = "right"
+           android:inputType="number"
+           android:text="-0" >
+
+    </EditText>
 
 </LinearLayout>
