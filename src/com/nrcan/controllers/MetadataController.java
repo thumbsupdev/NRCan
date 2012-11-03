@@ -8,24 +8,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.Spinner;
+import com.nrcan.models.MetadataModel;
+import com.nrcan.main.DatabaseHandler;
+import android.util.Log;
 
 public class MetadataController extends BaseAdapter implements Filterable {
+
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
-	private int tab;
+	private MetadataModel metadataModel;
+    private int tab;
 
-	public MetadataController(Context context, Activity activity) {
+    public MetadataController() { }
+
+	public MetadataController(Context context, Activity activity, DatabaseHandler databaseHandler) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
+        this.metadataModel = new MetadataModel(context, databaseHandler);
 	}
+
+    public MetadataModel getMetadataModel() {
+        return metadataModel;
+    }
 
 	public int getCount() {
 		return 1;
@@ -87,6 +98,43 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+
+    public void insertMetadataInfo() {
+/*
+        String[] contents = {
+            (EditText) activity.findViewById(R.id.metadata_editText_workspace).getText().toString(),
+            "-1",
+            ((EditText) activity.findViewById(R.id.metadata_editText_projectName)).getText().toString(),
+            ((EditText) activity.findViewById(R.id.metadata_editText_projectCode)).getText().toString(),
+            ((EditText) activity.findViewById(R.id.metadata_editText_projectLeader)).getText().toString(),
+            ((Spinner) activity.findViewById(R.id.metadata_spinner_projectType)).getSelectedItem().toString(),
+            ((EditText) activity.findViewById(R.id.metadata_editText_geologistName)).getText().toString(),
+            ((EditText) activity.findViewById(R.id.metadata_editText_geologistCode)).getText().toString(),
+            ((Spinner) activity.findViewById(R.id.metadata_spinner_cameraPrefix)).getSelectedItem().toString(),
+            "0",
+            ((Spinner) activity.findViewById(R.id.metadata_spinner_selectMapProjection)).getSelectedItem().toString()
+        };*/
+
+        String[] contents = {
+            
+            "0",
+            "TestName",
+            "C123",
+            "TestLead",
+            "Type1",
+            "TestGeologist",
+            "123Code",
+            "DigCam",
+            "datum",
+            "mappath"
+        };
+
+        metadataModel.setEntity(contents);
+        long rowsAffected = metadataModel.insertRow();
+
+        Log.v("MetadataController insertMetadataInfo()", "Rows affected = " + rowsAffected);
+
+    }
 
 	static class MetaData1 {
 		EditText editTextWorkspace;

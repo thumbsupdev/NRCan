@@ -72,34 +72,36 @@ public class MainActivity extends ListActivity {
 	private ListView lv27;
 	private ListView lv28;
 	
+    private DatabaseHandler databaseHandler;
+	
 	private TextView mainTitle;
 	private String[] titles = {
-			"EARTH MATERIAL",
-			"EARTH MATERIAL",
-			"EARTH MATERIAL",
-			"EARTH MATERIAL",
-			"ENVIRONMENT",
-			"ENVIRONMENT",
-			"MINERALIZATION / ALTERATION",
-			"MINERALIZATION / ALTERATION",
+			"EARTH MATERIAL BEDROCK",
+			"EARTH MATERIAL BEDROCK",
+			"EARTH MATERIAL SURFICIAL",
+			"EARTH MATERIAL SURFICIAL",
+			"ENVIRONMENT SURFICIAL",
+			"ENVIRONMENT SURFICIAL",
+			"M / A BEDROCK",
+			"M / A BEDROCK",
 			"METADATA",
 			"METADATA",
-			"MINERAL",
-			"MINERAL",
-			"PALEO FLOW",
-			"PALEO FLOW",
+			"MINERAL BEDROCK",
+			"MINERAL BEDROCK",
+			"PALEO FLOW SURFICIAL",
+			"PALEO FLOW SURFICIAL",
 			"PHOTO",
 			"PHOTO",
-			"SAMPLE",
-			"SAMPLE",
-			"SAMPLE",
-			"SAMPLE",
+			"SAMPLE BEDROCK",
+			"SAMPLE BEDROCK",
+			"SAMPLE SURFICIAL",
+			"SAMPLE SURFICIAL",
 			"SOIL PROFILE",
 			"SOIL PROFILE",
-			"STATION",
-			"STATION",
-			"STATION",
-			"STATION",
+			"STATION BEDROCK",
+			"STATION BEDROCK",
+			"STATION SURFICIAL",
+			"STATION SURFICIAL",
 			"STRUCTURE",
 			"STRUCTURE"
 	};
@@ -112,6 +114,8 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        databaseHandler = new DatabaseHandler(this);
+        
         mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
         mainTitle.setText(titles[0].toString());
         
@@ -120,6 +124,7 @@ public class MainActivity extends ListActivity {
         Button button1 = (Button) findViewById(R.id.buttonSave);
     	button1.setOnClickListener(new View.OnClickListener() {
     		public void onClick(View v) {
+                adap10.insertMetadataInfo();
     			flipper.showNext();
     	        mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				setTabs(1);
@@ -174,7 +179,7 @@ public class MainActivity extends ListActivity {
     	adap7 = new ListController(this, "MINERALIZATION / ALTERATION");
     	adap8 = new MABedrockController(this, this);
     	adap9 = new ListController(this, "METADATA");
-    	adap10 = new MetadataController(this, this);
+    	adap10 = new MetadataController(this, this, databaseHandler);
     	adap11 = new ListController(this, "MINERAL");
     	adap12 = new MineralBedrockController(this, this);
     	adap13 = new ListController(this, "PALEO FLOW");
