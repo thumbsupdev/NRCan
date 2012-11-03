@@ -2,19 +2,16 @@ package com.nrcan.models;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.entities.MetadataEntity;
-import android.util.Log;
-import java.util.ArrayList;
+import com.nrcan.entities.*;
+import com.nrcan.values.PreparedStatements;
 
 public class MetadataModel {
 
 	private DatabaseHandler dbHandler;
 	private final Context context;
-    private MetadataEntity metadata;
+	private MetadataEntity metadata;
 
     // Table column keys
 	private static final String METADATA_TABLE_NAME = "metadata";
@@ -25,7 +22,6 @@ public class MetadataModel {
 	private static final String KEY_METADATA_GEOLCODE = "md_geolcode";
 	private static final String KEY_METADATA_GEOLOGIST = "md_geologist";
 	private static final String KEY_METADATA_MAPPATH = "md_mappath";
-//	private static final String 
 	private static final String KEY_METADATA_DATUM = "md_datum";
 	private static final String KEY_METADATA_DIGCAMERA = "md_digcamera";
 	private static final String KEY_METADATA_ID = "md_id";
@@ -33,7 +29,6 @@ public class MetadataModel {
 
 	private static final String PROJECT_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS metadata (" +
 				"md_id INTEGER PRIMARY KEY autoincrement, " +
-			
 				"md_prj_name TEXT, " +
 				"md_prj_code TEXT, " +
 				"md_prj_lead TEXT, " +
@@ -53,7 +48,7 @@ public class MetadataModel {
         this.dbHandler = dbHandler;
 	}
 
-    public Metadata readRow() {
+    public MetadataEntity readRow() {
 
         SQLiteDatabase database = dbHandler.getDatabase();
 
@@ -67,7 +62,7 @@ public class MetadataModel {
             database.endTransaction();
         }
 
-        return new Metadata(dbHandler.getSplitRow(0));
+        return new MetadataEntity (dbHandler.getSplitRow(0));
     }
 
 /*    public ArrayList<Metadata> readRows() {
@@ -171,12 +166,12 @@ public class MetadataModel {
         return rowsAffected;
     }
 
-    public Metadata getEntity() {
+    public MetadataEntity getEntity() {
         return metadata;
     }
 
     public void setEntity(String[] metadata) {
-        this.metadata = new Metadata(metadata);
+        this.metadata = new MetadataEntity(metadata);
     }
 
     public static String getCreateTableStatement() {

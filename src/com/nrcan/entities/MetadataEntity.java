@@ -1,8 +1,8 @@
 package com.nrcan.entities;
 
-public class Metadata {
+public class MetadataEntity {
     
-       // Table column values
+    // Table column values
     private int mdID;
     private String mdProjectName;
     private String mdProjectCode;
@@ -16,7 +16,7 @@ public class Metadata {
     
     // Define a contract between the controller and model, to pass the data in
     // the order in which the columns show up in the create table statement.
-    public Metadata(String[] contentValues) {
+    public MetadataEntity (String[] contentValues) {
 
         this.mdID = Integer.parseInt(contentValues[0]);
         this.mdProjectName = contentValues[1];
