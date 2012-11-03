@@ -3,11 +3,11 @@ package com.nrcan.entities;
 public class PhotoEntity {
 	private String stationId;
 	private String photoId;
-	private int photoNo;
+	private String photoNo;
 	private String category;
-	private int fileNo;
+	private String fileNo;
 	private String fileName;
-	private int direction;
+	private String direction;
 	private String caption;
 	private String linkId;
 	public String getStationId() {
@@ -22,10 +22,10 @@ public class PhotoEntity {
 	public void setPhotoId(String photoId) {
 		this.photoId = photoId;
 	}
-	public int getPhotoNo() {
+	public String getPhotoNo() {
 		return photoNo;
 	}
-	public void setPhotoNo(int photoNo) {
+	public void setPhotoNo(String photoNo) {
 		this.photoNo = photoNo;
 	}
 	public String getCategory() {
@@ -34,10 +34,10 @@ public class PhotoEntity {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public int getFileNo() {
+	public String getFileNo() {
 		return fileNo;
 	}
-	public void setFileNo(int fileNo) {
+	public void setFileNo(String fileNo) {
 		this.fileNo = fileNo;
 	}
 	public String getFileName() {
@@ -46,10 +46,10 @@ public class PhotoEntity {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	public int getDirection() {
+	public String getDirection() {
 		return direction;
 	}
-	public void setDirection(int direction) {
+	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 	public String getCaption() {

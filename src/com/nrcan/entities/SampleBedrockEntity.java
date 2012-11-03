@@ -3,12 +3,12 @@ package com.nrcan.entities;
 public class SampleBedrockEntity {
 	private String stationId;
 	private String earthMatId;
-	private int sampleNo;
+	private String sampleNo;
 	private String sampleType;
 	private String purpose;
 	private String format;
-	private int azimuth;
-	private int dipplunge;
+	private String azimuth;
+	private String dipplunge;
 	private String surface;
 	private String notes;
 	
@@ -24,10 +24,10 @@ public class SampleBedrockEntity {
 	public void setEarthMatId(String earthMatId) {
 		this.earthMatId = earthMatId;
 	}
-	public int getSampleNo() {
+	public String getSampleNo() {
 		return sampleNo;
 	}
-	public void setSampleNo(int sampleNo) {
+	public void setSampleNo(String sampleNo) {
 		this.sampleNo = sampleNo;
 	}
 	public String getSampleType() {
@@ -48,16 +48,16 @@ public class SampleBedrockEntity {
 	public void setFormat(String format) {
 		this.format = format;
 	}
-	public int getAzimuth() {
+	public String getAzimuth() {
 		return azimuth;
 	}
-	public void setAzimuth(int azimuth) {
+	public void setAzimuth(String azimuth) {
 		this.azimuth = azimuth;
 	}
-	public int getDipplunge() {
+	public String getDipplunge() {
 		return dipplunge;
 	}
-	public void setDipplunge(int dipplunge) {
+	public void setDipplunge(String dipplunge) {
 		this.dipplunge = dipplunge;
 	}
 	public String getSurface() {

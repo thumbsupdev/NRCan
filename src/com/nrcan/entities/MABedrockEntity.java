@@ -2,12 +2,12 @@ package com.nrcan.entities;
 
 public class MABedrockEntity {
 	private String stationID;
-	private int maNo;
+	private String maNo;
 	private String manID;
 	private String ma;
 	private String unit;
 	private String mineral;
-	private int mode;
+	private String mode;
 	private String distribute;
 	private String notes;
 	public String getStationID() {
@@ -16,10 +16,10 @@ public class MABedrockEntity {
 	public void setStationID(String stationID) {
 		this.stationID = stationID;
 	}
-	public int getMaNo() {
+	public String getMaNo() {
 		return maNo;
 	}
-	public void setMaNo(int maNo) {
+	public void setMaNo(String maNo) {
 		this.maNo = maNo;
 	}
 	public String getManID() {
@@ -46,10 +46,10 @@ public class MABedrockEntity {
 	public void setMineral(String mineral) {
 		this.mineral = mineral;
 	}
-	public int getMode() {
+	public String getMode() {
 		return mode;
 	}
-	public void setMode(int mode) {
+	public void setMode(String mode) {
 		this.mode = mode;
 	}
 	public String getDistribute() {

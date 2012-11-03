@@ -4,15 +4,15 @@ public class MineralBedrockEntity {
 	private String stationID;
 	private String earthmatID;
 	private String mineralID;
-	private int mineralNo;
+	private String mineralNo;
 	private String mineral;
 	private String form;
 	private String habit;
 	private String occurrence;
 	private String colour;
-	private int sizeMinmm;
-	private int SizeMaxmm;
-	private int mode;
+	private String sizeMinmm;
+	private String SizeMaxmm;
+	private String mode;
 	public String getStationID() {
 		return stationID;
 	}
@@ -31,10 +31,10 @@ public class MineralBedrockEntity {
 	public void setMineralID(String mineralID) {
 		this.mineralID = mineralID;
 	}
-	public int getMineralNo() {
+	public String getMineralNo() {
 		return mineralNo;
 	}
-	public void setMineralNo(int mineralNo) {
+	public void setMineralNo(String mineralNo) {
 		this.mineralNo = mineralNo;
 	}
 	public String getMineral() {
@@ -67,22 +67,22 @@ public class MineralBedrockEntity {
 	public void setColour(String colour) {
 		this.colour = colour;
 	}
-	public int getSizeMinmm() {
+	public String getSizeMinmm() {
 		return sizeMinmm;
 	}
-	public void setSizeMinmm(int sizeMinmm) {
+	public void setSizeMinmm(String sizeMinmm) {
 		this.sizeMinmm = sizeMinmm;
 	}
-	public int getSizeMaxmm() {
+	public String getSizeMaxmm() {
 		return SizeMaxmm;
 	}
-	public void setSizeMaxmm(int sizeMaxmm) {
+	public void setSizeMaxmm(String sizeMaxmm) {
 		SizeMaxmm = sizeMaxmm;
 	}
-	public int getMode() {
+	public String getMode() {
 		return mode;
 	}
-	public void setMode(int mode) {
+	public void setMode(String mode) {
 		this.mode = mode;
 	}
 	public String getNotes() {

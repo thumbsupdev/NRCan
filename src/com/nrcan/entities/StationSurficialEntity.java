@@ -3,19 +3,19 @@ package com.nrcan.entities;
 public class StationSurficialEntity {
 	private int id;
 	private String stationId;
-	private int travNo;
+	private String travNo;
 	private String visitDate;
 	private String visitTime;
-	private double latitude;
-	private double longitude;
-	private double easting;
-	private double northing;
+	private String latitude;
+	private String longitude;
+	private String easting;
+	private String northing;
 	private String datumZone;
-	private float elevation;
+	private String elevation;
 	private String elevMethod;
 	private String entryType;
-	private float pDop;
-	private int satsUsed;
+	private String pDop;
+	private String satsUsed;
 	private String obsType;
 	private String ocQuality;
 	private String physEnv;
@@ -39,10 +39,10 @@ public class StationSurficialEntity {
 	public void setStationId(String stationId) {
 		this.stationId = stationId;
 	}
-	public int getTravNo() {
+	public String getTravNo() {
 		return travNo;
 	}
-	public void setTravNo(int travNo) {
+	public void setTravNo(String travNo) {
 		this.travNo = travNo;
 	}
 	public String getVisitDate() {
@@ -57,28 +57,28 @@ public class StationSurficialEntity {
 	public void setVisitTime(String visitTime) {
 		this.visitTime = visitTime;
 	}
-	public double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	public double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public double getEasting() {
+	public String getEasting() {
 		return easting;
 	}
-	public void setEasting(double easting) {
+	public void setEasting(String easting) {
 		this.easting = easting;
 	}
-	public double getNorthing() {
+	public String getNorthing() {
 		return northing;
 	}
-	public void setNorthing(double northing) {
+	public void setNorthing(String northing) {
 		this.northing = northing;
 	}
 	public String getDatumZone() {
@@ -87,10 +87,10 @@ public class StationSurficialEntity {
 	public void setDatumZone(String datumZone) {
 		this.datumZone = datumZone;
 	}
-	public float getElevation() {
+	public String getElevation() {
 		return elevation;
 	}
-	public void setElevation(float elevation) {
+	public void setElevation(String elevation) {
 		this.elevation = elevation;
 	}
 	public String getElevMethod() {
@@ -105,16 +105,16 @@ public class StationSurficialEntity {
 	public void setEntryType(String entryType) {
 		this.entryType = entryType;
 	}
-	public float getpDop() {
+	public String getpDop() {
 		return pDop;
 	}
-	public void setpDop(float pDop) {
+	public void setpDop(String pDop) {
 		this.pDop = pDop;
 	}
-	public int getSatsUsed() {
+	public String getSatsUsed() {
 		return satsUsed;
 	}
-	public void setSatsUsed(int satsUsed) {
+	public void setSatsUsed(String satsUsed) {
 		this.satsUsed = satsUsed;
 	}
 	public String getObsType() {

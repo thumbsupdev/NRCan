@@ -4,12 +4,12 @@ public class PFlowSurficalEntity {
 	private String stationId;
 	private String earthMatId;
 	private String pFlowId;
-	private int pFlowNo;
+	private String pFlowNo;
 	private String pfClass;
 	private String pfFeature;
 	private String pfSense;
 	private String method;
-	private int pfAzimuth;
+	private String pfAzimuth;
 	private String notes;
 	private String relage;
 	private String numIndic;
@@ -34,10 +34,10 @@ public class PFlowSurficalEntity {
 	public void setpFlowId(String pFlowId) {
 		this.pFlowId = pFlowId;
 	}
-	public int getpFlowNo() {
+	public String getpFlowNo() {
 		return pFlowNo;
 	}
-	public void setpFlowNo(int pFlowNo) {
+	public void setpFlowNo(String pFlowNo) {
 		this.pFlowNo = pFlowNo;
 	}
 	public String getPfClass() {
@@ -64,10 +64,10 @@ public class PFlowSurficalEntity {
 	public void setMethod(String method) {
 		this.method = method;
 	}
-	public int getPfAzimuth() {
+	public String getPfAzimuth() {
 		return pfAzimuth;
 	}
-	public void setPfAzimuth(int pfAzimuth) {
+	public void setPfAzimuth(String pfAzimuth) {
 		this.pfAzimuth = pfAzimuth;
 	}
 	public String getNotes() {

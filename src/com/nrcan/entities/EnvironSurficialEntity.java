@@ -4,13 +4,13 @@ public class EnvironSurficialEntity {
 	private String stationId;
 	private String drainage;
 	private String slope;
-	private double aspect;
+	private String aspect;
 	private String pfPresent;
 	private String pfIndic;
 	private String pfDepth;
 	private String gossanPres;
 	private String gossanMat;
-	private double bRock;
+	private String bRock;
 	private String exposure;
 	private String vegetation;
 	private String boulders;
@@ -39,10 +39,10 @@ public class EnvironSurficialEntity {
 	public void setSlope(String slope) {
 		this.slope = slope;
 	}
-	public double getAspect() {
+	public String getAspect() {
 		return aspect;
 	}
-	public void setAspect(double aspect) {
+	public void setAspect(String aspect) {
 		this.aspect = aspect;
 	}
 	public String getPfPresent() {
@@ -75,10 +75,10 @@ public class EnvironSurficialEntity {
 	public void setGossanMat(String gossanMat) {
 		this.gossanMat = gossanMat;
 	}
-	public double getbRock() {
+	public String getbRock() {
 		return bRock;
 	}
-	public void setbRock(double bRock) {
+	public void setbRock(String bRock) {
 		this.bRock = bRock;
 	}
 	public String getExposure() {

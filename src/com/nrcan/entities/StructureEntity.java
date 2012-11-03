@@ -4,7 +4,7 @@ public class StructureEntity {
 	private String stationId;
 	private String earthMatID;
 	private String structId;
-	private int structNo;
+	private String structNo;
 	private String strucClass;
 	private String strucType;
 	private String detail;
@@ -18,9 +18,9 @@ public class StructureEntity {
 	private String related;
 	private String fabric;
 	private String sense;
-	private int azimuth;
-	private int dipplunge;
-	private int symang;
+	private String azimuth;
+	private String dipplunge;
+	private String symang;
 	private String notes;
 	
 	public String getStationId() {
@@ -41,10 +41,10 @@ public class StructureEntity {
 	public void setStructId(String structId) {
 		this.structId = structId;
 	}
-	public int getStructNo() {
+	public String getStructNo() {
 		return structNo;
 	}
-	public void setStructNo(int structNo) {
+	public void setStructNo(String structNo) {
 		this.structNo = structNo;
 	}
 	public String getStrucClass() {
@@ -125,22 +125,22 @@ public class StructureEntity {
 	public void setSense(String sense) {
 		this.sense = sense;
 	}
-	public int getAzimuth() {
+	public String getAzimuth() {
 		return azimuth;
 	}
-	public void setAzimuth(int azimuth) {
+	public void setAzimuth(String azimuth) {
 		this.azimuth = azimuth;
 	}
-	public int getDipplunge() {
+	public String getDipplunge() {
 		return dipplunge;
 	}
-	public void setDipplunge(int dipplunge) {
+	public void setDipplunge(String dipplunge) {
 		this.dipplunge = dipplunge;
 	}
-	public int getSymang() {
+	public String getSymang() {
 		return symang;
 	}
-	public void setSymang(int symang) {
+	public void setSymang(String symang) {
 		this.symang = symang;
 	}
 	public String getNotes() {

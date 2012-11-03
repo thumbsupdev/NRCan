@@ -1,7 +1,7 @@
 package com.nrcan.entities;
 
 public class EarthmatBedrockEntity {
-	private int stationID;
+	private String stationID;
 	private String earthmatLT;
 	private String earthmatNo;
 	private String earthmatID;
@@ -20,8 +20,8 @@ public class EarthmatBedrockEntity {
 	private String minNote;
 	private String colourF;
 	private String colourW;
-	private int colourInd;
-	private double magSuscept;
+	private String colourInd;
+	private String magSuscept;
 	private String fossils;
 	private String fossilNote;
 	private String contact;
@@ -30,11 +30,11 @@ public class EarthmatBedrockEntity {
 	private String interp;
 	private String interpConf;
 	
-	public int getStationID() {
+	public String getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(int stationID) {
+	public void setStationID(String stationID) {
 		this.stationID = stationID;
 	}
 
@@ -182,19 +182,19 @@ public class EarthmatBedrockEntity {
 		this.colourW = colourW;
 	}
 
-	public int getColourInd() {
+	public String getColourInd() {
 		return colourInd;
 	}
 
-	public void setColourInd(int colourInd) {
+	public void setColourInd(String colourInd) {
 		this.colourInd = colourInd;
 	}
 
-	public double getMagSuscept() {
+	public String getMagSuscept() {
 		return magSuscept;
 	}
 
-	public void setMagSuscept(double magSuscept) {
+	public void setMagSuscept(String magSuscept) {
 		this.magSuscept = magSuscept;
 	}
 

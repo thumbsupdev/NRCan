@@ -3,14 +3,14 @@ package com.nrcan.entities;
 public class EarthmatSurficialEntity {
 	private String stationId;
 	private String earthMatLt;
-	private int earthMatNo;
+	private String earthMatNo;
 	private String earthMatId;
 	private String lithGroup;
 	private String lithType;
 	private String lithDetail;
 	private String mapUnit;
 	private String sufform;
-	private int unitNo;
+	private String unitNo;
 	private String matrixMod;
 	private String matrix;
 	private String jointing;
@@ -19,18 +19,18 @@ public class EarthmatSurficialEntity {
 	private String h2oContent;
 	private String fissilty;
 	private String hclReact;
-	private float clastModal;
-	private float clastMin;
-	private float clastMax;
-	private int clastPct;
+	private String clastModal;
+	private String clastMin;
+	private String clastMax;
+	private String clastPct;
 	private String clastForm;
 	private String sorting;
 	private String modalRnd;
 	private String maxRound;
 	private String minRound;
 	private String thickType;
-	private float thickMin;
-	private float thickMax;
+	private String thickMin;
+	private String thickMax;
 	private String colour;
 	private String lwrContact;
 	private String intContact;
@@ -56,10 +56,10 @@ public class EarthmatSurficialEntity {
 	public void setEarthMatLt(String earthMatLt) {
 		this.earthMatLt = earthMatLt;
 	}
-	public int getEarthMatNo() {
+	public String getEarthMatNo() {
 		return earthMatNo;
 	}
-	public void setEarthMatNo(int earthMatNo) {
+	public void setEarthMatNo(String earthMatNo) {
 		this.earthMatNo = earthMatNo;
 	}
 	public String getEarthMatId() {
@@ -98,10 +98,10 @@ public class EarthmatSurficialEntity {
 	public void setSufform(String sufform) {
 		this.sufform = sufform;
 	}
-	public int getUnitNo() {
+	public String getUnitNo() {
 		return unitNo;
 	}
-	public void setUnitNo(int unitNo) {
+	public void setUnitNo(String unitNo) {
 		this.unitNo = unitNo;
 	}
 	public String getMatrixMod() {
@@ -152,28 +152,28 @@ public class EarthmatSurficialEntity {
 	public void setHclReact(String hclReact) {
 		this.hclReact = hclReact;
 	}
-	public float getClastModal() {
+	public String getClastModal() {
 		return clastModal;
 	}
-	public void setClastModal(float clastModal) {
+	public void setClastModal(String clastModal) {
 		this.clastModal = clastModal;
 	}
-	public float getClastMin() {
+	public String getClastMin() {
 		return clastMin;
 	}
-	public void setClastMin(float clastMin) {
+	public void setClastMin(String clastMin) {
 		this.clastMin = clastMin;
 	}
-	public float getClastMax() {
+	public String getClastMax() {
 		return clastMax;
 	}
-	public void setClastMax(float clastMax) {
+	public void setClastMax(String clastMax) {
 		this.clastMax = clastMax;
 	}
-	public int getClastPct() {
+	public String getClastPct() {
 		return clastPct;
 	}
-	public void setClastPct(int clastPct) {
+	public void setClastPct(String clastPct) {
 		this.clastPct = clastPct;
 	}
 	public String getClastForm() {
@@ -212,16 +212,16 @@ public class EarthmatSurficialEntity {
 	public void setThickType(String thickType) {
 		this.thickType = thickType;
 	}
-	public float getThickMin() {
+	public String getThickMin() {
 		return thickMin;
 	}
-	public void setThickMin(float thickMin) {
+	public void setThickMin(String thickMin) {
 		this.thickMin = thickMin;
 	}
-	public float getThickMax() {
+	public String getThickMax() {
 		return thickMax;
 	}
-	public void setThickMax(float thickMax) {
+	public void setThickMax(String thickMax) {
 		this.thickMax = thickMax;
 	}
 	public String getColour() {

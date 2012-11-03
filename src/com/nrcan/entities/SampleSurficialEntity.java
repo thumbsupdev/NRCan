@@ -4,13 +4,13 @@ public class SampleSurficialEntity {
 	private String stationId;
 	private String earthMatId;
 	private String sampleId;
-	private int sampleNo;
+	private String sampleNo;
 	private String sampleType;
 	private String purpose;
 	private String format;
 	private String sampleDep;
-	private int azimuth;
-	private int dipplunge;
+	private String azimuth;
+	private String dipplunge;
 	private String surface;
 	private String horizon;
 	private String state;
@@ -34,10 +34,10 @@ public class SampleSurficialEntity {
 	public void setSampleId(String sampleId) {
 		this.sampleId = sampleId;
 	}
-	public int getSampleNo() {
+	public String getSampleNo() {
 		return sampleNo;
 	}
-	public void setSampleNo(int sampleNo) {
+	public void setSampleNo(String sampleNo) {
 		this.sampleNo = sampleNo;
 	}
 	public String getSampleType() {
@@ -64,16 +64,16 @@ public class SampleSurficialEntity {
 	public void setSampleDep(String sampleDep) {
 		this.sampleDep = sampleDep;
 	}
-	public int getAzimuth() {
+	public String getAzimuth() {
 		return azimuth;
 	}
-	public void setAzimuth(int azimuth) {
+	public void setAzimuth(String azimuth) {
 		this.azimuth = azimuth;
 	}
-	public int getDipplunge() {
+	public String getDipplunge() {
 		return dipplunge;
 	}
-	public void setDipplunge(int dipplunge) {
+	public void setDipplunge(String dipplunge) {
 		this.dipplunge = dipplunge;
 	}
 	public String getSurface() {
