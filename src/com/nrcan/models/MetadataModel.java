@@ -2,23 +2,27 @@ package com.nrcan.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.entities.*;
 import com.nrcan.values.PreparedStatements;
+import com.nrcan.entities.MetadataEntity;
+import android.util.Log;
+import java.util.ArrayList;
 
 public class MetadataModel {
 
 	private DatabaseHandler dbHandler;
 	private final Context context;
-	private MetadataEntity metadata;
+    private MetadataEntity metadata;
 
     // Table column keys
 	private static final String METADATA_TABLE_NAME = "metadata";
-	private static final String KEY_PROJECT_NAME = "md_prjct_name";
-	private static final String KEY_PROJECT_CODE = "md_prjct_code";
-	private static final String KEY_PROJECT_LEAD = "md_prjct_lead";
-	private static final String KEY_PROJECT_TYPE = "md_prjct_type";
+	private static final String KEY_PROJECT_NAME = "md_prj_name";
+	private static final String KEY_PROJECT_CODE = "md_prj_code";
+	private static final String KEY_PROJECT_LEAD = "md_prj_lead";
+	private static final String KEY_PROJECT_TYPE = "md_prj_type";
 	private static final String KEY_METADATA_GEOLCODE = "md_geolcode";
 	private static final String KEY_METADATA_GEOLOGIST = "md_geologist";
 	private static final String KEY_METADATA_MAPPATH = "md_mappath";
@@ -62,10 +66,10 @@ public class MetadataModel {
             database.endTransaction();
         }
 
-        return new MetadataEntity (dbHandler.getSplitRow(0));
+        return new MetadataEntity(dbHandler.getSplitRow(0));
     }
 
-/*    public ArrayList<Metadata> readRows() {
+    public ArrayList<MetadataEntity> readRows() {
 
         SQLiteDatabase database = dbHandler.getDatabase();
         
@@ -79,8 +83,16 @@ public class MetadataModel {
             database.endTransaction();
         }
 
-        return dbHandler.getList();
-    }*/
+        ArrayList<MetadataEntity> entities = new ArrayList<MetadataEntity>();
+
+        int length = dbHandler.getList().size();
+        
+        for(int i = 0; i < length; i++) {
+            entities.add(new MetadataEntity(dbHandler.getSplitRow(i)));   
+        }
+        
+        return entities;
+    }
 
     // Returns: the row ID of the newly inserted row or -1 on error.
     // Process (only run when save is pressed):

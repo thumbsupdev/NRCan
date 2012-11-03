@@ -1,7 +1,9 @@
 package com.nrcan.entities;
 
 public class StationBedrockEntity {
-	private int id;
+	private int nrcanId2;
+	private int nrcanId1;
+	private String id;
 	private String stationId;
 	private String travNo;
 	private String visitDate;
@@ -25,10 +27,26 @@ public class StationBedrockEntity {
 	private String partner;
 	private String metaId;
 	
-	public int getId() {
+	public StationBedrockEntity (String[] contentValues) {
+		
+    }
+	
+	public int getNrcanId2() {
+		return nrcanId2;
+	}
+	public void setNrcanId2(int nrcanId2) {
+		this.nrcanId2 = nrcanId2;
+	}
+	public int getNrcanId1() {
+		return nrcanId1;
+	}
+	public void setNrcanId1(int nrcanId1) {
+		this.nrcanId1 = nrcanId1;
+	}
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getStationId() {
