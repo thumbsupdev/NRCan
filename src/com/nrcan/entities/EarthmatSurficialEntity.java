@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class EarthmatSurficialEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationId;
 	private String earthMatLt;
 	private String earthMatNo;
@@ -44,6 +46,67 @@ public class EarthmatSurficialEntity {
 	private String notes;
 	private String interp;
 	private String interpConf;
+	
+	public EarthmatSurficialEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.earthMatLt = contentValues[3];
+		this.earthMatNo = contentValues[4];
+		this.earthMatId = contentValues[5];
+		this.lithGroup = contentValues[6];
+		this.lithType = contentValues[7];
+		this.lithDetail = contentValues[8];
+		this.mapUnit = contentValues[9];
+		this.sufform = contentValues[10];
+		this.unitNo = contentValues[11];
+		this.matrixMod = contentValues[12];
+		this.matrix = contentValues[13];
+		this.jointing = contentValues[14];
+		this.compaction = contentValues[15];
+		this.oxidation = contentValues[16];
+		this.h2oContent = contentValues[17];
+		this.fissilty = contentValues[18];
+		this.hclReact = contentValues[19];
+		this.clastModal = contentValues[20];
+		this.clastMin = contentValues[21];
+		this.clastMax = contentValues[22];
+		this.clastPct = contentValues[23];
+		this.clastForm = contentValues[24];
+		this.sorting = contentValues[25];
+		this.modalRnd = contentValues[26];
+		this.maxRound = contentValues[27];
+		this.minRound = contentValues[28];
+		this.thickType = contentValues[29];
+		this.thickMin = contentValues[30];
+		this.thickMax = contentValues[31];
+		this.colour = contentValues[32];
+		this.lwrContact = contentValues[33];
+		this.intContact = contentValues[34];
+		this.latContact = contentValues[35];
+		this.erraticTyp = contentValues[36];
+		this.erraticPer = contentValues[37];
+		this.landForm = contentValues[38];
+		this.primeStruc = contentValues[39];
+		this.scndStruc = contentValues[40];
+		this.wayUp = contentValues[41];
+		this.notes = contentValues[42];
+		this.interp = contentValues[43];
+		this.interpConf = contentValues[44];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId2(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationId() {
 		return stationId;
 	}

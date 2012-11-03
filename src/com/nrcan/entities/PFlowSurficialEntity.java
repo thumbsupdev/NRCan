@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
-public class PFlowSurficalEntity {
+public class PFlowSurficialEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationId;
 	private String earthMatId;
 	private String pFlowId;
@@ -16,6 +18,39 @@ public class PFlowSurficalEntity {
 	private String definition;
 	private String relation;
 	private String notes_1;
+	
+	public PFlowSurficialEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.earthMatId = contentValues[3];
+		this.pFlowId = contentValues[4];
+		this.pFlowNo = contentValues[5];
+		this.pfClass = contentValues[6];
+		this.pfFeature = contentValues[7];
+		this.pfSense = contentValues[8];
+		this.method = contentValues[9];
+		this.pfAzimuth = contentValues[10];
+		this.notes = contentValues[11];
+		this.relage = contentValues[12];
+		this.numIndic = contentValues[13];
+		this.definition = contentValues[14];
+		this.relation = contentValues[15];
+		this.notes_1 = contentValues[16];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationId() {
 		return stationId;
 	}

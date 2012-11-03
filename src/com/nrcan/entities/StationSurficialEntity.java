@@ -30,6 +30,37 @@ public class StationSurficialEntity {
 	private String partner;
 	private String metaId;
 	
+	public StationSurficialEntity (String[] contentValues) {
+		this.nrcanId2 = Integer.parseInt(contentValues[0]);
+		this.nrcanId1 = Integer.parseInt(contentValues[1]);
+		this.id = contentValues[2];
+		this.stationId = contentValues[3];
+		this.travNo = contentValues[4];
+		this.visitDate = contentValues[5];
+		this.visitTime = contentValues[6];
+		this.latitude = contentValues[7];
+		this.longitude = contentValues[8];
+		this.easting = contentValues[9];
+		this.northing = contentValues[10];
+		this.datumZone = contentValues[11];
+		this.elevation = contentValues[12];
+		this.elevMethod = contentValues[13];
+		this.entryType = contentValues[14];
+		this.pDop = contentValues[15];
+		this.satsUsed = contentValues[16];
+		this.obsType = contentValues[17];
+		this.ocQuality = contentValues[18];
+		this.physEnv = contentValues[19];
+		this.ocSize = contentValues[20];
+		this.notes = contentValues[21];
+		this.slsNotes = contentValues[22];
+		this.airPhoto = contentValues[23];
+		this.mapSheet = contentValues[24];
+		this.legendVal = contentValues[25];
+		this.partner = contentValues[26];
+		this.metaId = contentValues[27];
+    }
+	
 	public int getNrcanId2() {
 		return nrcanId2;
 	}

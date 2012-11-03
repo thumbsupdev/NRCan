@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class StructureEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationId;
 	private String earthMatID;
 	private String structId;
@@ -23,6 +25,44 @@ public class StructureEntity {
 	private String symang;
 	private String notes;
 	
+	public StructureEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.earthMatID = contentValues[3];
+		this.structId = contentValues[4];
+		this.structNo = contentValues[5];
+		this.strucClass = contentValues[6];
+		this.strucType = contentValues[7];
+		this.detail = contentValues[8];
+		this.method = contentValues[9];
+		this.format = contentValues[10];
+		this.attitude = contentValues[11];
+		this.younging = contentValues[12];
+		this.generation = contentValues[13];
+		this.strain = contentValues[14];
+		this.flattening = contentValues[15];
+		this.related = contentValues[16];
+		this.fabric = contentValues[17];
+		this.sense = contentValues[18];
+		this.azimuth = contentValues[19];
+		this.dipplunge = contentValues[20];
+		this.symang = contentValues[21];
+		this.notes = contentValues[22];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationId() {
 		return stationId;
 	}

@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class SampleSurficialEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationId;
 	private String earthMatId;
 	private String sampleId;
@@ -16,6 +18,39 @@ public class SampleSurficialEntity {
 	private String state;
 	private String duplicate;
 	private String notes;
+	
+	public SampleSurficialEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.earthMatId = contentValues[3];
+		this.sampleId = contentValues[4];
+		this.sampleNo = contentValues[5];
+		this.sampleType = contentValues[6];
+		this.purpose = contentValues[7];
+		this.format = contentValues[8];
+		this.sampleDep = contentValues[9];
+		this.azimuth = contentValues[10];
+		this.dipplunge = contentValues[11];
+		this.surface = contentValues[12];
+		this.horizon = contentValues[13];
+		this.state = contentValues[14];
+		this.duplicate = contentValues[15];
+		this.notes = contentValues[16];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationId() {
 		return stationId;
 	}

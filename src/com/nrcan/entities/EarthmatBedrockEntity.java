@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class EarthmatBedrockEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationID;
 	private String earthmatLT;
 	private String earthmatNo;
@@ -30,6 +32,51 @@ public class EarthmatBedrockEntity {
 	private String interp;
 	private String interpConf;
 	
+	public EarthmatBedrockEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationID = contentValues[2];
+		this.earthmatLT = contentValues[3];
+		this.earthmatNo = contentValues[4];
+		this.earthmatID = contentValues[5];
+		this.lithGroup = contentValues[6];
+		this.lithType = contentValues[7];
+		this.lithDetail = contentValues[8];
+		this.mapUnit = contentValues[9];
+		this.occurAs = contentValues[10];
+		this.modStruc = contentValues[11];
+		this.modTexture = contentValues[12];
+		this.modComp = contentValues[13];
+		this.grcrySize = contentValues[14];
+		this.defFabric = contentValues[15];
+		this.bedThick = contentValues[16];
+		this.mineral = contentValues[17];
+		this.minNote = contentValues[18];
+		this.colourF = contentValues[19];
+		this.colourW = contentValues[20];
+		this.colourInd = contentValues[21];
+		this.magSuscept = contentValues[22];
+		this.fossils = contentValues[23];
+		this.fossilNote = contentValues[24];
+		this.contact = contentValues[25];
+		this.contactUp = contentValues[26];
+		this.contactLow = contentValues[27];
+		this.interp = contentValues[28];
+		this.interpConf = contentValues[29];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId2(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationID() {
 		return stationID;
 	}

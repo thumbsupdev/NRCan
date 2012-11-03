@@ -28,7 +28,31 @@ public class StationBedrockEntity {
 	private String metaId;
 	
 	public StationBedrockEntity (String[] contentValues) {
-		
+		this.nrcanId2 = Integer.parseInt(contentValues[0]);
+		this.nrcanId1 = Integer.parseInt(contentValues[1]);
+		this.id = contentValues[2];
+		this.stationId = contentValues[3];
+		this.travNo = contentValues[4];
+		this.visitDate = contentValues[5];
+		this.visitTime = contentValues[6];
+		this.latitude = contentValues[7];
+		this.longitude = contentValues[8];
+		this.easting = contentValues[9];
+		this.northing = contentValues[10];
+		this.datumZone = contentValues[11];
+		this.elevation = contentValues[12];
+		this.elevMethod = contentValues[13];
+		this.entryType = contentValues[14];
+		this.pDop = contentValues[15];
+		this.satsUsed = contentValues[16];
+		this.obsType = contentValues[17];
+		this.physEnv = contentValues[18];
+		this.ocSize = contentValues[19];
+		this.notes = contentValues[20];
+		this.slsNotes = contentValues[21];
+		this.airPhoto = contentValues[22];
+		this.partner = contentValues[23];
+		this.metaId = contentValues[24];
     }
 	
 	public int getNrcanId2() {

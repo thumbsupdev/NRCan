@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class EnvironSurficialEntity {
+	private int nrcanId3;
+	private int nrcanId2;
 	private String stationId;
 	private String drainage;
 	private String slope;
@@ -21,6 +23,44 @@ public class EnvironSurficialEntity {
 	private String patternGrn;
 	private String patArea;
 	private String notes;
+	
+	public EnvironSurficialEntity (String[] contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues[0]);
+		this.nrcanId2 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.drainage = contentValues[3];
+		this.slope = contentValues[4];
+		this.aspect = contentValues[5];
+		this.pfPresent = contentValues[6];
+		this.pfIndic = contentValues[7];
+		this.pfDepth = contentValues[8];
+		this.gossanPres = contentValues[9];
+		this.gossanMat = contentValues[10];
+		this.bRock = contentValues[11];
+		this.exposure = contentValues[12];
+		this.vegetation = contentValues[13];
+		this.boulders = contentValues[14];
+		this.bouldFld = contentValues[15];
+		this.boFldTyp = contentValues[16];
+		this.grndCover = contentValues[17];
+		this.pcentCover = contentValues[18];
+		this.patternGrn = contentValues[19];
+		this.patArea = contentValues[20];
+		this.notes = contentValues[21];
+	}
+	
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
+	public int getNrcanId2() {
+		return nrcanId2;
+	}
+	public void setNrcanId2(int nrcanId2) {
+		this.nrcanId2 = nrcanId2;
+	}
 	public String getStationId() {
 		return stationId;
 	}

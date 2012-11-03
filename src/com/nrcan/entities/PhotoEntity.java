@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class PhotoEntity {
+	private int nrcanId3;
+	private int nrcanId2;
 	private String stationId;
 	private String photoId;
 	private String photoNo;
@@ -10,6 +12,33 @@ public class PhotoEntity {
 	private String direction;
 	private String caption;
 	private String linkId;
+	
+	public PhotoEntity (String[] contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues[0]);
+		this.nrcanId2 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.photoId = contentValues[3];
+		this.photoNo = contentValues[4];
+		this.category = contentValues[5];
+		this.fileNo = contentValues[6];
+		this.fileName = contentValues[7];
+		this.direction = contentValues[8];
+		this.caption = contentValues[9];
+		this.linkId = contentValues[10];
+	}
+	
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
+	public int getNrcanId2() {
+		return nrcanId2;
+	}
+	public void setNrcanId2(int nrcanId2) {
+		this.nrcanId2 = nrcanId2;
+	}
 	public String getStationId() {
 		return stationId;
 	}

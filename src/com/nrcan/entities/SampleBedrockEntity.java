@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class SampleBedrockEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationId;
 	private String earthMatId;
 	private String sampleNo;
@@ -12,6 +14,33 @@ public class SampleBedrockEntity {
 	private String surface;
 	private String notes;
 	
+	public SampleBedrockEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationId = contentValues[2];
+		this.earthMatId = contentValues[3];
+		this.sampleNo = contentValues[4];
+		this.sampleType = contentValues[5];
+		this.purpose = contentValues[6];
+		this.format = contentValues[7];
+		this.azimuth = contentValues[8];
+		this.dipplunge = contentValues[9];
+		this.surface = contentValues[10];
+		this.notes = contentValues[11];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationId() {
 		return stationId;
 	}

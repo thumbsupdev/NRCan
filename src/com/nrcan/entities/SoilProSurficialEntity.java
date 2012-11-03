@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class SoilProSurficialEntity {
+	private int nrcanId3;
+	private int nrcanId2;
 	private String soilProId;
 	private String stationId;
 	private String o_hrz;
@@ -21,7 +23,46 @@ public class SoilProSurficialEntity {
 	private String cTop;
 	private String rTop;
 	private String notes;
-	private int id;
+	private String id;
+	
+	public SoilProSurficialEntity (String[] contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues[0]);
+		this.nrcanId2 = Integer.parseInt(contentValues[1]);
+		this.soilProId = contentValues[2];
+		this.stationId = contentValues[3];
+		this.o_hrz = contentValues[4];
+		this.a_hrz = contentValues[5];
+		this.b_hrz = contentValues[6];
+		this.c_hrz = contentValues[7];
+		this.r_hrz = contentValues[8];
+		this.l_f_h = contentValues[9];
+		this.oQualifier = contentValues[10];
+		this.aQualifier = contentValues[11];
+		this.bQualifier = contentValues[12];
+		this.cQualifier = contentValues[13];
+		this.rQualifier = contentValues[14];
+		this.l_f_HQuali = contentValues[15];
+		this.totThick = contentValues[16];
+		this.aTop = contentValues[17];
+		this.bTop = contentValues[18];
+		this.cTop = contentValues[19];
+		this.rTop = contentValues[20];
+		this.notes = contentValues[21];
+		this.id = contentValues[22];
+	}
+	
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
+	public int getNrcanId2() {
+		return nrcanId2;
+	}
+	public void setNrcanId2(int nrcanId2) {
+		this.nrcanId2 = nrcanId2;
+	}
 	public String getSoilProId() {
 		return soilProId;
 	}
@@ -142,10 +183,10 @@ public class SoilProSurficialEntity {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	

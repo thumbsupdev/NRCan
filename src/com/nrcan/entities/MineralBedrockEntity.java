@@ -1,6 +1,8 @@
 package com.nrcan.entities;
 
 public class MineralBedrockEntity {
+	private int nrcanId4;
+	private int nrcanId3;
 	private String stationID;
 	private String earthmatID;
 	private String mineralID;
@@ -13,6 +15,38 @@ public class MineralBedrockEntity {
 	private String sizeMinmm;
 	private String SizeMaxmm;
 	private String mode;
+	private String notes;
+	
+	public MineralBedrockEntity (String[] contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues[0]);
+		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.stationID = contentValues[2];
+		this.earthmatID = contentValues[3];
+		this.mineralID = contentValues[4];
+		this.mineralNo = contentValues[5];
+		this.mineral = contentValues[6];
+		this.form = contentValues[7];
+		this.habit = contentValues[8];
+		this.occurrence = contentValues[9];
+		this.colour = contentValues[10];
+		this.sizeMinmm = contentValues[11];
+		this.SizeMaxmm = contentValues[12];
+		this.mode = contentValues[13];
+		this.notes = contentValues[14];
+	}
+	
+	public int getNrcanId4() {
+		return nrcanId4;
+	}
+	public void setNrcanId4(int nrcanId4) {
+		this.nrcanId4 = nrcanId4;
+	}
+	public int getNrcanId3() {
+		return nrcanId3;
+	}
+	public void setNrcanId3(int nrcanId3) {
+		this.nrcanId3 = nrcanId3;
+	}
 	public String getStationID() {
 		return stationID;
 	}
@@ -91,6 +125,4 @@ public class MineralBedrockEntity {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	private String notes;
-
 }
