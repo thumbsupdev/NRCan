@@ -6,7 +6,6 @@ import com.nrcan.entities.MetadataEntity;
 import com.nrcan.values.PreparedStatements;
 
 public class MetadataModel {
-
 	private DatabaseHandler dbHandler;
 	private MetadataEntity metadata;
 
@@ -26,38 +25,36 @@ public class MetadataModel {
 	private static final String METADATA_STNSTARTNO = "stnstartno";
 	private static final String METADATA_METAID = "metaid";
 
-	private static final String PROJECT_TABLE_CREATE = 
-			"CREATE TABLE IF NOT EXISTS " + METADATA_TABLE_NAME + " (" +
-					METADATA_NRCANID1 + " INTEGER PRIMARY KEY autoincrement," +
-					METADATA_PROJECT_NAME + " TEXT," +
-					METADATA_PROJECT_CODE + " TEXT," +
-					METADATA_PROJECT_LEAD + " TEXT," +
-					METADATA_PROJECT_TYPE + " TEXT," +
-					METADATA_GEOLCODE + " TEXT," +
-					METADATA_GEOLOGIST + " TEXT," +
-					METADATA_MAPPATH + " TEXT," +
-					METADATA_PRJ_NAME + " TEXT," +
-					METADATA_PRJ_TYPE + " TEXT," +
-					METADATA_PRJ_DATUM + " TEXT," +
-					METADATA_DIGCAMERA + " TEXT," +
-					METADATA_STNSTARTNO + " TEXT," +
-					METADATA_METAID + " TEXT" +
-					");";
+	private static final String PROJECT_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + METADATA_TABLE_NAME + " (" +
+			METADATA_NRCANID1 + " INTEGER PRIMARY KEY autoincrement," +
+			METADATA_PROJECT_NAME + " TEXT," +
+			METADATA_PROJECT_CODE + " TEXT," +
+			METADATA_PROJECT_LEAD + " TEXT," +
+			METADATA_PROJECT_TYPE + " TEXT," +
+			METADATA_GEOLCODE + " TEXT," +
+			METADATA_GEOLOGIST + " TEXT," +
+			METADATA_MAPPATH + " TEXT," +
+			METADATA_PRJ_NAME + " TEXT," +
+			METADATA_PRJ_TYPE + " TEXT," +
+			METADATA_PRJ_DATUM + " TEXT," +
+			METADATA_DIGCAMERA + " TEXT," +
+			METADATA_STNSTARTNO + " TEXT," +
+			METADATA_METAID + " TEXT" +
+			");";
 
 	public MetadataModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
 		this.metadata = new MetadataEntity();
 	}
 
-    public void readRow() {
-    	String[] tmp = new String[] { METADATA_TABLE_NAME, METADATA_NRCANID1, String.valueOf(metadata.getNrcanId1()) };
-        dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
-        
-        metadata.setEntity(dbHandler.getSplitRow(0));
-    }
+	public void readRow() {
+		String[] tmp = new String[] { METADATA_TABLE_NAME, METADATA_NRCANID1, String.valueOf(metadata.getNrcanId1()) };
+		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+
+		metadata.setEntity(dbHandler.getSplitRow(0));
+	}
 
 	public void insertRow() {
-
 		ContentValues values = new ContentValues();
 		values.put(METADATA_PROJECT_NAME, " ");
 		values.put(METADATA_PROJECT_CODE, " ");
@@ -81,7 +78,6 @@ public class MetadataModel {
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
 		values.put(METADATA_PROJECT_NAME, metadata.getPrjct_name());
 		values.put(METADATA_PROJECT_CODE, metadata.getPrjct_code());
@@ -96,15 +92,15 @@ public class MetadataModel {
 		values.put(METADATA_DIGCAMERA, metadata.getDigcamera());
 		values.put(METADATA_METAID, metadata.getMetaid());
 		values.put(METADATA_STNSTARTNO, metadata.getStnstartno());
-		
+
 		String whereClause = METADATA_NRCANID1 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(metadata.getNrcanId1())
-				};
-		
+		};
+
 		dbHandler.updateRow(METADATA_TABLE_NAME, values, whereClause, whereArgs);
 	}
-	
+
 	public MetadataEntity getEntity() {
 		return metadata;
 	}

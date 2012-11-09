@@ -38,10 +38,10 @@ public class SampleSurficialModel {
 	private static final String SAMPLESURFICIAL_NOTES = "notes";
 
 	private static final String SAMPLESURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS sampleSurficial (" +
-				"md_id INTEGER PRIMARY KEY autoincrement, " +
+				"md_id " +
 				"md_prj_name TEXT, " +
-				"nrcanId4 TEXT, " +
-				"nrcanId3 TEXT, " +
+				"nrcanId4 INTEGER PRIMARY KEY autoincrement, " +
+				"nrcanId3 INTERGER, " +
 				"stationId TEXT, " +
 				"earthMatId TEXT, " +
 				"sampleId TEXT, " +
@@ -64,61 +64,20 @@ public class SampleSurficialModel {
         this.dbHandler = dbHandler;
 	}
 
-    public SampleSurficialEntity readRow() {
+    public void readRow() {
+    	String[] tmp = new String[] { SAMPLESURFICIAL_TABLE_NAME,
+				SAMPLESURFICIAL_NRCANID4,
+				String.valueOf(sampleSurficial.getNrcanId4()) };
+		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, new String[] { SAMPLESURFICIAL_TABLE_NAME, KEY_SAMPLESURFICIAL_ID, String.valueOf(sampleSurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return new SampleSurficialEntity(dbHandler.getSplitRow(0));
+		sampleSurficial.setEntity(dbHandler.getSplitRow(0));
+       
     }
 
-    public ArrayList<SampleSurficialEntity> readRows() {
+   
+    public void insertRow() {
 
-        SQLiteDatabase database = dbHandler.getDatabase();
-        
-        database.beginTransaction();
-
-        try {
-
-            dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { SAMPLESURFICIAL_TABLE_NAME });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        ArrayList<SampleSurficialEntity> entities = new ArrayList<SampleSurficialEntity>();
-
-        int length = dbHandler.getList().size();
-        
-        for(int i = 0; i < length; i++) {
-            entities.add(new SampleSurficialEntity(dbHandler.getSplitRow(i)));   
-        }
-        
-        return entities;
-    }
-
-    // Returns: the row ID of the newly inserted row or -1 on error.
-    // Process (only run when save is pressed):
-        // 1. Insert blank row
-        // 2. read the new blank row to get id
-        // 3. set the id in the entity
-    public long insertRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
+      
 
             ContentValues values = new ContentValues();
         	values.put(SAMPLESURFICIAL_NRCANID4, " ");
@@ -139,26 +98,17 @@ public class SampleSurficialModel {
         	values.put(SAMPLESURFICIAL_DUPLICATE, " ");
         	values.put(SAMPLESURFICIAL_NOTES, " ");
 
-            long rowID = database.insert(SAMPLESURFICIAL_TABLE_NAME, null, values);
-            sampleSurficial.setID(String.valueOf(rowID));
+        	long rowID = dbHandler.insertRow(SAMPLESURFICIAL_TABLE_NAME, null,
+    				values);
 
-            rowsAffected = updateRow();
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+    		sampleSurficial.setNrcanId4((int) rowID);
 
-        return rowsAffected;
+    		updateRow();
     }
 
-    public int updateRow() {
+    public void updateRow() {
 
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
+       
 
             ContentValues values = new ContentValues();
             values.put(SAMPLESURFICIAL_NRCANID4, sampleSurficial.getNrcanId4());
@@ -178,43 +128,22 @@ public class SampleSurficialModel {
         	values.put(SAMPLESURFICIAL_STATE, sampleSurficial.getState());
         	values.put(SAMPLESURFICIAL_DUPLICATE, sampleSurficial.getDuplicate());
         	values.put(SAMPLESURFICIAL_NOTES, sampleSurficial.getNotes());
+        	String whereClause = SAMPLESURFICIAL_NRCANID4 + " = ?";
+    		String[] whereArgs = new String[] { String.valueOf(sampleSurficial
+    				.getNrcanId4()) };
 
-            rowsAffected = database.update(SAMPLESURFICIAL_TABLE_NAME, values, KEY_SAMPLESURFICIAL_ID + "=?",
-                    new String[] { String.valueOf(sampleSurficial.getID()) });
+    		dbHandler.updateRow(SAMPLESURFICIAL_TABLE_NAME, values, whereClause,
+    				whereArgs);
 
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
+           
     }
 
-    public int deleteRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-            rowsAffected = database.delete(SAMPLESURFICIAL_TABLE_NAME, KEY_SAMPLESURFICIAL_ID + "=?",
-                    new String[] { String.valueOf(sampleSurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
 
     public SampleSurficialEntity getEntity() {
         return sampleSurficial;
     }
 
-    public void setEntity(String[] sampleSurficial) {
-        this.sampleSurficial = new SampleSurficialEntity(sampleSurficial);
-    }
+ 
 
     public static String getCreateTableStatement() {
         return SAMPLESURFICIAL_TABLE_CREATE;

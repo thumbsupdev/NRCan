@@ -15,11 +15,11 @@ public class StationSurficialModel {
 
 	private DatabaseHandler dbHandler;
 	private final Context context;
-    private StationSurficialEntity stationSurficial;
+	private StationSurficialEntity stationSurficial;
 
-    // Table column keys
+	// Table column keys
 	private static final String STATIONSURFICIAL_TABLE_NAME = "stationSurficial";
-	private static final String STATIONSURFICIAL_NRCANID2 =  "nrcanId2";
+	private static final String STATIONSURFICIAL_NRCANID2 = "nrcanId2";
 	private static final String STATIONSURFICIAL_NRCANID1 = "nrcanId1";
 	private static final String STATIONSURFICIAL_ID = "id";
 	private static final String STATIONSURFICIAL_STATIONID = "stationId";
@@ -48,218 +48,144 @@ public class StationSurficialModel {
 	private static final String STATIONSURFICIAL_PARTNER = "partner";
 	private static final String STATIONSURFICIAL_METAID = "metaId";
 
-	private static final String STATIONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS stationSurficial (" +
-				"md_id INTEGER PRIMARY KEY autoincrement, " +
-				"nrcanId2 TEXT, " +
-				"nrcanId1 TEXT, " +
-				"id TEXT, " +
-				"stationId TEXT, " +
-				"travNo TEXT, " +
-				"visitDate TEXT, " +
-				"visitTime TEXT, " +
-				"latitude TEXT, " +
-				"longitude TEXT, " +
-				"easting TEXT, " +
-				"northing TEXT, " +
-				"datumZone TEXT, " +
-				"elevation TEXT, " +
-				"elevMethod TEXT, " +
-				"entryType TEXT, " +
-				"pDop TEXT, " +
-				"satsUsed TEXT, " +
-				"obsType TEXT, " +
-				"ocQuality TEXT, " +
-				"physEnv TEXT, " +
-				"ocSize TEXT, " +
-				"notes TEXT, " +
-				"slsNotes TEXT, " +
-				"airPhoto TEXT, " +
-				"mapSheet TEXT, " +
-				"legendVal TEXT, " +
-				"partner TEXT, " +
-				"metaId TEXT, " +
-				");";
+	private static final String STATIONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS stationSurficial ("
+			+ "nrcanId2 INTEGER PRIMARY KEY autoincrement, "
+			+ "nrcanId1 INTEGER, "
+			+ "id TEXT, "
+			+ "stationId TEXT, "
+			+ "travNo TEXT, "
+			+ "visitDate TEXT, "
+			+ "visitTime TEXT, "
+			+ "latitude TEXT, "
+			+ "longitude TEXT, "
+			+ "easting TEXT, "
+			+ "northing TEXT, "
+			+ "datumZone TEXT, "
+			+ "elevation TEXT, "
+			+ "elevMethod TEXT, "
+			+ "entryType TEXT, "
+			+ "pDop TEXT, "
+			+ "satsUsed TEXT, "
+			+ "obsType TEXT, "
+			+ "ocQuality TEXT, "
+			+ "physEnv TEXT, "
+			+ "ocSize TEXT, "
+			+ "notes TEXT, "
+			+ "slsNotes TEXT, "
+			+ "airPhoto TEXT, "
+			+ "mapSheet TEXT, "
+			+ "legendVal TEXT, " + "partner TEXT, " + "metaId TEXT, " + ");";
 
 	public StationSurficialModel(Context context, DatabaseHandler dbHandler) {
 		this.context = context;
-        this.dbHandler = dbHandler;
+		this.dbHandler = dbHandler;
 	}
 
-    public StationSurficialEntity readRow() {
+	public void readRow() {
 
-        SQLiteDatabase database = dbHandler.getDatabase();
+		String[] tmp = new String[] { STATIONSURFICIAL_TABLE_NAME,
+				STATIONSURFICIAL_NRCANID2,
+				String.valueOf(stationSurficial.getNrcanId1()) };
+		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
-        database.beginTransaction();
+		stationSurficial.setEntity(dbHandler.getSplitRow(0));
+	}
 
-        try {
+	// Returns: the row ID of the newly inserted row or -1 on error.
+	// Process (only run when save is pressed):
+	// 1. Insert blank row
+	// 2. read the new blank row to get id
+	// 3. set the id in the entity
+	public void insertRow() {
 
-            dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, new String[] { STATIONSURFICIAL_TABLE_NAME, KEY_METADATA_ID, String.valueOf(stationSurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+		ContentValues values = new ContentValues();
+		values.put(STATIONSURFICIAL_NRCANID2, " ");
+		values.put(STATIONSURFICIAL_NRCANID1, " ");
+		values.put(STATIONSURFICIAL_ID, " ");
+		values.put(STATIONSURFICIAL_STATIONID, " ");
+		values.put(STATIONSURFICIAL_TRAVNO, " ");
+		values.put(STATIONSURFICIAL_VISITDATE, " ");
+		values.put(STATIONSURFICIAL_VISITTIME, " ");
+		values.put(STATIONSURFICIAL_LATITUDE, " ");
+		values.put(STATIONSURFICIAL_LONGITUDE, " ");
+		values.put(STATIONSURFICIAL_EASTING, " ");
+		values.put(STATIONSURFICIAL_NORTHING, " ");
+		values.put(STATIONSURFICIAL_DATUMZONE, " ");
+		values.put(STATIONSURFICIAL_ELEVATION, " ");
+		values.put(STATIONSURFICIAL_ELEVMETHOD, " ");
+		values.put(STATIONSURFICIAL_ENTRYTYPE, " ");
+		values.put(STATIONSURFICIAL_PDOP, " ");
+		values.put(STATIONSURFICIAL_SATSUSED, " ");
+		values.put(STATIONSURFICIAL_OBSTYPE, " ");
+		values.put(STATIONSURFICIAL_OCQUALITY, " ");
+		values.put(STATIONSURFICIAL_PHYSENV, " ");
+		values.put(STATIONSURFICIAL_OCSIZE, " ");
+		values.put(STATIONSURFICIAL_NOTES, " ");
+		values.put(STATIONSURFICIAL_SLSNOTES, " ");
+		values.put(STATIONSURFICIAL_AIRPHOTO, " ");
+		values.put(STATIONSURFICIAL_MAPSHEET, " ");
+		values.put(STATIONSURFICIAL_LEGENDVAL, " ");
+		values.put(STATIONSURFICIAL_PARTNER, " ");
+		values.put(STATIONSURFICIAL_METAID, " ");
 
-        return new StationSurficialEntity(dbHandler.getSplitRow(0));
-    }
+		long rowID = dbHandler.insertRow(STATIONSURFICIAL_TABLE_NAME, null,
+				values);
 
-    public ArrayList<StationSurficialEntity> readRows() {
+		stationSurficial.setNrcanId2((int) rowID);
 
-        SQLiteDatabase database = dbHandler.getDatabase();
-        
-        database.beginTransaction();
+		updateRow();
 
-        try {
+	}
 
-            dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { STATIONSURFICIAL_TABLE_NAME });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+	public void updateRow() {
 
-        ArrayList<StationSurficialEntity> entities = new ArrayList<StationSurficialEntity>();
+		ContentValues values = new ContentValues();
+		values.put(STATIONSURFICIAL_NRCANID2, stationSurficial.getNrcanId2());
+		values.put(STATIONSURFICIAL_NRCANID1, stationSurficial.getNrcanId1());
+		values.put(STATIONSURFICIAL_ID, stationSurficial.getId());
+		values.put(STATIONSURFICIAL_STATIONID, stationSurficial.getStationId());
+		values.put(STATIONSURFICIAL_TRAVNO, stationSurficial.getTravNo());
+		values.put(STATIONSURFICIAL_VISITDATE, stationSurficial.getVisitDate());
+		values.put(STATIONSURFICIAL_VISITTIME, stationSurficial.getVisitTime());
+		values.put(STATIONSURFICIAL_LATITUDE, stationSurficial.getLatitude());
+		values.put(STATIONSURFICIAL_LONGITUDE, stationSurficial.getLongitude());
+		values.put(STATIONSURFICIAL_EASTING, stationSurficial.getEasting());
+		values.put(STATIONSURFICIAL_NORTHING, stationSurficial.getNorthing());
+		values.put(STATIONSURFICIAL_DATUMZONE, stationSurficial.getDatumZone());
+		values.put(STATIONSURFICIAL_ELEVATION, stationSurficial.getElevation());
+		values.put(STATIONSURFICIAL_ELEVMETHOD,
+				stationSurficial.getElevMethod());
+		values.put(STATIONSURFICIAL_ENTRYTYPE, stationSurficial.getEntryType());
+		values.put(STATIONSURFICIAL_PDOP, stationSurficial.getpDop());
+		values.put(STATIONSURFICIAL_SATSUSED, stationSurficial.getSatsUsed());
+		values.put(STATIONSURFICIAL_OBSTYPE, stationSurficial.getObsType());
+		values.put(STATIONSURFICIAL_OCQUALITY, stationSurficial.getOcQuality());
+		values.put(STATIONSURFICIAL_PHYSENV, stationSurficial.getPhysEnv());
+		values.put(STATIONSURFICIAL_OCSIZE, stationSurficial.getOcSize());
+		values.put(STATIONSURFICIAL_NOTES, stationSurficial.getNotes());
+		values.put(STATIONSURFICIAL_SLSNOTES, stationSurficial.getSlsNotes());
+		values.put(STATIONSURFICIAL_AIRPHOTO, stationSurficial.getAirPhoto());
+		values.put(STATIONSURFICIAL_MAPSHEET, stationSurficial.getMapSheet());
+		values.put(STATIONSURFICIAL_LEGENDVAL, stationSurficial.getLegendVal());
+		values.put(STATIONSURFICIAL_PARTNER, stationSurficial.getPartner());
+		values.put(STATIONSURFICIAL_METAID, stationSurficial.getMetaId());
+		
+		String whereClause = STATIONSURFICIAL_NRCANID2 + " = ?";
+		String[] whereArgs = new String[] {
+				String.valueOf(stationSurficial.getNrcanId2())
+				};
+		
+		dbHandler.updateRow(STATIONSURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
 
-        int length = dbHandler.getList().size();
-        
-        for(int i = 0; i < length; i++) {
-            entities.add(new StationSurficialEntity(dbHandler.getSplitRow(i)));   
-        }
-        
-        return entities;
-    }
+	}
 
-    // Returns: the row ID of the newly inserted row or -1 on error.
-    // Process (only run when save is pressed):
-        // 1. Insert blank row
-        // 2. read the new blank row to get id
-        // 3. set the id in the entity
-    public long insertRow() {
+	public StationSurficialEntity getEntity() {
+		return stationSurficial;
+	}
 
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
+	
 
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-        	values.put(STATIONSURFICIAL_NRCANID2, " ");
-        	values.put(STATIONSURFICIAL_NRCANID1, " ");
-        	values.put(STATIONSURFICIAL_ID, " ");
-        	values.put(STATIONSURFICIAL_STATIONID, " ");
-        	values.put(STATIONSURFICIAL_TRAVNO, " ");
-        	values.put(STATIONSURFICIAL_VISITDATE, " ");
-        	values.put(STATIONSURFICIAL_VISITTIME, " ");
-        	values.put(STATIONSURFICIAL_LATITUDE, " ");
-        	values.put(STATIONSURFICIAL_LONGITUDE, " ");
-        	values.put(STATIONSURFICIAL_EASTING, " ");
-        	values.put(STATIONSURFICIAL_NORTHING, " ");
-        	values.put(STATIONSURFICIAL_DATUMZONE, " ");
-        	values.put(STATIONSURFICIAL_ELEVATION, " ");
-        	values.put(STATIONSURFICIAL_ELEVMETHOD, " ");
-        	values.put(STATIONSURFICIAL_ENTRYTYPE, " ");
-        	values.put(STATIONSURFICIAL_PDOP, " ");
-        	values.put(STATIONSURFICIAL_SATSUSED, " ");
-        	values.put(STATIONSURFICIAL_OBSTYPE, " ");
-        	values.put(STATIONSURFICIAL_OCQUALITY, " ");
-        	values.put(STATIONSURFICIAL_PHYSENV, " ");
-        	values.put(STATIONSURFICIAL_OCSIZE, " ");
-        	values.put(STATIONSURFICIAL_NOTES, " ");
-        	values.put(STATIONSURFICIAL_SLSNOTES, " ");
-        	values.put(STATIONSURFICIAL_AIRPHOTO, " ");
-        	values.put(STATIONSURFICIAL_MAPSHEET, " ");
-        	values.put(STATIONSURFICIAL_LEGENDVAL, " ");
-        	values.put(STATIONSURFICIAL_PARTNER, " ");
-        	values.put(STATIONSURFICIAL_METAID, " ");
-
-            long rowID = database.insert(STATIONSURFICIAL_TABLE_NAME, null, values);
-            stationSurficial.setID(String.valueOf(rowID));
-
-            rowsAffected = updateRow();
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int updateRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-        	values.put(STATIONSURFICIAL_NRCANID2, stationSurficial.getNrcanId2());
-        	values.put(STATIONSURFICIAL_NRCANID1, stationSurficial.getNrcanId1());
-        	values.put(STATIONSURFICIAL_ID, stationSurficial.getId());
-        	values.put(STATIONSURFICIAL_STATIONID, stationSurficial.getStationId());
-        	values.put(STATIONSURFICIAL_TRAVNO, stationSurficial.getTravNo());
-        	values.put(STATIONSURFICIAL_VISITDATE, stationSurficial.getVisitDate());
-        	values.put(STATIONSURFICIAL_VISITTIME, stationSurficial.getVisitTime());
-        	values.put(STATIONSURFICIAL_LATITUDE, stationSurficial.getLatitude());
-        	values.put(STATIONSURFICIAL_LONGITUDE, stationSurficial.getLongitude());
-        	values.put(STATIONSURFICIAL_EASTING, stationSurficial.getEasting());
-        	values.put(STATIONSURFICIAL_NORTHING, stationSurficial.getNorthing());
-        	values.put(STATIONSURFICIAL_DATUMZONE, stationSurficial.getDatumZone());
-        	values.put(STATIONSURFICIAL_ELEVATION, stationSurficial.getElevation());
-        	values.put(STATIONSURFICIAL_ELEVMETHOD, stationSurficial.getElevMethod());
-        	values.put(STATIONSURFICIAL_ENTRYTYPE, stationSurficial.getEntryType());
-        	values.put(STATIONSURFICIAL_PDOP, stationSurficial.getpDop());
-        	values.put(STATIONSURFICIAL_SATSUSED, stationSurficial.getSatsUsed());
-        	values.put(STATIONSURFICIAL_OBSTYPE, stationSurficial.getObsType());
-        	values.put(STATIONSURFICIAL_OCQUALITY, stationSurficial.getOcQuality());
-        	values.put(STATIONSURFICIAL_PHYSENV, stationSurficial.getPhysEnv());
-        	values.put(STATIONSURFICIAL_OCSIZE, stationSurficial.getOcSize());
-        	values.put(STATIONSURFICIAL_NOTES, stationSurficial.getNotes());
-        	values.put(STATIONSURFICIAL_SLSNOTES, stationSurficial.getSlsNotes());
-        	values.put(STATIONSURFICIAL_AIRPHOTO, stationSurficial.getAirPhoto());
-        	values.put(STATIONSURFICIAL_MAPSHEET, stationSurficial.getMapSheet());
-        	values.put(STATIONSURFICIAL_LEGENDVAL, stationSurficial.getLegendVal());
-        	values.put(STATIONSURFICIAL_PARTNER, stationSurficial.getPartner());
-        	values.put(STATIONSURFICIAL_METAID, stationSurficial.getMetaId());
-            rowsAffected = database.update(STATIONSURFICIAL_TABLE_NAME, values, KEY_METADATA_ID + "=?",
-                    new String[] { String.valueOf(stationSurficial.getID()) });
-
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int deleteRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-            rowsAffected = database.delete(STATIONSURFICIAL_TABLE_NAME, KEY_METADATA_ID + "=?",
-                    new String[] { String.valueOf(stationSurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public StationSurficialEntity getEntity() {
-        return stationSurficial;
-    }
-
-    public void setEntity(String[] stationSurficial) {
-        this.stationSurficial = new StationSurficialEntity(stationSurficial);
-    }
-
-    public static String getCreateTableStatement() {
-        return STATIONSURFICIAL_TABLE_CREATE;
-    }
+	public static String getCreateTableStatement() {
+		return STATIONSURFICIAL_TABLE_CREATE;
+	}
 }
-

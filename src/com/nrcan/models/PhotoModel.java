@@ -1,23 +1,15 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.PhotoEntity;
-import android.util.Log;
-import java.util.ArrayList;
 
 public class PhotoModel {
-
 	private DatabaseHandler dbHandler;
-	private final Context context;
-    private PhotoEntity photo;
+	private PhotoEntity photo;
 
-    // Table column keys
+	// Table column keys
 	private static final String PHOTO_TABLE_NAME = "photo";
 	private static final String PHOTO_NRCANID3 = "nrcanId3";
 	private static final String PHOTO_NRCANID2 = "nrcanId2";
@@ -31,169 +23,81 @@ public class PhotoModel {
 	private static final String PHOTO_CAPTION = "caption";
 	private static final String PHOTO_LINKID = "linkId";
 
-	private static final String PHOTO_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS photo (" +
-				"md_id INTEGER PRIMARY KEY autoincrement, " +
-				"md_prj_name TEXT, " +
-				"nrcanId3 TEXT, " +
-				"nrcanId2 TEXT, " +
-				"stationId TEXT, " +
-				"photoId TEXT, " +
-				"photoNo TEXT, " +
-				"category TEXT, " +
-				"fileNo TEXT, " +
-				"fileName TEXT, " +
-				"direction TEXT, " +
-				"caption TEXT, " +
-				"linkId TEXT, " +
-				");";
+	private static final String PHOTO_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + PHOTO_TABLE_NAME + " (" +
+			PHOTO_NRCANID3 + " INTEGER PRIMARY KEY autoincrement," +
+			PHOTO_NRCANID2 + " INTEGER," +
+			PHOTO_STATIONID + " TEXT," +
+			PHOTO_PHOTOID + " TEXT," +
+			PHOTO_PHOTONO + " TEXT," +
+			PHOTO_CATEGORY + " TEXT," +
+			PHOTO_FILENO + " TEXT," +
+			PHOTO_FILENAME + " TEXT," +
+			PHOTO_DIRECTION + " TEXT," +
+			PHOTO_CAPTION + " TEXT," +
+			PHOTO_LINKID + " TEXT" +
+			");";
 
-	public PhotoModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
-        this.dbHandler = dbHandler;
+	public PhotoModel(DatabaseHandler dbHandler) {
+		this.dbHandler = dbHandler;
+		photo = new PhotoEntity();
 	}
 
-    public PhotoEntity readRow() {
+	public void readRow() {
 
-        SQLiteDatabase database = dbHandler.getDatabase();
+		String[] tmp = new String[] { PHOTO_TABLE_NAME, PHOTO_NRCANID3, String.valueOf(photo.getNrcanId3()) };
 
-        database.beginTransaction();
+		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		photo.setEntity(dbHandler.getSplitRow(0));
+	}
+	
+	public void insertRow() {
+		ContentValues values = new ContentValues();
+		//values.put(PHOTO_NRCANID3, " ");
+		values.put(PHOTO_NRCANID2, 0);
+		values.put(PHOTO_STATIONID, " ");
+		values.put(PHOTO_PHOTOID, " ");
+		values.put(PHOTO_PHOTONO, " ");
+		values.put(PHOTO_CATEGORY, " ");
+		values.put(PHOTO_FILENO, " ");
+		values.put(PHOTO_FILENAME, " ");
+		values.put(PHOTO_DIRECTION, " ");
+		values.put(PHOTO_CAPTION, " ");
+		values.put(PHOTO_LINKID, " ");
 
-        try {
+		long rowID = dbHandler.insertRow(PHOTO_TABLE_NAME, null, values);
 
-            dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, new String[] { PHOTO_TABLE_NAME, KEY_PHOTO_ID, String.valueOf(photo.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+		photo.setNrcanId3((int)rowID);
 
-        return new PhotoEntity(dbHandler.getSplitRow(0));
-    }
+		updateRow();
+	}
 
-    public ArrayList<PhotoEntity> readRows() {
+	public void updateRow() {
 
-        SQLiteDatabase database = dbHandler.getDatabase();
-        
-        database.beginTransaction();
+		ContentValues values = new ContentValues();
+		//values.put(PHOTO_NRCANID3, photo.getNrcanId3());
+		//values.put(PHOTO_NRCANID2, photo.getNrcanId2());
+		values.put(PHOTO_STATIONID, photo.getStationId());
+		values.put(PHOTO_PHOTOID, photo.getPhotoId());
+		values.put(PHOTO_PHOTONO, photo.getPhotoNo());
+		values.put(PHOTO_CATEGORY, photo.getCategory());
+		values.put(PHOTO_FILENO, photo.getFileNo());
+		values.put(PHOTO_FILENAME, photo.getFileName());
+		values.put(PHOTO_DIRECTION, photo.getDirection());
+		values.put(PHOTO_CAPTION, photo.getCaption());
+		values.put(PHOTO_LINKID, photo.getLinkId());
 
-        try {
+		String whereClause = PHOTO_NRCANID3 + " = ?";
+		String[] whereArgs = new String[] { String.valueOf(photo.getNrcanId3()) };
 
-            dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { PHOTO_TABLE_NAME });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+		dbHandler.updateRow(PHOTO_TABLE_NAME, values, whereClause, whereArgs);
+	}
 
-        ArrayList<PhotoEntity> entities = new ArrayList<PhotoEntity>();
+	public PhotoEntity getEntity() {
+		return photo;
+	}
 
-        int length = dbHandler.getList().size();
-        
-        for(int i = 0; i < length; i++) {
-            entities.add(new PhotoEntity(dbHandler.getSplitRow(i)));   
-        }
-        
-        return entities;
-    }
-
-    // Returns: the row ID of the newly inserted row or -1 on error.
-    // Process (only run when save is pressed):
-        // 1. Insert blank row
-        // 2. read the new blank row to get id
-        // 3. set the id in the entity
-    public long insertRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-        	values.put(PHOTO_NRCANID3, " ");
-        	values.put(PHOTO_NRCANID2, " ");
-        	values.put(PHOTO_STATIONID, " ");
-        	values.put(PHOTO_PHOTOID, " ");
-        	values.put(PHOTO_PHOTONO, " ");
-        	values.put(PHOTO_CATEGORY, " ");
-        	values.put(PHOTO_FILENO, " ");
-        	values.put(PHOTO_FILENAME, " ");
-        	values.put(PHOTO_DIRECTION, " ");
-        	values.put(PHOTO_CAPTION, " ");
-        	values.put(PHOTO_LINKID, " ");
-
-            long rowID = database.insert(PHOTO_TABLE_NAME, null, values);
-            photo.setID(String.valueOf(rowID));
-
-            rowsAffected = updateRow();
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int updateRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-            values.put(PHOTO_NRCANID3, photo.getNrcanId3());
-        	values.put(PHOTO_NRCANID2, photo.getNrcanId2());
-        	values.put(PHOTO_STATIONID, photo.getStationId());
-        	values.put(PHOTO_PHOTOID, photo.getPhotoId());
-        	values.put(PHOTO_PHOTONO, photo.getPhotoNo());
-        	values.put(PHOTO_CATEGORY, photo.getCategory());
-        	values.put(PHOTO_FILENO, photo.getFileNo());
-        	values.put(PHOTO_FILENAME, photo.getFileName());
-        	values.put(PHOTO_DIRECTION, photo.getDirection());
-        	values.put(PHOTO_CAPTION, photo.getCaption());
-        	values.put(PHOTO_LINKID, photo.getLinkId());
-
-            rowsAffected = database.update(PHOTO_TABLE_NAME, values, KEY_PHOTO_ID + "=?",
-                    new String[] { String.valueOf(photo.getID()) });
-
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int deleteRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-            rowsAffected = database.delete(PHOTO_TABLE_NAME, KEY_PHOTO_ID + "=?",
-                    new String[] { String.valueOf(photo.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public PhotoEntity getEntity() {
-        return photo;
-    }
-
-    public void setEntity(String[] photo) {
-        this.photo = new PhotoEntity(photo);
-    }
-
-    public static String getCreateTableStatement() {
-        return PHOTO_TABLE_CREATE;
-    }
+	public static String getCreateTableStatement() {
+		return PHOTO_TABLE_CREATE;
+	}
 }
 

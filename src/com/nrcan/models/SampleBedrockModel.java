@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
+import com.nrcan.entities.MetadataEntity;
 import com.nrcan.entities.SampleBedrockEntity;
 import android.util.Log;
 import java.util.ArrayList;
@@ -33,10 +34,8 @@ public class SampleBedrockModel {
 	private static final String SAMPLEBEDROCK_NOTES = "notes";
 
 	private static final String SAMPLEBEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS sampleBedrock (" +
-				"md_id INTEGER PRIMARY KEY autoincrement, " +
-				"md_prj_name TEXT, " +
-				"nrcanId4 TEXT, " +
-				"nrcanId3 TEXT, " +
+				"nrcanId4 INTEGER PRIMARY KEY autoincrement, " +
+				"nrcanId3 INTEGER, " +
 				"stationId TEXT, " +
 				"earthMatId TEXT, " +
 				"sampleNo TEXT, " +
@@ -54,150 +53,66 @@ public class SampleBedrockModel {
         this.dbHandler = dbHandler;
 	}
 
-    public SampleBedrockEntity readRow() {
-
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, new String[] { SAMPLEBEDROCK_TABLE_NAME, KEY_SAMPLEBEDROCK_ID, String.valueOf(sampleBedrock.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return new SampleBedrockEntity(dbHandler.getSplitRow(0));
-    }
-
-    public ArrayList<SampleBedrockEntity> readRows() {
-
-        SQLiteDatabase database = dbHandler.getDatabase();
+	public void readRow() {
+    	String[] tmp = new String[] { SAMPLEBEDROCK_TABLE_NAME, SAMPLEBEDROCK_NRCANID4, String.valueOf(sampleBedrock.getNrcanId4()) };
+        dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
         
-        database.beginTransaction();
-
-        try {
-
-            dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { SAMPLEBEDROCK_TABLE_NAME });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        ArrayList<SampleBedrockEntity> entities = new ArrayList<SampleBedrockEntity>();
-
-        int length = dbHandler.getList().size();
-        
-        for(int i = 0; i < length; i++) {
-            entities.add(new SampleBedrockEntity(dbHandler.getSplitRow(i)));   
-        }
-        
-        return entities;
+        sampleBedrock.setEntity(dbHandler.getSplitRow(0));
     }
 
-    // Returns: the row ID of the newly inserted row or -1 on error.
-    // Process (only run when save is pressed):
-        // 1. Insert blank row
-        // 2. read the new blank row to get id
-        // 3. set the id in the entity
-    public long insertRow() {
+    public void insertRow() {
+    	
+        ContentValues values = new ContentValues();
+        values.put(SAMPLEBEDROCK_NRCANID4, " ");
+    	values.put(SAMPLEBEDROCK_NRCANID3, " ");
+    	values.put(SAMPLEBEDROCK_STATIONID, " ");
+    	values.put(SAMPLEBEDROCK_EARTHMATID, " ");
+    	values.put(SAMPLEBEDROCK_SAMPLENO, " ");
+    	values.put(SAMPLEBEDROCK_SAMPLETYPE, " ");
+    	values.put(SAMPLEBEDROCK_PURPOSE, " ");
+    	values.put(SAMPLEBEDROCK_FORMAT, " ");
+    	values.put(SAMPLEBEDROCK_AZIMUTH, " ");
+    	values.put(SAMPLEBEDROCK_DIPPLUNGE, " ");
+    	values.put(SAMPLEBEDROCK_SURFACE, " ");
+    	values.put(SAMPLEBEDROCK_NOTES, " ");
 
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
+        	long rowID = dbHandler.insertRow(SAMPLEBEDROCK_TABLE_NAME, null, values);
 
-        database.beginTransaction();
+    		sampleBedrock.setNrcanId4((int)rowID);
 
-        try {
-
-            ContentValues values = new ContentValues();
-            values.put(SAMPLEBEDROCK_NRCANID4, " ");
-        	values.put(SAMPLEBEDROCK_NRCANID3, " ");
-        	values.put(SAMPLEBEDROCK_STATIONID, " ");
-        	values.put(SAMPLEBEDROCK_EARTHMATID, " ");
-        	values.put(SAMPLEBEDROCK_SAMPLENO, " ");
-        	values.put(SAMPLEBEDROCK_SAMPLETYPE, " ");
-        	values.put(SAMPLEBEDROCK_PURPOSE, " ");
-        	values.put(SAMPLEBEDROCK_FORMAT, " ");
-        	values.put(SAMPLEBEDROCK_AZIMUTH, " ");
-        	values.put(SAMPLEBEDROCK_DIPPLUNGE, " ");
-        	values.put(SAMPLEBEDROCK_SURFACE, " ");
-        	values.put(SAMPLEBEDROCK_NOTES, " ");
-
-            long rowID = database.insert(SAMPLEBEDROCK_TABLE_NAME, null, values);
-            sampleBedrock.setID(String.valueOf(rowID));
-
-            rowsAffected = updateRow();
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
+    		updateRow();
     }
 
-    public int updateRow() {
+    public void updateRow() {
 
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
+        ContentValues values = new ContentValues();
+        values.put(SAMPLEBEDROCK_NRCANID4, sampleBedrock.getNrcanId4());
+    	values.put(SAMPLEBEDROCK_NRCANID3, sampleBedrock.getNrcanId3());
+    	values.put(SAMPLEBEDROCK_STATIONID, sampleBedrock.getStationId());
+    	values.put(SAMPLEBEDROCK_EARTHMATID, sampleBedrock.getEarthMatId());
+    	values.put(SAMPLEBEDROCK_SAMPLENO, sampleBedrock.getSampleNo());
+    	values.put(SAMPLEBEDROCK_SAMPLETYPE, sampleBedrock.getSampleType());
+    	values.put(SAMPLEBEDROCK_PURPOSE, sampleBedrock.getPurpose());
+    	values.put(SAMPLEBEDROCK_FORMAT, sampleBedrock.getFormat());
+    	values.put(SAMPLEBEDROCK_AZIMUTH, sampleBedrock.getAzimuth());
+    	values.put(SAMPLEBEDROCK_DIPPLUNGE, sampleBedrock.getDipplunge());
+    	values.put(SAMPLEBEDROCK_SURFACE, sampleBedrock.getSurface());
+    	values.put(SAMPLEBEDROCK_NOTES, sampleBedrock.getNotes());
 
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-            values.put(SAMPLEBEDROCK_NRCANID4, sampleBedrock.getNrcanId4());
-        	values.put(SAMPLEBEDROCK_NRCANID3, sampleBedrock.getNrcanId3());
-        	values.put(SAMPLEBEDROCK_STATIONID, sampleBedrock.getStationId());
-        	values.put(SAMPLEBEDROCK_EARTHMATID, sampleBedrock.getEarthMatId());
-        	values.put(SAMPLEBEDROCK_SAMPLENO, sampleBedrock.getSampleNo());
-        	values.put(SAMPLEBEDROCK_SAMPLETYPE, sampleBedrock.getSampleType());
-        	values.put(SAMPLEBEDROCK_PURPOSE, sampleBedrock.getPurpose());
-        	values.put(SAMPLEBEDROCK_FORMAT, sampleBedrock.getFormat());
-        	values.put(SAMPLEBEDROCK_AZIMUTH, sampleBedrock.getAzimuth());
-        	values.put(SAMPLEBEDROCK_DIPPLUNGE, sampleBedrock.getDipplunge());
-        	values.put(SAMPLEBEDROCK_SURFACE, sampleBedrock.getSurface());
-        	values.put(SAMPLEBEDROCK_NOTES, sampleBedrock.getNotes());
-
-            rowsAffected = database.update(SAMPLEBEDROCK_TABLE_NAME, values, KEY_SAMPLEBEDROCK_ID + "=?",
-                    new String[] { String.valueOf(sampleBedrock.getID()) });
-
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int deleteRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-            rowsAffected = database.delete(SAMPLEBEDROCK_TABLE_NAME, KEY_SAMPLEBEDROCK_ID + "=?",
-                    new String[] { String.valueOf(sampleBedrock.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
+    	String whereClause = SAMPLEBEDROCK_NRCANID4 + " = ?";
+		String[] whereArgs = new String[] {
+				String.valueOf(sampleBedrock.getNrcanId4())
+				};
+		
+		dbHandler.updateRow(SAMPLEBEDROCK_TABLE_NAME, values, whereClause, whereArgs);
     }
 
     public SampleBedrockEntity getEntity() {
-        return sampleBedrock;
-    }
+		return sampleBedrock;
+	}
 
-    public void setEntity(String[] sampleBedrock) {
-        this.sampleBedrock = new SampleBedrockEntity(sampleBedrock);
-    }
-
-    public static String getCreateTableStatement() {
-        return SAMPLEBEDROCK_TABLE_CREATE;
-    }
+	public static String getCreateTableStatement() {
+		return SAMPLEBEDROCK_TABLE_CREATE;
+	}
 }
 

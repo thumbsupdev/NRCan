@@ -78,7 +78,7 @@ public class EarthmatBedrockEntity {
 	public int getNrcanId3() {
 		return nrcanId3;
 	}
-	public void setNrcanId2(int nrcanId3) {
+	public void setNrcanId3(int nrcanId3) {
 		this.nrcanId3 = nrcanId3;
 	}
 	public String getStationID() {

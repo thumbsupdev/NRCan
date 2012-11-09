@@ -1,7 +1,5 @@
 package com.nrcan.main;
 
-import java.util.ArrayList;
-
 import com.nrcan.controllers.*;
 import com.nrcan.models.*;
 
@@ -111,37 +109,169 @@ public class MainActivity extends ListActivity {
 			"STRUCTURE"
 	};
 	
-	private Flow f = new Flow();
+	private BackAction backAction = new BackAction();
 	
-	private Dataflow[] positions = new Dataflow[] {
-		new Dataflow() { public void run() { f.runPosition0(); } },
-		new Dataflow() { public void run() { f.runPosition1(); } },
-		new Dataflow() { public void run() { f.runPosition2(); } },
-		new Dataflow() { public void run() { f.runPosition3(); } },
-		new Dataflow() { public void run() { f.runPosition4(); } },
-		new Dataflow() { public void run() { f.runPosition5(); } },
-		new Dataflow() { public void run() { f.runPosition6(); } },
-		new Dataflow() { public void run() { f.runPosition7(); } },
-		new Dataflow() { public void run() { f.runPosition8(); } },
-		new Dataflow() { public void run() { f.runPosition9(); } },
-		new Dataflow() { public void run() { f.runPosition10(); } },
-		new Dataflow() { public void run() { f.runPosition11(); } },
-		new Dataflow() { public void run() { f.runPosition12(); } },
-		new Dataflow() { public void run() { f.runPosition13(); } },
-		new Dataflow() { public void run() { f.runPosition14(); } },
-		new Dataflow() { public void run() { f.runPosition15(); } },
-		new Dataflow() { public void run() { f.runPosition16(); } },
-		new Dataflow() { public void run() { f.runPosition17(); } },
-		new Dataflow() { public void run() { f.runPosition18(); } },
-		new Dataflow() { public void run() { f.runPosition19(); } },
-		new Dataflow() { public void run() { f.runPosition20(); } },
-		new Dataflow() { public void run() { f.runPosition21(); } },
-		new Dataflow() { public void run() { f.runPosition22(); } },
-		new Dataflow() { public void run() { f.runPosition23(); } },
-		new Dataflow() { public void run() { f.runPosition24(); } },
-		new Dataflow() { public void run() { f.runPosition25(); } },
-		new Dataflow() { public void run() { f.runPosition26(); } },
-		new Dataflow() { public void run() { f.runPosition27(); } }
+	private BackActionInterface[] backActions = new BackActionInterface[] {
+		new BackActionInterface() { public void runBack() { backAction.backAction0(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction1(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction2(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction3(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction4(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction5(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction6(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction7(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction8(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction9(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction10(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction11(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction12(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction13(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction14(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction15(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction16(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction17(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction18(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction19(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction20(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction21(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction22(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction23(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction24(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction25(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction26(); } },
+		new BackActionInterface() { public void runBack() { backAction.backAction27(); } },
+	};
+	
+	private SaveAction saveAction = new SaveAction();
+	
+	private SaveActionInterface[] saveActions = new SaveActionInterface[] {
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction0(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction1(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction2(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction3(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction4(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction5(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction6(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction7(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction8(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction9(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction10(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction11(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction12(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction13(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction14(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction15(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction16(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction17(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction18(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction19(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction20(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction21(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction22(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction23(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction24(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction25(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction26(); } },
+		new SaveActionInterface() { public void runSave() { saveAction.saveAction27(); } },
+	};
+	
+	private EditAction editAction = new EditAction();
+	
+	private EditActionInterface[] editActions = new EditActionInterface[] {
+		new EditActionInterface() { public void runEdit() { editAction.editAction0(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction1(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction2(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction3(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction4(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction5(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction6(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction7(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction8(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction9(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction10(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction11(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction12(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction13(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction14(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction15(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction16(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction17(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction18(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction19(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction20(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction21(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction22(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction23(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction24(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction25(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction26(); } },
+		new EditActionInterface() { public void runEdit() { editAction.editAction27(); } },
+	};
+	
+	private CellAction cellAction = new CellAction();
+	
+	private CellActionInterface[] cellActions = new CellActionInterface[] {
+		new CellActionInterface() { public void runCell() { cellAction.cellAction0(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction1(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction2(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction3(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction4(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction5(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction6(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction7(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction8(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction9(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction10(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction11(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction12(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction13(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction14(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction15(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction16(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction17(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction18(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction19(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction20(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction21(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction22(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction23(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction24(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction25(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction26(); } },
+		new CellActionInterface() { public void runCell() { cellAction.cellAction27(); } },
+	};
+	
+	private NewAction newAction = new NewAction();
+	
+	private NewActionInterface[] newActions = new NewActionInterface[] {
+		new NewActionInterface() { public void runNew() { newAction.newAction0(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction1(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction2(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction3(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction4(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction5(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction6(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction7(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction8(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction9(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction10(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction11(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction12(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction13(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction14(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction15(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction16(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction17(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction18(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction19(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction20(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction21(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction22(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction23(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction24(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction25(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction26(); } },
+		new NewActionInterface() { public void runNew() { newAction.newAction27(); } },
 	};
 
     @Override
@@ -676,124 +806,29 @@ public class MainActivity extends ListActivity {
         return true;
     }
     
-    public interface Dataflow
+    public interface BackActionInterface
     {
-    	public void run();
+    	public void runBack();
     }
     
-    class Flow
+    public interface SaveActionInterface
     {
-		public void runPosition0() {
-			
-		}
-		
-		public void runPosition1() {
-			
-		}
-		
-		public void runPosition2() {
-			
-		}
-		
-		public void runPosition3() {
-			
-		}
-		
-		public void runPosition4() {
-			
-		}
-		
-		public void runPosition5() {
-			
-		}
-		
-		public void runPosition6() {
-			
-		}
-		
-		public void runPosition7() {
-			
-		}
-		
-		public void runPosition8() {
-			
-		}
-		
-		public void runPosition9() {
-			
-		}
-		
-		public void runPosition10() {
-			
-		}
-		
-		public void runPosition11() {
-			
-		}
-		
-		public void runPosition12() {
-			
-		}
-		
-		public void runPosition13() {
-			
-		}
-		
-		public void runPosition14() {
-			
-		}
-		
-		public void runPosition15() {
-			
-		}
-		
-		public void runPosition16() {
-			
-		}
-		
-		public void runPosition17() {
-			
-		}
-		
-		public void runPosition18() {
-			
-		}
-		
-		public void runPosition19() {
-			
-		}
-		
-		public void runPosition20() {
-			
-		}
-		
-		public void runPosition21() {
-			
-		}
-		
-		public void runPosition22() {
-			
-		}
-		
-		public void runPosition23() {
-			
-		}
-		
-		public void runPosition24() {
-			
-		}
-		
-		public void runPosition25() {
-			
-		}
-		
-		public void runPosition26() {
-			
-		}
-		
-		public void runPosition27() {
-			
-		}
+    	public void runSave();
+    }
+    
+    public interface EditActionInterface
+    {
+    	public void runEdit();
+    }
+    
+    public interface CellActionInterface
+    {
+    	public void runCell();
+    }
+    
+    public interface NewActionInterface
+    {
+    	public void runNew();
     }
 
     /*

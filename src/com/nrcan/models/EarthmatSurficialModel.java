@@ -1,18 +1,12 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-
-import com.nrcan.entities.EarthmatBedrockEntity;
 import com.nrcan.entities.EarthmatSurficialEntity;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 
 public class EarthmatSurficialModel {
 	private DatabaseHandler dbHandler;
-	private final Context context;
-
 	private EarthmatSurficialEntity earthmatsurficial;
 
 	private static final String EARTHMATSURFICIAL_TABLE_NAME = "earthmatsurficial";
@@ -26,7 +20,6 @@ public class EarthmatSurficialModel {
 	private static final String EARTHMATSURFICIAL_LITHTYPE = "lithType";
 	private static final String EARTHMATSURFICIAL_LITHDETAIL = "lithDetail";
 	private static final String EARTHMATSURFICIAL_MAPUNIT = "mapUnit";
-
 	private static final String EARTHMATSURFICIAL_SUFFORM = "sufform";
 	private static final String EARTHMATSURFICIAL_UNITNO = "unitNo";
 	private static final String EARTHMATSURFICIAL_MATRIXMOD = "matrixMod";
@@ -47,7 +40,6 @@ public class EarthmatSurficialModel {
 	private static final String EARTHMATSURFICIAL_MAXROUND = "maxRound";
 	private static final String EARTHMATSURFICIAL_MINROUND = "minRound";
 	private static final String EARTHMATSURFICIAL_THICKTYPE = "thickType";
-
 	private static final String EARTHMATSURFICIAL_THICKMIN = "thickMin";
 	private static final String EARTHMATSURFICIAL_THICKMAX = "thickMax";
 	private static final String EARTHMATSURFICIAL_COLOUR = "colour";
@@ -93,7 +85,6 @@ public class EarthmatSurficialModel {
 			EARTHMATSURFICIAL_SORTING + " TEXT," +
 			EARTHMATSURFICIAL_MODALRND + " TEXT," +
 			EARTHMATSURFICIAL_MAXROUND + " TEXT," +
-
 			EARTHMATSURFICIAL_MINROUND + " TEXT, " +
 			EARTHMATSURFICIAL_THICKTYPE + " TEXT, " +
 			EARTHMATSURFICIAL_THICKMIN + " TEXT," +
@@ -111,194 +102,135 @@ public class EarthmatSurficialModel {
 			EARTHMATSURFICIAL_NOTES + " TEXT," +
 			EARTHMATSURFICIAL_INTERP + " TEXT," +
 			EARTHMATSURFICIAL_INTERPCONF + " TEXT," +
-
 			");";
-	public EarthmatSurficialModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
+
+	public EarthmatSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.earthmatsurficial = new EarthmatSurficialEntity();
 	}
-	public EarthmatSurficialEntity readRow() {
 
-        SQLiteDatabase database = dbHandler.getDatabase();
+	public void readRow() {
+		String[] tmp = new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_NRCID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
+		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
-        database.beginTransaction();
+		earthmatsurficial.setEntity(dbHandler.getSplitRow(0));
+	}
 
-        try {
+	public void insertRow() {
+		ContentValues values = new ContentValues();
+		values.put(EARTHMATSURFICIAL_NRCID2, 0);
+		values.put(EARTHMATSURFICIAL_STATION_ID, " ");
+		values.put(EARTHMATSURFICIAL_EARTHMATLT, " ");
+		values.put(EARTHMATSURFICIAL_EARTHMATNO, " ");
+		values.put(EARTHMATSURFICIAL_EARTHMATID, " ");
+		values.put(EARTHMATSURFICIAL_LITHGROUP, " ");
+		values.put(EARTHMATSURFICIAL_LITHTYPE, " ");
+		values.put(EARTHMATSURFICIAL_LITHDETAIL, " ");
+		values.put(EARTHMATSURFICIAL_MAPUNIT, " ");	            
+		values.put(EARTHMATSURFICIAL_SUFFORM, " ");
+		values.put(EARTHMATSURFICIAL_UNITNO, " ");
+		values.put(EARTHMATSURFICIAL_MATRIXMOD, " ");
+		values.put(EARTHMATSURFICIAL_MATRIX, " ");
+		values.put(EARTHMATSURFICIAL_JOINTING, " ");
+		values.put(EARTHMATSURFICIAL_COMPACTION, " ");
+		values.put(EARTHMATSURFICIAL_OXIDATION, " ");
+		values.put(EARTHMATSURFICIAL_H2OCONTENT, " ");	            
+		values.put(EARTHMATSURFICIAL_FISSILITY, " ");
+		values.put(EARTHMATSURFICIAL_HCLREACT, " ");
+		values.put(EARTHMATSURFICIAL_CLASTMODAL, " ");
+		values.put(EARTHMATSURFICIAL_CLASTMIN, " ");
+		values.put(EARTHMATSURFICIAL_CLASTMAX, " ");
+		values.put(EARTHMATSURFICIAL_CLASTPCT, " ");
+		values.put(EARTHMATSURFICIAL_CLASTFORM, " ");
+		values.put(EARTHMATSURFICIAL_SORTING, " ");          
+		values.put(EARTHMATSURFICIAL_MODALRND, " ");
+		values.put(EARTHMATSURFICIAL_MAXROUND, " ");
+		values.put(EARTHMATSURFICIAL_MINROUND, " ");
+		values.put(EARTHMATSURFICIAL_THICKTYPE, " ");
+		values.put(EARTHMATSURFICIAL_THICKMIN, " ");
+		values.put(EARTHMATSURFICIAL_THICKMAX, " ");
+		values.put(EARTHMATSURFICIAL_COLOUR, " ");
+		values.put(EARTHMATSURFICIAL_LWRCONTACT, " ");
+		values.put(EARTHMATSURFICIAL_INTCONTACT, " ");
+		values.put(EARTHMATSURFICIAL_LATCONTACT, " ");
+		values.put(EARTHMATSURFICIAL_ERRATICTYP, " ");	            
+		values.put(EARTHMATSURFICIAL_ERRATICPER, " ");
+		values.put(EARTHMATSURFICIAL_LANDFORM, " ");
+		values.put(EARTHMATSURFICIAL_PRIMESTRUC, " ");
+		values.put(EARTHMATSURFICIAL_SCNDSTRUC, " ");
+		values.put(EARTHMATSURFICIAL_WAYUP, " ");
+		values.put(EARTHMATSURFICIAL_NOTES, " ");
+		values.put(EARTHMATSURFICIAL_INTERP, " ");
+		values.put(EARTHMATSURFICIAL_INTERPCONF, " ");
 
-            dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_STATION_ID, String.valueOf(earthmatsurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
+		long rowID = dbHandler.insertRow(EARTHMATSURFICIAL_TABLE_NAME, null, values);
 
-        return new EarthmatSurficialEntity(dbHandler.getSplitRow(0));
-    }
-	public long insertRow() {
+		earthmatsurficial.setNrcanId3((int)rowID);
 
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
+		updateRow();
+	}
 
-        database.beginTransaction();
+	public void updateRow() {
+		ContentValues values = new ContentValues();
+		values.put(EARTHMATSURFICIAL_STATION_ID, earthmatsurficial.getStationId());
+		values.put(EARTHMATSURFICIAL_EARTHMATLT,  earthmatsurficial.getEarthMatLt());
+		values.put(EARTHMATSURFICIAL_EARTHMATNO,  earthmatsurficial.getEarthMatNo());
+		values.put(EARTHMATSURFICIAL_EARTHMATID,  earthmatsurficial.getEarthMatId());
+		values.put(EARTHMATSURFICIAL_LITHGROUP,  earthmatsurficial.getLithGroup());
+		values.put(EARTHMATSURFICIAL_LITHTYPE,  earthmatsurficial.getLithType());
+		values.put(EARTHMATSURFICIAL_LITHDETAIL,  earthmatsurficial.getLithDetail());
+		values.put(EARTHMATSURFICIAL_MAPUNIT,  earthmatsurficial.getMapUnit());	
+		values.put(EARTHMATSURFICIAL_SUFFORM, earthmatsurficial.getSufform());
+		values.put(EARTHMATSURFICIAL_UNITNO, earthmatsurficial.getUnitNo());
+		values.put(EARTHMATSURFICIAL_MATRIXMOD, earthmatsurficial.getMatrixMod());
+		values.put(EARTHMATSURFICIAL_MATRIX, earthmatsurficial.getMatrix());
+		values.put(EARTHMATSURFICIAL_JOINTING, earthmatsurficial.getJointing());
+		values.put(EARTHMATSURFICIAL_COMPACTION, earthmatsurficial.getCompaction());
+		values.put(EARTHMATSURFICIAL_OXIDATION, earthmatsurficial.getOxidation());
+		values.put(EARTHMATSURFICIAL_H2OCONTENT, earthmatsurficial.getH2oContent());	            
+		values.put(EARTHMATSURFICIAL_FISSILITY, earthmatsurficial.getFissilty());
+		values.put(EARTHMATSURFICIAL_HCLREACT, earthmatsurficial.getHclReact());
+		values.put(EARTHMATSURFICIAL_CLASTMODAL, earthmatsurficial.getClastModal());
+		values.put(EARTHMATSURFICIAL_CLASTMIN, earthmatsurficial.getClastMin());
+		values.put(EARTHMATSURFICIAL_CLASTMAX, earthmatsurficial.getClastMax());
+		values.put(EARTHMATSURFICIAL_CLASTPCT, earthmatsurficial.getClastPct());
+		values.put(EARTHMATSURFICIAL_CLASTFORM, earthmatsurficial.getClastForm());
+		values.put(EARTHMATSURFICIAL_SORTING, earthmatsurficial.getSorting());          
+		values.put(EARTHMATSURFICIAL_MODALRND, earthmatsurficial.getModalRnd());
+		values.put(EARTHMATSURFICIAL_MAXROUND, earthmatsurficial.getMaxRound());
+		values.put(EARTHMATSURFICIAL_MINROUND, earthmatsurficial.getMinRound());
+		values.put(EARTHMATSURFICIAL_THICKTYPE, earthmatsurficial.getThickType());
+		values.put(EARTHMATSURFICIAL_THICKMIN, earthmatsurficial.getThickMin());
+		values.put(EARTHMATSURFICIAL_THICKMAX, earthmatsurficial.getThickMax());
+		values.put(EARTHMATSURFICIAL_COLOUR, earthmatsurficial.getColour());
+		values.put(EARTHMATSURFICIAL_LWRCONTACT, earthmatsurficial.getLwrContact());
+		values.put(EARTHMATSURFICIAL_INTCONTACT, earthmatsurficial.getIntContact());
+		values.put(EARTHMATSURFICIAL_LATCONTACT, earthmatsurficial.getLatContact());
+		values.put(EARTHMATSURFICIAL_ERRATICTYP, earthmatsurficial.getErraticTyp());	            
+		values.put(EARTHMATSURFICIAL_ERRATICPER, earthmatsurficial.getErraticPer());
+		values.put(EARTHMATSURFICIAL_LANDFORM, earthmatsurficial.getLandForm());
+		values.put(EARTHMATSURFICIAL_PRIMESTRUC, earthmatsurficial.getPrimeStruc());
+		values.put(EARTHMATSURFICIAL_SCNDSTRUC, earthmatsurficial.getScndStruc());
+		values.put(EARTHMATSURFICIAL_WAYUP, earthmatsurficial.getWayUp());
+		values.put(EARTHMATSURFICIAL_NOTES, earthmatsurficial.getNotes());
+		values.put(EARTHMATSURFICIAL_INTERP, earthmatsurficial.getInterp());
+		values.put(EARTHMATSURFICIAL_INTERPCONF, earthmatsurficial.getInterpConf());
 
-        try {
+		String whereClause = EARTHMATSURFICIAL_NRCID3 + " = ?";
+		String[] whereArgs = new String[] {
+				String.valueOf(earthmatsurficial.getNrcanId3())
+		};
 
-            ContentValues values = new ContentValues();
-            values.put(EARTHMATSURFICIAL_NRCID2, " ");
-            values.put(EARTHMATSURFICIAL_STATION_ID, " ");
-            values.put(EARTHMATSURFICIAL_EARTHMATLT, " ");
-            values.put(EARTHMATSURFICIAL_EARTHMATNO, " ");
-            values.put(EARTHMATSURFICIAL_EARTHMATID, " ");
-            values.put(EARTHMATSURFICIAL_LITHGROUP, " ");
-            values.put(EARTHMATSURFICIAL_LITHTYPE, " ");
-            values.put(EARTHMATSURFICIAL_LITHDETAIL, " ");
-            values.put(EARTHMATSURFICIAL_MAPUNIT, " ");	            
-            values.put(EARTHMATSURFICIAL_SUFFORM, " ");
-            values.put(EARTHMATSURFICIAL_UNITNO, " ");
-            values.put(EARTHMATSURFICIAL_MATRIXMOD, " ");
-            values.put(EARTHMATSURFICIAL_MATRIX, " ");
-            values.put(EARTHMATSURFICIAL_JOINTING, " ");
-            values.put(EARTHMATSURFICIAL_COMPACTION, " ");
-            values.put(EARTHMATSURFICIAL_OXIDATION, " ");
-            values.put(EARTHMATSURFICIAL_H2OCONTENT, " ");	            
-            values.put(EARTHMATSURFICIAL_FISSILITY, " ");
-            values.put(EARTHMATSURFICIAL_HCLREACT, " ");
-            values.put(EARTHMATSURFICIAL_CLASTMODAL, " ");
-            values.put(EARTHMATSURFICIAL_CLASTMIN, " ");
-            values.put(EARTHMATSURFICIAL_CLASTMAX, " ");
-            values.put(EARTHMATSURFICIAL_CLASTPCT, " ");
-            values.put(EARTHMATSURFICIAL_CLASTFORM, " ");
-            values.put(EARTHMATSURFICIAL_SORTING, " ");          
-            values.put(EARTHMATSURFICIAL_MODALRND, " ");
-            values.put(EARTHMATSURFICIAL_MAXROUND, " ");
-            
-            values.put(EARTHMATSURFICIAL_MINROUND, " ");
-            values.put(EARTHMATSURFICIAL_THICKTYPE, " ");
-            values.put(EARTHMATSURFICIAL_THICKMIN, " ");
-            values.put(EARTHMATSURFICIAL_THICKMAX, " ");
-            values.put(EARTHMATSURFICIAL_COLOUR, " ");
-            values.put(EARTHMATSURFICIAL_LWRCONTACT, " ");
-            values.put(EARTHMATSURFICIAL_INTCONTACT, " ");
-            values.put(EARTHMATSURFICIAL_LATCONTACT, " ");
-            values.put(EARTHMATSURFICIAL_ERRATICTYP, " ");	            
-            values.put(EARTHMATSURFICIAL_ERRATICPER, " ");
-            values.put(EARTHMATSURFICIAL_LANDFORM, " ");
-            values.put(EARTHMATSURFICIAL_PRIMESTRUC, " ");
-            values.put(EARTHMATSURFICIAL_SCNDSTRUC, " ");
-            values.put(EARTHMATSURFICIAL_WAYUP, " ");
-            values.put(EARTHMATSURFICIAL_NOTES, " ");
-            values.put(EARTHMATSURFICIAL_INTERP, " ");
-            values.put(EARTHMATSURFICIAL_INTERPCONF, " ");	            
-            
-            
-            
+		dbHandler.updateRow(EARTHMATSURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
+	}
 
-            long rowID = database.insert(EARTHMATSURFICIAL_TABLE_NAME, null, values);
-            earthmatsurficial.setID(String.valueOf(rowID));
+	public EarthmatSurficialEntity getEntity() {
+		return earthmatsurficial;
+	}
 
-            rowsAffected = updateRow();
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-	public int updateRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-
-            ContentValues values = new ContentValues();
-            
-            values.put(EARTHMATSURFICIAL_STATION_ID, earthmatsurficial.getStationId());
-            values.put(EARTHMATSURFICIAL_EARTHMATLT,  earthmatsurficial.getEarthMatLt());
-            values.put(EARTHMATSURFICIAL_EARTHMATNO,  earthmatsurficial.getEarthMatNo());
-            values.put(EARTHMATSURFICIAL_EARTHMATID,  earthmatsurficial.getEarthMatId());
-            values.put(EARTHMATSURFICIAL_LITHGROUP,  earthmatsurficial.getLithGroup());
-            values.put(EARTHMATSURFICIAL_LITHTYPE,  earthmatsurficial.getLithType());
-            values.put(EARTHMATSURFICIAL_LITHDETAIL,  earthmatsurficial.getLithDetail());
-            values.put(EARTHMATSURFICIAL_MAPUNIT,  earthmatsurficial.getMapUnit());	
-            
-            values.put(EARTHMATSURFICIAL_SUFFORM, earthmatsurficial.getSufform());
-            values.put(EARTHMATSURFICIAL_UNITNO, earthmatsurficial.getUnitNo());
-            values.put(EARTHMATSURFICIAL_MATRIXMOD, earthmatsurficial.getMatrixMod());
-            values.put(EARTHMATSURFICIAL_MATRIX, earthmatsurficial.getMatrix());
-            values.put(EARTHMATSURFICIAL_JOINTING, earthmatsurficial.getJointing());
-            values.put(EARTHMATSURFICIAL_COMPACTION, earthmatsurficial.getCompaction());
-            values.put(EARTHMATSURFICIAL_OXIDATION, earthmatsurficial.getOxidation());
-            values.put(EARTHMATSURFICIAL_H2OCONTENT, earthmatsurficial.getH2oContent());	            
-            values.put(EARTHMATSURFICIAL_FISSILITY, earthmatsurficial.getFissilty());
-            values.put(EARTHMATSURFICIAL_HCLREACT, earthmatsurficial.getHclReact());
-            values.put(EARTHMATSURFICIAL_CLASTMODAL, earthmatsurficial.getClastModal());
-            values.put(EARTHMATSURFICIAL_CLASTMIN, earthmatsurficial.getClastMin());
-            values.put(EARTHMATSURFICIAL_CLASTMAX, earthmatsurficial.getClastMax());
-            values.put(EARTHMATSURFICIAL_CLASTPCT, earthmatsurficial.getClastPct());
-            values.put(EARTHMATSURFICIAL_CLASTFORM, earthmatsurficial.getClastForm());
-            values.put(EARTHMATSURFICIAL_SORTING, earthmatsurficial.getSorting());          
-            values.put(EARTHMATSURFICIAL_MODALRND, earthmatsurficial.getModalRnd());
-            values.put(EARTHMATSURFICIAL_MAXROUND, earthmatsurficial.getMaxRound());
-            
-            values.put(EARTHMATSURFICIAL_MINROUND, earthmatsurficial.getMinRound());
-            values.put(EARTHMATSURFICIAL_THICKTYPE, earthmatsurficial.getThickType());
-            values.put(EARTHMATSURFICIAL_THICKMIN, earthmatsurficial.getThickMin());
-            values.put(EARTHMATSURFICIAL_THICKMAX, earthmatsurficial.getThickMax());
-            values.put(EARTHMATSURFICIAL_COLOUR, earthmatsurficial.getColour());
-            values.put(EARTHMATSURFICIAL_LWRCONTACT, earthmatsurficial.getLwrContact());
-            values.put(EARTHMATSURFICIAL_INTCONTACT, earthmatsurficial.getIntContact());
-            values.put(EARTHMATSURFICIAL_LATCONTACT, earthmatsurficial.getLatContact());
-            values.put(EARTHMATSURFICIAL_ERRATICTYP, earthmatsurficial.getErraticTyp());	            
-            values.put(EARTHMATSURFICIAL_ERRATICPER, earthmatsurficial.getErraticPer());
-            values.put(EARTHMATSURFICIAL_LANDFORM, earthmatsurficial.getLandForm());
-            values.put(EARTHMATSURFICIAL_PRIMESTRUC, earthmatsurficial.getPrimeStruc());
-            values.put(EARTHMATSURFICIAL_SCNDSTRUC, earthmatsurficial.getScndStruc());
-            values.put(EARTHMATSURFICIAL_WAYUP, earthmatsurficial.getWayUp());
-            values.put(EARTHMATSURFICIAL_NOTES, earthmatsurficial.getNotes());
-            values.put(EARTHMATSURFICIAL_INTERP, earthmatsurficial.getInterp());
-            values.put(EARTHMATSURFICIAL_INTERPCONF, earthmatsurficial.getInterpConf());	    
-            rowsAffected = database.update(EARTHMATSURFICIAL_TABLE_NAME, values, CHECKth 5 EARTHMATSURFICIAL_STATION_ID + "=?",
-                    new String[] { String.valueOf(earthmatsurficial.getID()) });
-
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public int deleteRow() {
-
-        int rowsAffected = 0;
-        SQLiteDatabase database = dbHandler.getDatabase();
-
-        database.beginTransaction();
-
-        try {
-            rowsAffected = database.delete(EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_STATION_ID + "=?",
-                    new String[] { String.valueOf(earthmatsurficial.getID()) });
-            database.setTransactionSuccessful();
-        } finally {
-            database.endTransaction();
-        }
-
-        return rowsAffected;
-    }
-
-    public EarthmatSurficialEntity getEntity() {
-        return earthmatsurficial;
-    }
-
-    public void setEntity(String[] earthmatsurficial) {
-        this.earthmatsurficial = new EarthmatSurficialEntity(earthmatsurficial);
-    }
-
-    public static String getCreateTableStatement() {
-        return EARTHMATSURFICIAL_TABLE_CREATE;
-    }
+	public static String getCreateTableStatement() {
+		return EARTHMATSURFICIAL_TABLE_CREATE;
+	}
 
 
 }
