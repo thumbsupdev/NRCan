@@ -1,10 +1,12 @@
 package com.nrcan.main;
 
+import java.util.ArrayList;
+
 import com.nrcan.controllers.*;
+import com.nrcan.models.*;
 
 import android.os.Bundle;
 import android.app.ListActivity;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,11 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
+	
+    private DatabaseHandler databaseHandler;
+	private ViewFlipper flipper;
+
+	private MetadataModel metadataModel;
 	
 	private ListController adap1;
 	private EarthmatBedrockController adap2;
@@ -43,7 +50,7 @@ public class MainActivity extends ListActivity {
 	private ListController adap27;
 	private StructureController adap28;
 	
-	private ListView lv1;
+	//private ListView lv1;
 	private ListView lv2;
 	private ListView lv3;
 	private ListView lv4;
@@ -71,8 +78,6 @@ public class MainActivity extends ListActivity {
 	private ListView lv26;
 	private ListView lv27;
 	private ListView lv28;
-	
-    private DatabaseHandler databaseHandler;
 	
 	private TextView mainTitle;
 	private String[] titles = {
@@ -106,8 +111,38 @@ public class MainActivity extends ListActivity {
 			"STRUCTURE"
 	};
 	
-	private SQLiteDatabase db;
-	private ViewFlipper flipper;
+	private Flow f = new Flow();
+	
+	private Dataflow[] positions = new Dataflow[] {
+		new Dataflow() { public void run() { f.runPosition0(); } },
+		new Dataflow() { public void run() { f.runPosition1(); } },
+		new Dataflow() { public void run() { f.runPosition2(); } },
+		new Dataflow() { public void run() { f.runPosition3(); } },
+		new Dataflow() { public void run() { f.runPosition4(); } },
+		new Dataflow() { public void run() { f.runPosition5(); } },
+		new Dataflow() { public void run() { f.runPosition6(); } },
+		new Dataflow() { public void run() { f.runPosition7(); } },
+		new Dataflow() { public void run() { f.runPosition8(); } },
+		new Dataflow() { public void run() { f.runPosition9(); } },
+		new Dataflow() { public void run() { f.runPosition10(); } },
+		new Dataflow() { public void run() { f.runPosition11(); } },
+		new Dataflow() { public void run() { f.runPosition12(); } },
+		new Dataflow() { public void run() { f.runPosition13(); } },
+		new Dataflow() { public void run() { f.runPosition14(); } },
+		new Dataflow() { public void run() { f.runPosition15(); } },
+		new Dataflow() { public void run() { f.runPosition16(); } },
+		new Dataflow() { public void run() { f.runPosition17(); } },
+		new Dataflow() { public void run() { f.runPosition18(); } },
+		new Dataflow() { public void run() { f.runPosition19(); } },
+		new Dataflow() { public void run() { f.runPosition20(); } },
+		new Dataflow() { public void run() { f.runPosition21(); } },
+		new Dataflow() { public void run() { f.runPosition22(); } },
+		new Dataflow() { public void run() { f.runPosition23(); } },
+		new Dataflow() { public void run() { f.runPosition24(); } },
+		new Dataflow() { public void run() { f.runPosition25(); } },
+		new Dataflow() { public void run() { f.runPosition26(); } },
+		new Dataflow() { public void run() { f.runPosition27(); } }
+	};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,6 +150,8 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         
         databaseHandler = new DatabaseHandler(this);
+        
+        metadataModel = new MetadataModel(databaseHandler);
         
         mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
         mainTitle.setText(titles[0].toString());
@@ -124,24 +161,26 @@ public class MainActivity extends ListActivity {
         Button button1 = (Button) findViewById(R.id.buttonSave);
     	button1.setOnClickListener(new View.OnClickListener() {
     		public void onClick(View v) {
-                adap10.insertMetadataInfo();
+    			//adap10.save();
+                //adap10.insertMetadataInfo();
+    			//metadataModel.insertRow();
     			flipper.showNext();
     	        mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				setTabs(1);
+				//setTabs(1);
     		}
     	});
         Button button2 = (Button) findViewById(R.id.buttonBack);
     	button2.setOnClickListener(new View.OnClickListener() {
     		public void onClick(View v) {
+    			//adap10.tUpdate();
+    			//metadataModel.deleteRow();
     			flipper.showPrevious();
     	        mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				setTabs(1);
+				//setTabs(1);
     		}
     	});
     	
-    	//initializeDatabase();
-    	
-    	lv1 = getListView();
+    	getListView(); //lv1 = getListView();
     	lv2 = (ListView)findViewById(R.id.listEarthmatBedrock);
     	lv3 = (ListView)findViewById(R.id.listEarthmatSurficial2);
     	lv4 = (ListView)findViewById(R.id.listEarthmatSurficial);
@@ -179,7 +218,7 @@ public class MainActivity extends ListActivity {
     	adap7 = new ListController(this, "MINERALIZATION / ALTERATION");
     	adap8 = new MABedrockController(this, this);
     	adap9 = new ListController(this, "METADATA");
-    	adap10 = new MetadataController(this, this, databaseHandler);
+    	adap10 = new MetadataController(this, this, metadataModel);
     	adap11 = new ListController(this, "MINERAL");
     	adap12 = new MineralBedrockController(this, this);
     	adap13 = new ListController(this, "PALEO FLOW");
@@ -229,6 +268,17 @@ public class MainActivity extends ListActivity {
     	lv28.setAdapter(adap28);
     	
     	setupButtons();
+    	/*
+    	flipper.setDisplayedChild(8);
+    	
+    	ArrayList<String> tt = new ArrayList<String>();
+    	tt.add("Data 1");
+    	tt.add("Data 2");
+    	tt.add("Data 3");
+    	tt.add("Data 4");
+    	
+    	adap9.setElements(tt);
+    	*/
     }
     
     public void setTabs(int tab) {
@@ -626,10 +676,131 @@ public class MainActivity extends ListActivity {
         return true;
     }
     
+    public interface Dataflow
+    {
+    	public void run();
+    }
+    
+    class Flow
+    {
+		public void runPosition0() {
+			
+		}
+		
+		public void runPosition1() {
+			
+		}
+		
+		public void runPosition2() {
+			
+		}
+		
+		public void runPosition3() {
+			
+		}
+		
+		public void runPosition4() {
+			
+		}
+		
+		public void runPosition5() {
+			
+		}
+		
+		public void runPosition6() {
+			
+		}
+		
+		public void runPosition7() {
+			
+		}
+		
+		public void runPosition8() {
+			
+		}
+		
+		public void runPosition9() {
+			
+		}
+		
+		public void runPosition10() {
+			
+		}
+		
+		public void runPosition11() {
+			
+		}
+		
+		public void runPosition12() {
+			
+		}
+		
+		public void runPosition13() {
+			
+		}
+		
+		public void runPosition14() {
+			
+		}
+		
+		public void runPosition15() {
+			
+		}
+		
+		public void runPosition16() {
+			
+		}
+		
+		public void runPosition17() {
+			
+		}
+		
+		public void runPosition18() {
+			
+		}
+		
+		public void runPosition19() {
+			
+		}
+		
+		public void runPosition20() {
+			
+		}
+		
+		public void runPosition21() {
+			
+		}
+		
+		public void runPosition22() {
+			
+		}
+		
+		public void runPosition23() {
+			
+		}
+		
+		public void runPosition24() {
+			
+		}
+		
+		public void runPosition25() {
+			
+		}
+		
+		public void runPosition26() {
+			
+		}
+		
+		public void runPosition27() {
+			
+		}
+    }
+
     /*
-    public void initializeDatabase() {
-    	db = this.openOrCreateDatabase("nrcandb", MODE_PRIVATE, null);
-    	db.close();
+    public ArrayList<String> readRows() {
+        dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { METADATA_TABLE_NAME });
+
+        return dbHandler.getList();
     }
     */
     

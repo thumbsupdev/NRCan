@@ -2,15 +2,13 @@ package com.nrcan.main;
 
 import com.nrcan.models.MetadataModel;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteException;
 import java.util.ArrayList;
 import android.util.Log;
-import java.util.Locale;
 import android.app.Activity;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -18,57 +16,66 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private ArrayList<String> resultQuery;
-    private SQLiteDatabase database;
     private Context context;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
-        openConnection();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            db.execSQL(MetadataModel.getCreateTableStatement());
+    	db.execSQL(MetadataModel.getCreateTableStatement());
     }
-
-    // Called when DATABASE_VERSION is incremented
+    
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        /*  db.execSQL("DROP TABLE IF EXISTS metadata");
-            onCreate(db); */
     }
-
-    public void openConnection() {
-
-        try {
-            database = this.getWritableDatabase();
-            database.setLocale(Locale.getDefault());
-            database.setLockingEnabled(true); // use database lock to be thread safe
-        } catch(SQLiteException sqle) {
-            Log.v("MetadataModel openConnection()", sqle.getMessage());
-            throw new SQLiteException(sqle.getMessage());
-        }
+    
+    public long insertRow(String tableName, String nullCol, ContentValues values) {
+    	SQLiteDatabase db = getWritableDatabase();
+    	
+    	long rowNum = db.insert(tableName, nullCol, values);
+    	
+    	System.out.println("New Row: " + rowNum);
+    	
+    	db.close();
+    	
+    	return rowNum;
     }
-
-    public void closeConnection() {
-        
-        database.close();
+    
+    public void updateRow(String tableName, ContentValues values, String whereClause, String[] whereArgs) {
+    	SQLiteDatabase db = getWritableDatabase();
+    	
+    	db.update(tableName, values, whereClause, whereArgs);
+    	
+    	db.close();
     }
+    
+    /*
+    public void deleteRow() {
+    	SQLiteDatabase db = getWritableDatabase();
+    	
+    	long tmp = db.delete("metadata", "nrcanid1 = ?", new String[] { String.valueOf(rowNum) } );
+    	
+    	System.out.println("Returnd Row: " + tmp);
+    	System.out.println("Deleted Row: " + rowNum--);
+    	
+    	db.close();
+    }
+    */
 
     public void executeQuery(String query) {
+    	SQLiteDatabase db = getWritableDatabase();
 
         if(query == null) {
             Log.v("MetadataModel", "query is null");
             throw new IllegalArgumentException("query is null");
         }
 
-        database.beginTransaction();
-
         try {
 
-            Cursor cursor = this.getWritableDatabase().rawQuery(query, null);
+            Cursor cursor = db.rawQuery(query, null);
 
             ((Activity)context).startManagingCursor(cursor);
 
@@ -79,35 +86,30 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 StringBuilder results = new StringBuilder();
 
                 while(cursor.moveToNext()) {
-
                     for(String s : columnNames) {
-
-                        results.append(cursor.getString(cursor.getColumnIndex(s)) + " ");
+                        results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
                     }
-
                     resultQuery.add(results.toString().trim());
                 }
             }
 
             cursor.close();
-            database.setTransactionSuccessful();
         } finally {
-            database.endTransaction();
+        	db.close();
         }
     }
 
     public void executeQuery(String query, String[] selectionArgs) {
+    	SQLiteDatabase db = getWritableDatabase();
 
         if(query == null) {
             Log.v("MetadataModel", "query is null");
             throw new IllegalArgumentException("query is null");
         }
 
-        database.beginTransaction();
-
         try {
 
-            Cursor cursor = this.getWritableDatabase().rawQuery(query, selectionArgs);
+            Cursor cursor = db.rawQuery(query, selectionArgs);
 
             ((Activity)context).startManagingCursor(cursor);
 
@@ -118,47 +120,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 StringBuilder results = new StringBuilder();
 
                 while(cursor.moveToNext()) {
-
                     for(String s : columnNames) {
-
-                        results.append(cursor.getString(cursor.getColumnIndex(s)) + " ");
+                        results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
                     }
-
                     resultQuery.add(results.toString().trim());
                 }
             }
 
             cursor.close();
-            database.setTransactionSuccessful();
         } finally {
-            database.endTransaction();
+        	db.close();
         }
     }
 
     public String getRow(int index) {
-
         if(index < 0) {
             Log.v("getRow()", "index is below 0");
             throw new IllegalArgumentException("index is below 0");
         }
-
+        
         return resultQuery.get(index);
     }
-
+    
     public String[] getSplitRow(int index) {
-        
-        return (String[])resultQuery.get(index).split(" ");
+        return (String[])resultQuery.get(index).split("\t");
     }
-
     
     public ArrayList<String> getList() {
-     
         return resultQuery;
     }
-
-    public SQLiteDatabase getDatabase() {
-        
-        return database;
-    }
 }
-

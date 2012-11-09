@@ -14,24 +14,23 @@ import android.widget.Filterable;
 import android.widget.Spinner;
 import com.nrcan.models.MetadataModel;
 import com.nrcan.main.DatabaseHandler;
-import android.util.Log;
 
 public class MetadataController extends BaseAdapter implements Filterable {
 
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
-	private MetadataModel metadataModel;
     private int tab;
+	private MetadataModel metadataModel;
 
     public MetadataController() { }
 
-	public MetadataController(Context context, Activity activity, DatabaseHandler databaseHandler) {
+	public MetadataController(Context context, Activity activity, MetadataModel metadataModel) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-        this.metadataModel = new MetadataModel(context, databaseHandler);
+        this.metadataModel = metadataModel;
 	}
 
     public MetadataModel getMetadataModel() {
@@ -57,16 +56,15 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 			convertView = mInflater.inflate(R.layout.metadata1, null);
 
-			holder.editTextWorkspace = (EditText) convertView
-					.findViewById(R.id.metadata_editText_workspace);
-			holder.editTextProjectName = (EditText) convertView
-					.findViewById(R.id.metadata_editText_projectName);
-			holder.editTextProjectCode = (EditText) convertView
-					.findViewById(R.id.metadata_editText_projectCode);
-			holder.editTextProjectLeader = (EditText) convertView
-					.findViewById(R.id.metadata_editText_projectLeader);
-			holder.spinnerProjectType = (Spinner) convertView
-					.findViewById(R.id.metadata_spinner_projectType);
+			holder.editTextWorkspace = (EditText) convertView.findViewById(R.id.metadata_editText_workspace);
+			holder.editTextWorkspace.setText(metadataModel.getEntity().getPrjct_name());
+			holder.editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
+			holder.editTextProjectName.setText(metadataModel.getEntity().getPrjct_code());
+			holder.editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
+			holder.editTextProjectCode.setText(metadataModel.getEntity().getPrjct_lead());
+			holder.editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
+			holder.editTextProjectLeader.setText(metadataModel.getEntity().getPrjct_type());
+			holder.spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
 
 			convertView.setTag(holder);
 		} else if (tab == 2) {
@@ -74,14 +72,10 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			holder = new MetaData2();
 			convertView = mInflater.inflate(R.layout.metadata2, null);
 
-			holder.editTextGeologistName = (EditText) convertView
-					.findViewById(R.id.metadata_editText_geologistName);
-			holder.editTextGeologistCode = (EditText) convertView
-					.findViewById(R.id.metadata_editText_geologistCode);
-			holder.spinnerCameraPrefix = (Spinner) convertView
-					.findViewById(R.id.metadata_spinner_cameraPrefix);
-			holder.spinnerMapProjection = (Spinner) convertView
-					.findViewById(R.id.metadata_spinner_selectMapProjection);
+			holder.editTextGeologistName = (EditText) convertView.findViewById(R.id.metadata_editText_geologistName);
+			holder.editTextGeologistCode = (EditText) convertView.findViewById(R.id.metadata_editText_geologistCode);
+			holder.spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
+			holder.spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
 
 			convertView.setTag(holder);
 
@@ -98,8 +92,31 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+	
+	public void save() {
+		metadataModel.getEntity().setPrjct_name("Field 1");
+		metadataModel.getEntity().setPrjct_code("Field 2");
+		metadataModel.getEntity().setPrjct_lead("Field 3");
+		metadataModel.getEntity().setPrjct_type("Field 4");
+		metadataModel.getEntity().setGeolcode("Field 5");
+		metadataModel.getEntity().setGeologist("Field 6");
+		metadataModel.getEntity().setMappath("Field 7");
+		metadataModel.getEntity().setPrj_name("Field 8");
+		metadataModel.getEntity().setPrj_type("Field 9");
+		metadataModel.getEntity().setPrj_datum("Field 10");
+		metadataModel.getEntity().setDigcamera("Field 11");
+		metadataModel.getEntity().setStnstartno("Field 12");
+		metadataModel.getEntity().setMetaid("Field 13");
+		
+		//metadataModel.insertRow();
+	}
+	
+	public void tUpdate() {
+		notifyDataSetChanged();
+	}
 
-    public void insertMetadataInfo() {
+ //   public void insertMetadataInfo() {
+    	//metadataModel.getEntity();
 /*
         String[] contents = {
             (EditText) activity.findViewById(R.id.metadata_editText_workspace).getText().toString(),
@@ -115,8 +132,8 @@ public class MetadataController extends BaseAdapter implements Filterable {
             ((Spinner) activity.findViewById(R.id.metadata_spinner_selectMapProjection)).getSelectedItem().toString()
         };*/
 
+    	/*
         String[] contents = {
-            
             "0",
             "TestName",
             "C123",
@@ -128,13 +145,14 @@ public class MetadataController extends BaseAdapter implements Filterable {
             "datum",
             "mappath"
         };
+        */
 
-        metadataModel.setEntity(contents);
-        long rowsAffected = metadataModel.insertRow();
+        //metadataModel.setEntity(contents);
+        //long rowsAffected = metadataModel.insertRow();
 
-        Log.v("MetadataController insertMetadataInfo()", "Rows affected = " + rowsAffected);
+        //Log.v("MetadataController insertMetadataInfo()", "Rows affected = " + rowsAffected);
 
-    }
+//    }
 
 	static class MetaData1 {
 		EditText editTextWorkspace;
