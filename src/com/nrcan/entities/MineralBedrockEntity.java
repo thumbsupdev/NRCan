@@ -17,7 +17,11 @@ public class MineralBedrockEntity {
 	private String mode;
 	private String notes;
 	
-	public MineralBedrockEntity (String[] contentValues) {
+	public MineralBedrockEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationID = contentValues[2];

@@ -14,7 +14,11 @@ public class SampleBedrockEntity {
 	private String surface;
 	private String notes;
 	
-	public SampleBedrockEntity (String[] contentValues) {
+	public SampleBedrockEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];

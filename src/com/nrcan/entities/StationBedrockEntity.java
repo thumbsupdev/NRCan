@@ -27,7 +27,11 @@ public class StationBedrockEntity {
 	private String partner;
 	private String metaId;
 	
-	public StationBedrockEntity (String[] contentValues) {
+	public StationBedrockEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId2 = Integer.parseInt(contentValues[0]);
 		this.nrcanId1 = Integer.parseInt(contentValues[1]);
 		this.id = contentValues[2];

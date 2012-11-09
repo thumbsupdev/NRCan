@@ -13,7 +13,11 @@ public class MABedrockEntity {
 	private String distribute;
 	private String notes;
 	
-	public MABedrockEntity (String[] contentValues) {
+	public MABedrockEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId3 = Integer.parseInt(contentValues[0]);
 		this.nrcanId2 = Integer.parseInt(contentValues[1]);
 		this.stationID = contentValues[2];

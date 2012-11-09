@@ -47,7 +47,11 @@ public class EarthmatSurficialEntity {
 	private String interp;
 	private String interpConf;
 	
-	public EarthmatSurficialEntity (String[] contentValues) {
+	public EarthmatSurficialEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];

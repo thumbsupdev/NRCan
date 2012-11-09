@@ -19,7 +19,11 @@ public class PFlowSurficialEntity {
 	private String relation;
 	private String notes_1;
 	
-	public PFlowSurficialEntity (String[] contentValues) {
+	public PFlowSurficialEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];

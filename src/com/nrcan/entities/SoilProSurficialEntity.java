@@ -25,7 +25,11 @@ public class SoilProSurficialEntity {
 	private String notes;
 	private String id;
 	
-	public SoilProSurficialEntity (String[] contentValues) {
+	public SoilProSurficialEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId3 = Integer.parseInt(contentValues[0]);
 		this.nrcanId2 = Integer.parseInt(contentValues[1]);
 		this.soilProId = contentValues[2];

@@ -32,7 +32,11 @@ public class EarthmatBedrockEntity {
 	private String interp;
 	private String interpConf;
 	
-	public EarthmatBedrockEntity (String[] contentValues) {
+	public EarthmatBedrockEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationID = contentValues[2];

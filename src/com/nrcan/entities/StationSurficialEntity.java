@@ -30,7 +30,12 @@ public class StationSurficialEntity {
 	private String partner;
 	private String metaId;
 	
-	public StationSurficialEntity (String[] contentValues) {
+	public StationSurficialEntity()
+	{
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId2 = Integer.parseInt(contentValues[0]);
 		this.nrcanId1 = Integer.parseInt(contentValues[1]);
 		this.id = contentValues[2];

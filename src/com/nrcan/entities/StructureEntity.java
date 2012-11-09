@@ -25,7 +25,11 @@ public class StructureEntity {
 	private String symang;
 	private String notes;
 	
-	public StructureEntity (String[] contentValues) {
+	public StructureEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];

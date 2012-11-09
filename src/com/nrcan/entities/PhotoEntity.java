@@ -13,7 +13,11 @@ public class PhotoEntity {
 	private String caption;
 	private String linkId;
 	
-	public PhotoEntity (String[] contentValues) {
+	public PhotoEntity(){
+		
+	}
+	
+	public void setEntity (String[] contentValues) {
 		this.nrcanId3 = Integer.parseInt(contentValues[0]);
 		this.nrcanId2 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];
