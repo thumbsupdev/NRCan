@@ -14,8 +14,8 @@ public class MineralBedrockEntity {
 	private String colour;
 	private String sizeMinmm;
 	private String SizeMaxmm;
-	private String mode;
-	private String notes;
+	private String mode;	//
+	private String notes;	//mineral_editText_note
 	
 	public MineralBedrockEntity(){
 		
