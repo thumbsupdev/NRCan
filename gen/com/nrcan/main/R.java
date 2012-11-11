@@ -302,8 +302,8 @@ public final class R {
         public static final int sample_surficial_seekbar_dip=0x7f070159;
         public static final int sample_surficial_seekbar_strike=0x7f070157;
         public static final int sample_surficial_spinner_dip=0x7f070158;
+        public static final int sample_surficial_spinner_format=0x7f070155;
         public static final int sample_surficial_spinner_horizon=0x7f070152;
-        public static final int sample_surficial_spinner_method=0x7f070155;
         public static final int sample_surficial_spinner_purpose=0x7f07014f;
         public static final int sample_surficial_spinner_sampleState=0x7f070154;
         public static final int sample_surficial_spinner_strike=0x7f070156;

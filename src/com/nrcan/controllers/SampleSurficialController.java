@@ -71,7 +71,7 @@ public class SampleSurficialController extends BaseAdapter implements
 			holder.spinnerSampleState = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_sampleState);
 			holder.spinnerMethod = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_method);
+					.findViewById(R.id.sample_surficial_spinner_format);
 			holder.spinnerStrike = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_strike);
 			holder.seekBarStrike = (SeekBar) convertView
