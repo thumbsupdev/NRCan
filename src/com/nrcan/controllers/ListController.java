@@ -3,12 +3,15 @@ package com.nrcan.controllers;
 import java.util.ArrayList;
 
 import com.nrcan.main.R;
+import com.nrcan.main.MainActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -16,13 +19,18 @@ import android.widget.TextView;
 public class ListController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Context context;
+	private Activity activity;
 	private String title;
 	private ArrayList<String> elements = new ArrayList<String>();
 
-	public ListController (Context context, String title) {
+	public ListController (Context context, Activity activity, String title) {
 		this.mInflater = LayoutInflater.from(context);
 		this.context = context;
+		this.activity = activity;
 		this.title = title;
+		
+
+		//((MainActivity)activity).setupButtons();
 	}
 
 	public int getCount() {
@@ -47,6 +55,12 @@ public class ListController extends BaseAdapter implements Filterable {
 
 			holder.textView = (TextView) convertView.findViewById(R.id.cell_new_textView2);
 			holder.textView.setText(title);
+			
+			convertView.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					((MainActivity)activity).newActionControl();
+				}
+			});
 
 			convertView.setTag(holder);
 		}
@@ -58,6 +72,21 @@ public class ListController extends BaseAdapter implements Filterable {
 			
 			holder.textView = (TextView) convertView.findViewById(R.id.cell_list_textViewTitle);
 			holder.textView.setText(elements.get(position));
+			
+			holder.button = (Button) convertView.findViewById(R.id.cell_list_buttonEdit);
+			holder.button.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					((MainActivity)activity).editActionControl();
+				}
+			});
+			
+			convertView.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					((MainActivity)activity).cellActionControl();
+				}
+			});
+			
+			convertView.setTag(holder);
 		}
 
 		return convertView;
@@ -78,6 +107,7 @@ public class ListController extends BaseAdapter implements Filterable {
 	
 	static class CellEditHolder {
 		TextView textView;
+		Button button;
 	}
 
 }

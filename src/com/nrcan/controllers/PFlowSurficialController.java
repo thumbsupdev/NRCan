@@ -45,7 +45,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 			{
 				PFlowSurficial1 holder;
 				holder = new PFlowSurficial1();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
+				convertView = mInflater.inflate(R.layout.pflow_surficial_1, null);
 				
 				holder.spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
 				holder.spinnerDirection = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_direction);
@@ -59,7 +59,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 			{
 				PFlowSurficial2 holder;
 				holder = new PFlowSurficial2();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_2, null);
+				convertView = mInflater.inflate(R.layout.pflow_surficial_2, null);
 				
 				holder.spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
 				holder.editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
@@ -78,7 +78,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 			{
 				PFlowSurficial3 holder;
 				holder = new PFlowSurficial3();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_3, null);
+				convertView = mInflater.inflate(R.layout.pflow_surficial_3, null);
 				
 				holder.editTextNote = (EditText)convertView.findViewById(R.id.pflow_surficial_text_note);
 				
