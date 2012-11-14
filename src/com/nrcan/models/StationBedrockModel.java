@@ -36,30 +36,33 @@ public class StationBedrockModel {
 	private static final String STATIONBEDROCK_PARTNER = "partner";
 	private static final String STATIONBEDROCK_METAID = "metaId";
 
-	private static final String STATIONBEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS stationBedrock ("
-			+ "nrcanId2 INTEGER PRIMARY KEY autoincrement, "
-			+ "nrcanId1 INTEGER, "
-			+ "id TEXT, "
-			+ "stationId TEXT, "
-			+ "travNo TEXT, "
-			+ "visitDate TEXT, "
-			+ "visitTime TEXT, "
-			+ "latitude TEXT, "
-			+ "longitude TEXT, "
-			+ "easting TEXT, "
-			+ "northing TEXT, "
-			+ "datumZone TEXT, "
-			+ "elevation TEXT, "
-			+ "elevMethod TEXT, "
-			+ "entryType TEXT, "
-			+ "pDop TEXT, "
-			+ "satsUsed TEXT, "
-			+ "obsType TEXT, "
-			+ "physEnv TEXT, "
-			+ "ocSize TEXT, "
-			+ "notes TEXT, "
-			+ "slsNotes TEXT, "
-			+ "airPhoto TEXT, " + "partner TEXT, " + "metaId TEXT, " + ");";
+	private static final String STATIONBEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS" + STATIONBEDROCK_TABLE_NAME + " (" +
+			STATIONBEDROCK_NRCANID2 + " INTEGER PRIMARY KEY autoincrement, " +
+			STATIONBEDROCK_NRCANID1 + " INTEGER," +
+			STATIONBEDROCK_ID + " TEXT," +
+			STATIONBEDROCK_STATIONID + " TEXT," +
+			STATIONBEDROCK_TRAVNO + " TEXT," +
+			STATIONBEDROCK_VISITDATE + " TEXT," +
+			STATIONBEDROCK_VISITTIME + " TEXT," +
+			STATIONBEDROCK_LATITUDE + " TEXT," +
+			STATIONBEDROCK_LONGITUDE + " TEXT," +
+			STATIONBEDROCK_EASTING + " TEXT," +
+			STATIONBEDROCK_NORTHING + " TEXT," +
+			STATIONBEDROCK_DATUMZONE + " TEXT," +
+			STATIONBEDROCK_ELEVATION + " TEXT," +
+			STATIONBEDROCK_ELEVMETHOD + " TEXT," +
+			STATIONBEDROCK_ENTRYTYPE + " TEXT," +
+			STATIONBEDROCK_PDOP + " TEXT," +
+			STATIONBEDROCK_SATSUSED + " TEXT," +
+			STATIONBEDROCK_OBSTYPE + " TEXT," +
+			STATIONBEDROCK_PHYSENV + " TEXT," +
+			STATIONBEDROCK_OCSIZE + " TEXT," +
+			STATIONBEDROCK_NOTES + " TEXT," +
+			STATIONBEDROCK_SLSNOTES + " TEXT," +
+			STATIONBEDROCK_AIRPHOTO + " TEXT," +
+			STATIONBEDROCK_PARTNER + " TEXT," +
+			STATIONBEDROCK_METAID + " TEXT," +
+			");";
 
 	public StationBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;

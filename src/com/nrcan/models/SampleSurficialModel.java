@@ -28,7 +28,25 @@ public class SampleSurficialModel {
 	private static final String SAMPLESURFICIAL_DUPLICATE = "duplicate";
 	private static final String SAMPLESURFICIAL_NOTES = "notes";
 
-	private static final String SAMPLESURFICIAL_TABLE_CREATE = "";
+	private static final String SAMPLESURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + SAMPLESURFICIAL_TABLE_NAME + " (" +
+			SAMPLESURFICIAL_NRCANID4 + " INTEGER PRIMARY KEY autoincrement," +
+			SAMPLESURFICIAL_NRCANID3 + " INTEGER," +
+			SAMPLESURFICIAL_STATIONID + " TEXT," +
+			SAMPLESURFICIAL_EARTHMATID + " TEXT," +
+			SAMPLESURFICIAL_SAMPLEID + " TEXT," +
+			SAMPLESURFICIAL_SAMPLENO + " TEXT," +
+			SAMPLESURFICIAL_SAMPLETYPE + " TEXT," +
+			SAMPLESURFICIAL_PURPOSE + " TEXT," +
+			SAMPLESURFICIAL_FORMAT + " TEXT," +
+			SAMPLESURFICIAL_SAMPLEDEP + " TEXT," +
+			SAMPLESURFICIAL_AZIMUTH + " TEXT," +
+			SAMPLESURFICIAL_DIPPLUNGE + " TEXT," +
+			SAMPLESURFICIAL_SURFACE + " TEXT," +
+			SAMPLESURFICIAL_HORIZON + " TEXT," +
+			SAMPLESURFICIAL_STATE + " TEXT," +
+			SAMPLESURFICIAL_DUPLICATE + " TEXT," +
+			SAMPLESURFICIAL_NOTES + " TEXT," +			
+			");";
 
 	public SampleSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
@@ -41,7 +59,7 @@ public class SampleSurficialModel {
 
 		sampleSurficial.setEntity(dbHandler.getSplitRow(0));
 	}
-	
+
 	public void insertRow() {
 		ContentValues values = new ContentValues();
 		values.put(SAMPLESURFICIAL_NRCANID3, 0);
@@ -93,7 +111,7 @@ public class SampleSurficialModel {
 
 		dbHandler.updateRow(SAMPLESURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
 	}
-	
+
 	public SampleSurficialEntity getEntity() {
 		return sampleSurficial;
 	}

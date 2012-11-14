@@ -18,14 +18,12 @@ import android.widget.TextView;
 
 public class ListController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
-	private Context context;
 	private Activity activity;
 	private String title;
 	private ArrayList<String> elements = new ArrayList<String>();
 
 	public ListController(Context context, Activity activity, String title) {
 		this.mInflater = LayoutInflater.from(context);
-		this.context = context;
 		this.activity = activity;
 		this.title = title;
 	}

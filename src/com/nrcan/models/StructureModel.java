@@ -34,7 +34,31 @@ public class StructureModel {
 	private static final String STRUCTURE_SYMANG = "symang";
 	private static final String STRUCTURE_NOTES = "notes";
 
-	private static final String STRUCTURE_TABLE_CREATE = "";
+	private static final String STRUCTURE_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS" + STRUCTURE_TABLE_NAME + " (" +
+			STRUCTURE_NRCANID4 + " INTEGER PRIMARY KEY autoincrement, " +
+			STRUCTURE_NRCANID3 + " INTEGER," +
+			STRUCTURE_STATIONID + " TEXT," +
+			STRUCTURE_EARTHMATID + " TEXT," +
+			STRUCTURE_STRUCTID + " TEXT," +
+			STRUCTURE_STRUCTNO + " TEXT," +
+			STRUCTURE_STRUCCLASS + " TEXT," +
+			STRUCTURE_STRUCTYPE + " TEXT," +
+			STRUCTURE_DETAIL + " TEXT," +
+			STRUCTURE_METHOD + " TEXT," +
+			STRUCTURE_FORMAT + " TEXT," +
+			STRUCTURE_ATTITUDE + " TEXT," +
+			STRUCTURE_YOUNGING + " TEXT," +
+			STRUCTURE_GENERATION + " TEXT," +
+			STRUCTURE_STRAIN + " TEXT," +
+			STRUCTURE_FLATTENING + " TEXT," +
+			STRUCTURE_RELATED + " TEXT," +
+			STRUCTURE_FABRIC + " TEXT," +
+			STRUCTURE_SENSE + " TEXT," +
+			STRUCTURE_AZIMUTH + " TEXT," +
+			STRUCTURE_DIPPLUNGE + " TEXT," +
+			STRUCTURE_SYMANG + " TEXT," +
+			STRUCTURE_NOTES + " TEXT," +				
+			");";
 
 	public StructureModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;

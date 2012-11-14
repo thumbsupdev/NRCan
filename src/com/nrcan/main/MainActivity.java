@@ -1,5 +1,7 @@
 package com.nrcan.main;
 
+import java.util.ArrayList;
+
 import com.nrcan.controllers.*;
 import com.nrcan.models.*;
 
@@ -50,6 +52,8 @@ public class MainActivity extends ListActivity {
 	private StationSurficialController adap26;
 	private ListController adap27;
 	private StructureController adap28;
+	private DetailController adap29;
+	private DetailController adap30;
 
 	//private ListView lv1;
 	private ListView lv2;
@@ -79,6 +83,8 @@ public class MainActivity extends ListActivity {
 	private ListView lv26;
 	private ListView lv27;
 	private ListView lv28;
+	private ListView lv29;
+	private ListView lv30;
 
 	private TextView mainTitle;
 	private String[] titles = {
@@ -109,8 +115,13 @@ public class MainActivity extends ListActivity {
 			"STATION SURFICIAL",
 			"STATION SURFICIAL",
 			"STRUCTURE",
-			"STRUCTURE"
+			"STRUCTURE",
+			"STATION DETAILS",
+			"EARTH MATERIAL DETAILS"
 	};
+	
+	private ArrayList<String> details1 = new ArrayList<String>();
+	private ArrayList<String> details2 = new ArrayList<String>();
 
 	private BackAction backAction = new BackAction();
 
@@ -143,6 +154,8 @@ public class MainActivity extends ListActivity {
 			new BackActionInterface() { public void runBack() { backAction.backAction25(); } },
 			new BackActionInterface() { public void runBack() { backAction.backAction26(); } },
 			new BackActionInterface() { public void runBack() { backAction.backAction27(); } },
+			new BackActionInterface() { public void runBack() { backAction.backAction28(); } },
+			new BackActionInterface() { public void runBack() { backAction.backAction29(); } }
 	};
 
 	private SaveAction saveAction = new SaveAction();
@@ -176,6 +189,8 @@ public class MainActivity extends ListActivity {
 			new SaveActionInterface() { public void runSave() { saveAction.saveAction25(); } },
 			new SaveActionInterface() { public void runSave() { saveAction.saveAction26(); } },
 			new SaveActionInterface() { public void runSave() { saveAction.saveAction27(); } },
+			new SaveActionInterface() { public void runSave() { saveAction.saveAction28(); } },
+			new SaveActionInterface() { public void runSave() { saveAction.saveAction29(); } }
 	};
 
 	private EditAction editAction = new EditAction();
@@ -209,6 +224,8 @@ public class MainActivity extends ListActivity {
 			new EditActionInterface() { public void runEdit() { editAction.editAction25(); } },
 			new EditActionInterface() { public void runEdit() { editAction.editAction26(); } },
 			new EditActionInterface() { public void runEdit() { editAction.editAction27(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction28(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction29(); } }
 	};
 
 	private CellAction cellAction = new CellAction();
@@ -242,6 +259,8 @@ public class MainActivity extends ListActivity {
 			new CellActionInterface() { public void runCell() { cellAction.cellAction25(); } },
 			new CellActionInterface() { public void runCell() { cellAction.cellAction26(); } },
 			new CellActionInterface() { public void runCell() { cellAction.cellAction27(); } },
+			new CellActionInterface() { public void runCell() { cellAction.cellAction28(); } },
+			new CellActionInterface() { public void runCell() { cellAction.cellAction29(); } }
 	};
 
 	private NewAction newAction = new NewAction();
@@ -275,6 +294,8 @@ public class MainActivity extends ListActivity {
 			new NewActionInterface() { public void runNew() { newAction.newAction25(); } },
 			new NewActionInterface() { public void runNew() { newAction.newAction26(); } },
 			new NewActionInterface() { public void runNew() { newAction.newAction27(); } },
+			new NewActionInterface() { public void runNew() { newAction.newAction28(); } },
+			new NewActionInterface() { public void runNew() { newAction.newAction29(); } }
 	};
 
 	@Override
@@ -298,8 +319,8 @@ public class MainActivity extends ListActivity {
 				//adap10.save();
 				//adap10.insertMetadataInfo();
 				//metadataModel.insertRow();
-				//flipper.showNext();
-				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				flipper.showNext();
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});
@@ -309,8 +330,8 @@ public class MainActivity extends ListActivity {
 				backActions[flipper.getDisplayedChild()].runBack();
 				//adap10.tUpdate();
 				//metadataModel.deleteRow();
-				//flipper.showPrevious();
-				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				flipper.showPrevious();
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});
@@ -343,6 +364,8 @@ public class MainActivity extends ListActivity {
 		lv26 = (ListView)findViewById(R.id.listStationSurficial);
 		lv27 = (ListView)findViewById(R.id.listStructure2);
 		lv28 = (ListView)findViewById(R.id.listStructure);
+		lv29 = (ListView)findViewById(R.id.listDetail1);
+		lv30 = (ListView)findViewById(R.id.listDetail2);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
 		adap2 = new EarthmatBedrockController(this, this);
@@ -371,7 +394,9 @@ public class MainActivity extends ListActivity {
 		adap25 = new ListController(this, this, "STATION");
 		adap26 = new StationSurficialController(this, this);
 		adap27 = new ListController(this, this, "STRUCTURE");
-		adap28 = new StructureController(this, this);
+		adap28 = new StructureController(this, this);	
+		adap29 = new DetailController(this, this, details1);
+		adap30  =new DetailController(this, this, details2);
 
 		setListAdapter(adap1);
 		lv2.setAdapter(adap2);
@@ -401,8 +426,14 @@ public class MainActivity extends ListActivity {
 		lv26.setAdapter(adap26);
 		lv27.setAdapter(adap27);
 		lv28.setAdapter(adap28);
+		lv29.setAdapter(adap29);
+		lv30.setAdapter(adap30);
 
 		setupButtons();
+		
+		//setupDetailsBedrock();
+		//setupDetailsSurficial();
+		
 		/*
     	flipper.setDisplayedChild(8);
 
@@ -414,6 +445,30 @@ public class MainActivity extends ListActivity {
 
     	adap9.setElements(tt);
 		 */
+	}
+	
+	public void setupDetailsBedrock() {
+		details1.add("1-1a");
+		details1.add("1-2a");
+		details1.add("1-3a");
+		
+		details2.add("2-1a");
+		details2.add("2-2a");
+		details2.add("2-3a");
+		adap29.notifyDataSetChanged();
+		adap30.notifyDataSetChanged();
+	}
+	
+	public void setupDetailsSurficial() {
+		details1.add("1-1b");
+		details1.add("1-2b");
+		details1.add("1-3b");
+		
+		details2.add("2-1b");
+		details2.add("2-2b");
+		details2.add("2-3b");
+		adap29.notifyDataSetChanged();
+		adap30.notifyDataSetChanged();
 	}
 
 	public void cellActionControl() {
@@ -971,6 +1026,14 @@ public class MainActivity extends ListActivity {
 		public void backAction27() {
 
 		}
+
+		public void backAction28() {
+
+		}
+
+		public void backAction29() {
+
+		}
 	}
 
 	public class CellAction {
@@ -1084,6 +1147,14 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void cellAction27() {
+
+		}
+
+		public void cellAction28() {
+
+		}
+
+		public void cellAction29() {
 
 		}
 	}
@@ -1201,6 +1272,14 @@ public class MainActivity extends ListActivity {
 		public void editAction27() {
 
 		}
+
+		public void editAction28() {
+
+		}
+
+		public void editAction29() {
+
+		}
 	}
 
 	public class NewAction {
@@ -1316,6 +1395,14 @@ public class MainActivity extends ListActivity {
 		public void newAction27() {
 
 		}
+
+		public void newAction28() {
+
+		}
+
+		public void newAction29() {
+
+		}
 	}
 
 	public class SaveAction {
@@ -1429,6 +1516,14 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void saveAction27() {
+
+		}
+
+		public void saveAction28() {
+
+		}
+
+		public void saveAction29() {
 
 		}
 	}
