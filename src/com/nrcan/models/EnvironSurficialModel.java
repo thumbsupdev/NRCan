@@ -10,8 +10,8 @@ public class EnvironSurficialModel {
 	private EnvironSurficialEntity environsurficial;
 
 	private static final String ENVIRONSURFICIAL_TABLE_NAME = "environsurficial";
-	private static final String ENVIRONSURFICIAL_NRCID3 = "nrcanId3";
-	private static final String ENVIRONSURFICIAL_NRCID2 = "nrcanId2";
+	private static final String ENVIRONSURFICIAL_NRCANID3 = "nrcanId3";
+	private static final String ENVIRONSURFICIAL_NRCANID2 = "nrcanId2";
 	private static final String ENVIRONSURFICIAL_STATION_ID = "stationID";
 	private static final String ENVIRONSURFICIAL_DRAINAGE = "drainage";
 	private static final String ENVIRONSURFICIAL_SLOPE = "slope";
@@ -34,8 +34,8 @@ public class EnvironSurficialModel {
 	private static final String ENVIRONSURFICIAL_NOTES = "notes";
 
 	private static final String ENVIRONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + ENVIRONSURFICIAL_TABLE_NAME +" (" +
-			ENVIRONSURFICIAL_NRCID3 + " INTEGER PRIMARY KEY autoincrement, " +
-			ENVIRONSURFICIAL_NRCID2 + " INTEGER, " +
+			ENVIRONSURFICIAL_NRCANID3 + " INTEGER PRIMARY KEY autoincrement, " +
+			ENVIRONSURFICIAL_NRCANID2 + " INTEGER, " +
 			ENVIRONSURFICIAL_STATION_ID + " TEXT, " +
 			ENVIRONSURFICIAL_DRAINAGE + " TEXT, " +
 			ENVIRONSURFICIAL_SLOPE + " TEXT, " +
@@ -64,7 +64,7 @@ public class EnvironSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { ENVIRONSURFICIAL_TABLE_NAME, ENVIRONSURFICIAL_NRCID3, String.valueOf(environsurficial.getNrcanId3()) };
+		String[] tmp = new String[] { ENVIRONSURFICIAL_TABLE_NAME, ENVIRONSURFICIAL_NRCANID3, String.valueOf(environsurficial.getNrcanId3()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		environsurficial.setEntity(dbHandler.getSplitRow(0));
@@ -72,7 +72,7 @@ public class EnvironSurficialModel {
 
 	public void insertRow() {
 		ContentValues values = new ContentValues();
-		values.put(ENVIRONSURFICIAL_NRCID2, 0);
+		values.put(ENVIRONSURFICIAL_NRCANID2, 0);
 		values.put(ENVIRONSURFICIAL_STATION_ID, " ");
 		values.put(ENVIRONSURFICIAL_DRAINAGE, " ");
 		values.put(ENVIRONSURFICIAL_SLOPE, " ");
@@ -124,7 +124,7 @@ public class EnvironSurficialModel {
 		values.put(ENVIRONSURFICIAL_PATAREA, environsurficial.getPatArea());
 		values.put(ENVIRONSURFICIAL_NOTES, environsurficial.getNotes());
 
-		String whereClause = ENVIRONSURFICIAL_NRCID3 + " = ?";
+		String whereClause = ENVIRONSURFICIAL_NRCANID3 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(environsurficial.getNrcanId3())
 		};

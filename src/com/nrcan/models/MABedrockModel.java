@@ -10,8 +10,8 @@ public class MABedrockModel {
 	private MABedrockEntity mabedrock;
 
 	private static final String MABEDROCK_TABLE_NAME = "mabedrock";
-	private static final String MABEDROCK_NRCID3 = "nrcanId3";
-	private static final String MABEDROCK_NRCID2 = "nrcanId2";
+	private static final String MABEDROCK_NRCANID3 = "nrcanId3";
+	private static final String MABEDROCK_NRCANID2 = "nrcanId2";
 	private static final String MABEDROCK_STATION_ID = "stationID";
 	private static final String MABEDROCK_MANO = "maNo";
 	private static final String MABEDROCK_MANID = "manID";
@@ -23,8 +23,8 @@ public class MABedrockModel {
 	private static final String MABEDROCK_NOTES = "notes";
 
 	private static final String MABEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + MABEDROCK_TABLE_NAME +" (" +
-			MABEDROCK_NRCID3 + " INTEGER PRIMARY KEY autoincrement, " +
-			MABEDROCK_NRCID2 + " INTEGER, " +
+			MABEDROCK_NRCANID3 + " INTEGER PRIMARY KEY autoincrement, " +
+			MABEDROCK_NRCANID2 + " INTEGER, " +
 			MABEDROCK_STATION_ID + " TEXT, " +
 			MABEDROCK_MANO + " TEXT, " +
 			MABEDROCK_MANID + " TEXT, " +
@@ -42,7 +42,7 @@ public class MABedrockModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { MABEDROCK_TABLE_NAME, MABEDROCK_NRCID3, String.valueOf(mabedrock.getNrcanId3()) };
+		String[] tmp = new String[] { MABEDROCK_TABLE_NAME, MABEDROCK_NRCANID3, String.valueOf(mabedrock.getNrcanId3()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		mabedrock.setEntity(dbHandler.getSplitRow(0));
@@ -50,7 +50,7 @@ public class MABedrockModel {
 
 	public void insertRow() {
 		ContentValues values = new ContentValues();
-		values.put(MABEDROCK_NRCID2, 0);
+		values.put(MABEDROCK_NRCANID2, 0);
 		values.put(MABEDROCK_STATION_ID, " ");
 		values.put(MABEDROCK_MANO, " ");
 		values.put(MABEDROCK_MANID, " ");
@@ -80,7 +80,7 @@ public class MABedrockModel {
 		values.put(MABEDROCK_DISTRIBUTE, mabedrock.getDistribute());	            
 		values.put(MABEDROCK_NOTES, mabedrock.getNotes());
 
-		String whereClause = MABEDROCK_NRCID3 + " = ?";
+		String whereClause = MABEDROCK_NRCANID3 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(mabedrock.getNrcanId3())
 		};

@@ -1,23 +1,14 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.SoilProSurficialEntity;
-import android.util.Log;
-import java.util.ArrayList;
 
 public class SoilProSurficialModel {
-
 	private DatabaseHandler dbHandler;
-	private final Context context;
 	private SoilProSurficialEntity soilproSurficial;
 
-	// Table column keys
 	private static final String SOILPROSURFICIAL_TABLE_NAME = "soilproSurficial";
 	private static final String SOILPROSURFICIAL_NRCANID3 = "nrcanId3";
 	private static final String SOILPROSURFICIAL_NRCANID2 = "nrcanId2";
@@ -43,50 +34,23 @@ public class SoilProSurficialModel {
 	private static final String SOILPROSURFICIAL_NOTES = "notes";
 	private static final String SOILPROSURFICIAL_ID = "id";
 
-	private static final String SOILPROSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS soilproSurficial ("
-			+ "nrcanId3 INTEGER PRIMARY KEY autoincrement, "
-			+ "nrcanId2 INTEGER, "
-			+ "soilProId TEXT, "
-			+ "stationId TEXT, "
-			+ "o_hrz TEXT, "
-			+ "a_hrz TEXT, "
-			+ "b_hrz TEXT, "
-			+ "c_hrz TEXT, "
-			+ "r_hrz TEXT, "
-			+ "l_f_h TEXT, "
-			+ "oQualifier TEXT, "
-			+ "aQualifier TEXT, "
-			+ "bQualifier TEXT, "
-			+ "cQualifier TEXT, "
-			+ "rQualifier TEXT, "
-			+ "l_f_HQuali TEXT, "
-			+ "totThick TEXT, "
-			+ "aTop TEXT, "
-			+ "bTop TEXT, "
-			+ "cTop TEXT, "
-			+ "rTop TEXT, "
-			+ "notes TEXT, " + "id TEXT, " + ");";
+	private static final String SOILPROSURFICIAL_TABLE_CREATE = "";
 
-	public SoilProSurficialModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
+	public SoilProSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.soilproSurficial = new SoilProSurficialEntity();
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { SOILPROSURFICIAL_TABLE_NAME,
-				SOILPROSURFICIAL_NRCANID3,
-				String.valueOf(soilproSurficial.getNrcanId3()) };
+		String[] tmp = new String[] { SOILPROSURFICIAL_TABLE_NAME, SOILPROSURFICIAL_NRCANID3, String.valueOf(soilproSurficial.getNrcanId3()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		soilproSurficial.setEntity(dbHandler.getSplitRow(0));
-
 	}
 
 	public void insertRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(SOILPROSURFICIAL_NRCANID3, " ");
-		values.put(SOILPROSURFICIAL_NRCANID2, " ");
+		values.put(SOILPROSURFICIAL_NRCANID2, 0);
 		values.put(SOILPROSURFICIAL_SOILPROID, " ");
 		values.put(SOILPROSURFICIAL_STATIONID, " ");
 		values.put(SOILPROSURFICIAL_OHRZ, " ");
@@ -109,20 +73,15 @@ public class SoilProSurficialModel {
 		values.put(SOILPROSURFICIAL_NOTES, " ");
 		values.put(SOILPROSURFICIAL_ID, " ");
 
-		long rowID = dbHandler.insertRow(SOILPROSURFICIAL_TABLE_NAME, null,
-				values);
+		long rowID = dbHandler.insertRow(SOILPROSURFICIAL_TABLE_NAME, null, values);
 
 		soilproSurficial.setNrcanId3((int) rowID);
 
 		updateRow();
-
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(SOILPROSURFICIAL_NRCANID3, soilproSurficial.getNrcanId3());
-		values.put(SOILPROSURFICIAL_NRCANID2, soilproSurficial.getNrcanId2());
 		values.put(SOILPROSURFICIAL_SOILPROID, soilproSurficial.getSoilProId());
 		values.put(SOILPROSURFICIAL_STATIONID, soilproSurficial.getStationId());
 		values.put(SOILPROSURFICIAL_OHRZ, soilproSurficial.getO_hrz());
@@ -131,16 +90,11 @@ public class SoilProSurficialModel {
 		values.put(SOILPROSURFICIAL_CHRZ, soilproSurficial.getC_hrz());
 		values.put(SOILPROSURFICIAL_RHRZ, soilproSurficial.getR_hrz());
 		values.put(SOILPROSURFICIAL_LFH, soilproSurficial.getL_f_h());
-		values.put(SOILPROSURFICIAL_OQUALIFIER,
-				soilproSurficial.getoQualifier());
-		values.put(SOILPROSURFICIAL_AQUALIFIER,
-				soilproSurficial.getaQualifier());
-		values.put(SOILPROSURFICIAL_BQUALIFIER,
-				soilproSurficial.getbQualifier());
-		values.put(SOILPROSURFICIAL_CQUALIFIER,
-				soilproSurficial.getcQualifier());
-		values.put(SOILPROSURFICIAL_RQUALIFIER,
-				soilproSurficial.getrQualifier());
+		values.put(SOILPROSURFICIAL_OQUALIFIER, soilproSurficial.getoQualifier());
+		values.put(SOILPROSURFICIAL_AQUALIFIER, soilproSurficial.getaQualifier());
+		values.put(SOILPROSURFICIAL_BQUALIFIER, soilproSurficial.getbQualifier());
+		values.put(SOILPROSURFICIAL_CQUALIFIER, soilproSurficial.getcQualifier());
+		values.put(SOILPROSURFICIAL_RQUALIFIER, soilproSurficial.getrQualifier());
 		values.put(SOILPROSURFICIAL_LFHQUALI, soilproSurficial.getL_f_HQuali());
 		values.put(SOILPROSURFICIAL_TOTTHICK, soilproSurficial.getTotThick());
 		values.put(SOILPROSURFICIAL_ATOP, soilproSurficial.getaTop());
@@ -151,12 +105,11 @@ public class SoilProSurficialModel {
 		values.put(SOILPROSURFICIAL_ID, soilproSurficial.getId());
 
 		String whereClause = SOILPROSURFICIAL_NRCANID3 + " = ?";
-		String[] whereArgs = new String[] { String.valueOf(soilproSurficial
-				.getNrcanId3()) };
+		String[] whereArgs = new String[] {
+				String.valueOf(soilproSurficial.getNrcanId3())
+		};
 
-		dbHandler.updateRow(SOILPROSURFICIAL_TABLE_NAME, values, whereClause,
-				whereArgs);
-
+		dbHandler.updateRow(SOILPROSURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
 	}
 
 	public SoilProSurficialEntity getEntity() {

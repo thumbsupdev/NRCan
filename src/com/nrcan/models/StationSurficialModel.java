@@ -1,23 +1,14 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.StationSurficialEntity;
-import android.util.Log;
-import java.util.ArrayList;
 
 public class StationSurficialModel {
-
 	private DatabaseHandler dbHandler;
-	private final Context context;
 	private StationSurficialEntity stationSurficial;
 
-	// Table column keys
 	private static final String STATIONSURFICIAL_TABLE_NAME = "stationSurficial";
 	private static final String STATIONSURFICIAL_NRCANID2 = "nrcanId2";
 	private static final String STATIONSURFICIAL_NRCANID1 = "nrcanId1";
@@ -48,59 +39,23 @@ public class StationSurficialModel {
 	private static final String STATIONSURFICIAL_PARTNER = "partner";
 	private static final String STATIONSURFICIAL_METAID = "metaId";
 
-	private static final String STATIONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS stationSurficial ("
-			+ "nrcanId2 INTEGER PRIMARY KEY autoincrement, "
-			+ "nrcanId1 INTEGER, "
-			+ "id TEXT, "
-			+ "stationId TEXT, "
-			+ "travNo TEXT, "
-			+ "visitDate TEXT, "
-			+ "visitTime TEXT, "
-			+ "latitude TEXT, "
-			+ "longitude TEXT, "
-			+ "easting TEXT, "
-			+ "northing TEXT, "
-			+ "datumZone TEXT, "
-			+ "elevation TEXT, "
-			+ "elevMethod TEXT, "
-			+ "entryType TEXT, "
-			+ "pDop TEXT, "
-			+ "satsUsed TEXT, "
-			+ "obsType TEXT, "
-			+ "ocQuality TEXT, "
-			+ "physEnv TEXT, "
-			+ "ocSize TEXT, "
-			+ "notes TEXT, "
-			+ "slsNotes TEXT, "
-			+ "airPhoto TEXT, "
-			+ "mapSheet TEXT, "
-			+ "legendVal TEXT, " + "partner TEXT, " + "metaId TEXT, " + ");";
+	private static final String STATIONSURFICIAL_TABLE_CREATE = "";
 
-	public StationSurficialModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
+	public StationSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.stationSurficial = new StationSurficialEntity();
 	}
 
 	public void readRow() {
-
-		String[] tmp = new String[] { STATIONSURFICIAL_TABLE_NAME,
-				STATIONSURFICIAL_NRCANID2,
-				String.valueOf(stationSurficial.getNrcanId1()) };
+		String[] tmp = new String[] { STATIONSURFICIAL_TABLE_NAME, STATIONSURFICIAL_NRCANID2, String.valueOf(stationSurficial.getNrcanId2()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		stationSurficial.setEntity(dbHandler.getSplitRow(0));
 	}
 
-	// Returns: the row ID of the newly inserted row or -1 on error.
-	// Process (only run when save is pressed):
-	// 1. Insert blank row
-	// 2. read the new blank row to get id
-	// 3. set the id in the entity
 	public void insertRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STATIONSURFICIAL_NRCANID2, " ");
-		values.put(STATIONSURFICIAL_NRCANID1, " ");
+		values.put(STATIONSURFICIAL_NRCANID1, 0);
 		values.put(STATIONSURFICIAL_ID, " ");
 		values.put(STATIONSURFICIAL_STATIONID, " ");
 		values.put(STATIONSURFICIAL_TRAVNO, " ");
@@ -128,20 +83,15 @@ public class StationSurficialModel {
 		values.put(STATIONSURFICIAL_PARTNER, " ");
 		values.put(STATIONSURFICIAL_METAID, " ");
 
-		long rowID = dbHandler.insertRow(STATIONSURFICIAL_TABLE_NAME, null,
-				values);
+		long rowID = dbHandler.insertRow(STATIONSURFICIAL_TABLE_NAME, null, values);
 
 		stationSurficial.setNrcanId2((int) rowID);
 
 		updateRow();
-
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STATIONSURFICIAL_NRCANID2, stationSurficial.getNrcanId2());
-		values.put(STATIONSURFICIAL_NRCANID1, stationSurficial.getNrcanId1());
 		values.put(STATIONSURFICIAL_ID, stationSurficial.getId());
 		values.put(STATIONSURFICIAL_STATIONID, stationSurficial.getStationId());
 		values.put(STATIONSURFICIAL_TRAVNO, stationSurficial.getTravNo());
@@ -153,8 +103,7 @@ public class StationSurficialModel {
 		values.put(STATIONSURFICIAL_NORTHING, stationSurficial.getNorthing());
 		values.put(STATIONSURFICIAL_DATUMZONE, stationSurficial.getDatumZone());
 		values.put(STATIONSURFICIAL_ELEVATION, stationSurficial.getElevation());
-		values.put(STATIONSURFICIAL_ELEVMETHOD,
-				stationSurficial.getElevMethod());
+		values.put(STATIONSURFICIAL_ELEVMETHOD, stationSurficial.getElevMethod());
 		values.put(STATIONSURFICIAL_ENTRYTYPE, stationSurficial.getEntryType());
 		values.put(STATIONSURFICIAL_PDOP, stationSurficial.getpDop());
 		values.put(STATIONSURFICIAL_SATSUSED, stationSurficial.getSatsUsed());
@@ -169,22 +118,19 @@ public class StationSurficialModel {
 		values.put(STATIONSURFICIAL_LEGENDVAL, stationSurficial.getLegendVal());
 		values.put(STATIONSURFICIAL_PARTNER, stationSurficial.getPartner());
 		values.put(STATIONSURFICIAL_METAID, stationSurficial.getMetaId());
-		
+
 		String whereClause = STATIONSURFICIAL_NRCANID2 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(stationSurficial.getNrcanId2())
-				};
-		
-		dbHandler.updateRow(STATIONSURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
+		};
 
+		dbHandler.updateRow(STATIONSURFICIAL_TABLE_NAME, values, whereClause, whereArgs);
 	}
 
 	public StationSurficialEntity getEntity() {
 		return stationSurficial;
 	}
-
 	
-
 	public static String getCreateTableStatement() {
 		return STATIONSURFICIAL_TABLE_CREATE;
 	}

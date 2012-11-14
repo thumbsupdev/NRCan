@@ -1,23 +1,14 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.StationBedrockEntity;
-import android.util.Log;
-import java.util.ArrayList;
 
 public class StationBedrockModel {
-
 	private DatabaseHandler dbHandler;
-	private final Context context;
 	private StationBedrockEntity stationBedrock;
 
-	// Table column keys
 	private static final String STATIONBEDROCK_TABLE_NAME = "stationBedrock";
 	private static final String STATIONBEDROCK_NRCANID2 = "nrcanId2";
 	private static final String STATIONBEDROCK_NRCANID1 = "nrcanId1";
@@ -70,27 +61,21 @@ public class StationBedrockModel {
 			+ "slsNotes TEXT, "
 			+ "airPhoto TEXT, " + "partner TEXT, " + "metaId TEXT, " + ");";
 
-	public StationBedrockModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
+	public StationBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.stationBedrock = new StationBedrockEntity();
 	}
 
 	public void readRow() {
-
-		String[] tmp = new String[] { STATIONBEDROCK_TABLE_NAME,
-				STATIONBEDROCK_NRCANID2,
-				String.valueOf(stationBedrock.getNrcanId1()) };
+		String[] tmp = new String[] { STATIONBEDROCK_TABLE_NAME, STATIONBEDROCK_NRCANID2, String.valueOf(stationBedrock.getNrcanId2()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		stationBedrock.setEntity(dbHandler.getSplitRow(0));
-
 	}
 
 	public void insertRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STATIONBEDROCK_NRCANID2, " ");
-		values.put(STATIONBEDROCK_NRCANID1, " ");
+		values.put(STATIONBEDROCK_NRCANID1, 0);
 		values.put(STATIONBEDROCK_ID, " ");
 		values.put(STATIONBEDROCK_STATIONID, " ");
 		values.put(STATIONBEDROCK_TRAVNO, " ");
@@ -115,20 +100,15 @@ public class StationBedrockModel {
 		values.put(STATIONBEDROCK_PARTNER, " ");
 		values.put(STATIONBEDROCK_METAID, " ");
 
-		long rowID = dbHandler.insertRow(STATIONBEDROCK_TABLE_NAME, null,
-				values);
+		long rowID = dbHandler.insertRow(STATIONBEDROCK_TABLE_NAME, null, values);
 
 		stationBedrock.setNrcanId2((int) rowID);
 
 		updateRow();
-
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STATIONBEDROCK_NRCANID2, stationBedrock.getNrcanId2());
-		values.put(STATIONBEDROCK_NRCANID1, stationBedrock.getNrcanId1());
 		values.put(STATIONBEDROCK_ID, stationBedrock.getId());
 		values.put(STATIONBEDROCK_STATIONID, stationBedrock.getStationId());
 		values.put(STATIONBEDROCK_TRAVNO, stationBedrock.getTravNo());
@@ -154,12 +134,11 @@ public class StationBedrockModel {
 		values.put(STATIONBEDROCK_METAID, stationBedrock.getMetaId());
 
 		String whereClause = STATIONBEDROCK_NRCANID2 + " = ?";
-		String[] whereArgs = new String[] { String.valueOf(stationBedrock
-				.getNrcanId2()) };
+		String[] whereArgs = new String[] {
+				String.valueOf(stationBedrock.getNrcanId2())
+		};
 
-		dbHandler.updateRow(STATIONBEDROCK_TABLE_NAME, values, whereClause,
-				whereArgs);
-
+		dbHandler.updateRow(STATIONBEDROCK_TABLE_NAME, values, whereClause, whereArgs);
 	}
 
 	public StationBedrockEntity getEntity() {

@@ -9,7 +9,6 @@ public class PhotoModel {
 	private DatabaseHandler dbHandler;
 	private PhotoEntity photo;
 
-	// Table column keys
 	private static final String PHOTO_TABLE_NAME = "photo";
 	private static final String PHOTO_NRCANID3 = "nrcanId3";
 	private static final String PHOTO_NRCANID2 = "nrcanId2";
@@ -39,20 +38,18 @@ public class PhotoModel {
 
 	public PhotoModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
-		photo = new PhotoEntity();
+		this.photo = new PhotoEntity();
 	}
 
 	public void readRow() {
-
 		String[] tmp = new String[] { PHOTO_TABLE_NAME, PHOTO_NRCANID3, String.valueOf(photo.getNrcanId3()) };
-
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+
 		photo.setEntity(dbHandler.getSplitRow(0));
 	}
-	
+
 	public void insertRow() {
 		ContentValues values = new ContentValues();
-		//values.put(PHOTO_NRCANID3, " ");
 		values.put(PHOTO_NRCANID2, 0);
 		values.put(PHOTO_STATIONID, " ");
 		values.put(PHOTO_PHOTOID, " ");
@@ -72,10 +69,7 @@ public class PhotoModel {
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
-		//values.put(PHOTO_NRCANID3, photo.getNrcanId3());
-		//values.put(PHOTO_NRCANID2, photo.getNrcanId2());
 		values.put(PHOTO_STATIONID, photo.getStationId());
 		values.put(PHOTO_PHOTOID, photo.getPhotoId());
 		values.put(PHOTO_PHOTONO, photo.getPhotoNo());
@@ -87,7 +81,9 @@ public class PhotoModel {
 		values.put(PHOTO_LINKID, photo.getLinkId());
 
 		String whereClause = PHOTO_NRCANID3 + " = ?";
-		String[] whereArgs = new String[] { String.valueOf(photo.getNrcanId3()) };
+		String[] whereArgs = new String[] {
+				String.valueOf(photo.getNrcanId3())
+		};
 
 		dbHandler.updateRow(PHOTO_TABLE_NAME, values, whereClause, whereArgs);
 	}

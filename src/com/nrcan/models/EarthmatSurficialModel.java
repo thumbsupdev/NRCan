@@ -10,8 +10,8 @@ public class EarthmatSurficialModel {
 	private EarthmatSurficialEntity earthmatsurficial;
 
 	private static final String EARTHMATSURFICIAL_TABLE_NAME = "earthmatsurficial";
-	private static final String EARTHMATSURFICIAL_NRCID3 = "nrcanId3";
-	private static final String EARTHMATSURFICIAL_NRCID2 = "nrcanId2";
+	private static final String EARTHMATSURFICIAL_NRCANID3 = "nrcanId3";
+	private static final String EARTHMATSURFICIAL_NRCANID2 = "nrcanId2";
 	private static final String EARTHMATSURFICIAL_STATION_ID = "stationID";
 	private static final String EARTHMATSURFICIAL_EARTHMATLT = "earthmatLT";
 	private static final String EARTHMATSURFICIAL_EARTHMATNO = "earthmatNo";
@@ -57,8 +57,8 @@ public class EarthmatSurficialModel {
 	private static final String EARTHMATSURFICIAL_INTERPCONF = "interpConf";
 
 	private static final String EARTHMATSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + EARTHMATSURFICIAL_TABLE_NAME +" (" +
-			EARTHMATSURFICIAL_NRCID3 + " INTEGER PRIMARY KEY autoincrement, " +
-			EARTHMATSURFICIAL_NRCID2 + " INTEGER, " +
+			EARTHMATSURFICIAL_NRCANID3 + " INTEGER PRIMARY KEY autoincrement, " +
+			EARTHMATSURFICIAL_NRCANID2 + " INTEGER, " +
 			EARTHMATSURFICIAL_STATION_ID + " TEXT, " +
 			EARTHMATSURFICIAL_EARTHMATLT + " TEXT, " +
 			EARTHMATSURFICIAL_EARTHMATNO + " TEXT, " +
@@ -110,7 +110,7 @@ public class EarthmatSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_NRCID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
+		String[] tmp = new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_NRCANID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		earthmatsurficial.setEntity(dbHandler.getSplitRow(0));
@@ -118,7 +118,7 @@ public class EarthmatSurficialModel {
 
 	public void insertRow() {
 		ContentValues values = new ContentValues();
-		values.put(EARTHMATSURFICIAL_NRCID2, 0);
+		values.put(EARTHMATSURFICIAL_NRCANID2, 0);
 		values.put(EARTHMATSURFICIAL_STATION_ID, " ");
 		values.put(EARTHMATSURFICIAL_EARTHMATLT, " ");
 		values.put(EARTHMATSURFICIAL_EARTHMATNO, " ");
@@ -216,7 +216,7 @@ public class EarthmatSurficialModel {
 		values.put(EARTHMATSURFICIAL_INTERP, earthmatsurficial.getInterp());
 		values.put(EARTHMATSURFICIAL_INTERPCONF, earthmatsurficial.getInterpConf());
 
-		String whereClause = EARTHMATSURFICIAL_NRCID3 + " = ?";
+		String whereClause = EARTHMATSURFICIAL_NRCANID3 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(earthmatsurficial.getNrcanId3())
 		};

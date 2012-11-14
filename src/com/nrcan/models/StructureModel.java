@@ -1,24 +1,14 @@
 package com.nrcan.models;
 
 import android.content.ContentValues;
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteDatabase;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.StructureEntity;
 
-import android.util.Log;
-import java.util.ArrayList;
-
 public class StructureModel {
-
 	private DatabaseHandler dbHandler;
-	private final Context context;
 	private StructureEntity structure;
 
-	// Table column keys
 	private static final String STRUCTURE_TABLE_NAME = "structure";
 	private static final String STRUCTURE_NRCANID4 = "nrcanId4";
 	private static final String STRUCTURE_NRCANID3 = "nrcanId3";
@@ -44,50 +34,23 @@ public class StructureModel {
 	private static final String STRUCTURE_SYMANG = "symang";
 	private static final String STRUCTURE_NOTES = "notes";
 
-	private static final String STRUCTURE_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS structure ("
-			+ "nrcanId4 INTEGER PRIMARY KEY autoincrement, "
-			+ "nrcanId3 INTEGER, "
-			+ "stationId TEXT, "
-			+ "earthMatID TEXT, "
-			+ "structId TEXT, "
-			+ "structNo TEXT, "
-			+ "strucClass TEXT, "
-			+ "strucType TEXT, "
-			+ "detail TEXT, "
-			+ "method TEXT, "
-			+ "format TEXT,"
-			+ "attitude TEXT,"
-			+ "younging TEXT,"
-			+ "generation TEXT,"
-			+ "strain TEXT,"
-			+ "flattening TEXT,"
-			+ "related TEXT,"
-			+ "fabric TEXT,"
-			+ "sense TEXT,"
-			+ "azimuth TEXT,"
-			+ "dipplunge TEXT,"
-			+ "symang TEXT," + "notes TEXT," + ");";
+	private static final String STRUCTURE_TABLE_CREATE = "";
 
-	public StructureModel(Context context, DatabaseHandler dbHandler) {
-		this.context = context;
+	public StructureModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.structure = new StructureEntity();
 	}
 
 	public void readRow() {
-
-		String[] tmp = new String[] { STRUCTURE_TABLE_NAME, STRUCTURE_NRCANID4,
-				String.valueOf(structure.getNrcanId4()) };
+		String[] tmp = new String[] { STRUCTURE_TABLE_NAME, STRUCTURE_NRCANID4, String.valueOf(structure.getNrcanId4()) };
 		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
 		structure.setEntity(dbHandler.getSplitRow(0));
-
 	}
 
 	public void insertRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STRUCTURE_NRCANID4, " ");
-		values.put(STRUCTURE_NRCANID3, " ");
+		values.put(STRUCTURE_NRCANID3, 0);
 		values.put(STRUCTURE_STATIONID, " ");
 		values.put(STRUCTURE_EARTHMATID, " ");
 		values.put(STRUCTURE_STRUCTID, " ");
@@ -115,14 +78,10 @@ public class StructureModel {
 		structure.setNrcanId4((int) rowID);
 
 		updateRow();
-
 	}
 
 	public void updateRow() {
-
 		ContentValues values = new ContentValues();
-		values.put(STRUCTURE_NRCANID4, structure.getNrcanId4());
-		values.put(STRUCTURE_NRCANID3, structure.getNrcanId3());
 		values.put(STRUCTURE_STATIONID, structure.getStationId());
 		values.put(STRUCTURE_EARTHMATID, structure.getEarthMatID());
 		values.put(STRUCTURE_STRUCTID, structure.getStructId());
@@ -146,12 +105,11 @@ public class StructureModel {
 		values.put(STRUCTURE_NOTES, structure.getNotes());
 
 		String whereClause = STRUCTURE_NRCANID4 + " = ?";
-		String[] whereArgs = new String[] { String.valueOf(structure
-				.getNrcanId4()) };
+		String[] whereArgs = new String[] {
+				String.valueOf(structure.getNrcanId4())
+		};
 
-		dbHandler.updateRow(STRUCTURE_TABLE_NAME, values, whereClause,
-				whereArgs);
-
+		dbHandler.updateRow(STRUCTURE_TABLE_NAME, values, whereClause, whereArgs);
 	}
 
 	public StructureEntity getEntity() {
