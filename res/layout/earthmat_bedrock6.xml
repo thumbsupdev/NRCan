@@ -9,37 +9,29 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical">
-        
-        <LinearLayout 
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/earthmat_label_fossil"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/earthmat_bedrock_spinner_fossil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:text="@string/earthmat_label_fossil"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Spinner
-                android:id="@+id/earthmat_bedrock_spinner_fossil"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.80"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal"
             android:weightSum="1" >
-            
+
             <Button
                 android:id="@+id/earthmat_bedrock_button_fossil"
                 android:layout_width="0dp"
@@ -54,6 +46,7 @@
                 android:layout_weight="0.9"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
+        
     </LinearLayout>
 
     <LinearLayout

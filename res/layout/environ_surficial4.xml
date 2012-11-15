@@ -4,27 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/environ_label_groundCover"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:weightSum="1" >
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.25"
-            android:text="@string/environ_label_groundCover"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/environ_surficial_spinner_groundCover"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.4"
+            android:layout_weight="0.6"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
@@ -32,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.3"
+            android:layout_weight="0.35"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -47,6 +51,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
@@ -71,7 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
 
         <TextView
             android:layout_width="match_parent"
@@ -89,54 +98,51 @@
         </Spinner>
     </LinearLayout>
 
-    
-     <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:weightSum="1" >
+
+        <Button
+            android:id="@+id/environ_surficial_button_pattGrnd_clear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:text="C" />
+
+        <EditText
+            android:id="@+id/environ_surficial_editText_pattGrnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/environ_label_patternArea"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/environ_surficial_spinner_approxWidth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:orientation="horizontal"
-            android:weightSum="1" >
-
-            <Button
-                android:id="@+id/environ_surficial_button_pattGrnd_clear"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                android:text="C" />
-
-            <EditText
-                android:id="@+id/environ_surficial_editText_pattGrnd"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.9"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-        
-             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp" >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/environ_label_approxWidth"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Spinner
-                android:id="@+id/environ_surficial_spinner_approxWidth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textAppearance="?android:attr/textAppearanceLarge" >
-            </Spinner>
-        </LinearLayout>
-
-  
+            android:textAppearance="?android:attr/textAppearanceLarge" >
+        </Spinner>
+    </LinearLayout>
 
 </LinearLayout>

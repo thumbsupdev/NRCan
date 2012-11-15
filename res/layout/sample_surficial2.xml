@@ -49,69 +49,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="10dp"
         android:weightSum="1" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.3"
-            android:text="@string/sample_label_strike"
+            android:text="@string/sample_label_azimuth"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/sample_surficial_spinner_strike"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/sample_surficial_editText_azimuth"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number"
+            android:hint="0"
             android:textAppearance="?android:attr/textAppearanceLarge" >
-        </Spinner>
-
-        <SeekBar
-            android:id="@+id/sample_surficial_seekbar_strike"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.5" >
-        </SeekBar>
+        </EditText>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="10dp"
         android:weightSum="1" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.3"
-            android:text="@string/sample_label_dip"
+            android:text="@string/sample_label_DipPlunge"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/sample_surficial_spinner_dip"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/sample_surficial_editText_dipPlunge"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="number"
+            android:hint="0"
             android:textAppearance="?android:attr/textAppearanceLarge" >
-        </Spinner>
-
-        <SeekBar
-            android:id="@+id/sample_surficial_seekbar_dip"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.5" >
-        </SeekBar>
+        </EditText>
     </LinearLayout>
 
     <LinearLayout

@@ -46,26 +46,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="-6dp"
-        android:ems="10"
         android:inputType="numberDecimal"
-        android:text="0" />
+        android:hint="0" />
     
     <LinearLayout
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical" >
-        
-        <Button
-        android:id="@+id/photo_button_filenumberup"
-        android:layout_width="44dp"
-        android:layout_height="28dp" />
-        
-        <Button
-        android:id="@+id/photo_button_filenumberdown"
-        android:layout_width="44dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="-10dp" />
 
         
         </LinearLayout>
@@ -90,37 +78,17 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="-6dp"
-        android:ems="10"
         android:inputType="numberDecimal"
-        android:text="0" />
+        android:hint="0" />
     
     <LinearLayout
         android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_vertical" >
-        
-        <Button
-        android:id="@+id/photo_button_directionup"
-        android:layout_width="44dp"
-        android:layout_height="28dp" />
-        
-        <Button
-        android:id="@+id/photo_button_directiondown"
-        android:layout_width="44dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="-10dp" />
 
         
         </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/photo_seekbar_direction"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp" />
     
     </LinearLayout>
     

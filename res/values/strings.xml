@@ -38,6 +38,8 @@
     <string name="sample_label_format">Format</string>
     <string name="sample_label_strike">Strike</string>
     <string name="sample_label_dip">Dip</string>
+    <string name="sample_label_azimuth">Azimuth</string>
+    <string name="sample_label_DipPlunge">Dip/Plunge</string>
     <string name="sample_label_surface">Surface</string>
     <string name="sample_label_note">Note</string>
 
@@ -76,9 +78,12 @@
     <string name="pflow_label_plungedip">Plunge/Dip</string>
     <string name="pflow_label_age">Age</string>
     <string name="pflow_label_indicators"># Indicators</string>
-    <string name="pflow_label_defined">Defined</string>
+    <string name="pflow_label_definition">Definition</string>
     <string name="pflow_label_relationship">Relationship</string>
     <string name="pflow_label_note">Note (254 chars max)</string>
+    
+    <string name="pflow_label_sense">Sense*</string>
+    <string name="pflow_label_bedrockSurface">Bedrock Surface</string>
 
     <!-- TAB HOST NUMBERS -->
     <string name="tabhost_1">1</string>
@@ -97,9 +102,11 @@
     <string name="metadata_label_projectLeader">Project Leader</string>
     <string name="metadata_label_projectType">Project Type</string>
     <string name="metadata_label_geologistName">Geologist Name</string>
-    <string name="metadata_label_geologistCode">Project Code</string>
+    <string name="metadata_label_geologistCode">Geologist Code</string>
     <string name="metadata_label_cameraPrefix">Camera Prefix</string>
     <string name="metadata_label_selectMapProjection">Select Map Projection</string>
+    <string name="metadata_label_stationStartNo">Station Start Number</string>
+
 
     <!-- EARHTMAT BEDROCK -->
     <string name="earthmat_label_group">Group</string>
@@ -118,8 +125,8 @@
     <string name="earthmat_label_mode">Mode</string>
     <string name="earthmat_label_description">Description (254 chars max)</string>
     <string name="earthmat_label_colour">Colour</string>
-    <string name="earthmat_label_fresh">Fresh</string>
-    <string name="earthmat_label_weathered">Weathered</string>
+    <string name="earthmat_label_fresh">Colour Fresh</string>
+    <string name="earthmat_label_weathered">Colour Weathered</string>
     <string name="earthmat_label_index">Index</string>
     <string name="earthmat_label_magSusceptibility">Mag Susceptibility (10&#8211;3 SI)</string>
     <string name="earthmat_label_fossil">Fossil</string>
@@ -130,6 +137,7 @@
     <string name="earthmat_label_contactDescription">Contact Description (254 chars max)</string>
     <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
     <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
+    <string name="earthmat_label_sufform">Sufform</string>
 
     <!-- EARTHMAT SURFICIAL -->
     <string name="earthmat_label_material">Material</string>
@@ -139,7 +147,7 @@
     <string name="earthmat_label_interval">Interval</string>
     <string name="earthmat_label_intThickness">Int Thickness</string>
     <string name="earthmat_label_to">To (m)</string>
-    <string name="earthmat_label_from">From</string>
+    <string name="earthmat_label_from">From (m)</string>
     <string name="earthmat_label_lowContact">Low. Contact</string>
     <string name="earthmat_label_interpretation">Interpretation</string>
     <string name="earthmat_label_latContact">Lat. Contact</string>
@@ -168,6 +176,9 @@
     <string name="earthmat_label_percent">%</string>
     <string name="earthmat_label_genFossilCategories">General Fossil Categories</string>
     <string name="earthmat_label_notes">Notes (max. 254 characters)</string>
+    <string name="earthmat_label_secondary">Secondary</string>
+    <string name="earthmat_label_interpConf">Interp. Confidence</string>
+   
 
     <!-- ENVIRON SURFICIAL -->
     <string name="environ_label_drainage">Drainage</string>
@@ -184,9 +195,12 @@
     <string name="environ_label_boulders">Boulders</string>
     <string name="environ_label_boulderField">Boulderfield</string>
     <string name="environ_label_groundCover">Ground Cover</string>
-    <string name="environ_label_pattGrnd">PatterndGrnd</string>
+    
+    <string name="environ_label_pattGrnd">Pattern Ground</string>
     <string name="environ_label_approxWidth">Approx. Width (m)</string>
     <string name="environ_label_environNote">Environs Note (254 chars max)</string>
+    <string name="environ_label_percentBedrock">Percent Bedrock</string>
+    <string name="environ_label_patternArea">Pattern Area</string>
 
     <!-- SOILPRO SURFICIAL -->
     <string name="soilpro_label_hrzThick">Hrz Thickness</string>
@@ -200,7 +214,7 @@
     <string name="soilpro_label_rHrz">R-Hrz</string>
     <string name="soilpro_label_totalProfile">Total Profile</string>
     <string name="soilpro_label_notes">Notes (254 chars max)</string>
-    
+
     <!-- SAMPLE SURFICIAL -->
     <string name="sample_label_Purpose">Purpse</string>
     <string name="sample_label_horizon">Horizon</string>

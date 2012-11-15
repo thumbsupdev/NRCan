@@ -2,39 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/earthmat_label_colour"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    android:orientation="vertical"
+    android:padding="10dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:weightSum="1" >
+        android:orientation="vertical" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
             android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_fresh"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/earthmat_spinner_fresh"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_marginLeft="20dp"
+       		android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" >
         </Spinner>
     </LinearLayout>
@@ -42,25 +30,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:weightSum="1" >
+        android:orientation="vertical" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_weathered"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/earthmat_spinner_weathered"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" >
         </Spinner>
     </LinearLayout>
@@ -69,61 +52,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:weightSum="1" >
+        android:weightSum="1">
 
+        <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.4" >
+        
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
             android:text="@string/earthmat_label_index"
-            android:layout_gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/earthmat_spinner_index"
-            android:layout_width="0dp"
+        
+        <EditText
+            android:id="@+id/earthmat_editText_index"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
-        </Spinner>
-        <SeekBar
-             android:id="@+id/earthmat_seekbar_index"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.5"
-            >
-            
-        </SeekBar>
-    </LinearLayout>
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:inputType="number" >
+        </EditText>
+        
+        </LinearLayout>
     
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:weightSum="1" >
+        android:orientation="vertical"
+        android:layout_weight="0.6" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:layout_gravity="center_vertical"
             android:text="@string/earthmat_label_magSusceptibility"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
             android:id="@+id/earthmat_editText_magSusceptibility"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:inputType="number" >
         </EditText>
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

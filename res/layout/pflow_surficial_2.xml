@@ -38,36 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="-6dp"
-        android:ems="10"
         android:inputType="numberDecimal"
-        android:text="0" />
-    
-    <LinearLayout
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical" >
-        
-        <Button
-        android:id="@+id/pflow_surficial_button_azimuthup"
-        android:layout_width="44dp"
-        android:layout_height="28dp" />
-        
-        <Button
-        android:id="@+id/pflow_surficial_button_azimuthdown"
-        android:layout_width="44dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="-10dp" />
-        
-        </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/pflow_surficial_seekbar_azimuth"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp" />
+        android:hint="0" />
     
     </LinearLayout>
     
@@ -80,34 +52,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/pflow_surficial_label_plungedip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pflow_label_plungedip"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <EditText
-                android:id="@+id/pflow_surficial_text_plungedip"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-            	android:layout_marginRight="20dp"
-                android:inputType="number" >
-
-                <requestFocus />
-            </EditText>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="28dp" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/pflow_surficial_label_age"
@@ -116,13 +61,12 @@
                 android:text="@string/pflow_label_age"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Spinner
-                android:id="@+id/pflow_surficial_spinner_age"
-                android:layout_width="120dp"
+            <EditText
+                android:id="@+id/pflow_surficial_editText_age"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-            	android:layout_marginRight="20dp"
-                android:text="@string/station_label_date" />
+                />
 
         </LinearLayout>
 
@@ -144,14 +88,14 @@
         	android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <TextView
-        android:id="@+id/pflow_surficial_label_defined"
+       
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pflow_label_defined"
+        android:text="@string/pflow_label_definition"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
-            android:id="@+id/pflow_surficial_spinner_defined"
+            android:id="@+id/pflow_surficial_spinner_definition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

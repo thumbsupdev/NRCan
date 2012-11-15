@@ -18,14 +18,14 @@
             android:text="@string/metadata_label_geologistName"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/metadata_editText_geologistName"
+        <Spinner
+            android:id="@+id/metadata_spinner_geologistName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" >
-        </EditText>
+        </Spinner>
     </LinearLayout>
 
     <LinearLayout
@@ -40,14 +40,14 @@
             android:text="@string/metadata_label_geologistCode"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <EditText
-            android:id="@+id/metadata_editText_geologistCode"
+        <Spinner
+            android:id="@+id/metadata_spinner_geologistCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" >
-        </EditText>
+        </Spinner>
     </LinearLayout>
 
     <LinearLayout
@@ -85,6 +85,27 @@
 
         <Spinner
             android:id="@+id/metadata_spinner_selectMapProjection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/metadata_label_stationStartNo"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/metadata_editText_stationStartNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

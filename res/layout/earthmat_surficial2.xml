@@ -13,53 +13,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_intThickness"
+            android:text="@string/earthmat_label_primary"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/earthmat_surficial_spinner_intThickness"
+            android:id="@+id/earthmat_surficial_spinner_primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:weightSum="1" >
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="@string/earthmat_label_from"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="1" >
 
-        <EditText
-            android:id="@+id/earthmat_surficial_editText_from"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <Button
+                android:id="@+id/earthmat_surficial_button_primary_clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="C" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:text="@string/earthmat_label_to"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/earthmat_surficial_editText_to"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.3"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <EditText
+                android:id="@+id/earthmat_surficial_editText_primary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -71,102 +57,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_colour"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/earthmat_surficial_editText_colour"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-    
-     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_lowContact"
+            android:text="@string/earthmat_label_secondary"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/earthmat_surficial_spinner_lowContact"
+            android:id="@+id/earthmat_surficial_spinner_secondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
 
-         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_interpretation"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/earthmat_surficial_spinner_interpretation"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:orientation="horizontal"
+            android:weightSum="1" >
+
+            <Button
+                android:id="@+id/earthmat_surficial_button_secondary_clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="C" />
+
+            <EditText
+                android:id="@+id/earthmat_surficial_editText_secondary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
     </LinearLayout>
-     
-            <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_latContact"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/earthmat_surficial_spinner_latContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-    
-                     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/earthmat_label_sorting"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/earthmat_surficial_spinner_sorting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
-    
-                     
 
 </LinearLayout>

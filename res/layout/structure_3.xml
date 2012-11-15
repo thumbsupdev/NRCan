@@ -87,8 +87,8 @@
         android:text="@string/structure_label_related"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Spinner
-            android:id="@+id/structure_spinner_related"
+    <EditText
+            android:id="@+id/structure_editText_related"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

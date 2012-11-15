@@ -40,69 +40,52 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:weightSum="1" >
+            android:paddingTop="10dp" >
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="0.3"
                 android:text="@string/mineral_label_min"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Spinner
-                android:id="@+id/mineal_bedrock_spinner_min"
-                android:layout_width="0dp"
+            <EditText
+                android:id="@+id/mineal_bedrock_editText_min"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
+                android:layout_marginLeft="20dp"
+                android:hint="0"
+                android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
-            </Spinner>
-
-            <SeekBar
-                android:id="@+id/mineral_bedrock_seekbar_min"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.5" >
-            </SeekBar>
+            </EditText>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:paddingLeft="10dp"
-            android:weightSum="1" >
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp" >
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="0.3"
                 android:text="@string/mineral_label_max"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Spinner
-                android:id="@+id/mineral_bedrock_spinner_max"
-                android:layout_width="0dp"
+            <EditText
+                android:id="@+id/mineral_bedrock_editText_max"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
+                android:layout_marginLeft="20dp"
+                android:hint="0"
+                android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
-            </Spinner>
-
-            <SeekBar
-                android:id="@+id/mineral_bedrock_seekbar_max"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.5" >
-            </SeekBar>
+            </EditText>
         </LinearLayout>
     </LinearLayout>
 

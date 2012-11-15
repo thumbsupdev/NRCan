@@ -57,17 +57,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/environ_label_specificNotes"
+                android:text="@string/environ_label_percentBedrock"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/environ_surficial_editText_specificNotes"
+                android:id="@+id/environ_surficial_editText_percentBedrock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:inputType="textMultiLine"
-                android:lines="3"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>
         </LinearLayout>
