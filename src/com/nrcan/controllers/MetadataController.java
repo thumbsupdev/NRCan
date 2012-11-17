@@ -56,8 +56,6 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 			convertView = mInflater.inflate(R.layout.metadata1, null);
 
-			holder.editTextWorkspace = (EditText) convertView.findViewById(R.id.metadata_editText_workspace);
-			holder.editTextWorkspace.setText(metadataModel.getEntity().getPrjct_name());
 			holder.editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
 			holder.editTextProjectName.setText(metadataModel.getEntity().getPrjct_code());
 			holder.editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
@@ -72,11 +70,11 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			holder = new MetaData2();
 			convertView = mInflater.inflate(R.layout.metadata2, null);
 
-			holder.editTextGeologistName = (EditText) convertView.findViewById(R.id.metadata_editText_geologistName);
-			holder.editTextGeologistCode = (EditText) convertView.findViewById(R.id.metadata_editText_geologistCode);
+			holder.spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
+			holder.spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
 			holder.spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
 			holder.spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
-
+			holder.editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
 			convertView.setTag(holder);
 
 		}
@@ -155,7 +153,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 //    }
 
 	static class MetaData1 {
-		EditText editTextWorkspace;
+		
 		EditText editTextProjectName;
 		EditText editTextProjectCode;
 		EditText editTextProjectLeader;
@@ -164,10 +162,11 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	static class MetaData2 {
-		EditText editTextGeologistName;
-		EditText editTextGeologistCode;
+		Spinner spinnerGeologistName;
+		Spinner spinnerGeologistCode;
 		Spinner spinnerCameraPrefix;
 		Spinner spinnerMapProjection;
+		EditText editTextStationStartNo;
 
 	}
 }

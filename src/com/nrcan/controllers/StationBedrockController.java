@@ -71,29 +71,38 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 
 			holder.spinnerObsType = (Spinner) convertView
 					.findViewById(R.id.station_spinner_obstype);
+			holder.spinnerEntryType = (Spinner) convertView
+					.findViewById(R.id.station_spinner_entryType);
 			holder.spinnerOutcrop = (Spinner) convertView
 					.findViewById(R.id.station_spinner_outcropqual);
 			holder.spinnerPhysEnviron = (Spinner) convertView
 					.findViewById(R.id.station_spinner_physenviron);
 			holder.editTextOutcropSize = (EditText) convertView
 					.findViewById(R.id.station_text_outcropsize);
-			holder.editTextAirPhoto = (EditText) convertView
-					.findViewById(R.id.station_text_airphoto);
-			holder.spinnerPartner = (Spinner) convertView
-					.findViewById(R.id.station_spinner_partner);
+			
 
 			convertView.setTag(holder);
 		} else if (tab == 3) {
 			StationBedrock3 holder;
 			holder = new StationBedrock3();
 			convertView = mInflater.inflate(R.layout.station_bedrock_3, null);
-
-			holder.editTextStationNote = (EditText) convertView
-					.findViewById(R.id.station_text_stationnote);
+			holder.editTextAirPhoto = (EditText) convertView
+					.findViewById(R.id.station_text_airphoto);
+			holder.editTextPartner = (EditText) convertView
+					.findViewById(R.id.station_editText_partner);
+			
 			convertView.setTag(holder);
 		} else if (tab == 4) {
 			StationBedrock4 holder;
 			holder = new StationBedrock4();
+			convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
+
+			holder.editTextStationNote = (EditText) convertView
+					.findViewById(R.id.station_text_stationnote);
+			convertView.setTag(holder);
+		} else if (tab == 5) {
+			StationBedrock5 holder;
+			holder = new StationBedrock5();
 			convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
 
 			holder.editTextLastStationNote = (EditText) convertView
@@ -127,19 +136,25 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 
 	static class StationBedrock2 {
 		Spinner spinnerObsType;
+		Spinner spinnerEntryType;
 		Spinner spinnerOutcrop;
-		Spinner spinnerPhysEnviron;
 		EditText editTextOutcropSize;
+		Spinner spinnerPhysEnviron;
+		
+		
+	}
+	
+	static class StationBedrock3 {
 		EditText editTextAirPhoto;
-		Spinner spinnerPartner;
+		EditText editTextPartner;
 	}
 
-	static class StationBedrock3 {
+	static class StationBedrock4 {
 		EditText editTextStationNote;
 
 	}
 
-	static class StationBedrock4 {
+	static class StationBedrock5 {
 		EditText editTextLastStationNote;
 	}
 }

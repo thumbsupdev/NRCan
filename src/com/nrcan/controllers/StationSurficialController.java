@@ -63,9 +63,7 @@ public class StationSurficialController extends BaseAdapter implements
 					.findViewById(R.id.station_surficial_text_latitude);
 			holder.editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_longitude);
-			
-			
-			
+
 			convertView.setTag(holder);
 		} else if (tab == 2) {
 			StationSurficial2 holder;
@@ -74,24 +72,10 @@ public class StationSurficialController extends BaseAdapter implements
 
 			holder.spinnerObsType = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_obstype);
-			holder.editTextLegendValue = (EditText) convertView
-					.findViewById(R.id.station_surficial_text_legendvalue);
-			holder.spinnerSiteQual = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_sitequal);
-			holder.spinnerPhysEnviron = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_physenviron);
-			holder.spinnerInterpretation = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_interpretation);
-			holder.editTextAirPhoto = (EditText) convertView
-					.findViewById(R.id.station_surficial_text_airphoto);
-			holder.buttonAirPhoto = (Button) convertView
-					.findViewById(R.id.station_surficial_button_airphoto);
-			holder.editTextMapSheet = (EditText) convertView
-					.findViewById(R.id.station_surficial_text_mapsheet);
-			holder.buttonMapSheet = (Button) convertView
-					.findViewById(R.id.station_surficial_button_mapsheet);
-			
-			
+			holder.spinnerEntrytype = (Spinner) convertView
+					.findViewById(R.id.station_surficial_spinner_entryType);
+			holder.spinnerLegendValue = (Spinner) convertView
+					.findViewById(R.id.station_surficial_spinner_legendvalue);
 			
 
 			convertView.setTag(holder);
@@ -100,23 +84,36 @@ public class StationSurficialController extends BaseAdapter implements
 			holder = new StationSurficial3();
 			convertView = mInflater.inflate(R.layout.station_surficial_3, null);
 
-			
-			holder.editTextStationNote = (EditText) convertView
-					.findViewById(R.id.station_surficial_text_stationnote);
-
-			
-				
-
+			holder.spinnerSiteQual = (Spinner) convertView
+					.findViewById(R.id.station_surficial_spinner_sitequal);
+			holder.spinnerPhysEnviron = (Spinner) convertView
+					.findViewById(R.id.station_surficial_spinner_physenviron);
+			holder.editTextInterpretation = (EditText) convertView
+					.findViewById(R.id.station_surficial_editText_interpretation);
+			holder.editTextAirPhoto = (EditText) convertView
+					.findViewById(R.id.station_surficial_text_airphoto);
+			holder.buttonAirPhoto = (Button) convertView
+					.findViewById(R.id.station_surficial_button_airphoto);
+			holder.editTextMapSheet = (EditText) convertView
+					.findViewById(R.id.station_surficial_text_mapsheet);
+			holder.buttonMapSheet = (Button) convertView
+					.findViewById(R.id.station_surficial_button_mapsheet);
 			convertView.setTag(holder);
 		} else if (tab == 4) {
 			StationSurficial4 holder;
 			holder = new StationSurficial4();
 			convertView = mInflater.inflate(R.layout.station_surficial_4, null);
 
-			
+			holder.editTextStationNote = (EditText) convertView
+					.findViewById(R.id.station_surficial_text_stationnote);
+			convertView.setTag(holder);
+		} else if (tab == 5) {
+			StationSurficial5 holder;
+			holder = new StationSurficial5();
+			convertView = mInflater.inflate(R.layout.station_surficial_5, null);
 			holder.editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_sincelaststationnote);
-			
+
 		}
 
 		return convertView;
@@ -140,39 +137,36 @@ public class StationSurficialController extends BaseAdapter implements
 		EditText editTextNorthing;
 		EditText editTextLatitude;
 		EditText editTextLongitude;
-		
-		
 
 	}
 
 	static class StationSurficial2 {
-		
+
 		Spinner spinnerObsType;
-		EditText editTextLegendValue;
-		Spinner spinnerSiteQual;
-		Spinner spinnerPhysEnviron;
-		Spinner spinnerInterpretation;
-		EditText editTextAirPhoto;
-		Button buttonAirPhoto;
-		EditText editTextMapSheet;
-		Button buttonMapSheet;
-		
-		
+		Spinner spinnerLegendValue;
+		Spinner spinnerEntrytype;
 
 	}
 
 	static class StationSurficial3 {
-		
-		EditText editTextStationNote;
-
-		
-
+		Spinner spinnerSiteQual;
+		Spinner spinnerPhysEnviron;
+		EditText editTextInterpretation;
+		EditText editTextAirPhoto;
+		Button buttonAirPhoto;
+		EditText editTextMapSheet;
+		Button buttonMapSheet;
 	}
 
 	static class StationSurficial4 {
-		
+
+		EditText editTextStationNote;
+
+	}
+
+	static class StationSurficial5 {
+
 		EditText editTextLastStationNote;
 	}
 
-	
 }

@@ -83,8 +83,8 @@
             android:text="@string/sample_label_horizon"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/sample_surficial_spinner_horizon"
+        <EditText
+            android:id="@+id/sample_surficial_editText_horizon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

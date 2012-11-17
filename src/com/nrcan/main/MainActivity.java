@@ -19,6 +19,7 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
 
+	private PicklistDatabaseHandler pldb;
 	private DatabaseHandler databaseHandler;
 	private ViewFlipper flipper;
 
@@ -612,6 +613,12 @@ public class MainActivity extends ListActivity {
 				adap4.setTab(7);
 			}
 		});
+		Button tab_button_8 = (Button) findViewById(R.id.tab_host_2_button8);
+		tab_button_8.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				adap4.setTab(8);
+			}
+		});
 	}
 	public void setupButtonsEnvironSurficial() {
 		Button tab_button_1 = (Button) findViewById(R.id.tab_host_3_button1);
@@ -836,6 +843,12 @@ public class MainActivity extends ListActivity {
 		tab_button_4.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				adap26.setTab(4);
+			}
+		});
+		Button tab_button_5 = (Button) findViewById(R.id.tab_host_13_button5);
+		tab_button_5.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				adap26.setTab(5);
 			}
 		});
 	}
@@ -1526,6 +1539,10 @@ public class MainActivity extends ListActivity {
 		public void saveAction29() {
 
 		}
+	}
+	
+	public PicklistDatabaseHandler getPLDB() {
+		return this.pldb;
 	}
 
 

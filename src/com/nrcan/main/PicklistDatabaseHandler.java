@@ -28,11 +28,11 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 	}
 	
-	public List<String> getCol1 (int id) {
-		List<String> tmpDD = new ArrayList<String>();
+	public ArrayList<String> getCol1 (String id) {
+		ArrayList<String> tmpDD = new ArrayList<String>();
 		SQLiteDatabase db = this.getWritableDatabase();
 		
-		Cursor c = db.rawQuery("SELECT DISTINCT col1 FROM " + plNames.get(id) + " ORDER BY id ASC", null);
+		Cursor c = db.rawQuery("SELECT DISTINCT col1 FROM " + "" + " ORDER BY id ASC", null);
 		
 		if (c != null)
 		{
@@ -51,11 +51,11 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
 		return tmpDD;
 	}
 	
-	public List<String> getCol2 (int id, String col1) {
-		List<String> tmpDD = new ArrayList<String>();
+	public ArrayList<String> getCol2 (String id, String col1) {
+		ArrayList<String> tmpDD = new ArrayList<String>();
 		SQLiteDatabase db = this.getWritableDatabase();
 		
-		Cursor c = db.rawQuery("SELECT DISTINCT col2 FROM " + plNames.get(id) + " WHERE col1 = '" + col1 + "' ORDER BY id ASC", null);
+		Cursor c = db.rawQuery("SELECT DISTINCT col2 FROM " + "" + " WHERE col1 = '" + col1 + "' ORDER BY id ASC", null);
 		
 		if (c != null)
 		{
@@ -76,11 +76,11 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
 		return tmpDD;
 	}
 	
-	public List<String> getCol3 (int id, String col1, String col2) {
-		List<String> tmpDD = new ArrayList<String>();
+	public ArrayList<String> getCol3 (String id, String col1, String col2) {
+		ArrayList<String> tmpDD = new ArrayList<String>();
 		SQLiteDatabase db = this.getWritableDatabase();
 		
-		Cursor c = db.rawQuery("SELECT DISTINCT col3 FROM " + plNames.get(id) + " WHERE col1 = '" + col1 + "' AND col2 = '" + col2 + "' ORDER BY id ASC", null);
+		Cursor c = db.rawQuery("SELECT DISTINCT col3 FROM " + "" + " WHERE col1 = '" + col1 + "' AND col2 = '" + col2 + "' ORDER BY id ASC", null);
 		
 		if (c != null)
 		{

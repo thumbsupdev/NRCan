@@ -17,8 +17,9 @@
     <string name="station_label_northing">Northing (m)</string>
     <string name="station_label_latitude">Latitude</string>
     <string name="station_label_longitude">Longitude</string>
-    <string name="station_label_obstype">Obs. Type*</string>
-    <string name="station_label_outcropqual">Outcrop Qual.</string>
+    <string name="station_label_obstype">Observation Type*</string>
+    
+    <string name="station_label_outcropqual">Outcrop Quality</string>
     <string name="station_label_physenviron">Phys. Environ</string>
     <string name="station_label_outcropsize">Outcrop Size</string>
     <string name="station_label_airphoto">Airphoto</string>
@@ -31,6 +32,8 @@
     <string name="station_label_interpretation">Interpretation</string>
     <string name="station_label_mapsheet">Map Sheet</string>
 
+    <string name="station_label_entryType">Entry Type</string>
+    
     <!-- SAMPLE -->
     <string name="sample_label_type">Type*</string>
     <string name="sample_label_purpose">Purpose*</string>
@@ -137,7 +140,7 @@
     <string name="earthmat_label_contactDescription">Contact Description (254 chars max)</string>
     <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
     <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
-    <string name="earthmat_label_sufform">Sufform</string>
+    <string name="earthmat_label_surficialOrigin">Surficial Origin</string>
 
     <!-- EARTHMAT SURFICIAL -->
     <string name="earthmat_label_material">Material</string>
@@ -145,22 +148,22 @@
     <string name="earthmat_label_primary">Primary</string>
     <string name="earthmat_label_other">Other</string>
     <string name="earthmat_label_interval">Interval</string>
-    <string name="earthmat_label_intThickness">Int Thickness</string>
+    <string name="earthmat_label_intThickness">Thickness Type</string>
     <string name="earthmat_label_to">To (m)</string>
     <string name="earthmat_label_from">From (m)</string>
-    <string name="earthmat_label_lowContact">Low. Contact</string>
-    <string name="earthmat_label_interpretation">Interpretation</string>
-    <string name="earthmat_label_latContact">Lat. Contact</string>
+    <string name="earthmat_label_lowContact">Lower Contact</string>
+    <string name="earthmat_label_interpretation">Contact Interpretation</string>
+    <string name="earthmat_label_latContact">Lateral Contact</string>
     <string name="earthmat_label_sorting">Sorting</string>
     <string name="earthmat_label_matrix">Matrix</string>
     <string name="earthmat_label_modifier">Modifier</string>
     <string name="earthmat_label_oxidation">Oxidation</string>
-    <string name="earthmat_label_compact">Compact</string>
+    <string name="earthmat_label_compact">Compaction</string>
     <string name="earthmat_label_h2oContent">H2O Content</string>
     <string name="earthmat_label_jointing">Jointing</string>
     <string name="earthmat_label_hclReact">HCL React.</string>
     <string name="earthmat_label_fissility">Fissility</string>
-    <string name="earthmat_label_unitValue">Unit Value</string>
+    <string name="earthmat_label_mapUnit">Map Unit</string>
     <string name="earthmat_label_clastSize">Clast Size (cm)</string>
     <string name="earthmat_label_modal">Modal</string>
     <string name="earthmat_label_min">Min</string>
@@ -175,9 +178,11 @@
     <string name="earthmat_label_erraticType">Erratic Type</string>
     <string name="earthmat_label_percent">%</string>
     <string name="earthmat_label_genFossilCategories">General Fossil Categories</string>
+    <string name="earthmat_label_interpretation2">Interpretation</string>
     <string name="earthmat_label_notes">Notes (max. 254 characters)</string>
     <string name="earthmat_label_secondary">Secondary</string>
-    <string name="earthmat_label_interpConf">Interp. Confidence</string>
+    <string name="earthmat_label_interpConf">Interpretation Confidence</string>
+    <string name="earthmat_label_wayUp">Way up</string>
    
 
     <!-- ENVIRON SURFICIAL -->
@@ -195,12 +200,13 @@
     <string name="environ_label_boulders">Boulders</string>
     <string name="environ_label_boulderField">Boulderfield</string>
     <string name="environ_label_groundCover">Ground Cover</string>
+    <string name="environ_label_relief">Relief</string>
     
-    <string name="environ_label_pattGrnd">Pattern Ground</string>
+    <string name="environ_label_pattGrnd">Patterned Ground</string>
     <string name="environ_label_approxWidth">Approx. Width (m)</string>
     <string name="environ_label_environNote">Environs Note (254 chars max)</string>
     <string name="environ_label_percentBedrock">Percent Bedrock</string>
-    <string name="environ_label_patternArea">Pattern Area</string>
+    <string name="environ_label_patternArea">Patterned Area</string>
 
     <!-- SOILPRO SURFICIAL -->
     <string name="soilpro_label_hrzThick">Hrz Thickness</string>
@@ -230,6 +236,7 @@
     <string name="ma_label_unit">Unit</string>
     <string name="ma_label_mode">Mode</string>
     <string name="ma_label_note">Note (254 chars max)</string>
+    <string name="ma_label_whataffected">What Affected</string>
 
     <!-- MINERAL -->
     <string name="mineral_label_mineral">Mineral*</string>

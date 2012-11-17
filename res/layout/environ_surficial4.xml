@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.6"
+            android:layout_weight="0.7"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.35"
+            android:layout_weight="0.3"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -135,14 +135,14 @@
             android:text="@string/environ_label_patternArea"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/environ_surficial_spinner_approxWidth"
+        <EditText
+            android:id="@+id/environ_surficial_editText_patternArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
-        </Spinner>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+      
     </LinearLayout>
 
 </LinearLayout>

@@ -9,20 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ma_label_mode"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-                android:id="@+id/ma_bedrock_editText_mode"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-     			android:layout_marginRight="20dp"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
         
     </LinearLayout>
     

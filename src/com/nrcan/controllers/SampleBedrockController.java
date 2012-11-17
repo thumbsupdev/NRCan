@@ -15,12 +15,12 @@ import android.widget.Filterable;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 
-public class SampleBedrockController  extends BaseAdapter implements Filterable {
+public class SampleBedrockController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
 	private int tab;
-	
+
 	public SampleBedrockController(Context context, Activity activity) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
@@ -41,49 +41,47 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-			if(tab == 1)
-			{
-				SampleBedrock1 holder;
-				holder = new SampleBedrock1();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
-				
-				holder.spinnerType = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_type);
-				holder.spinnerPurpose = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_purpose);
-				holder.buttonPurpose = (Button)convertView.findViewById(R.id.sample_bedrock_button_purpose);
-				holder.editTextPurpose = (EditText)convertView.findViewById(R.id.sample_bedrock_text_purpose);
-				
-				convertView.setTag(holder);
-			}
-			else if (tab == 2)
-			{
-				SampleBedrock2 holder;
-				holder = new SampleBedrock2();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_2, null);
-				
-				holder.spinnerFormat = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_format);
-				holder.editTextStrike = (EditText)convertView.findViewById(R.id.sample_bedrock_text_strike);
-				holder.buttonStrikeUp = (Button)convertView.findViewById(R.id.sample_bedrock_button_strikeup);
-				holder.buttonStrikeDown = (Button)convertView.findViewById(R.id.sample_bedrock_button_strikedown);
-				holder.seekbarStrike = (SeekBar)convertView.findViewById(R.id.sample_bedrock_seekbar_strike);
-				holder.editTextDip = (EditText)convertView.findViewById(R.id.sample_bedrock_text_dip);
-				holder.buttonDipUp = (Button)convertView.findViewById(R.id.sample_bedrock_button_dipup);
-				holder.buttonDipDown = (Button)convertView.findViewById(R.id.sample_bedrock_button_dipdown);
-				holder.seekbarDip = (SeekBar)convertView.findViewById(R.id.sample_bedrock_seekbar_dip);
-				holder.spinnerSurface = (Spinner)convertView.findViewById(R.id.sample_bedrock_spinner_surface);
-				
-				convertView.setTag(holder);
-			}
-			else if (tab == 3)
-			{
-				SampleBedrock3 holder;
-				holder = new SampleBedrock3();
-				convertView = mInflater.inflate(R.layout.sample_bedrock_3, null);
-				
-				holder.editTextNote = (EditText)convertView.findViewById(R.id.sample_bedrock_text_note);
-				
-				convertView.setTag(holder);
-			}
-		
+		if (tab == 1) {
+			SampleBedrock1 holder;
+			holder = new SampleBedrock1();
+			convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
+
+			holder.spinnerType = (Spinner) convertView
+					.findViewById(R.id.sample_bedrock_spinner_type);
+			holder.spinnerPurpose = (Spinner) convertView
+					.findViewById(R.id.sample_bedrock_spinner_purpose);
+			holder.buttonPurpose = (Button) convertView
+					.findViewById(R.id.sample_bedrock_button_purpose);
+			holder.editTextPurpose = (EditText) convertView
+					.findViewById(R.id.sample_bedrock_text_purpose);
+
+			convertView.setTag(holder);
+		} else if (tab == 2) {
+			SampleBedrock2 holder;
+			holder = new SampleBedrock2();
+			convertView = mInflater.inflate(R.layout.sample_bedrock_2, null);
+
+			holder.spinnerFormat = (Spinner) convertView
+					.findViewById(R.id.sample_bedrock_spinner_format);
+			holder.editTextAzimuth = (EditText) convertView
+					.findViewById(R.id.sample_bedrock_editText_azimuth);
+			holder.editTextDipPlunge = (EditText) convertView
+					.findViewById(R.id.sample_bedrock_editText_dipPlunge);
+			holder.spinnerSurface = (Spinner) convertView
+					.findViewById(R.id.sample_bedrock_spinner_surface);
+
+			convertView.setTag(holder);
+		} else if (tab == 3) {
+			SampleBedrock3 holder;
+			holder = new SampleBedrock3();
+			convertView = mInflater.inflate(R.layout.sample_bedrock_3, null);
+
+			holder.editTextNote = (EditText) convertView
+					.findViewById(R.id.sample_bedrock_text_note);
+
+			convertView.setTag(holder);
+		}
+
 		return convertView;
 	}
 
@@ -102,23 +100,16 @@ public class SampleBedrockController  extends BaseAdapter implements Filterable 
 		Button buttonPurpose;
 		EditText editTextPurpose;
 	}
-	
+
 	static class SampleBedrock2 {
 		Spinner spinnerFormat;
-		EditText editTextStrike;
-		Button buttonStrikeUp;
-		Button buttonStrikeDown;
-		SeekBar seekbarStrike;
-		EditText editTextDip;
-		Button buttonDipUp;
-		Button buttonDipDown;
-		SeekBar seekbarDip;
+		EditText editTextAzimuth;
+		EditText editTextDipPlunge;
 		Spinner spinnerSurface;
 	}
-	
-	static class SampleBedrock3{
+
+	static class SampleBedrock3 {
 		EditText editTextNote;
 	}
-	
-}
 
+}

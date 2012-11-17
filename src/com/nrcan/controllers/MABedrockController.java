@@ -47,31 +47,27 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			holder = new MABedrock1();
 			convertView = mInflater.inflate(R.layout.ma_bedrock1, null);
 
-			holder.spinnerSummary = (Spinner) convertView
-					.findViewById(R.id.ma_bedrock_spinner_summary);
-			holder.buttonSummary = (Button) convertView
-					.findViewById(R.id.ma_bedrock_button_summary);
 			holder.spinnerMinAlt = (Spinner) convertView
 					.findViewById(R.id.ma_bedrock_spinner_minAlt);
 			holder.spinnerMineral = (Spinner) convertView
 					.findViewById(R.id.ma_bedrock_spinner_mineral);
+			holder.spinnerMineralPercent = (Spinner) convertView
+					.findViewById(R.id.ma_bedrock_spinner_mineralPercent);
 			holder.spinnerDistribution = (Spinner) convertView
 					.findViewById(R.id.ma_bedrock_spinner_distribution);
 			holder.buttonMAClear = (Button) convertView
 					.findViewById(R.id.ma_bedrock_button_mAClear);
 			holder.editTextMA = (EditText) convertView
 					.findViewById(R.id.ma_bedrock_editText_mA);
+			holder.spinnerWhatAffected = (Spinner) convertView
+					.findViewById(R.id.ma_bedrock_spinner_whatAffected);
+			
 			convertView.setTag(holder);
 		} else if (tab == 2) {
 			MABedrock2 holder;
 			holder = new MABedrock2();
 			convertView = mInflater.inflate(R.layout.ma_bedrock2, null);
-			holder.spinnerUnit = (Spinner) convertView
-					.findViewById(R.id.ma_bedrock_spinner_unit);
-			holder.spinnerMode = (Spinner) convertView
-					.findViewById(R.id.ma_bedrock_spinner_mode);
-			holder.seekbarMode = (SeekBar) convertView
-					.findViewById(R.id.ma_bedrock_seekbar_mode);
+
 			holder.editTextNote = (EditText) convertView
 					.findViewById(R.id.ma_bedrock_editText_note);
 
@@ -92,20 +88,18 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 	}
 
 	static class MABedrock1 {
-		Spinner spinnerSummary;
-		Button buttonSummary;
 		Spinner spinnerMinAlt;
 		Spinner spinnerMineral;
+		Spinner spinnerMineralPercent;
 		Spinner spinnerDistribution;
 		Button buttonMAClear;
 		EditText editTextMA;
-
+		Spinner spinnerWhatAffected;
 	}
 
 	static class MABedrock2 {
-		Spinner spinnerUnit;
-		Spinner spinnerMode;
-		SeekBar seekbarMode;
+		
+		
 		EditText editTextNote;
 	}
 

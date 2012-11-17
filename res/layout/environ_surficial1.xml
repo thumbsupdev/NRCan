@@ -13,11 +13,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/environ_label_drainage"
+            android:text="@string/environ_label_relief"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
-            android:id="@+id/environ_surficial_spinner_drainage"
+            android:id="@+id/environ_surficial_spinner_relief"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -38,17 +38,19 @@
             android:text="@string/environ_label_slope"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/environ_surficial_spinner_slope"
+        <EditText
+            android:id="@+id/environ_surficial_editText_slope"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:inputType="numberDecimal"
+            android:hint="0"
             android:textAppearance="?android:attr/textAppearanceLarge" >
 
 
             
-        </Spinner>
+        </EditText>
     </LinearLayout>
 
     <LinearLayout

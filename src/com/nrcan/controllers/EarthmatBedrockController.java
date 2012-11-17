@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 
 public class EarthmatBedrockController extends BaseAdapter implements Filterable {
@@ -42,22 +41,18 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			EarthmatBedrock1 holder;
-			holder = new EarthmatBedrock1();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock1, null);
 
-			holder.spinnerGroup = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_group);
-			holder.spinnerType = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_type);
-			holder.spinnerDetail = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_detail);
-			holder.spinnerUnit = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_unit);
-			holder.spinnerOccurs = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
-
-			convertView.setTag(holder);
+			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_group);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatRocktype");
+			spinnerGroup.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
+			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
+			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
+			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
+			
 		} else if (tab == 2) {
 			EarthmatBedrock2 holder;
 			holder = new EarthmatBedrock2();
@@ -117,38 +112,30 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			holder = new EarthmatBedrock4();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock4, null);
 
-			holder.spinnerRock = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_rock);
 			holder.spinnerMineral = (Spinner) convertView
 					.findViewById(R.id.earthmat_bedrock_spinner_mineral);
-			holder.spinnerMode = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_mode);
-			holder.buttonAdd = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_add);
 			holder.buttonClear = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_grnCry);
-			holder.editTextBesideC = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_grnCry);
+					.findViewById(R.id.earthmat_bedrock_button_mineral);
+			holder.editTextMineral = (EditText) convertView
+					.findViewById(R.id.earthmat_bedrock_editText_mineral);
 			holder.editTextRockDescription = (EditText) convertView
 					.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-			
-		}else if (tab == 5) {
+
+		} else if (tab == 5) {
 			EarthmatBedrock5 holder;
 			holder = new EarthmatBedrock5();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock5, null);
 
 			holder.spinnerFresh = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_rock);
+					.findViewById(R.id.earthmat_spinner_fresh);
 			holder.spinnerWeathered = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_mineral);
-			holder.spinnerIndex = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_mode);
-			holder.seekBarIndex = (SeekBar) convertView
-					.findViewById(R.id.earthmat_seekbar_index);
+					.findViewById(R.id.earthmat_spinner_weathered);
+			holder.editTextIndex = (EditText) convertView
+					.findViewById(R.id.earthmat_editText_index);
 			holder.editTextMagSus = (EditText) convertView
 					.findViewById(R.id.earthmat_editText_magSusceptibility);
-			
-		}else if (tab == 6) {
+
+		} else if (tab == 6) {
 			EarthmatBedrock6 holder;
 			holder = new EarthmatBedrock6();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock6, null);
@@ -161,8 +148,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					.findViewById(R.id.earthmat_bedrock_editText_fossil);
 			holder.editTextFossilDescription = (EditText) convertView
 					.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-			
-		}else if (tab == 7) {
+
+		} else if (tab == 7) {
 			EarthmatBedrock7 holder;
 			holder = new EarthmatBedrock7();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock7, null);
@@ -171,12 +158,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					.findViewById(R.id.earthmat_spinner_upper);
 			holder.spinnerContactLower = (Spinner) convertView
 					.findViewById(R.id.earthmat_spinner_lower);
-			
+
 			holder.editTextContactDescription = (EditText) convertView
 					.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
-			
-			
-		}else if (tab == 8) {
+
+		} else if (tab == 8) {
 			EarthmatBedrock8 holder;
 			holder = new EarthmatBedrock8();
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock8, null);
@@ -184,11 +170,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
 			holder.spinnerLithInterp = (Spinner) convertView
 					.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
-			
-			
-			
-			
-			
+
 		}
 
 		return convertView;
@@ -201,16 +183,6 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	public void setTab(int tabNum) {
 		this.tab = tabNum;
 		notifyDataSetChanged();
-	}
-
-	static class EarthmatBedrock1 {
-
-		Spinner spinnerGroup;
-		Spinner spinnerType;
-		Spinner spinnerDetail;
-		Spinner spinnerUnit;
-		Spinner spinnerOccurs;
-
 	}
 
 	static class EarthmatBedrock2 {
@@ -244,20 +216,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	}
 
 	static class EarthmatBedrock4 {
-		Spinner spinnerRock;
+		// Spinner spinnerRock;
 		Spinner spinnerMineral;
-		Spinner spinnerMode;
-		Button buttonAdd;
+		// Spinner spinnerMode;
+		// Button buttonAdd;
 		Button buttonClear;
-		EditText editTextBesideC;
+		EditText editTextMineral;
 		EditText editTextRockDescription;
 	}
 
 	static class EarthmatBedrock5 {
 		Spinner spinnerFresh;
 		Spinner spinnerWeathered;
-		Spinner spinnerIndex;
-		SeekBar seekBarIndex;
+		EditText editTextIndex;
 		EditText editTextMagSus;
 	}
 

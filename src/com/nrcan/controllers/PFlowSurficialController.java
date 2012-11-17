@@ -48,11 +48,11 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				convertView = mInflater.inflate(R.layout.pflow_surficial_1, null);
 				
 				holder.spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
-				holder.spinnerDirection = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_direction);
+				holder.spinnerSense = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_sense);
 				holder.spinnerFeature = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_feature);
 				holder.buttonFeature = (Button)convertView.findViewById(R.id.pflow_surficial_button_feature);
 				holder.editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
-				
+				holder.spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
 				convertView.setTag(holder);
 			}
 			else if (tab == 2)
@@ -60,16 +60,11 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				PFlowSurficial2 holder;
 				holder = new PFlowSurficial2();
 				convertView = mInflater.inflate(R.layout.pflow_surficial_2, null);
-				
 				holder.spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
 				holder.editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
-				holder.buttonAzimuthUp = (Button)convertView.findViewById(R.id.pflow_surficial_button_azimuthup);
-				holder.buttonAzimuthDown = (Button)convertView.findViewById(R.id.pflow_surficial_button_azimuthdown);
-				holder.seekbarAzimuth = (SeekBar)convertView.findViewById(R.id.pflow_surficial_seekbar_azimuth);
-				holder.editTextPlungedip = (EditText)convertView.findViewById(R.id.pflow_surficial_text_plungedip);
-				holder.spinnerAge = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_age);
+				holder.editTextAge = (EditText)convertView.findViewById(R.id.pflow_surficial_editText_age);
 				holder.spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
-				holder.spinnerDefined = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_defined);
+				holder.spinnerDefinition = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_definition);
 				holder.spinnerRelationship = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_relationship);
 				
 				convertView.setTag(holder);
@@ -99,22 +94,21 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 	static class PFlowSurficial1 {
 		Spinner spinnerClass;
-		Spinner spinnerDirection;
+		Spinner spinnerSense;
 		Spinner spinnerFeature;
 		Button buttonFeature;
 		EditText editTextFeature;
+		Spinner spinnerBedrockSurface;
 	}
 	
 	static class PFlowSurficial2 {
 		Spinner spinnerMethod;
 		EditText editTextAzimuth;
-		Button buttonAzimuthUp;
-		Button buttonAzimuthDown;
-		SeekBar seekbarAzimuth;
-		EditText editTextPlungedip;
-		Spinner spinnerAge;
+		
+		
+		EditText editTextAge;
 		Spinner spinnerIndicators;
-		Spinner spinnerDefined;
+		Spinner spinnerDefinition;
 		Spinner spinnerRelationship;
 	}
 	

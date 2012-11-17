@@ -245,6 +245,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_7" />
+
+                <Button
+                    android:id="@+id/tab_host_2_button8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_8" />
 				
             </LinearLayout>
 
@@ -989,6 +996,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tabhost_4" />
+
+                <Button
+                    android:id="@+id/tab_host_13_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tabhost_5" />
 				
             </LinearLayout>
 

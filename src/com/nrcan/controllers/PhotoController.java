@@ -53,19 +53,9 @@ public class PhotoController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.photo_text_filename);
 			holder.editTextFileNumber = (EditText) convertView
 					.findViewById(R.id.photo_text_filenumber);
-			holder.buttonFileNumberUp = (Button) convertView
-					.findViewById(R.id.photo_button_filenumberup);
-			holder.buttonFileNumberDown = (Button) convertView
-					.findViewById(R.id.photo_button_filenumberdown);
 			holder.editTextDirection = (EditText) convertView
 					.findViewById(R.id.photo_text_direction);
-			holder.buttonDirectionUp = (Button) convertView
-					.findViewById(R.id.photo_button_directionup);
-			holder.buttonDirectionDown = (Button) convertView
-					.findViewById(R.id.photo_button_directiondown);
-			holder.seekBarDirection = (SeekBar) convertView
-					.findViewById(R.id.photo_seekbar_direction);
-
+			
 			convertView.setTag(holder);
 		} else if (tab == 2) {
 			Photo2 holder;
@@ -93,12 +83,9 @@ public class PhotoController extends BaseAdapter implements Filterable {
 		Spinner spinnerCategory;
 		EditText editTextPhotoName;
 		EditText editTextFileNumber;
-		Button buttonFileNumberUp;
-		Button buttonFileNumberDown;
+		
 		EditText editTextDirection;
-		Button buttonDirectionUp;
-		Button buttonDirectionDown;
-		SeekBar seekBarDirection;
+		
 	}
 
 	static class Photo2 {

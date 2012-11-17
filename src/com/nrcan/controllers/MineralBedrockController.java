@@ -50,12 +50,8 @@ Filterable {
 
 			holder.spinnerMineral = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_mineral);
-			holder.spinnerMode = (Spinner) convertView
-					.findViewById(R.id.mineral_bedrock_spinner_mode);
-			holder.seekBarMode = (SeekBar) convertView
-					.findViewById(R.id.mineral_bedrock_seekbar_mode);
-			holder.buttonMode = (Button) convertView
-					.findViewById(R.id.mineral_bedrock_button_mode);
+			holder.editTextMode = (EditText) convertView
+					.findViewById(R.id.mineral_bedrock_editText_mode);
 
 			convertView.setTag(holder);
 		} else if (tab == 2) {
@@ -65,15 +61,11 @@ Filterable {
 
 			holder.spinnerColour = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_colour);
-			holder.spinnerMin = (Spinner) convertView
-					.findViewById(R.id.mineal_bedrock_spinner_min);
-			holder.seekBarMin = (SeekBar) convertView
-					.findViewById(R.id.mineral_bedrock_seekbar_min);
-			holder.spinnerMax = (Spinner) convertView
-					.findViewById(R.id.mineral_bedrock_spinner_max);
-			holder.seekBarMax = (SeekBar) convertView
-					.findViewById(R.id.mineral_bedrock_seekbar_max);
-
+			holder.editTextMin = (EditText) convertView
+					.findViewById(R.id.mineal_bedrock_editText_min);
+			holder.editTextMax = (EditText) convertView
+					.findViewById(R.id.mineral_bedrock_editText_max);
+			
 			convertView.setTag(holder);
 		} else if (tab == 3) {
 			MineralBedrock3 holder;
@@ -116,18 +108,15 @@ Filterable {
 	static class MineralBedrock1 {
 
 		Spinner spinnerMineral;
-		Spinner spinnerMode;
-		SeekBar seekBarMode;
-		Button buttonMode;
+		EditText editTextMode;
+		
 
 	}
 
 	static class MineralBedrock2 {
 		Spinner spinnerColour;
-		Spinner spinnerMin;
-		SeekBar seekBarMin;
-		Spinner spinnerMax;
-		SeekBar seekBarMax;
+		EditText editTextMin;
+		EditText editTextMax;
 
 	}
 

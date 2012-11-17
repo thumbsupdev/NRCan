@@ -56,8 +56,8 @@ public class SampleSurficialController extends BaseAdapter implements
 					.findViewById(R.id.sample_surficial_button_purpose);
 			holder.editTextPurpose = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_purpose);
-			holder.spinnerHorizon = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_purpose);
+			holder.editTextHorizon = (EditText) convertView
+					.findViewById(R.id.sample_surficial_editText_horizon);
 			holder.editTextDepth = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_depthInterval);
 			
@@ -70,16 +70,12 @@ public class SampleSurficialController extends BaseAdapter implements
 			
 			holder.spinnerSampleState = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_sampleState);
-			holder.spinnerMethod = (Spinner) convertView
+			holder.spinnerFormat = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_format);
-			holder.spinnerStrike = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_strike);
-			holder.seekBarStrike = (SeekBar) convertView
-					.findViewById(R.id.sample_surficial_seekbar_strike);
-			holder.spinnerDip = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_dip);
-			holder.seekBarDip = (SeekBar) convertView
-					.findViewById(R.id.sample_surficial_seekbar_dip);
+			holder.editTextAzimuth = (EditText) convertView
+					.findViewById(R.id.sample_surficial_editText_azimuth);
+			holder.editTextDipPlunge = (EditText) convertView
+					.findViewById(R.id.sample_surficial_editText_dipPlunge);
 			holder.spinnerSurface = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_surface);
 	
@@ -115,21 +111,17 @@ public class SampleSurficialController extends BaseAdapter implements
 		Spinner spinnerPurpose;
 		Button buttonPurpose;
 		EditText editTextPurpose;
-		Spinner spinnerHorizon;
+		EditText editTextHorizon;
 		EditText editTextDepth;
-		
-		
-		
-
-	}
+}
 
 	static class SampleSurficial2 {
 		Spinner spinnerSampleState;
-		Spinner spinnerMethod;
-		Spinner spinnerStrike;
-		SeekBar seekBarStrike;
-		Spinner spinnerDip;
-		SeekBar seekBarDip;
+		Spinner spinnerFormat;
+		EditText editTextAzimuth;
+		EditText editTextDipPlunge;
+		
+		
 		Spinner spinnerSurface;
 		
 		

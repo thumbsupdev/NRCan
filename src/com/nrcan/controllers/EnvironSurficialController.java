@@ -49,8 +49,8 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				holder = new EnvironSurficial1();
 				convertView = mInflater.inflate(R.layout.environ_surficial1, null);
 				
-				holder.spinnerDrainage = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_drainage);
-				holder.spinnerSlope = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_slope);
+				holder.spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
+				holder.editTextSlope = (EditText)convertView.findViewById(R.id.environ_surficial_editText_slope);
 				holder.spinnerAzimuth = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_azimuth);
 				holder.checkBoxPermafrost = (CheckBox)convertView.findViewById(R.id.environ_checkBox_permafrost);
 				holder.spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
@@ -67,7 +67,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				
 				holder.checkBoxGossan = (CheckBox)convertView.findViewById(R.id.environ_checkBox_gossan);
 				holder.editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
-				holder.editTextSpecificNotes = (EditText)convertView.findViewById(R.id.environ_surficial_editText_specificNotes);
+				holder.spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
 				holder.spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
 				
 				convertView.setTag(holder);
@@ -101,7 +101,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				holder.spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
 				holder.buttonPattGrndClear = (Button)convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
 				holder.editTextPattGrnd = (EditText)convertView.findViewById(R.id.environ_surficial_editText_pattGrnd);
-				holder.spinnerApproxWidth = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_approxWidth);
+				holder.editTextPatternArea = (EditText)convertView.findViewById(R.id.environ_surficial_editText_patternArea);
 				
 				convertView.setTag(holder);
 			}
@@ -129,8 +129,8 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	}
 
 	static class EnvironSurficial1 {
-		Spinner spinnerDrainage;
-		Spinner spinnerSlope;
+		Spinner spinnerRelief;
+		EditText editTextSlope;
 		Spinner spinnerAzimuth;
 		CheckBox checkBoxPermafrost;
 		Spinner spinnerIndicators;
@@ -141,7 +141,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	static class EnvironSurficial2 {
 		CheckBox checkBoxGossan;
 		EditText editTextMinOfImp;
-		EditText editTextSpecificNotes;
+		Spinner spinnerPercentBedrock;
 		Spinner spinnerExposureType;
 	}
 	
@@ -160,10 +160,12 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		Spinner spinnerGroundCoverPer;
 		Button buttonGroundCover;
 		EditText editTextGroundCover;
+		
 		Spinner spinnerPattGrnd;
 		Button buttonPattGrndClear;
 		EditText editTextPattGrnd;
-		Spinner spinnerApproxWidth;
+		
+		EditText editTextPatternArea;
 	}
 	
 	static class EnvironSurficial5 {
