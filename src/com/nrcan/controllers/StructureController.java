@@ -43,71 +43,106 @@ public class StructureController extends BaseAdapter implements Filterable {
 	public View getView(int position, View convertView, ViewGroup parent) {
 
 		if (tab == 1) {
-			Structure1 holder;
-			holder = new Structure1();
+			
 			convertView = mInflater.inflate(R.layout.structure_1, null);
 
-			holder.spinnerClass = (Spinner) convertView
+			Spinner spinnerClass = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_class);
-			holder.spinnerType = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDStrucType");
+			spinnerClass.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerType = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_type);
-			holder.spinnerDetail = (Spinner) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDStrucType");
+			spinnerType.setAdapter(sp2);
+			sp2.setElementsCol2(""); // NEEDS INPUT (based on class)
+			
+			Spinner spinnerDetail = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_detail);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDStrucType");
+			spinnerDetail.setAdapter(sp3);
+			sp3.setElementsCol3("",""); // NEEDS INPUT (based on class & type)
+			
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			Structure2 holder;
-			holder = new Structure2();
+			
 			convertView = mInflater.inflate(R.layout.structure_2, null);
 
-			holder.spinnerMethod = (Spinner) convertView
+			Spinner spinnerMethod = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_method);
-			holder.spinnerFormat = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDGeneralStrucMethod");
+			spinnerMethod.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerFormat = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_format);
-			holder.editTextStrike = (EditText) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDGeneralStrucFormat");
+			spinnerFormat.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			EditText editTextStrike = (EditText) convertView
 					.findViewById(R.id.structure_text_strike);
-			holder.editTextDip = (EditText) convertView
+			EditText editTextDip = (EditText) convertView
 					.findViewById(R.id.structure_text_dip);
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			Structure3 holder;
-			holder = new Structure3();
+			
 			convertView = mInflater.inflate(R.layout.structure_3, null);
 
-			holder.spinnerAttitude = (Spinner) convertView
+			Spinner spinnerAttitude = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_attitude);
-			holder.spinnerYounging = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDStrucAttitude");
+			spinnerAttitude.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerYounging = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_younging);
-			holder.spinnerGeneration = (Spinner) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDStrucYounging");
+			spinnerYounging.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			Spinner spinnerGeneration = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_generation);
-			holder.spinnerStrain = (Spinner) convertView
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDStrucGeneration");
+			spinnerGeneration.setAdapter(sp3);
+			sp3.setElementsCol1();
+			
+			Spinner spinnerStrain = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_strain);
-			holder.spinnerFlattening = (Spinner) convertView
+			SpinnerController sp4 = new SpinnerController(context, activity, "lutBEDStrucStrain");
+			spinnerStrain.setAdapter(sp4);
+			sp4.setElementsCol1();
+			
+			Spinner spinnerFlattening = (Spinner) convertView
 					.findViewById(R.id.structure_spinner_flattening);
-			holder.editTextRelated = (EditText) convertView
+			SpinnerController sp5 = new SpinnerController(context, activity, "lutBEDStrucFlattening");
+			spinnerFlattening.setAdapter(sp5);
+			sp5.setElementsCol1();
+			
+			EditText editTextRelated = (EditText) convertView
 					.findViewById(R.id.structure_editText_related);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 4) {
-			Structure4 holder;
-			holder = new Structure4();
+			
 			convertView = mInflater.inflate(R.layout.structure_4, null);
 
-			holder.editTextFabric = (EditText) convertView
+			EditText editTextFabric = (EditText) convertView
 					.findViewById(R.id.structure_text_fabric);
-			holder.editTextSense = (EditText) convertView
+			EditText editTextSense = (EditText) convertView
 					.findViewById(R.id.structure_text_sense);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 5) {
-			Structure5 holder;
-			holder = new Structure5();
+			
 			convertView = mInflater.inflate(R.layout.structure_5, null);
 
-			holder.editTextNote = (EditText) convertView
+			EditText editTextNote = (EditText) convertView
 					.findViewById(R.id.structure_text_sense);
 
-			convertView.setTag(holder);
+			
 		}
 
 		return convertView;
@@ -122,36 +157,6 @@ public class StructureController extends BaseAdapter implements Filterable {
 		notifyDataSetChanged();
 	}
 
-	static class Structure1 {
-		Spinner spinnerClass;
-		Spinner spinnerType;
-		Spinner spinnerDetail;
-	}
-
-	static class Structure2 {
-		Spinner spinnerMethod;
-		Spinner spinnerFormat;
-		EditText editTextStrike;
-		EditText editTextDip;
-
-	}
-
-	static class Structure3 {
-		Spinner spinnerAttitude;
-		Spinner spinnerYounging;
-		Spinner spinnerGeneration;
-		Spinner spinnerStrain;
-		Spinner spinnerFlattening;
-		EditText editTextRelated;
-	}
-
-	static class Structure4 {
-		EditText editTextFabric;
-		EditText editTextSense;
-	}
-
-	static class Structure5 {
-		EditText editTextNote;
-	}
+	
 
 }

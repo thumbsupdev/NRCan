@@ -65,16 +65,15 @@
             android:text="@string/environ_label_azimuth"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Spinner
-            android:id="@+id/environ_surficial_spinner_azimuth"
+        <EditText
+            android:id="@+id/environ_surficial_editText_azimuth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" >
-
-          
-        </Spinner>
+            android:inputType="numberDecimal"
+            android:hint="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
     <LinearLayout

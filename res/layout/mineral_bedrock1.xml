@@ -37,11 +37,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/mineral_label_mode"
+            android:text="@string/mineral_label_percent"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/mineral_bedrock_editText_mode"
+            android:id="@+id/mineral_bedrock_editText_percent"
             android:layout_width="80dp"
             android:layout_marginLeft="20dp"
             android:hint="0"

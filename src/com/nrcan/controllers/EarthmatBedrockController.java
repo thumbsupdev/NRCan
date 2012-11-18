@@ -49,127 +49,165 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			sp1.setElementsCol1();
 			
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDEarthmatRocktype");
+			spinnerType.setAdapter(sp2);
+			sp2.setElementsCol2(""); // NEEDS INPUT
+			
+			
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDEarthmatRocktype");
+			spinnerDetail.setAdapter(sp3);
+			sp3.setElementsCol3("",""); // NEEDS INPUT
+			
 			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
+			SpinnerController sp4 = new SpinnerController(context, activity, "lutBEDEarthmatMapunit");
+			spinnerUnit.setAdapter(sp4);
+			sp4.setElementsCol1(); 
+			
+			
 			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
+			SpinnerController sp5 = new SpinnerController(context, activity, "lutBEDEarthmatOccurs");
+			spinnerOccurs.setAdapter(sp5);
+			sp5.setElementsCol2("");  // NEEDS INPUT
 			
 		} else if (tab == 2) {
-			EarthmatBedrock2 holder;
-			holder = new EarthmatBedrock2();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock2, null);
 
-			holder.spinnerStructure = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_structure);
-			holder.buttonStructure = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_structure);
-			holder.editTextStructure = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_structure);
+			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatStructural");
+			spinnerStructure.setAdapter(sp1);
+			sp1.setElementsCol2(""); // NEEDS INPUT
+			
+			
+			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
+			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
 
-			holder.spinnerTexture = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_texture);
-			holder.buttonTexture = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_texture);
-			holder.editTextTexture = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_texture);
+			Spinner spinnerTexture = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_texture);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDEarthmatTextural");
+			spinnerTexture.setAdapter(sp2);
+			sp2.setElementsCol2(""); // NEEDS INPUT
+			
+			
+			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
+			EditText editTextTexture = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_texture);
 
-			holder.spinnerComposition = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_composition);
-			holder.buttonComposition = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_composition);
-			holder.editTextComposition = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_composition);
+			Spinner spinnerComposition = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_composition);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDEarthmatComposition");
+			spinnerComposition.setAdapter(sp3);
+			sp3.setElementsCol2(""); // NEEDS INPUT
+			
+			
+			
+			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
+			EditText editTextComposition = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_composition);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			EarthmatBedrock3 holder;
-			holder = new EarthmatBedrock3();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock3, null);
 
-			holder.spinnerGrnCry = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
-			holder.buttonGrnCry = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_grnCry);
-			holder.editTextGrnCry = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_grnCry);
+			Spinner spinnerGrnCry = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatGCSize");
+			spinnerGrnCry.setAdapter(sp1);
+			sp1.setElementsCol2(""); // NEEDS INPUT
+			
+			
+			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
+			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
 
-			holder.spinnerDefFabric = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
-			holder.buttonDefFabric = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_defFabric);
-			holder.editTextDefFabric = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_defFabric);
+			Spinner spinnerDefFabric = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDEarthmatDeffabric");
+			spinnerDefFabric.setAdapter(sp2);
+			sp2.setElementsCol1(); 
+			
+			
+			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
+			EditText editTextDefFabric = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_defFabric);
 
-			holder.spinnerBedThick = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_bedThick);
-			holder.buttonBedThick = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_bedThick);
-			holder.editTextBedThick = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_bedThick);
+			Spinner spinnerBedThick = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_bedThick);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDEarthmatBedthick");
+			spinnerBedThick.setAdapter(sp3);
+			sp3.setElementsCol1();
+			
+			
+			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
+			EditText editTextBedThick = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_bedThick);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 4) {
-			EarthmatBedrock4 holder;
-			holder = new EarthmatBedrock4();
+			
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock4, null);
 
-			holder.spinnerMineral = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_mineral);
-			holder.buttonClear = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_mineral);
-			holder.editTextMineral = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_mineral);
-			holder.editTextRockDescription = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
+			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_mineral);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatMineral");
+			spinnerMineral.setAdapter(sp1);
+			sp1.setElementsCol1(); 
+			
+			
+			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
+			EditText editTextMineral = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_mineral);
+			EditText editTextRockDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
 
 		} else if (tab == 5) {
-			EarthmatBedrock5 holder;
-			holder = new EarthmatBedrock5();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock5, null);
 
-			holder.spinnerFresh = (Spinner) convertView
-					.findViewById(R.id.earthmat_spinner_fresh);
-			holder.spinnerWeathered = (Spinner) convertView
-					.findViewById(R.id.earthmat_spinner_weathered);
-			holder.editTextIndex = (EditText) convertView
-					.findViewById(R.id.earthmat_editText_index);
-			holder.editTextMagSus = (EditText) convertView
+			Spinner spinnerFresh = (Spinner) convertView.findViewById(R.id.earthmat_spinner_fresh);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatColour");
+			spinnerFresh.setAdapter(sp1);
+			sp1.setElementsCol1(); 
+			
+			
+			Spinner spinnerWeathered = (Spinner) convertView.findViewById(R.id.earthmat_spinner_weathered);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDEarthmatColour");
+			spinnerWeathered.setAdapter(sp2);
+			sp2.setElementsCol1(); 
+			
+			
+			EditText editTextIndex = (EditText) convertView.findViewById(R.id.earthmat_editText_index);
+			EditText editTextMagSus = (EditText) convertView
 					.findViewById(R.id.earthmat_editText_magSusceptibility);
 
 		} else if (tab == 6) {
-			EarthmatBedrock6 holder;
-			holder = new EarthmatBedrock6();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock6, null);
 
-			holder.spinnerFossil = (Spinner) convertView
-					.findViewById(R.id.earthmat_bedrock_spinner_fossil);
-			holder.buttonFossil = (Button) convertView
-					.findViewById(R.id.earthmat_bedrock_button_fossil);
-			holder.editTextFossil = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_fossil);
-			holder.editTextFossilDescription = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
+			Spinner spinnerFossil = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_fossil);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatFossil");
+			spinnerFossil.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
+			EditText editTextFossil = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_fossil);
+			EditText editTextFossilDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
 
 		} else if (tab == 7) {
-			EarthmatBedrock7 holder;
-			holder = new EarthmatBedrock7();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock7, null);
 
-			holder.spinnerContactUpper = (Spinner) convertView
-					.findViewById(R.id.earthmat_spinner_upper);
-			holder.spinnerContactLower = (Spinner) convertView
-					.findViewById(R.id.earthmat_spinner_lower);
+			Spinner spinnerContactUpper = (Spinner) convertView.findViewById(R.id.earthmat_spinner_upper);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDEarthmatContact");
+			spinnerContactUpper.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			
+			Spinner spinnerContactLower = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lower);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDEarthmatContact");
+			spinnerContactLower.setAdapter(sp2);
+			sp2.setElementsCol1();
 
-			holder.editTextContactDescription = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
+			EditText editTextContactDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
 
 		} else if (tab == 8) {
-			EarthmatBedrock8 holder;
-			holder = new EarthmatBedrock8();
+			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock8, null);
-			holder.editTextLithDescription = (EditText) convertView
-					.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
-			holder.spinnerLithInterp = (Spinner) convertView
-					.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
+			EditText editTextLithDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
+			Spinner spinnerLithInterp = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDInterpconf");
+			spinnerLithInterp.setAdapter(sp1);
+			sp1.setElementsCol1();
 
 		}
 
@@ -185,68 +223,5 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		notifyDataSetChanged();
 	}
 
-	static class EarthmatBedrock2 {
-		Spinner spinnerStructure;
-		Button buttonStructure;
-		EditText editTextStructure;
-
-		Spinner spinnerTexture;
-		Button buttonTexture;
-		EditText editTextTexture;
-
-		Spinner spinnerComposition;
-		Button buttonComposition;
-		EditText editTextComposition;
-
-	}
-
-	static class EarthmatBedrock3 {
-		Spinner spinnerGrnCry;
-		Button buttonGrnCry;
-		EditText editTextGrnCry;
-
-		Spinner spinnerDefFabric;
-		Button buttonDefFabric;
-		EditText editTextDefFabric;
-
-		Spinner spinnerBedThick;
-		Button buttonBedThick;
-		EditText editTextBedThick;
-
-	}
-
-	static class EarthmatBedrock4 {
-		// Spinner spinnerRock;
-		Spinner spinnerMineral;
-		// Spinner spinnerMode;
-		// Button buttonAdd;
-		Button buttonClear;
-		EditText editTextMineral;
-		EditText editTextRockDescription;
-	}
-
-	static class EarthmatBedrock5 {
-		Spinner spinnerFresh;
-		Spinner spinnerWeathered;
-		EditText editTextIndex;
-		EditText editTextMagSus;
-	}
-
-	static class EarthmatBedrock6 {
-		Spinner spinnerFossil;
-		Button buttonFossil;
-		EditText editTextFossil;
-		EditText editTextFossilDescription;
-	}
-
-	static class EarthmatBedrock7 {
-		Spinner spinnerContactUpper;
-		Spinner spinnerContactLower;
-		EditText editTextContactDescription;
-	}
-
-	static class EarthmatBedrock8 {
-		EditText editTextLithDescription;
-		Spinner spinnerLithInterp;
-	}
+	
 }

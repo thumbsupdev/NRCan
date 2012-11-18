@@ -43,75 +43,93 @@ public class StationSurficialController extends BaseAdapter implements
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			StationSurficial1 holder;
-			holder = new StationSurficial1();
+			
 			convertView = mInflater.inflate(R.layout.station_surficial_1, null);
 
-			holder.editTextTrav = (EditText) convertView
+			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_traverse);
-			holder.buttonDate = (Button) convertView
+			Button buttonDate = (Button) convertView
 					.findViewById(R.id.station_surficial_button_date);
-			holder.editTextElev = (EditText) convertView
+			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_elevation);
-			holder.spinnerElev = (Spinner) convertView
+			Spinner spinnerElev = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_elevation);
-			holder.editTextEasting = (EditText) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutStationSURElevmethod");
+			spinnerElev.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_easting);
-			holder.editTextNorthing = (EditText) convertView
+			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_northing);
-			holder.editTextLatitude = (EditText) convertView
+			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_latitude);
-			holder.editTextLongitude = (EditText) convertView
+			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_longitude);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			StationSurficial2 holder;
-			holder = new StationSurficial2();
+			
 			convertView = mInflater.inflate(R.layout.station_surficial_2, null);
 
-			holder.spinnerObsType = (Spinner) convertView
+			Spinner spinnerObsType = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_obstype);
-			holder.spinnerEntrytype = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutSURStationObsType");
+			spinnerObsType.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerEntrytype = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_entryType);
-			holder.spinnerLegendValue = (Spinner) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutSURStationEntrytype");
+			spinnerEntrytype.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			Spinner spinnerLegendValue = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_legendvalue);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutSURStationLegendval");
+			spinnerLegendValue.setAdapter(sp3);
+			sp3.setElementsCol1();
 			
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			StationSurficial3 holder;
-			holder = new StationSurficial3();
+			
 			convertView = mInflater.inflate(R.layout.station_surficial_3, null);
 
-			holder.spinnerSiteQual = (Spinner) convertView
+			Spinner spinnerSiteQual = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_sitequal);
-			holder.spinnerPhysEnviron = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutSURStationSitequality");
+			spinnerSiteQual.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerPhysEnviron = (Spinner) convertView
 					.findViewById(R.id.station_surficial_spinner_physenviron);
-			holder.editTextInterpretation = (EditText) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutSURStationPhysenv");
+			spinnerPhysEnviron.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			EditText editTextInterpretation = (EditText) convertView
 					.findViewById(R.id.station_surficial_editText_interpretation);
-			holder.editTextAirPhoto = (EditText) convertView
+			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_airphoto);
-			holder.buttonAirPhoto = (Button) convertView
+			Button buttonAirPhoto = (Button) convertView
 					.findViewById(R.id.station_surficial_button_airphoto);
-			holder.editTextMapSheet = (EditText) convertView
+			EditText editTextMapSheet = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_mapsheet);
-			holder.buttonMapSheet = (Button) convertView
+			Button buttonMapSheet = (Button) convertView
 					.findViewById(R.id.station_surficial_button_mapsheet);
-			convertView.setTag(holder);
+			
 		} else if (tab == 4) {
-			StationSurficial4 holder;
-			holder = new StationSurficial4();
+			
 			convertView = mInflater.inflate(R.layout.station_surficial_4, null);
 
-			holder.editTextStationNote = (EditText) convertView
+			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_stationnote);
-			convertView.setTag(holder);
+			
 		} else if (tab == 5) {
-			StationSurficial5 holder;
-			holder = new StationSurficial5();
+			
 			convertView = mInflater.inflate(R.layout.station_surficial_5, null);
-			holder.editTextLastStationNote = (EditText) convertView
+			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_sincelaststationnote);
 
 		}
@@ -128,45 +146,6 @@ public class StationSurficialController extends BaseAdapter implements
 		notifyDataSetChanged();
 	}
 
-	static class StationSurficial1 {
-		EditText editTextTrav;
-		Button buttonDate;
-		EditText editTextElev;
-		Spinner spinnerElev;
-		EditText editTextEasting;
-		EditText editTextNorthing;
-		EditText editTextLatitude;
-		EditText editTextLongitude;
-
-	}
-
-	static class StationSurficial2 {
-
-		Spinner spinnerObsType;
-		Spinner spinnerLegendValue;
-		Spinner spinnerEntrytype;
-
-	}
-
-	static class StationSurficial3 {
-		Spinner spinnerSiteQual;
-		Spinner spinnerPhysEnviron;
-		EditText editTextInterpretation;
-		EditText editTextAirPhoto;
-		Button buttonAirPhoto;
-		EditText editTextMapSheet;
-		Button buttonMapSheet;
-	}
-
-	static class StationSurficial4 {
-
-		EditText editTextStationNote;
-
-	}
-
-	static class StationSurficial5 {
-
-		EditText editTextLastStationNote;
-	}
+	
 
 }

@@ -42,72 +42,87 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			StationBedrock1 holder;
-			holder = new StationBedrock1();
+			
 
 			convertView = mInflater.inflate(R.layout.station_bedrock_1, null);
-			holder.editTextTrav = (EditText) convertView
+			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_text_traverse);
-			holder.buttonDate = (Button) convertView
+			Button buttonDate = (Button) convertView
 					.findViewById(R.id.station_button_date);
-			holder.editTextElev = (EditText) convertView
+			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_text_elevation);
-			holder.spinnerElev = (Spinner) convertView
+			Spinner spinnerElev = (Spinner) convertView
 					.findViewById(R.id.station_spinner_elevation);
-			holder.editTextEasting = (EditText) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDStationElevmethod");
+			spinnerElev.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_text_easting);
-			holder.editTextNorthing = (EditText) convertView
+			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_text_northing);
-			holder.editTextLatitude = (EditText) convertView
+			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_text_latitude);
-			holder.editTextLongitude = (EditText) convertView
+			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_text_longitude);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			StationBedrock2 holder;
-			holder = new StationBedrock2();
+			
 			convertView = mInflater.inflate(R.layout.station_bedrock_2, null);
 
-			holder.spinnerObsType = (Spinner) convertView
+			Spinner spinnerObsType = (Spinner) convertView
 					.findViewById(R.id.station_spinner_obstype);
-			holder.spinnerEntryType = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDStationObstype");
+			spinnerObsType.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerEntryType = (Spinner) convertView
 					.findViewById(R.id.station_spinner_entryType);
-			holder.spinnerOutcrop = (Spinner) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDStationEntrytype");
+			spinnerEntryType.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			Spinner spinnerOutcrop = (Spinner) convertView
 					.findViewById(R.id.station_spinner_outcropqual);
-			holder.spinnerPhysEnviron = (Spinner) convertView
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDStationOutcropqual");
+			spinnerOutcrop.setAdapter(sp3);
+			sp3.setElementsCol1();
+			
+			Spinner spinnerPhysEnviron = (Spinner) convertView
 					.findViewById(R.id.station_spinner_physenviron);
-			holder.editTextOutcropSize = (EditText) convertView
+			SpinnerController sp4 = new SpinnerController(context, activity, "lutBEDStationPhysenviron");
+			spinnerPhysEnviron.setAdapter(sp4);
+			sp4.setElementsCol1();
+			
+			EditText editTextOutcropSize = (EditText) convertView
 					.findViewById(R.id.station_text_outcropsize);
 			
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			StationBedrock3 holder;
-			holder = new StationBedrock3();
+			
 			convertView = mInflater.inflate(R.layout.station_bedrock_3, null);
-			holder.editTextAirPhoto = (EditText) convertView
+			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_text_airphoto);
-			holder.editTextPartner = (EditText) convertView
+			EditText editTextPartner = (EditText) convertView
 					.findViewById(R.id.station_editText_partner);
 			
-			convertView.setTag(holder);
+			
 		} else if (tab == 4) {
-			StationBedrock4 holder;
-			holder = new StationBedrock4();
+			
 			convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
 
-			holder.editTextStationNote = (EditText) convertView
+			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_stationnote);
-			convertView.setTag(holder);
+			
 		} else if (tab == 5) {
-			StationBedrock5 holder;
-			holder = new StationBedrock5();
+			
 			convertView = mInflater.inflate(R.layout.station_bedrock_4, null);
 
-			holder.editTextLastStationNote = (EditText) convertView
+			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_sincelaststationnote);
-			convertView.setTag(holder);
+			
 		}
 
 		return convertView;
@@ -122,39 +137,5 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		notifyDataSetChanged();
 	}
 
-	static class StationBedrock1 {
-		EditText editTextTrav;
-		Button buttonDate;
-		EditText editTextElev;
-		Spinner spinnerElev;
-		EditText editTextEasting;
-		EditText editTextNorthing;
-		EditText editTextLatitude;
-		EditText editTextLongitude;
 
-	}
-
-	static class StationBedrock2 {
-		Spinner spinnerObsType;
-		Spinner spinnerEntryType;
-		Spinner spinnerOutcrop;
-		EditText editTextOutcropSize;
-		Spinner spinnerPhysEnviron;
-		
-		
-	}
-	
-	static class StationBedrock3 {
-		EditText editTextAirPhoto;
-		EditText editTextPartner;
-	}
-
-	static class StationBedrock4 {
-		EditText editTextStationNote;
-
-	}
-
-	static class StationBedrock5 {
-		EditText editTextLastStationNote;
-	}
 }

@@ -43,41 +43,69 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 	public View getView(int position, View convertView, ViewGroup parent) {
 			if(tab == 1)
 			{
-				PFlowSurficial1 holder;
-				holder = new PFlowSurficial1();
+				
 				convertView = mInflater.inflate(R.layout.pflow_surficial_1, null);
 				
-				holder.spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
-				holder.spinnerSense = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_sense);
-				holder.spinnerFeature = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_feature);
-				holder.buttonFeature = (Button)convertView.findViewById(R.id.pflow_surficial_button_feature);
-				holder.editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
-				holder.spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
-				convertView.setTag(holder);
+				Spinner spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
+				SpinnerController sp1 = new SpinnerController(context, activity, "lutSURPflowPaleoflow");
+				spinnerClass.setAdapter(sp1);
+				sp1.setElementsCol1();
+				
+				Spinner spinnerSense = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_sense);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSURPflowPFsense");
+				spinnerSense.setAdapter(sp2);
+				sp2.setElementsCol1();
+				
+				Spinner spinnerFeature = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_feature);
+				SpinnerController sp3 = new SpinnerController(context, activity, "lutSURPflowPaleoflow");
+				spinnerFeature.setAdapter(sp3);
+				sp3.setElementsCol2(""); //NEEDS INPUT (based on spinnerClass)
+				
+				Button buttonFeature = (Button)convertView.findViewById(R.id.pflow_surficial_button_feature);
+				EditText editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
+				
+				Spinner spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
+				SpinnerController sp4 = new SpinnerController(context, activity, "lutSURPflowBedrocksurface");
+				spinnerBedrockSurface.setAdapter(sp4);
+				sp4.setElementsCol1();
+				
 			}
 			else if (tab == 2)
 			{
-				PFlowSurficial2 holder;
-				holder = new PFlowSurficial2();
-				convertView = mInflater.inflate(R.layout.pflow_surficial_2, null);
-				holder.spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
-				holder.editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
-				holder.editTextAge = (EditText)convertView.findViewById(R.id.pflow_surficial_editText_age);
-				holder.spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
-				holder.spinnerDefinition = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_definition);
-				holder.spinnerRelationship = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_relationship);
 				
-				convertView.setTag(holder);
+				convertView = mInflater.inflate(R.layout.pflow_surficial_2, null);
+				Spinner spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSURGeneralStrucMethod");
+				spinnerMethod.setAdapter(sp2);
+				sp2.setElementsCol1();
+				
+				EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
+				EditText editTextAge = (EditText)convertView.findViewById(R.id.pflow_surficial_editText_age);
+				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
+				SpinnerController sp3 = new SpinnerController(context, activity, "lutSURPflowNumindic");
+				spinnerIndicators.setAdapter(sp3);
+				sp3.setElementsCol1();
+				
+				Spinner spinnerDefinition = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_definition);
+				SpinnerController sp4 = new SpinnerController(context, activity, "lutSURPflowDefinition");
+				spinnerDefinition.setAdapter(sp4);
+				sp4.setElementsCol1();
+				
+				Spinner spinnerRelationship = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_relationship);
+				SpinnerController sp5 = new SpinnerController(context, activity, "lutSURPflowRelation");
+				spinnerRelationship.setAdapter(sp5);
+				sp5.setElementsCol1();
+				
+				
 			}
 			else if (tab == 3)
 			{
-				PFlowSurficial3 holder;
-				holder = new PFlowSurficial3();
+				
 				convertView = mInflater.inflate(R.layout.pflow_surficial_3, null);
 				
-				holder.editTextNote = (EditText)convertView.findViewById(R.id.pflow_surficial_text_note);
+				EditText editTextNote = (EditText)convertView.findViewById(R.id.pflow_surficial_text_note);
 				
-				convertView.setTag(holder);
+			
 			}
 		
 		return convertView;
@@ -92,29 +120,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 		notifyDataSetChanged();
 	}
 
-	static class PFlowSurficial1 {
-		Spinner spinnerClass;
-		Spinner spinnerSense;
-		Spinner spinnerFeature;
-		Button buttonFeature;
-		EditText editTextFeature;
-		Spinner spinnerBedrockSurface;
-	}
-	
-	static class PFlowSurficial2 {
-		Spinner spinnerMethod;
-		EditText editTextAzimuth;
-		
-		
-		EditText editTextAge;
-		Spinner spinnerIndicators;
-		Spinner spinnerDefinition;
-		Spinner spinnerRelationship;
-	}
-	
-	static class PFlowSurficial3{
-		EditText editTextNote;
-	}
+
 	
 }
 

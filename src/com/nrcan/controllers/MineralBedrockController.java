@@ -43,53 +43,68 @@ Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			MineralBedrock1 holder;
-			holder = new MineralBedrock1();
+			
 			convertView = mInflater.inflate(R.layout.mineral_bedrock1, null);
 
 
-			holder.spinnerMineral = (Spinner) convertView
+			Spinner spinnerMineral = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_mineral);
-			holder.editTextMode = (EditText) convertView
-					.findViewById(R.id.mineral_bedrock_editText_mode);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMineralMineral");
+			spinnerMineral.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextMode = (EditText) convertView
+					.findViewById(R.id.mineral_bedrock_editText_percent);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			MineralBedrock2 holder;
-			holder = new MineralBedrock2();
+			
 			convertView = mInflater.inflate(R.layout.mineral_bedrock2, null);
 
-			holder.spinnerColour = (Spinner) convertView
+			Spinner spinnerColour = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_colour);
-			holder.editTextMin = (EditText) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMineralColour");
+			spinnerColour.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextMin = (EditText) convertView
 					.findViewById(R.id.mineal_bedrock_editText_min);
-			holder.editTextMax = (EditText) convertView
+			EditText editTextMax = (EditText) convertView
 					.findViewById(R.id.mineral_bedrock_editText_max);
 			
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			MineralBedrock3 holder;
-			holder = new MineralBedrock3();
+			
 			convertView = mInflater.inflate(R.layout.mineral_bedrock3, null);
 
-			holder.spinnerForm = (Spinner) convertView
+			Spinner spinnerForm = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_form);
-			holder.spinnerHabit = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMineralForm");
+			spinnerForm.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerHabit = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_habit);
-			holder.spinnerOccur = (Spinner) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDMineralHabit");
+			spinnerHabit.setAdapter(sp2);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerOccur = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_occur);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDMineralOccur");
+			spinnerOccur.setAdapter(sp3);
+			sp3.setElementsCol1();
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 4) {
-			MineralBedrock4 holder;
-			holder = new MineralBedrock4();
+		
 			convertView = mInflater.inflate(R.layout.mineral_bedrock4, null);
 
 
-			holder.editTextNotes = (EditText) convertView
+			EditText editTextNotes = (EditText) convertView
 					.findViewById(R.id.mineral_editText_note);
 			
-			convertView.setTag(holder);
+			
 		} 
 
 
@@ -105,32 +120,7 @@ Filterable {
 		notifyDataSetChanged();
 	}
 
-	static class MineralBedrock1 {
-
-		Spinner spinnerMineral;
-		EditText editTextMode;
-		
-
-	}
-
-	static class MineralBedrock2 {
-		Spinner spinnerColour;
-		EditText editTextMin;
-		EditText editTextMax;
-
-	}
-
-	static class MineralBedrock3 {
-		Spinner spinnerForm;
-		Spinner spinnerHabit;
-		Spinner spinnerOccur;
-
-	}
-	static class MineralBedrock4 {
-
-		EditText editTextNotes;
-
-	}
+	
 
 
 

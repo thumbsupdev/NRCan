@@ -38,7 +38,7 @@ public class DetailController extends BaseAdapter implements Filterable {
 		return 0;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		CellDetailHolder holder;
 		holder = new CellDetailHolder();
 		convertView = mInflater.inflate(R.layout.cell_detail, null);
@@ -48,6 +48,7 @@ public class DetailController extends BaseAdapter implements Filterable {
 		
 		convertView.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				((MainActivity)activity).setDetail(position);
 				((MainActivity)activity).cellActionControl();
 			}
 		});

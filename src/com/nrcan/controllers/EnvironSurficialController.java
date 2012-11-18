@@ -45,75 +45,116 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		
 			if(tab == 1)
 			{
-				EnvironSurficial1 holder;
-				holder = new EnvironSurficial1();
+				
 				convertView = mInflater.inflate(R.layout.environ_surficial1, null);
 				
-				holder.spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
-				holder.editTextSlope = (EditText)convertView.findViewById(R.id.environ_surficial_editText_slope);
-				holder.spinnerAzimuth = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_azimuth);
-				holder.checkBoxPermafrost = (CheckBox)convertView.findViewById(R.id.environ_checkBox_permafrost);
-				holder.spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
-				holder.editTextIndicators = (EditText)convertView.findViewById(R.id.environ_surficial_editText_indicators);
-				holder.editTextDepthOfAL = (EditText)convertView.findViewById(R.id.environ_surficial_editText_depthOfAL);
+				Spinner spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
+				SpinnerController sp1 = new SpinnerController(context, activity, "lutSUREnvironsRelief");
+				spinnerRelief.setAdapter(sp1);
+				sp1.setElementsCol1();
 				
-				convertView.setTag(holder);
+				EditText editTextSlope = (EditText)convertView.findViewById(R.id.environ_surficial_editText_slope);
+				EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.environ_surficial_editText_azimuth);
+				
+				
+				
+				
+				CheckBox checkBoxPermafrost = (CheckBox)convertView.findViewById(R.id.environ_checkBox_permafrost);
+				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSUREnvironsPFindic");
+				spinnerIndicators.setAdapter(sp2);
+				sp2.setElementsCol1();
+				
+				
+				EditText editTextIndicators = (EditText)convertView.findViewById(R.id.environ_surficial_editText_indicators);
+				EditText editTextDepthOfAL = (EditText)convertView.findViewById(R.id.environ_surficial_editText_depthOfAL);
+				
+				
 			}
 			else if (tab == 2)
 			{
-				EnvironSurficial2 holder;
-				holder = new EnvironSurficial2();
+				
 				convertView = mInflater.inflate(R.layout.environ_surficial2, null);
 				
-				holder.checkBoxGossan = (CheckBox)convertView.findViewById(R.id.environ_checkBox_gossan);
-				holder.editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
-				holder.spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
-				holder.spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
+				CheckBox checkBoxGossan = (CheckBox)convertView.findViewById(R.id.environ_checkBox_gossan);
+				EditText editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
+				Spinner spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
+				SpinnerController sp1 = new SpinnerController(context, activity, "lutSURGeneralPercent5incr");
+				spinnerPercentBedrock.setAdapter(sp1);
+				sp1.setElementsCol1();
 				
-				convertView.setTag(holder);
+				Spinner spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSUREnvironsExposure");
+				spinnerExposureType.setAdapter(sp2);
+				sp2.setElementsCol1();
 			}
 			else if (tab == 3)
 			{
-				EnvironSurficial3 holder;
-				holder = new EnvironSurficial3();
+				
 				convertView = mInflater.inflate(R.layout.environ_surficial3, null);
 				
-				holder.spinnerVegetation = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetation);
-				holder.spinnerVegetationPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetationPer);
-				holder.buttonVegetation = (Button)convertView.findViewById(R.id.environ_surficial_button_vegetation);
-				holder.editTextVegetation = (EditText)convertView.findViewById(R.id.environ_surficial_editText_vegetation);
-				holder.spinnerBoulders = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulders);
-				holder.checkBoxBoulderField = (CheckBox)convertView.findViewById(R.id.environ_checkBox_boulderField);
-				holder.spinnerBoulderField = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
+				Spinner spinnerVegetation = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetation);
+				SpinnerController sp1 = new SpinnerController(context, activity, "lutSUREnvironsVegetation");
+				spinnerVegetation.setAdapter(sp1);
+				sp1.setElementsCol1();
 				
-				convertView.setTag(holder);
+				Spinner spinnerVegetationPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetationPer);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSURGeneralPercent5incr");
+				spinnerVegetationPer.setAdapter(sp2);
+				sp2.setElementsCol1();
+				
+				
+				Button buttonVegetation = (Button)convertView.findViewById(R.id.environ_surficial_button_vegetation);
+				EditText editTextVegetation = (EditText)convertView.findViewById(R.id.environ_surficial_editText_vegetation);
+				Spinner spinnerBoulders = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulders);
+				SpinnerController sp3 = new SpinnerController(context, activity, "lutSUREnvironsBoulders");
+				spinnerBoulders.setAdapter(sp3);
+				sp3.setElementsCol1();
+				
+				
+				CheckBox checkBoxBoulderField = (CheckBox)convertView.findViewById(R.id.environ_checkBox_boulderField);
+				Spinner spinnerBoulderField = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
+				SpinnerController sp4 = new SpinnerController(context, activity, "lutSUREnvironsBoFldTyp");
+				spinnerBoulderField.setAdapter(sp4);
+				sp4.setElementsCol1();
+				
 			}
 			else if (tab == 4)
 			{
-				EnvironSurficial4 holder;
-				holder = new EnvironSurficial4();
+				
 				convertView = mInflater.inflate(R.layout.environ_surficial4, null);
 				
-				holder.spinnerGroundCover = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCover);
-				holder.spinnerGroundCoverPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCoverPer);
-				holder.buttonGroundCover = (Button)convertView.findViewById(R.id.environ_surficial_button_groundCover);
-				holder.editTextGroundCover = (EditText)convertView.findViewById(R.id.environ_surficial_editText_groundCover);
-				holder.spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
-				holder.buttonPattGrndClear = (Button)convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
-				holder.editTextPattGrnd = (EditText)convertView.findViewById(R.id.environ_surficial_editText_pattGrnd);
-				holder.editTextPatternArea = (EditText)convertView.findViewById(R.id.environ_surficial_editText_patternArea);
+				Spinner spinnerGroundCover = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCover);
+				SpinnerController sp1 = new SpinnerController(context, activity, "lutSUREnvironsGroundcover");
+				spinnerGroundCover.setAdapter(sp1);
+				sp1.setElementsCol1();
 				
-				convertView.setTag(holder);
+				Spinner spinnerGroundCoverPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCoverPer);
+				SpinnerController sp2 = new SpinnerController(context, activity, "lutSURGeneralPercent5incr");
+				spinnerGroundCoverPer.setAdapter(sp2);
+				sp2.setElementsCol1();
+				
+				Button buttonGroundCover = (Button)convertView.findViewById(R.id.environ_surficial_button_groundCover);
+				EditText editTextGroundCover = (EditText)convertView.findViewById(R.id.environ_surficial_editText_groundCover);
+				Spinner spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
+				SpinnerController sp3 = new SpinnerController(context, activity, "lutSUREnvironsPatterngrn");
+				spinnerPattGrnd.setAdapter(sp3);
+				sp3.setElementsCol1();
+				
+				Button buttonPattGrndClear = (Button)convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
+				EditText editTextPattGrnd = (EditText)convertView.findViewById(R.id.environ_surficial_editText_pattGrnd);
+				EditText editTextPatternArea = (EditText)convertView.findViewById(R.id.environ_surficial_editText_patternArea);
+				
+				
 			}
 			else if (tab == 5)
 			{
-				EnvironSurficial5 holder;
-				holder = new EnvironSurficial5();
+				
 				convertView = mInflater.inflate(R.layout.environ_surficial5, null);
 				
-				holder.editTextEnvironNote = (EditText)convertView.findViewById(R.id.environ_surficial_editText_environNote);
+				EditText editTextEnvironNote = (EditText)convertView.findViewById(R.id.environ_surficial_editText_environNote);
 				
-				convertView.setTag(holder);
+				
 			}
 		
 		return convertView;
@@ -128,48 +169,6 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		notifyDataSetChanged();
 	}
 
-	static class EnvironSurficial1 {
-		Spinner spinnerRelief;
-		EditText editTextSlope;
-		Spinner spinnerAzimuth;
-		CheckBox checkBoxPermafrost;
-		Spinner spinnerIndicators;
-		EditText editTextIndicators;
-		EditText editTextDepthOfAL;
-	}
 	
-	static class EnvironSurficial2 {
-		CheckBox checkBoxGossan;
-		EditText editTextMinOfImp;
-		Spinner spinnerPercentBedrock;
-		Spinner spinnerExposureType;
-	}
-	
-	static class EnvironSurficial3 {
-		Spinner spinnerVegetation;
-		Spinner spinnerVegetationPer;
-		Button buttonVegetation;
-		EditText editTextVegetation;
-		Spinner spinnerBoulders;
-		CheckBox checkBoxBoulderField;
-		Spinner spinnerBoulderField;
-	}
-	
-	static class EnvironSurficial4 {
-		Spinner spinnerGroundCover;
-		Spinner spinnerGroundCoverPer;
-		Button buttonGroundCover;
-		EditText editTextGroundCover;
-		
-		Spinner spinnerPattGrnd;
-		Button buttonPattGrndClear;
-		EditText editTextPattGrnd;
-		
-		EditText editTextPatternArea;
-	}
-	
-	static class EnvironSurficial5 {
-		EditText editTextEnvironNote;
-	}
 	
 }

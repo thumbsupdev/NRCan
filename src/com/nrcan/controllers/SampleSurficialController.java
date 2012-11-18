@@ -43,54 +43,72 @@ public class SampleSurficialController extends BaseAdapter implements
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			SampleSurficial1 holder;
-			holder = new SampleSurficial1();
+			
 			convertView = mInflater.inflate(R.layout.sample_surficial1, null);
 			
 			
-			holder.spinnerType = (Spinner) convertView
+			Spinner spinnerType = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_type);
-			holder.spinnerPurpose = (Spinner) convertView
+			
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutSURSampleType");
+			spinnerType.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerPurpose = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_purpose);
-			holder.buttonPurpose = (Button) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutSURSamplePurpose");
+			spinnerPurpose.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			Button buttonPurpose = (Button) convertView
 					.findViewById(R.id.sample_surficial_button_purpose);
-			holder.editTextPurpose = (EditText) convertView
+			EditText editTextPurpose = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_purpose);
-			holder.editTextHorizon = (EditText) convertView
+			EditText editTextHorizon = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_horizon);
-			holder.editTextDepth = (EditText) convertView
+			EditText editTextDepth = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_depthInterval);
 			
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			SampleSurficial2 holder;
-			holder = new SampleSurficial2();
+			
 			convertView = mInflater.inflate(R.layout.sample_surficial2, null);
 			
-			holder.spinnerSampleState = (Spinner) convertView
+			Spinner spinnerSampleState = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_sampleState);
-			holder.spinnerFormat = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutSURSampleState");
+			spinnerSampleState.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerFormat = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_format);
-			holder.editTextAzimuth = (EditText) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutSURGeneralStrucFormat");
+			spinnerFormat.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			EditText editTextAzimuth = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_azimuth);
-			holder.editTextDipPlunge = (EditText) convertView
+			EditText editTextDipPlunge = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_dipPlunge);
-			holder.spinnerSurface = (Spinner) convertView
+			Spinner spinnerSurface = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_surface);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutSURSampleSurface");
+			spinnerSurface.setAdapter(sp3);
+			sp3.setElementsCol1();
+			
 	
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			SampleSurficial3 holder;
-			holder = new SampleSurficial3();
+			
 			convertView = mInflater.inflate(R.layout.sample_surficial3, null);
 
 			
-			holder.editTextNotes = (EditText) convertView
+			EditText editTextNotes = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_notes);
 
-			convertView.setTag(holder);
+			
 		} 
 
 		return convertView;
@@ -104,41 +122,5 @@ public class SampleSurficialController extends BaseAdapter implements
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
-
-	static class SampleSurficial1 {
-		
-		Spinner spinnerType;
-		Spinner spinnerPurpose;
-		Button buttonPurpose;
-		EditText editTextPurpose;
-		EditText editTextHorizon;
-		EditText editTextDepth;
-}
-
-	static class SampleSurficial2 {
-		Spinner spinnerSampleState;
-		Spinner spinnerFormat;
-		EditText editTextAzimuth;
-		EditText editTextDipPlunge;
-		
-		
-		Spinner spinnerSurface;
-		
-		
-		
-		
-
-	}
-
-	static class SampleSurficial3 {
-		
-		EditText editTextNotes;
-
-		
-
-	}
-
-	
-
 	
 }

@@ -51,31 +51,49 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			MetaData1 holder;
-			holder = new MetaData1();
+			
 
 			convertView = mInflater.inflate(R.layout.metadata1, null);
 
-			holder.editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
-			holder.editTextProjectName.setText(metadataModel.getEntity().getPrjct_code());
-			holder.editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
-			holder.editTextProjectCode.setText(metadataModel.getEntity().getPrjct_lead());
-			holder.editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
-			holder.editTextProjectLeader.setText(metadataModel.getEntity().getPrjct_type());
-			holder.spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
+			EditText editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
+			editTextProjectName.setText(metadataModel.getEntity().getPrjct_code());
+			EditText editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
+			editTextProjectCode.setText(metadataModel.getEntity().getPrjct_lead());
+			EditText editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
+			editTextProjectLeader.setText(metadataModel.getEntity().getPrjct_type());
+			
+			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMetadataPrjctType");
+			spinnerProjectType.setAdapter(sp1);
+			sp1.setElementsCol1();
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			MetaData2 holder;
-			holder = new MetaData2();
+			
 			convertView = mInflater.inflate(R.layout.metadata2, null);
 
-			holder.spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
-			holder.spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
-			holder.spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
-			holder.spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
-			holder.editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
-			convertView.setTag(holder);
+			Spinner spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMetadataGeologist");
+			spinnerGeologistName.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDMetadataGeologist");
+			spinnerGeologistCode.setAdapter(sp2);
+			sp2.setElementsCol2(""); // NEEDS INPUT
+			
+			Spinner spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
+			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDMetadataDigcamera");
+			spinnerCameraPrefix.setAdapter(sp3);
+			sp3.setElementsCol1();
+			
+			Spinner spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
+			SpinnerController sp4 = new SpinnerController(context, activity, "lutBEDMetadataPrjname");
+			spinnerMapProjection.setAdapter(sp4);
+			sp4.setElementsCol1();
+			
+			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
+			
 
 		}
 
@@ -152,21 +170,5 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 //    }
 
-	static class MetaData1 {
-		
-		EditText editTextProjectName;
-		EditText editTextProjectCode;
-		EditText editTextProjectLeader;
-		Spinner spinnerProjectType;
 
-	}
-
-	static class MetaData2 {
-		Spinner spinnerGeologistName;
-		Spinner spinnerGeologistCode;
-		Spinner spinnerCameraPrefix;
-		Spinner spinnerMapProjection;
-		EditText editTextStationStartNo;
-
-	}
 }

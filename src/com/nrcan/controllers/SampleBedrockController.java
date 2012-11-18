@@ -42,44 +42,57 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			SampleBedrock1 holder;
-			holder = new SampleBedrock1();
+			
 			convertView = mInflater.inflate(R.layout.sample_bedrock_1, null);
 
-			holder.spinnerType = (Spinner) convertView
+			Spinner spinnerType = (Spinner) convertView
 					.findViewById(R.id.sample_bedrock_spinner_type);
-			holder.spinnerPurpose = (Spinner) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDSampleType");
+			spinnerType.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			Spinner spinnerPurpose = (Spinner) convertView
 					.findViewById(R.id.sample_bedrock_spinner_purpose);
-			holder.buttonPurpose = (Button) convertView
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDSamplePurpose");
+			spinnerPurpose.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
+			Button buttonPurpose = (Button) convertView
 					.findViewById(R.id.sample_bedrock_button_purpose);
-			holder.editTextPurpose = (EditText) convertView
+			EditText editTextPurpose = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_text_purpose);
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			SampleBedrock2 holder;
-			holder = new SampleBedrock2();
+			
 			convertView = mInflater.inflate(R.layout.sample_bedrock_2, null);
 
-			holder.spinnerFormat = (Spinner) convertView
+			Spinner spinnerFormat = (Spinner) convertView
 					.findViewById(R.id.sample_bedrock_spinner_format);
-			holder.editTextAzimuth = (EditText) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDGeneralStrucFormat");
+			spinnerFormat.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextAzimuth = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_editText_azimuth);
-			holder.editTextDipPlunge = (EditText) convertView
+			EditText editTextDipPlunge = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_editText_dipPlunge);
-			holder.spinnerSurface = (Spinner) convertView
+			Spinner spinnerSurface = (Spinner) convertView
 					.findViewById(R.id.sample_bedrock_spinner_surface);
+			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDSampleSurface");
+			spinnerSurface.setAdapter(sp2);
+			sp2.setElementsCol1();
+			
 
-			convertView.setTag(holder);
+			
 		} else if (tab == 3) {
-			SampleBedrock3 holder;
-			holder = new SampleBedrock3();
+			
 			convertView = mInflater.inflate(R.layout.sample_bedrock_3, null);
 
-			holder.editTextNote = (EditText) convertView
+			EditText editTextNote = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_text_note);
 
-			convertView.setTag(holder);
+			
 		}
 
 		return convertView;
@@ -94,22 +107,6 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 		notifyDataSetChanged();
 	}
 
-	static class SampleBedrock1 {
-		Spinner spinnerType;
-		Spinner spinnerPurpose;
-		Button buttonPurpose;
-		EditText editTextPurpose;
-	}
-
-	static class SampleBedrock2 {
-		Spinner spinnerFormat;
-		EditText editTextAzimuth;
-		EditText editTextDipPlunge;
-		Spinner spinnerSurface;
-	}
-
-	static class SampleBedrock3 {
-		EditText editTextNote;
-	}
+	
 
 }

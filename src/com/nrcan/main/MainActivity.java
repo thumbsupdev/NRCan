@@ -18,12 +18,37 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
+	private static Button swapButton;
+	
+	private boolean selectionFlag;
+	private boolean newFlag;
+	private int nrCanId1;
+	private int nrCanId2;
+	private int nrCanId3;
+	private int nrCanId4;
+	
+	private int detail;
 
 	private PicklistDatabaseHandler pldb;
 	private DatabaseHandler databaseHandler;
 	private ViewFlipper flipper;
-
+	private Button button1;
+	private Button button2;
+	
 	private MetadataModel metadataModel;
+	private EnvironSurficialModel environSurficialModel;
+	private SoilProSurficialModel soilProSurficialModel;
+	private PhotoModel photoModel;
+	private StationBedrockModel stationBedrockModel;
+	private StationSurficialModel stationSurficialModel;
+	private EarthmatBedrockModel earthmatBedrockModel;
+	private MineralBedrockModel mineralBedrockModel;
+	private EarthmatSurficialModel earthmatSurficialModel;
+	private SampleBedrockModel sampleBedrockModel;
+	private SampleSurficialModel sampleSurficialModel;
+	private StructureModel structureModel;
+	private MABedrockModel mABedrockModel;
+	private PFlowSurficialModel pFlowSurficialModel;
 
 	private ListController adap1;
 	private EarthmatBedrockController adap2;
@@ -88,6 +113,8 @@ public class MainActivity extends ListActivity {
 	private ListView lv30;
 
 	private TextView mainTitle;
+	private TextView topTitle;
+
 	private String[] titles = {
 			"EARTH MATERIAL BEDROCK",
 			"EARTH MATERIAL BEDROCK",
@@ -97,7 +124,7 @@ public class MainActivity extends ListActivity {
 			"ENVIRONMENT SURFICIAL",
 			"M / A BEDROCK",
 			"M / A BEDROCK",
-			"METADATA",
+			"PROJECTS",
 			"METADATA",
 			"MINERAL BEDROCK",
 			"MINERAL BEDROCK",
@@ -120,7 +147,7 @@ public class MainActivity extends ListActivity {
 			"STATION DETAILS",
 			"EARTH MATERIAL DETAILS"
 	};
-	
+
 	private ArrayList<String> details1 = new ArrayList<String>();
 	private ArrayList<String> details2 = new ArrayList<String>();
 
@@ -307,16 +334,16 @@ public class MainActivity extends ListActivity {
 		databaseHandler = new DatabaseHandler(this);
 
 		metadataModel = new MetadataModel(databaseHandler);
-
+		topTitle = (TextView) findViewById(R.id.textViewMainID);
 		mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
-		mainTitle.setText(titles[0].toString());
+
 
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
 
-		Button button1 = (Button) findViewById(R.id.buttonSave);
+		button1 = (Button) findViewById(R.id.buttonSave);
 		button1.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				saveActions[flipper.getDisplayedChild()].runSave();
+				//saveActions[flipper.getDisplayedChild()].runSave();
 				//adap10.save();
 				//adap10.insertMetadataInfo();
 				//metadataModel.insertRow();
@@ -325,10 +352,10 @@ public class MainActivity extends ListActivity {
 				//setTabs(1);
 			}
 		});
-		Button button2 = (Button) findViewById(R.id.buttonBack);
+		button2 = (Button) findViewById(R.id.buttonBack);
 		button2.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				backActions[flipper.getDisplayedChild()].runBack();
+				//backActions[flipper.getDisplayedChild()].runBack();
 				//adap10.tUpdate();
 				//metadataModel.deleteRow();
 				flipper.showPrevious();
@@ -432,9 +459,23 @@ public class MainActivity extends ListActivity {
 
 		setupButtons();
 		
+		flipper.setDisplayedChild(0);
+		//button2.setVisibility(View.INVISIBLE);
+		//button1.setVisibility(View.INVISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		selectionFlag = false;
+		newFlag = false;
+		nrCanId1 = 0;
+		nrCanId2 = 0;
+		nrCanId3 = 0;
+		nrCanId4 = 0;
+		
+		swapButton = (Button)findViewById(R.id.tab_host_5_button1);
+		swapButton.setEnabled(false);
+
 		//setupDetailsBedrock();
 		//setupDetailsSurficial();
-		
+
 		/*
     	flipper.setDisplayedChild(8);
 
@@ -447,29 +488,43 @@ public class MainActivity extends ListActivity {
     	adap9.setElements(tt);
 		 */
 	}
-	
+
+	public PicklistDatabaseHandler getPLDB() {
+		return this.pldb;
+	}
+
 	public void setupDetailsBedrock() {
-		details1.add("1-1a");
-		details1.add("1-2a");
-		details1.add("1-3a");
+		details1.clear();
+		details2.clear();
+		details1.add("EARTH MATERIALS");
+		details1.add("MINERALIZATION / ALTERATION");
+		details1.add("PHOTO");
+
+		details2.add("SAMPLE");
+		details2.add("STRUTURE");
+		details2.add("MINERAL");
+		adap29.notifyDataSetChanged();
+		adap30.notifyDataSetChanged();
+	}
+
+	public void setupDetailsSurficial() {
+		details1.clear();
+		details2.clear();
+		details1.add("EARTH MATERIALS");
+		details1.add("ENVIRONMENT");
+		details1.add("SOIL PROFILE");
+		details1.add("PHOTO");
 		
-		details2.add("2-1a");
-		details2.add("2-2a");
-		details2.add("2-3a");
+		details2.add("SAMPLE");
+		details2.add("STRUCTURE");
+		details2.add("PALEO FLOW");
+		
 		adap29.notifyDataSetChanged();
 		adap30.notifyDataSetChanged();
 	}
 	
-	public void setupDetailsSurficial() {
-		details1.add("1-1b");
-		details1.add("1-2b");
-		details1.add("1-3b");
-		
-		details2.add("2-1b");
-		details2.add("2-2b");
-		details2.add("2-3b");
-		adap29.notifyDataSetChanged();
-		adap30.notifyDataSetChanged();
+	public void setDetail(int temp){
+		this.detail = temp;
 	}
 
 	public void cellActionControl() {
@@ -519,370 +574,284 @@ public class MainActivity extends ListActivity {
 	}
 
 	public void setupButtonsEarthmatBedrock() {
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_1_button1),
+				(Button) findViewById(R.id.tab_host_1_button2),
+				(Button) findViewById(R.id.tab_host_1_button3),
+				(Button) findViewById(R.id.tab_host_1_button4),
+				(Button) findViewById(R.id.tab_host_1_button5),
+				(Button) findViewById(R.id.tab_host_1_button6),
+				(Button) findViewById(R.id.tab_host_1_button7),
+				(Button) findViewById(R.id.tab_host_1_button8)
+		};
 
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_1_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_1_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_1_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_1_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(4);
-			}
-		});
-		Button tab_button_5 = (Button) findViewById(R.id.tab_host_1_button5);
-		tab_button_5.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(5);
-			}
-		});
-		Button tab_button_6 = (Button) findViewById(R.id.tab_host_1_button6);
-		tab_button_6.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(6);
-			}
-		});
-		Button tab_button_7 = (Button) findViewById(R.id.tab_host_1_button7);
-		tab_button_7.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(7);
-			}
-		});
-		Button tab_button_8 = (Button) findViewById(R.id.tab_host_1_button8);
-		tab_button_8.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap2.setTab(8);
-			}
-		});
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap2.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
 
 	public void setupButtonsEarthmatSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_2_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_2_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_2_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_2_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(4);
-			}
-		});
-		Button tab_button_5 = (Button) findViewById(R.id.tab_host_2_button5);
-		tab_button_5.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(5);
-			}
-		});
-		Button tab_button_6 = (Button) findViewById(R.id.tab_host_2_button6);
-		tab_button_6.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(6);
-			}
-		});
-		Button tab_button_7 = (Button) findViewById(R.id.tab_host_2_button7);
-		tab_button_7.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(7);
-			}
-		});
-		Button tab_button_8 = (Button) findViewById(R.id.tab_host_2_button8);
-		tab_button_8.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap4.setTab(8);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_2_button1),
+				(Button) findViewById(R.id.tab_host_2_button2),
+				(Button) findViewById(R.id.tab_host_2_button3),
+				(Button) findViewById(R.id.tab_host_2_button4),
+				(Button) findViewById(R.id.tab_host_2_button5),
+				(Button) findViewById(R.id.tab_host_2_button6),
+				(Button) findViewById(R.id.tab_host_2_button7),
+				(Button) findViewById(R.id.tab_host_2_button8)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap4.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsEnvironSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_3_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap6.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_3_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap6.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_3_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap6.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_3_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap6.setTab(4);
-			}
-		});
-		Button tab_button_5 = (Button) findViewById(R.id.tab_host_3_button5);
-		tab_button_5.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap6.setTab(5);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_3_button1),
+				(Button) findViewById(R.id.tab_host_3_button2),
+				(Button) findViewById(R.id.tab_host_3_button3),
+				(Button) findViewById(R.id.tab_host_3_button4),
+				(Button) findViewById(R.id.tab_host_3_button5)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap6.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsMABedrock() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_4_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap8.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_4_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap8.setTab(2);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_4_button1),
+				(Button) findViewById(R.id.tab_host_4_button2)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap8.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+
 	public void setupButtonsMetadata() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_5_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap10.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_5_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap10.setTab(2);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_5_button1),
+				(Button) findViewById(R.id.tab_host_5_button2)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap10.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsMineralBedrock() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_6_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap12.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_6_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap12.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_6_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap12.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_6_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap12.setTab(4);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_6_button1),
+				(Button) findViewById(R.id.tab_host_6_button2),
+				(Button) findViewById(R.id.tab_host_6_button3),
+				(Button) findViewById(R.id.tab_host_6_button4)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap12.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsPFlowSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_7_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap14.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_7_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap14.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_7_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap14.setTab(3);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_7_button1),
+				(Button) findViewById(R.id.tab_host_7_button2),
+				(Button) findViewById(R.id.tab_host_7_button3)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap14.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsPhoto() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_8_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap16.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_8_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap16.setTab(2);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_8_button1),
+				(Button) findViewById(R.id.tab_host_8_button2)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap16.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsSampleBedrock() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_9_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap18.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_9_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap18.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_9_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap18.setTab(3);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_9_button1),
+				(Button) findViewById(R.id.tab_host_9_button2),
+				(Button) findViewById(R.id.tab_host_9_button3)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap18.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsSampleSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_10_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap20.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_10_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap20.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_10_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap20.setTab(3);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_10_button1),
+				(Button) findViewById(R.id.tab_host_10_button2),
+				(Button) findViewById(R.id.tab_host_10_button3)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap20.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsSoilProSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_11_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap22.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_11_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap22.setTab(2);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_11_button1),
+				(Button) findViewById(R.id.tab_host_11_button2)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap22.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsStationBedrock() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_12_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap24.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_12_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap24.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_12_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap24.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_12_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap24.setTab(4);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_12_button1),
+				(Button) findViewById(R.id.tab_host_12_button2),
+				(Button) findViewById(R.id.tab_host_12_button3),
+				(Button) findViewById(R.id.tab_host_12_button4),
+				(Button) findViewById(R.id.tab_host_12_button5)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap24.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsStationSurficial() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_13_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap26.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_13_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap26.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_13_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap26.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_13_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap26.setTab(4);
-			}
-		});
-		Button tab_button_5 = (Button) findViewById(R.id.tab_host_13_button5);
-		tab_button_5.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap26.setTab(5);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_13_button1),
+				(Button) findViewById(R.id.tab_host_13_button2),
+				(Button) findViewById(R.id.tab_host_13_button3),
+				(Button) findViewById(R.id.tab_host_13_button4),
+				(Button) findViewById(R.id.tab_host_13_button5)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap26.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
+	
 	public void setupButtonsStructure() {
-		Button tab_button_1 = (Button) findViewById(R.id.tab_host_14_button1);
-		tab_button_1.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap28.setTab(1);
-			}
-		});
-		Button tab_button_2 = (Button) findViewById(R.id.tab_host_14_button2);
-		tab_button_2.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap28.setTab(2);
-			}
-		});
-		Button tab_button_3 = (Button) findViewById(R.id.tab_host_14_button3);
-		tab_button_3.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap28.setTab(3);
-			}
-		});
-		Button tab_button_4 = (Button) findViewById(R.id.tab_host_14_button4);
-		tab_button_4.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap28.setTab(4);
-			}
-		});
-		Button tab_button_5 = (Button) findViewById(R.id.tab_host_14_button5);
-		tab_button_5.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				adap28.setTab(5);
-			}
-		});
+		Button [] buttons = {
+				(Button) findViewById(R.id.tab_host_14_button1),
+				(Button) findViewById(R.id.tab_host_14_button2),
+				(Button) findViewById(R.id.tab_host_14_button3),
+				(Button) findViewById(R.id.tab_host_14_button4),
+				(Button) findViewById(R.id.tab_host_14_button5)
+		};
+
+		for(int i = 0; i < buttons.length; i++) {
+			buttons[i].setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					swapButton.setEnabled(true);
+					swapButton = ((Button)v);
+					adap28.setTab(Integer.parseInt(((Button)v).getText().toString()));
+					swapButton.setEnabled(false);
+				}
+			});
+		}
 	}
 
 	@Override
@@ -929,511 +898,1045 @@ public class MainActivity extends ListActivity {
 	public class BackAction {
 
 		public void backAction0() {
-			
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction1() {
-
+			flipper.setDisplayedChild(0);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction2() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction3() {
-
+			flipper.setDisplayedChild(2);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction4() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction5() {
-
+			flipper.setDisplayedChild(4);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction6() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction7() {
-
+			flipper.setDisplayedChild(6);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction8() {
-
+			//First page.. no back button. 
 		}
 
 		public void backAction9() {
-			
+			flipper.setDisplayedChild(8);
+			button2.setVisibility(View.INVISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction10() {
-
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction11() {
-
+			flipper.setDisplayedChild(10);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction12() {
-
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction13() {
-
+			flipper.setDisplayedChild(12);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction14() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction15() {
-
+			flipper.setDisplayedChild(14);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction16() {
-
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction17() {
-
+			flipper.setDisplayedChild(16);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction18() {
-
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction19() {
-
+			flipper.setDisplayedChild(18);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction20() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction21() {
-
+			flipper.setDisplayedChild(20);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction22() {
-
+			flipper.setDisplayedChild(8);
+			button2.setVisibility(View.INVISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction23() {
-
+			flipper.setDisplayedChild(22);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction24() {
-
+			flipper.setDisplayedChild(8);
+			button2.setVisibility(View.INVISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction25() {
-
+			flipper.setDisplayedChild(24);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction26() {
-
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction27() {
-
+			flipper.setDisplayedChild(26);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void backAction28() {
-
+			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				flipper.setDisplayedChild(22);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				
+			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				flipper.setDisplayedChild(24);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			}
+			
+			
 		}
 
 		public void backAction29() {
-
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 	}
 
 	public class CellAction {
 
 		public void cellAction0() {
+			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(29);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.INVISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction1() {
-
+			//no cells in form page
 		}
 
 		public void cellAction2() {
+			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(29);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.INVISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction3() {
-
+			//no cells in form page
 		}
 
 		public void cellAction4() {
+			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(5);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction5() {
-
+			//no cells in form page
 		}
 
 		public void cellAction6() {
+			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(7);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction7() {
-
+			//no cells in form page
 		}
 
 		public void cellAction8() {
-
+			
+				nrCanId1= metadataModel.getEntity().getNrcanId1();
+				
+			
+			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				flipper.setDisplayedChild(22);
+				
+			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				flipper.setDisplayedChild(24);
+				
+			}else {}
+			
+			
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction9() {
-
+			//no cells in form page
 		}
 
 		public void cellAction10() {
+			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(11);
+			
+			
+			
 
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction11() {
-
+			//no cells in form page
 		}
 
 		public void cellAction12() {
+			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(13);
+			
+			
+			
 
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction13() {
-
+			//no cells in form page
 		}
 
 		public void cellAction14() {
+			nrCanId3 = photoModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(15);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction15() {
-
+			//no cells in form page
 		}
 
 		public void cellAction16() {
+			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 
+			flipper.setDisplayedChild(17);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction17() {
-
+			//no cells in form page
 		}
 
 		public void cellAction18() {
+			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(19);
+			
+			
+			
 
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction19() {
-
+			//no cells in form page
 		}
 
 		public void cellAction20() {
+			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 
+			flipper.setDisplayedChild(21);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction21() {
-
+			//no cells in form page
 		}
 
 		public void cellAction22() {
+			nrCanId2= stationBedrockModel.getEntity().getNrcanId2();
 
+				flipper.setDisplayedChild(28);
+				
+			
+			
+			
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction23() {
-
+			//no cells in form page
 		}
 
 		public void cellAction24() {
+			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 
+			flipper.setDisplayedChild(28);
+
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.INVISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction25() {
-
+			//no cells in form page
 		}
 
 		public void cellAction26() {
+			nrCanId4 = structureModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(27);
+			
+			
+			
 
+		newFlag = false;
+		button2.setVisibility(View.VISIBLE);
+		button1.setVisibility(View.VISIBLE);
+		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction27() {
-
+			//no cells in form page
 		}
 
 		public void cellAction28() {
-
+			
+			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				if(detail==0){
+					flipper.setDisplayedChild(0);
+				}
+				else if(detail==1){
+					flipper.setDisplayedChild(6);
+				}
+				else if (detail==2){
+					flipper.setDisplayedChild(14);
+				}
+				
+				
+			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				if(detail==0){
+					flipper.setDisplayedChild(2);
+				}
+				else if(detail==1){
+					flipper.setDisplayedChild(4);
+				}
+				else if (detail==2){
+					flipper.setDisplayedChild(20);
+				}
+				else if (detail==3){
+					flipper.setDisplayedChild(14);
+				}
+				
+			}
+			
+			
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction29() {
-
+			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				if(detail==0){
+					flipper.setDisplayedChild(16);
+				}
+				else if(detail==1){
+					flipper.setDisplayedChild(26);
+				}
+				else if (detail==2){
+					flipper.setDisplayedChild(10);
+				}
+				
+				
+			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				if(detail==0){
+					flipper.setDisplayedChild(18);
+				}
+				else if(detail==1){
+					flipper.setDisplayedChild(26);
+				}
+				else if (detail==2){
+					flipper.setDisplayedChild(12);
+				}
+				
+				
+			}
+			
+			
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 	}
 
 	public class EditAction {
 
 		public void editAction0() {
-
+			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(1);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction1() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction2() {
-
+			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(3);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction3() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction4() {
-
+			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(5);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction5() {
-
+			
 		}
 
 		public void editAction6() {
-
+			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(7);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction7() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction8() {
-
+			nrCanId1 = metadataModel.getEntity().getNrcanId1();
+			flipper.setDisplayedChild(9);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction9() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction10() {
-
+			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(11);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction11() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction12() {
-
+			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(13);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction13() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction14() {
-
+			nrCanId3 = photoModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(15);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction15() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction16() {
-
+			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(17);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction17() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction18() {
-
+			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(19);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction19() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction20() {
-
+			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(21);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction21() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction22() {
-
+			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
+			flipper.setDisplayedChild(23);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction23() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction24() {
-
+			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
+			flipper.setDisplayedChild(25);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction25() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction26() {
-
+			nrCanId4 = structureModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(27);
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void editAction27() {
-
+			//no edit functionality on form
 		}
 
 		public void editAction28() {
-
+			//a list with no edit on list
 		}
 
 		public void editAction29() {
-
+			//a list with no edit on list
 		}
 	}
 
 	public class NewAction {
 
 		public void newAction0() {
-
+			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(1);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction1() {
-
+			//no new functionality on form
 		}
 
 		public void newAction2() {
-
+			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(3);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction3() {
-
+			//no new functionality on form
 		}
 
 		public void newAction4() {
-
+			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(5);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction5() {
-
+			//no new functionality on form
 		}
 
 		public void newAction6() {
-
+			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(7);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction7() {
-
+			//no new functionality on form
 		}
 
 		public void newAction8() {
-
+			nrCanId1 = metadataModel.getEntity().getNrcanId1();
+			flipper.setDisplayedChild(9);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			
+			
 		}
 
 		public void newAction9() {
-
+			//no new functionality on form
 		}
 
 		public void newAction10() {
-
+			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(11);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction11() {
-
+			//no new functionality on form
 		}
 
 		public void newAction12() {
-
+			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(13);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction13() {
-
+			//no new functionality on form
 		}
 
 		public void newAction14() {
-
+			nrCanId3 = photoModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(15);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction15() {
-
+			//no new functionality on form
 		}
 
 		public void newAction16() {
-
+			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(17);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction17() {
-
+			//no new functionality on form
 		}
 
 		public void newAction18() {
-
+			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(19);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction19() {
-
+			//no new functionality on form
 		}
 
 		public void newAction20() {
-
+			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
+			flipper.setDisplayedChild(21);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction21() {
-
+			//no new functionality on form
 		}
 
 		public void newAction22() {
-
+			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
+			flipper.setDisplayedChild(23);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction23() {
-
+			//no new functionality on form
 		}
 
 		public void newAction24() {
-
+			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
+			flipper.setDisplayedChild(25);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction25() {
-
+			//no new functionality on form
 		}
 
 		public void newAction26() {
-
+			nrCanId4 = structureModel.getEntity().getNrcanId4();
+			flipper.setDisplayedChild(27);
+			newFlag = true;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void newAction27() {
-
+			//no new functionality on form
 		}
 
 		public void newAction28() {
-
+			//no new functionality on this particular list
 		}
 
 		public void newAction29() {
-
+			//no new functionality on this particular list
 		}
 	}
 
 	public class SaveAction {
 
 		public void saveAction0() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction1() {
-
+			if(newFlag)
+			{
+				earthmatBedrockModel.insertRow();
+				nrCanId3= earthmatBedrockModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				earthmatBedrockModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(29);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction2() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction3() {
-
+			if(newFlag)
+			{
+				earthmatSurficialModel.insertRow();
+				nrCanId3= earthmatSurficialModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				earthmatSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(29);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction4() {
@@ -1441,31 +1944,149 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void saveAction5() {
-
+			if(newFlag)
+			{
+				environSurficialModel.insertRow();
+				nrCanId3= environSurficialModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				environSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(4);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction6() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction7() {
-
+			if(newFlag)
+			{
+				mABedrockModel.insertRow();
+				nrCanId3= mABedrockModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				mABedrockModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(6);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction8() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction9() {
-
+				//check to see if anything has been done on the form page yet
+			//if its a NEW form, set nrcanID1 on save
+			//run insert row to save current fields entered
+			//then advance to station list (22)
+			
+			//if you reached the form by hitting edit, the nrcanid1 already is set
+			//you will update the already populate fields in the database
+			//then advance to station list(22)
+			
+			//in both cases, a project type *bedrock or surficial will be set
+			//and this information is needed as it effects if you go to
+			//station(22 bedrock) or station (24 surficial)
+			
+			//a .equals is performed on .getPrjct_type() to determine which project type has been set
+			//if a project type was NOT set and save was initiated, I would suggest a modal dialog
+			//pop up reminding them to select it. For now I will just not code the advancement to
+			// flipper 22 or 24 respectivly. 
+			if(newFlag)
+			{
+				metadataModel.insertRow();
+				nrCanId1= metadataModel.getEntity().getNrcanId1();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				metadataModel.updateRow();
+				
+				
+			}
+			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				flipper.setDisplayedChild(22);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				newFlag = false;
+				
+			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				flipper.setDisplayedChild(24);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				newFlag = false;
+			}else{
+				//maybe set dialog box to remind entering project type to advance with save
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.VISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			}
+			
+			
+			
+			
+			
 		}
 
 		public void saveAction10() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction11() {
-
+			if(newFlag)
+			{
+				mineralBedrockModel.insertRow();
+				nrCanId4= mineralBedrockModel.getEntity().getNrcanId4();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				mineralBedrockModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(10);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction12() {
@@ -1473,31 +2094,111 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void saveAction13() {
-
+			if(newFlag)
+			{
+				pFlowSurficialModel.insertRow();
+				nrCanId4= pFlowSurficialModel.getEntity().getNrcanId4();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				pFlowSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(12);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction14() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction15() {
-
+			if(newFlag)
+			{
+				photoModel.insertRow();
+				nrCanId3= photoModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				photoModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(14);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction16() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction17() {
-
+			if(newFlag)
+			{
+				sampleBedrockModel.insertRow();
+				nrCanId4= sampleBedrockModel.getEntity().getNrcanId4();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				sampleBedrockModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(16);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction18() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction19() {
-
+			if(newFlag)
+			{
+				sampleSurficialModel.insertRow();
+				nrCanId4= sampleSurficialModel.getEntity().getNrcanId4();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				sampleSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(18);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction20() {
@@ -1505,44 +2206,123 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void saveAction21() {
-
+			if(newFlag)
+			{
+				soilProSurficialModel.insertRow();
+				nrCanId3= soilProSurficialModel.getEntity().getNrcanId3();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				soilProSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(20);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction22() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction23() {
-
+			if(newFlag)
+			{
+				stationBedrockModel.insertRow();
+				nrCanId2= stationBedrockModel.getEntity().getNrcanId2();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				stationBedrockModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(28);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			
 		}
 
 		public void saveAction24() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction25() {
-
+			if(newFlag)
+			{
+				stationSurficialModel.insertRow();
+				nrCanId2= stationSurficialModel.getEntity().getNrcanId2();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				stationSurficialModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(28);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			
 		}
+		
 
 		public void saveAction26() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction27() {
-
+			if(newFlag)
+			{
+				structureModel.insertRow();
+				nrCanId4= structureModel.getEntity().getNrcanId4();
+				newFlag = false;
+				
+				
+				
+			}
+			else
+			{
+				structureModel.updateRow();
+				
+			}
+			
+			
+				flipper.setDisplayedChild(26);
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.INVISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction28() {
-
+			//no save functionality on list view with cells
 		}
 
 		public void saveAction29() {
-
+			//no save functionality on list view with cells
 		}
-	}
-	
-	public PicklistDatabaseHandler getPLDB() {
-		return this.pldb;
 	}
 
 
@@ -1552,62 +2332,62 @@ public class MainActivity extends ListActivity {
 
         return dbHandler.getList();
     }
-	 //************************************************************************************
+	 *//************************************************************************************
 	 * 
 	 * ANIMATION HELPER CLASS
 	 *
 	 ************************************************************************************/
 
-	 public static class AnimationHelper {
-		 private static int dur = 200;
+	public static class AnimationHelper {
+		private static int dur = 200;
 
-		 public void setDuration (int duration) {
-			 dur = duration;
-		 }
+		public void setDuration (int duration) {
+			dur = duration;
+		}
 
-		 public static Animation inFromRightAnimation(float param) {
-			 Animation inFromRight = new TranslateAnimation(
-					 Animation.RELATIVE_TO_PARENT, param,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f);
-			 inFromRight.setDuration(dur);
-			 inFromRight.setInterpolator(new AccelerateInterpolator());
-			 return inFromRight;
-		 }
+		public static Animation inFromRightAnimation(float param) {
+			Animation inFromRight = new TranslateAnimation(
+					Animation.RELATIVE_TO_PARENT, param,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f);
+			inFromRight.setDuration(dur);
+			inFromRight.setInterpolator(new AccelerateInterpolator());
+			return inFromRight;
+		}
 
-		 public static Animation outToLeftAnimation(float param) {
-			 Animation outtoLeft = new TranslateAnimation(
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, -param,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f);
-			 outtoLeft.setDuration(dur);
-			 outtoLeft.setInterpolator(new AccelerateInterpolator());
-			 return outtoLeft;
-		 }
+		public static Animation outToLeftAnimation(float param) {
+			Animation outtoLeft = new TranslateAnimation(
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, -param,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f);
+			outtoLeft.setDuration(dur);
+			outtoLeft.setInterpolator(new AccelerateInterpolator());
+			return outtoLeft;
+		}
 
-		 public static Animation inFromLeftAnimation(float param) {
-			 Animation inFromLeft = new TranslateAnimation(
-					 Animation.RELATIVE_TO_PARENT, -param,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f);
-			 inFromLeft.setDuration(dur);
-			 inFromLeft.setInterpolator(new AccelerateInterpolator());
-			 return inFromLeft;
-		 }
+		public static Animation inFromLeftAnimation(float param) {
+			Animation inFromLeft = new TranslateAnimation(
+					Animation.RELATIVE_TO_PARENT, -param,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f);
+			inFromLeft.setDuration(dur);
+			inFromLeft.setInterpolator(new AccelerateInterpolator());
+			return inFromLeft;
+		}
 
-		 public static Animation outToRightAnimation(float param) {
-			 Animation outtoRight = new TranslateAnimation(
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, +param,
-					 Animation.RELATIVE_TO_PARENT, 0.0f,
-					 Animation.RELATIVE_TO_PARENT, 0.0f);
-			 outtoRight.setDuration(dur);
-			 outtoRight.setInterpolator(new AccelerateInterpolator());
-			 return outtoRight;
-		 }
-	 }
+		public static Animation outToRightAnimation(float param) {
+			Animation outtoRight = new TranslateAnimation(
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, +param,
+					Animation.RELATIVE_TO_PARENT, 0.0f,
+					Animation.RELATIVE_TO_PARENT, 0.0f);
+			outtoRight.setDuration(dur);
+			outtoRight.setInterpolator(new AccelerateInterpolator());
+			return outtoRight;
+		}
+	}
 
 }

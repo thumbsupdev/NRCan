@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                 android:hint="0"
+                android:hint="0"
                 android:inputType="number" >
 
                 <requestFocus />
@@ -58,32 +58,51 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/station_label_elevation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/station_label_elevation"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/station_text_elevation"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="0"
-            android:inputType="numberDecimal" />
-
-        <Spinner
-            android:id="@+id/station_spinner_elevation"
+        <LinearLayout
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/station_label_elevation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/station_label_elevation"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/station_text_elevation"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="0"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/station_label_method"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/station_spinner_elevation"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
@@ -99,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-         android:hint="0"
+        android:hint="0"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -131,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-         android:hint="0"
+        android:hint="0"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -147,7 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-         android:hint="0"
+        android:hint="0"
         android:inputType="numberDecimal" />
 
 </LinearLayout>

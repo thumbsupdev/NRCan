@@ -42,30 +42,32 @@ public class PhotoController extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			Photo1 holder;
-			holder = new Photo1();
+			
 
 			convertView = mInflater.inflate(R.layout.photo_1, null);
 
-			holder.spinnerCategory = (Spinner) convertView
+			Spinner spinnerCategory = (Spinner) convertView
 					.findViewById(R.id.photo_spinner_category);
-			holder.editTextPhotoName = (EditText) convertView
+			SpinnerController sp1 = new SpinnerController(context, activity, "lutSURPhotoCategory");
+			spinnerCategory.setAdapter(sp1);
+			sp1.setElementsCol1();
+			
+			EditText editTextPhotoName = (EditText) convertView
 					.findViewById(R.id.photo_text_filename);
-			holder.editTextFileNumber = (EditText) convertView
+			EditText editTextFileNumber = (EditText) convertView
 					.findViewById(R.id.photo_text_filenumber);
-			holder.editTextDirection = (EditText) convertView
+			EditText editTextDirection = (EditText) convertView
 					.findViewById(R.id.photo_text_direction);
 			
-			convertView.setTag(holder);
+			
 		} else if (tab == 2) {
-			Photo2 holder;
-			holder = new Photo2();
+			
 			convertView = mInflater.inflate(R.layout.photo_2, null);
 
-			holder.editTextCaption = (EditText) convertView
+			EditText editTextCaption = (EditText) convertView
 					.findViewById(R.id.photo_text_caption);
 
-			convertView.setTag(holder);
+		
 		}
 		return convertView;
 	}
@@ -79,17 +81,7 @@ public class PhotoController extends BaseAdapter implements Filterable {
 		notifyDataSetChanged();
 	}
 
-	static class Photo1 {
-		Spinner spinnerCategory;
-		EditText editTextPhotoName;
-		EditText editTextFileNumber;
-		
-		EditText editTextDirection;
-		
-	}
+	
 
-	static class Photo2 {
-		EditText editTextCaption;
-
-	}
+	
 }

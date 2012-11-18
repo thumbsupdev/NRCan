@@ -12,7 +12,8 @@
     <!-- STATION -->
     <string name="station_label_traverse">Trav</string>
     <string name="station_label_date">Date</string>
-    <string name="station_label_elevation">Elev (m)</string>
+    <string name="station_label_elevation">Elevation (m)</string>
+    <string name="station_label_method">Method</string>
     <string name="station_label_easting">Easting (m)</string>
     <string name="station_label_northing">Northing (m)</string>
     <string name="station_label_latitude">Latitude</string>
@@ -52,8 +53,8 @@
     <string name="structure_label_detail">Detail*</string>
     <string name="structure_label_method">Method</string>
     <string name="structure_label_format">Format*</string>
-    <string name="structure_label_strike">Strike*</string>
-    <string name="structure_label_dip">Dip*</string>
+    <string name="structure_label_strike">Azimuth</string>
+    <string name="structure_label_dip">Dip/Plunge</string>
     <string name="structure_label_attitude">Attitude</string>
     <string name="structure_label_younging">Younging</string>
     <string name="structure_label_generation">Generation</string>
@@ -141,6 +142,7 @@
     <string name="earthmat_label_lithInterpretation">Lith Interpretation (254 chars max)</string>
     <string name="earthmat_label_lithInterpConfidence">Lith Interp Confidence</string>
     <string name="earthmat_label_surficialOrigin">Surficial Origin</string>
+    
 
     <!-- EARTHMAT SURFICIAL -->
     <string name="earthmat_label_material">Material</string>
@@ -247,7 +249,8 @@
     <string name="mineral_label_max">Max</string>
     <string name="mineral_label_form">Form</string>
     <string name="mineral_label_habit">Habit</string>
-    <string name="mineral_label_occur">Occur</string>
+    <string name="mineral_label_occur">Occurance</string>
     <string name="mineral_label_note">Note (254 chars. max)</string>
+    <string name="mineral_label_percent">Percent</string>
 
 </resources>
