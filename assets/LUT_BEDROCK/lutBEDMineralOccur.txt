@@ -1,0 +1,20 @@
+OCCUR
+
+accessory
+amygdule
+clast1
+clast2
+clast3
+clot
+constituent
+fragment
+glomerocryst
+groundmass
+matrix
+megacryst
+phenocryst
+porphyroblast
+porphyroclast
+pseudomorph
+vug filling
+see comment field

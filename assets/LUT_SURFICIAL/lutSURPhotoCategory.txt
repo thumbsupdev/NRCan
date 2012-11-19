@@ -1,0 +1,17 @@
+CATEGORY
+cultural
+dyke/vein
+lithology
+outcrop
+panoramic series
+people
+scenery
+structure
+texture
+wildlife
+test pit
+excavation
+section
+landform
+other
+TBD

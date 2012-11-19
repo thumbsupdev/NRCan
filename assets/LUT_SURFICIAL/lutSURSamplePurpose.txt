@@ -1,0 +1,52 @@
+PURPOSE
+geochemistry
+heavy minerals
+pebble count
+grain size
+assay
+litho
+RockEval
+TOC analysis
+organic
+Xtract
+stable isotope
+radio isotope
+fission track
+radiocarbon
+40Ar-39Ar
+K-Ar
+Pb-Pb
+Rb-Sr
+Re-Os
+Lu-Hf
+Sm-Nd
+U-Pb
+detrital zircon
+geochronology
+mineral fabric relationship
+mineralogy
+mineralogy, ore
+polished section
+polished slab
+stained slab
+paleomagnetism
+paleontology
+conodonts
+foraminifera
+ichno
+paleontology, macro
+paleontology, micro
+palynology
+radiolaria
+petrology, organic
+petrology, vitrinite reflectance
+provenance studies
+PT estimate
+remote sensing, hyperspectral
+representative lithology
+thin section, polished
+thin section, regular
+thin section, stained
+fabric analysis
+hyperspectral
+see comment field

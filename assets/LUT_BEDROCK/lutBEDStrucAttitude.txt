@@ -1,0 +1,8 @@
+ATTITUDE
+
+upright
+overturned < 180
+overturned > 180
+vertical
+indeterminate
+not applicable

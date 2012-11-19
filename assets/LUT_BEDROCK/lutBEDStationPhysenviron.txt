@@ -1,0 +1,17 @@
+PHYSENV
+
+adit
+cliff
+mine
+open ground
+pit
+quarry
+glacial polished
+ridge
+road cut
+shoreline
+slope
+stream cut
+trench
+vegetated terrain
+other

@@ -1,0 +1,11 @@
+MA	DISTRIBUTE
+alteration	selective pervasive
+alteration	pervasive
+alteration	patchy
+alteration	fracture controlled
+alteration	disseminated
+mineralization	disseminated
+mineralization	fracture-coating
+mineralization	replacement
+mineralization	selvages
+mineralization	vein

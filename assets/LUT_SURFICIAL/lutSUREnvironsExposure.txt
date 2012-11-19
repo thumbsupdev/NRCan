@@ -1,0 +1,6 @@
+EXPOSURE
+
+cliff
+hillside
+valley
+flat

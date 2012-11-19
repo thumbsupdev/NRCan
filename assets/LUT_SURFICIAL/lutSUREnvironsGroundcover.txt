@@ -1,0 +1,6 @@
+COVERNAME
+boulders
+grass
+lichen
+none
+trees

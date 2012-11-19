@@ -1,0 +1,8 @@
+TYPE
+top
+lee slope
+stoss slope
+flat
+side slope
+boulder pavement
+boulder

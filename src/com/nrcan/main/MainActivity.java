@@ -1,9 +1,11 @@
 package com.nrcan.main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.nrcan.controllers.*;
 import com.nrcan.models.*;
+import com.nrcan.picklists.*;
 
 import android.os.Bundle;
 import android.app.ListActivity;
@@ -332,11 +334,31 @@ public class MainActivity extends ListActivity {
 		setContentView(R.layout.activity_main);
 
 		databaseHandler = new DatabaseHandler(this);
+		pldb = new PicklistDatabaseHandler(this);
+		
+		/*
+		HashMap<String, Integer> mapBedrock = new HashMap<String, Integer>();
+		mapBedrock.put("lutBEDEarthmatBedthick", 1);
+		
+		HashMap<String, Integer> mapSurficial = new HashMap<String, Integer>();
+		mapSurficial.put("lutSUREarthmatLith2", 3);
 
+		BedrockPicklist plBedrock = new BedrockPicklist(this, mapBedrock);
+		plBedrock.setBedrockFilenames(mapBedrock);
+		plBedrock.dropTables();
+		plBedrock.createTables();
+		plBedrock.fillTables();
+
+		SurficialPicklist plSurficial = new SurficialPicklist(this, mapSurficial);
+		plSurficial.setSurficialFilenames(mapSurficial);
+		plSurficial.dropTables();
+		plSurficial.createTables();
+		plSurficial.fillTables();
+		*/
+		
 		metadataModel = new MetadataModel(databaseHandler);
 		topTitle = (TextView) findViewById(R.id.textViewMainID);
 		mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
-
 
 		flipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
 
@@ -396,7 +418,7 @@ public class MainActivity extends ListActivity {
 		lv30 = (ListView)findViewById(R.id.listDetail2);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
-		adap2 = new EarthmatBedrockController(this, this);
+		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel);
 		adap3 = new ListController(this, this, "EARTH MATERIAL");
 		adap4 = new EarthmatSurficialController(this, this);
 		adap5 = new ListController(this, this, "ENVIRONMENT");

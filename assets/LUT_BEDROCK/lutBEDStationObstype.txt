@@ -1,0 +1,10 @@
+OBSTYPE
+
+aerial observation
+photograph only
+stratigraphic section
+remote ground observation
+surficial feature
+visited outcrop
+waypoint
+other

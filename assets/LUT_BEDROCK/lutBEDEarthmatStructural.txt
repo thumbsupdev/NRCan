@@ -1,0 +1,162 @@
+CLASS	STRUCTURAL
+plutonic	massive
+plutonic	flow banding
+plutonic	flow lineation
+plutonic	compositional layering
+volcanic	massive
+volcanic	columnar jointing
+volcanic	irregular jointing
+volcanic	radial jointing
+volcanic	flow layered
+volcanic	flow laminated
+volcanic	compositional layering
+volcanic	pillowed
+volcaniclastic	massive
+volcaniclastic	flow layered
+volcaniclastic	compositional layering
+volcaniclastic	bedded
+volcaniclastic	parallel bedded
+volcaniclastic	irregular bedded
+volcaniclastic	wavy bedded
+volcaniclastic	cross-bedded
+volcaniclastic	trough cross-bedded
+volcaniclastic	planar tabular cross-bedded
+volcaniclastic	hummocky cross-stratified
+volcaniclastic	parallel laminated
+volcaniclastic	cross-laminated
+volcaniclastic	"ripples, symmetric"
+volcaniclastic	"ripples, asymmetric"
+volcaniclastic	"graded, normal"
+volcaniclastic	"graded, reverse"
+volcaniclastic	"graded, unknown"
+volcaniclastic	sole marks
+volcaniclastic	dewatering structures
+volcaniclastic	soft sediment deformation
+volcaniclastic	clast imbrication
+volcaniclastic	lenticular
+volcaniclastic	nodular
+volcaniclastic	pillowed
+volcaniclastic	columnar jointing
+volcaniclastic	radial jointing
+volcaniclastic	irregular jointing
+sedimentary	massive
+sedimentary	parted
+sedimentary	parallel bedded
+sedimentary	cross-bedded
+sedimentary	trough cross-bedded
+sedimentary	planar tabular cross-bedded
+sedimentary	parallel laminated
+sedimentary	cross-laminated
+sedimentary	"ripples, symmetric"
+sedimentary	"ripples, asymmetric"
+sedimentary	hummocky cross-stratified
+sedimentary	wavy bedded
+sedimentary	nodular bedded
+sedimentary	ribbon bedded
+sedimentary	lenticular bedded
+sedimentary	rhythmically bedded
+sedimentary	irregular bedded
+sedimentary	stromatolitic
+sedimentary	nodules
+sedimentary	concretions
+sedimentary	"graded, normal"
+sedimentary	"graded, reverse"
+sedimentary	Bouma sequence
+sedimentary	dewatering structures
+sedimentary	soft-sediment deformation
+sedimentary	oolitic
+sedimentary	pisolitic
+sedimentary	intraclast bearing
+sedimentary	rip-up clasts
+sedimentary	clast imbrication
+sedimentary	desiccation cracks
+sedimentary	synaeresis cracks
+sedimentary	sole marks
+sedimentary	channels
+sedimentary	exposure surface
+sedimentary	karstic
+sedimentary	caliche
+metaplutonic	massive
+metaplutonic	flow banding
+metaplutonic	flow lineation
+metaplutonic	compositional layering
+metavolcanic	massive
+metavolcanic	columnar jointing
+metavolcanic	irregular jointing
+metavolcanic	radial jointing
+metavolcanic	flow layered
+metavolcanic	flow laminated
+metavolcanic	compositional layering
+metavolcanic	pillowed
+metavolcaniclastic	massive
+metavolcaniclastic	flow layered
+metavolcaniclastic	compositional layering
+metavolcaniclastic	bedded
+metavolcaniclastic	parallel bedded
+metavolcaniclastic	irregular bedded
+metavolcaniclastic	wavy bedded
+metavolcaniclastic	cross-bedded
+metavolcaniclastic	trough cross-bedded
+metavolcaniclastic	planar tabular cross-bedded
+metavolcaniclastic	hummocky cross-stratified
+metavolcaniclastic	parallel laminated
+metavolcaniclastic	cross-laminated
+metavolcaniclastic	"ripples, symmetric"
+metavolcaniclastic	"ripples, asymmetric"
+metavolcaniclastic	"graded, normal"
+metavolcaniclastic	"graded, reverse"
+metavolcaniclastic	"graded, unknown"
+metavolcaniclastic	sole marks
+metavolcaniclastic	dewatering structures
+metavolcaniclastic	soft sediment deformation
+metavolcaniclastic	clast imbrication
+metavolcaniclastic	lenticular
+metavolcaniclastic	nodular
+metavolcaniclastic	pillowed
+metavolcaniclastic	columnar jointing
+metavolcaniclastic	radial jointing
+metavolcaniclastic	irregular jointing
+metasedimentary	massive
+metasedimentary	parted
+metasedimentary	parallel bedded
+metasedimentary	cross-bedded
+metasedimentary	trough cross-bedded
+metasedimentary	planar tabular cross-bedded
+metasedimentary	parallel laminated
+metasedimentary	cross-laminated
+metasedimentary	"ripples, symmetric"
+metasedimentary	"ripples, asymmetric"
+metasedimentary	hummocky cross-stratified
+metasedimentary	wavy bedded
+metasedimentary	lenticular bedded
+metasedimentary	rhythmically bedded
+metasedimentary	irregular bedded
+metasedimentary	stromatolitic
+metasedimentary	nodular
+metasedimentary	ribbons
+metasedimentary	concretions
+metasedimentary	"graded, normal"
+metasedimentary	"graded, reverse"
+metasedimentary	Bouma sequence
+metasedimentary	dewatering structures
+metasedimentary	soft-sediment deformation
+metasedimentary	oolitic
+metasedimentary	pisolitic
+metasedimentary	intraclast bearing
+metasedimentary	rip-up clasts
+metasedimentary	clast imbrication
+metasedimentary	desiccation cracks
+metasedimentary	synaeresis cracks
+metasedimentary	sole marks
+metasedimentary	channels
+metasedimentary	exposure surface
+metasedimentary	karstic
+metasedimentary	caliche
+metamorphic	compositional layering
+tectonite	compositional layering
+hydrothermal	open veins
+hydrothermal	closed veins
+hydrothermal	open vugs
+hydrothermal	filled vugs
+hydrothermal	open vesicles
+hydrothermal	filled vesicles

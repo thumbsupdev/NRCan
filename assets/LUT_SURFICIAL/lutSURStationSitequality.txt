@@ -1,0 +1,4 @@
+SITEQUAL
+good
+moderate
+poor

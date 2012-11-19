@@ -1,0 +1,5 @@
+VALUE
+few (2-10)
+many (26-50)
+one
+several (11-25)

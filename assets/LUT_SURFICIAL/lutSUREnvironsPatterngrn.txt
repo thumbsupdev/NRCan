@@ -1,0 +1,14 @@
+TYPENAME
+sorted circles
+sorted nets
+sorted stripes
+non-sorted circles
+non-sorted nets
+non-sorted stripes
+ice-wedge polygons
+dessication polygons
+sand-wedge polygons
+non-sorted polygons
+sorted polygons
+unspecified
+ground ice

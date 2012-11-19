@@ -1,0 +1,27 @@
+COLOUR
+
+black
+blue
+blue-grey
+brass
+brown
+brown-black
+buff
+cream
+dark green
+green
+green-grey
+honey
+olive
+orange
+pink
+pistascio-green
+purple
+red
+rust
+silver
+smokey
+white
+yellow
+yellow-green
+see comment field

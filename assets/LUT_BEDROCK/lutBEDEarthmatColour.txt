@@ -1,0 +1,39 @@
+COLOUR
+
+beige
+black
+blue dark
+blue grey
+blue light
+blue medium
+brown dark
+brown grey
+brown light
+brown medium
+brown rusty
+buff
+cream
+dun
+green dark
+green light
+green medium
+green olive
+grey dark
+grey green
+grey light
+grey medium
+leucocratic
+maroon
+melanocratic
+mesocratic
+olive
+orange
+orange brown
+pink greyish
+pink light
+pink medium
+pink reddish
+red
+rusty
+salt and pepper
+white

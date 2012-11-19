@@ -1,0 +1,84 @@
+CATEGORY	TYPE	SUBTYPE
+metamorphic	metamorphic	undefined
+plutonic	pluton	granitoid
+plutonic	pluton	granite
+plutonic	pluton	gabbro
+plutonic	undefined	undefined
+sedimentary	clastic	mudstone
+sedimentary	clastic	limy mudstone
+sedimentary	clastic	shale
+sedimentary	clastic	slate or argillite
+sedimentary	clastic	siltstone
+sedimentary	clastic	sandstone
+sedimentary	clastic	limey arenite (marl)
+sedimentary	clastic	pelite
+sedimentary	clastic	semi-pelite
+sedimentary	clastic	psammite
+sedimentary	clastic	quartzite
+sedimentary	clastic	oligomictic conglomerate
+sedimentary	clastic	polymictic conglomerate
+metamorphic	migmatite	inhomogeneous diatexite 5-30% paleosome
+metamorphic	migmatite	homogeneous diatexite <5% paleosome
+metamorphic	gneiss	paragneiss
+metamorphic	gneiss	orthogneiss
+metamorphic	gneiss	gneiss
+sedimentary	(bio)chemical	oxide facies iron formation
+sedimentary	(bio)chemical	silicate facies iron formation
+sedimentary	(bio)chemical	carbonate facies iron formation
+sedimentary	(bio)chemical	sulphide facies iron formation
+sedimentary	(bio)chemical	chert
+sedimentary	(bio)chemical	argillaceous limestone/dolomite
+sedimentary	(bio)chemical	stromatolitic limestone/dolomite
+sedimentary	(bio)chemical	calcareous/dolomitic chert 20-50cb
+sedimentary	(bio)chemical	siliceous limestone/dolostone 50-90cb
+sedimentary	(bio)chemical	limestone >90cb
+sedimentary	(bio)chemical	dolomite >90cb
+sedimentary	(bio)chemical	marble >90cb
+sedimentary	(bio)chemical	calc-silicate <90cb
+sedimentary	(bio)chemical	skarn
+sedimentary	undefined	undefined
+volcanic	flow	mafic
+volcanic	flow	basalt CI 35-90
+volcanic	flow	andesite CI~35
+volcanic	flow	dacite CI 15-35
+volcanic	flow	rhyolite CI~15
+volcanic	undefined	undefined
+unconsolidated	organic	
+unconsolidated	diamicton	Dm-matrix supported
+unconsolidated	diamicton	Dmm-matrix supported,massive
+unconsolidated	diamicton	Dms-matrix supported,stratified
+unconsolidated	diamicton	Dmg-matrix supported,graded
+unconsolidated	diamicton	Dc-clast supported
+unconsolidated	diamicton	Dcm-clast suported,massive
+unconsolidated	diamicton	Dcs-clast suported,stratified
+unconsolidated	diamicton	Dcg-clast supported,graded
+unconsolidated	diamicton	D - Undefined
+unconsolidated	diamicton	TBD
+unconsolidated	gravel	Gc-clast supported
+unconsolidated	gravel	Gm-matrix supported,massive
+unconsolidated	gravel	Gs-stratified,undefined
+unconsolidated	gravel	Gh-horizontal stratified
+unconsolidated	gravel	Gt-trough cross stratified
+unconsolidated	gravel	Gp-planar cross stratified
+unconsolidated	gravel	Gg-graded
+unconsolidated	gravel	TBD
+unconsolidated	sand	Sm-massive
+unconsolidated	sand	Sr-rippled
+unconsolidated	sand	St-trough cross stratified
+unconsolidated	sand	Sp-planar cross stratified
+unconsolidated	sand	Sh-horizontally stratified
+unconsolidated	sand	Sg-graded
+unconsolidated	sand	Sj-scour
+unconsolidated	sand	TBD
+unconsolidated	undefined	undefined
+unconsolidated	organics	O-non-differentiated
+unconsolidated	organics	Ot-peat
+unconsolidated	organics	Og-peat, gyttja
+unconsolidated	organics	O(un)-undefined
+unconsolidated	organics	O(F)-organics, muddy
+unconsolidated	organics	O(S)-organics, sandy
+unconsolidated	silt	undefined
+unconsolidated	clay	undefined
+unconsolidated	mud(fine)	undefined
+unconsolidated	TBD	TBD
+unconsolidated	unknown	unknown

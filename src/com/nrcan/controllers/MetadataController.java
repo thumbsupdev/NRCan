@@ -51,8 +51,6 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			
-
 			convertView = mInflater.inflate(R.layout.metadata1, null);
 
 			EditText editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);

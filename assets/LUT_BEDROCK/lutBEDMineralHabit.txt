@@ -1,0 +1,15 @@
+HABIT
+
+acicular
+circular
+columnar
+equant
+fibrous
+flaky
+granular
+lath-like
+massive
+prismatic
+pseudo-hex
+tabular
+see comment field

@@ -1,0 +1,9 @@
+FLATTENING
+
+SSS
+S>L
+S>=L
+S=L
+S<=L
+S<L
+LLL

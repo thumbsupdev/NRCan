@@ -1,0 +1,8 @@
+INTERPRET
+conformable
+non-conformable
+unconformable
+angular unconformity
+disconformity
+paraconformity
+NA

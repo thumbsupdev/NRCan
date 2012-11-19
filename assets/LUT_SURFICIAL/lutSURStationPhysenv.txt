@@ -1,0 +1,15 @@
+PHYSENV
+cut exposure
+dug hole
+borehole
+quarry
+natural exposure
+ditch
+shoreline
+trench
+ice flow indicator
+hand auger
+section
+gravel pit
+way point
+other

@@ -1,0 +1,5 @@
+TYPE
+cross-cut
+protected surface
+none
+truncated surface

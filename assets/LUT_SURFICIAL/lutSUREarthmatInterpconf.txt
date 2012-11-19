@@ -1,0 +1,5 @@
+VALUE
+good
+moderate
+poor
+

@@ -1,0 +1,6 @@
+OBSTYPE
+ground observation
+stratigraphic section
+remote observation
+waypoint
+other

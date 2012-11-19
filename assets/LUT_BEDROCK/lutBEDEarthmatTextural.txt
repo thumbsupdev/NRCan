@@ -1,0 +1,257 @@
+CLASS	TYPE
+plutonic	homogeneous
+plutonic	heterogeneous
+plutonic	equigranular
+plutonic	porphyritic
+plutonic	megacrystic
+plutonic	pegmatitic
+plutonic	phaneritic
+plutonic	seriate
+plutonic	aplitic
+plutonic	granophyric
+plutonic	miarolitic
+plutonic	diabasic
+plutonic	coronitic
+plutonic	cumulate
+plutonic	fibrous
+plutonic	globular
+plutonic	ophitic
+plutonic	subophitic
+plutonic	poikilitic
+plutonic	rapakivi
+plutonic	relict plutonic
+plutonic	spotted
+plutonic	stockwork
+plutonic	trachytic
+plutonic	altered
+volcanic	amygdaloidal
+volcanic	aphanitic
+volcanic	glassy
+volcanic	glomerophyric
+volcanic	lithophysae
+volcanic	perlitic
+volcanic	porphyritic
+volcanic	pumiceous
+volcanic	scoriaceous
+volcanic	spherulitic
+volcanic	spinifex
+volcanic	trachytic
+volcanic	variolitic
+volcanic	non-vesicular
+volcanic	poorly-vesicular
+volcanic	moderately-vesicular
+volcanic	highly-vesicular
+volcanic	pipe vesicles
+volcaniclastic	matrix-supported
+volcaniclastic	clast-supported
+volcaniclastic	poorly sorted
+volcaniclastic	moderately sorted
+volcaniclastic	well sorted
+volcaniclastic	very well sorted
+volcaniclastic	flattened
+volcaniclastic	jigsaw-fit
+volcaniclastic	accretionary lapilli
+volcaniclastic	perlitic
+volcaniclastic	shard-rich
+volcaniclastic	crystal-rich
+volcaniclastic	lithic-rich
+volcaniclastic	flamme bearing
+volcaniclastic	vitriclast bearing
+volcaniclastic	pumice bearing
+volcaniclastic	scoria bearing
+sedimentary	muddy
+sedimentary	silty
+sedimentary	sandy
+sedimentary	conglomeratic
+sedimentary	friable
+sedimentary	well cemented
+sedimentary	visible porosity
+sedimentary	vuggy
+sedimentary	crystalline
+sedimentary	recrystallized
+sedimentary	poorly sorted
+sedimentary	moderately sorted
+sedimentary	well sorted
+sedimentary	matrix supported
+sedimentary	clast supported
+sedimentary	equigranular
+sedimentary	fissile
+sedimentary	parted
+sedimentary	brecciated
+sedimentary	veined
+sedimentary	mottled
+sedimentary	micritic
+sedimentary	platy
+sedimentary	flaggy
+sedimentary	slabby
+sedimentary	blocky
+metaplutonic	homogeneous
+metaplutonic	heterogeneous
+metaplutonic	equigranular
+metaplutonic	porphyritic
+metaplutonic	megacrystic
+metaplutonic	pegmatitic
+metaplutonic	phaneritic
+metaplutonic	seriate
+metaplutonic	aplitic
+metaplutonic	granophyric
+metaplutonic	miarolitic
+metaplutonic	diabasic
+metaplutonic	coronitic
+metaplutonic	cumulate
+metaplutonic	fibrous
+metaplutonic	globular
+metaplutonic	ophitic
+metaplutonic	subophitic
+metaplutonic	poikilitic
+metaplutonic	rapakivi
+metaplutonic	relict plutonic
+metaplutonic	spotted
+metaplutonic	stockwork
+metaplutonic	trachytic
+metaplutonic	equigranular
+metaplutonic	inequigranular
+metaplutonic	granoblastic
+metaplutonic	porphyroblastic
+metaplutonic	porphyroclastic
+metaplutonic	hornfelsic
+metaplutonic	sugary
+metaplutonic	recrystallized
+metaplutonic	migmatitic
+metaplutonic	fibrous
+metaplutonic	spotted
+metaplutonic	pitted
+metaplutonic	platy
+metaplutonic	retrograde
+metaplutonic	altered
+metavolcanic	amygdaloidal
+metavolcanic	aphanitic
+metavolcanic	glassy
+metavolcanic	glomerophyric
+metavolcanic	lithophysae
+metavolcanic	perlitic
+metavolcanic	porphyritic
+metavolcanic	pumiceous
+metavolcanic	scoriaceous
+metavolcanic	spherulitic
+metavolcanic	spinifex
+metavolcanic	trachytic
+metavolcanic	variolitic
+metavolcanic	non-vesicular
+metavolcanic	poorly-vesicular
+metavolcanic	moderately-vesicular
+metavolcanic	highly-vesicular
+metavolcanic	pipe vesicles
+metavolcanic	equigranular
+metavolcanic	inequigranular
+metavolcanic	granoblastic
+metavolcanic	porphyroblastic
+metavolcanic	porphyroclastic
+metavolcanic	hornfelsic
+metavolcanic	sugary
+metavolcanic	recrystallized
+metavolcanic	migmatitic
+metavolcanic	fibrous
+metavolcanic	spotted
+metavolcanic	pitted
+metavolcanic	platy
+metavolcanic	retrograde
+metavolcanic	altered
+metavolcaniclast	matrix-supported
+metavolcaniclast	clast-supported
+metavolcaniclast	poorly sorted
+metavolcaniclast	moderately sorted
+metavolcaniclast	well sorted
+metavolcaniclast	very well sorted
+metavolcaniclast	flattened
+metavolcaniclast	jigsaw-fit
+metavolcaniclast	accretionary lapilli
+metavolcaniclast	perlitic
+metavolcaniclast	shard-rich
+metavolcaniclast	crystal-rich
+metavolcaniclast	lithic-rich
+metavolcaniclast	flamme bearing
+metavolcaniclast	vitriclast bearing
+metavolcaniclast	pumice bearing
+metavolcaniclast	scoria bearing
+metavolcaniclast	equigranular
+metavolcaniclast	inequigranular
+metavolcaniclast	granoblastic
+metavolcaniclast	porphyroblastic
+metavolcaniclast	porphyroclastic
+metavolcaniclast	hornfelsic
+metavolcaniclast	sugary
+metavolcaniclast	recrystallized
+metavolcaniclast	migmatitic
+metavolcaniclast	fibrous
+metavolcaniclast	spotted
+metavolcaniclast	pitted
+metavolcaniclast	platy
+metavolcaniclast	retrograde
+metavolcaniclast	altered
+metasedimentary	muddy
+metasedimentary	silty
+metasedimentary	sandy
+metasedimentary	conglomeratic
+metasedimentary	friable
+metasedimentary	well cemented
+metasedimentary	visible porosity
+metasedimentary	vuggy
+metasedimentary	crystalline
+metasedimentary	recrystallized
+metasedimentary	poorly sorted
+metasedimentary	moderately sorted
+metasedimentary	well sorted
+metasedimentary	matrix supported
+metasedimentary	clast supported
+metasedimentary	equigranular
+metasedimentary	fissile
+metasedimentary	parted
+metasedimentary	brecciated
+metasedimentary	veined
+metasedimentary	mottled
+metasedimentary	micritic
+metasedimentary	platy
+metasedimentary	flaggy
+metasedimentary	slabby
+metasedimentary	blocky
+metasedimentary	equigranular
+metasedimentary	inequigranular
+metasedimentary	granoblastic
+metasedimentary	porphyroblastic
+metasedimentary	porphyroclastic
+metasedimentary	hornfelsic
+metasedimentary	sugary
+metasedimentary	recrystallized
+metasedimentary	migmatitic
+metasedimentary	fibrous
+metasedimentary	spotted
+metasedimentary	pitted
+metasedimentary	platy
+metasedimentary	retrograde
+metasedimentary	altered
+metamorphic	equigranular
+metamorphic	inequigranular
+metamorphic	granoblastic
+metamorphic	porphyroblastic
+metamorphic	porphyroclastic
+metamorphic	hornfelsic
+metamorphic	sugary
+metamorphic	recrystallized
+metamorphic	migmatitic
+metamorphic	fibrous
+metamorphic	spotted
+metamorphic	pitted
+metamorphic	platy
+metamorphic	retrograde
+metamorphic	altered
+tectonite	equigranular
+tectonite	inequigranular
+tectonite	granoblastic
+tectonite	porphyroblastic
+tectonite	porphyroclastic
+tectonite	cataclastic
+tectonite	sugary
+tectonite	recrystallized
+tectonite	brecciated
+hydrothermal	not applicable

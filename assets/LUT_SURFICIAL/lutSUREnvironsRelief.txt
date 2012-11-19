@@ -1,0 +1,8 @@
+TYPE
+flat
+rolling
+undulating
+sloping
+low
+moderate
+high

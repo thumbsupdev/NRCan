@@ -1,0 +1,14 @@
+TYPE
+bag small+large
+bag small
+bag large
+hand, single
+hand, oriented
+multiple pieces, bag
+multiple pieces, bucket
+oversized
+chip sample
+core
+core, oriented
+cuttings
+other

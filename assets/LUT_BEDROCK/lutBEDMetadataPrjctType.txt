@@ -1,0 +1,3 @@
+PrjctType
+Bedrock
+Surficial

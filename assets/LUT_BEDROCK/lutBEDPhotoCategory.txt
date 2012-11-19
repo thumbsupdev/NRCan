@@ -1,0 +1,15 @@
+CATEGORY
+cultural
+dyke/vein
+lithology
+outcrop
+panoramic
+people
+scenery
+structure
+texture
+wildlife
+fossil
+mineral
+other
+TBD

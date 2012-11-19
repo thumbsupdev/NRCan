@@ -1,0 +1,17 @@
+TYPE
+massive
+stratified
+interclasts
+bedded
+laminated
+normal grading
+inverse grading
+pavement
+clast imbrication
+trough cross bedding
+trough cross laminated
+planar cross bedded
+planar cross laminated
+intercalated
+rhythmites
+varves

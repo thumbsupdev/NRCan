@@ -1,0 +1,4 @@
+VALUE
+GPS
+manual
+tap
