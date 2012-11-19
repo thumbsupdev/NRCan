@@ -28,6 +28,7 @@ public final class R {
         public static final int cell_new_imageView1=0x7f07007f;
         public static final int cell_new_textView1=0x7f070080;
         public static final int cell_new_textView2=0x7f070081;
+        public static final int cell_spinner_new_edit_text=0x7f070083;
         public static final int earthmat_bedrock_button_bedThick=0x7f07009a;
         public static final int earthmat_bedrock_button_composition=0x7f070091;
         public static final int earthmat_bedrock_button_defFabric=0x7f070097;
@@ -112,7 +113,6 @@ public final class R {
         public static final int earthmat_surficial_spinner_surficialOrigin=0x7f0700c9;
         public static final int earthmat_surficial_spinner_type=0x7f0700ad;
         public static final int earthmat_surficial_spinner_wayup=0x7f0700b3;
-        public static final int editText1=0x7f070083;
         public static final int environ_checkBox_boulderField=0x7f0700ea;
         public static final int environ_checkBox_gossan=0x7f0700e1;
         public static final int environ_checkBox_permafrost=0x7f0700dc;

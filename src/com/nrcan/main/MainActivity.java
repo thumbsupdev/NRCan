@@ -418,7 +418,7 @@ public class MainActivity extends ListActivity {
 		lv30 = (ListView)findViewById(R.id.listDetail2);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
-		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel);
+		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel, pldb);
 		adap3 = new ListController(this, this, "EARTH MATERIAL");
 		adap4 = new EarthmatSurficialController(this, this);
 		adap5 = new ListController(this, this, "ENVIRONMENT");
