@@ -9,7 +9,9 @@ import com.nrcan.picklists.*;
 
 import android.os.Bundle;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -21,6 +23,9 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
 	private static Button swapButton;
+	
+	private static HashMap<String, Integer> bedrockFileNames = new HashMap<String, Integer>();
+	private static HashMap<String, Integer> surficialFileNames = new HashMap<String, Integer>();
 	
 	private boolean selectionFlag;
 	private boolean newFlag;
@@ -336,6 +341,8 @@ public class MainActivity extends ListActivity {
 		databaseHandler = new DatabaseHandler(this);
 		pldb = new PicklistDatabaseHandler(this);
 		
+		setupMaps();
+		
 		/*
 		HashMap<String, Integer> mapBedrock = new HashMap<String, Integer>();
 		mapBedrock.put("lutBEDEarthmatBedthick", 1);
@@ -543,6 +550,117 @@ public class MainActivity extends ListActivity {
 		
 		adap29.notifyDataSetChanged();
 		adap30.notifyDataSetChanged();
+	}
+	
+	public void setupMaps() {
+		bedrockFileNames.put("lutBEDEarthmatBedthick.txt", new Integer(1));
+		bedrockFileNames.put("lutBEDEarthmatColour.txt", new Integer(1));
+		bedrockFileNames.put("lutBEDEarthmatComposition.txt", new Integer(2));
+		bedrockFileNames.put("lutBEDEarthmatContact.txt", new Integer(1));
+		bedrockFileNames.put("lutBEDEarthmatDeffabric.txt", new Integer(1));
+		bedrockFileNames.put("lutBEDEarthmatFossil.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatGCSize.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatInterpconf.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatMapunit.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatMineral.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatOccurs.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatRocktype.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatStructural.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDEarthmatTextural.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDGeneralPercent5incr.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDGeneralStrucFormat.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDGeneralStrucMethod.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMADistribute.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMAMineralogy.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMAUnit.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMetadataDigcamera.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMetadataGeologist.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMetadataPrjctType.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMetadataPrjname.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMineralColour.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMineralForm.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMineralHabit.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMineralMineral.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDMineralOccur.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDPhotoCategory.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDSamplePurpose.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDSampleSurface.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDSampleType.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStationElevmethod.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStationEntrytype.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStationObstype.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStationOutcropqual.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStationPhysenviron.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucAttitude.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucFlattening.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucGeneration.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucStrain.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucType.txt", new Integer(0));
+		bedrockFileNames.put("lutBEDStrucYounging.txt", new Integer(0));
+		
+		surficialFileNames.put("lutSUREarthmatClastform.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatColour.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatCompaction.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatErratictyp.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatFissility.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatH2OContent.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatHCLReact.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatIntcontact.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatInterpconf.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatJointing.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatLandform.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatLatcontact.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatLith2.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatLwrcontact.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatMapunit.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatMatrix.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatMatrixMod.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatOxidation.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatPrimestruc.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatRoundness.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatScndstruc.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatSorting.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatSurfform.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatThicktype.txt", new Integer(0));
+		surficialFileNames.put("lutSUREarthmatWayup.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsBoFldTyp.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsBoulders.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsExposure.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsGroundcover.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsPatterngrn.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsPFindic.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsRelief.txt", new Integer(0));
+		surficialFileNames.put("lutSUREnvironsVegetation.txt", new Integer(0));
+		surficialFileNames.put("lutSURGeneralPercent5incr.txt", new Integer(0));
+		surficialFileNames.put("lutSURGeneralStrucFormat.txt", new Integer(0));
+		surficialFileNames.put("lutSURGeneralStrucMethod.txt", new Integer(0));
+		surficialFileNames.put("lutSURMetadataDigcamera.txt", new Integer(0));
+		surficialFileNames.put("lutSURMetadataGeologist.txt", new Integer(0));
+		surficialFileNames.put("lutSURMetadataPrjctType.txt", new Integer(0));
+		surficialFileNames.put("lutSURMetadataPrjname.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowBedrocksurface.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowDefinition.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowNumindic.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowPaleoflow.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowPFsense.txt", new Integer(0));
+		surficialFileNames.put("lutSURPflowRelation.txt", new Integer(0));
+		surficialFileNames.put("lutSURPhotoCategory.txt", new Integer(0));
+		surficialFileNames.put("lutSURSamplePurpose.txt", new Integer(0));
+		surficialFileNames.put("lutSURSampleState.txt", new Integer(0));
+		surficialFileNames.put("lutSURSampleSurface.txt", new Integer(0));
+		surficialFileNames.put("lutSURSampleType.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationElevmethod.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationEntrytype.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationLegendval.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationObsType.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationPhysenv.txt", new Integer(0));
+		surficialFileNames.put("lutSURStationSitequality.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucAttitude.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucFlattening.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucGeneration.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucStrain.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucType.txt", new Integer(0));
+		surficialFileNames.put("lutSURStrucYounging.txt", new Integer(0));
 	}
 	
 	public void setDetail(int temp){
@@ -878,8 +996,24 @@ public class MainActivity extends ListActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		menu.add("Picklists");
+		menu.add("Export Data");
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case 0:
+	        	Intent intent = new Intent(this, FileChooser.class);
+	            startActivity(intent);
+	            return true;
+	        case 1:
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 	public void setAnimationBack() {
@@ -2346,8 +2480,15 @@ public class MainActivity extends ListActivity {
 			//no save functionality on list view with cells
 		}
 	}
-
-
+	
+	public static HashMap<String, Integer> getBedrock() {
+		return bedrockFileNames;
+	}
+	
+	public static HashMap<String, Integer> getSurficial() {
+		return surficialFileNames;
+	}
+	
 	/*
     public ArrayList<String> readRows() {
         dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { METADATA_TABLE_NAME });

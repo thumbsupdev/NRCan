@@ -64,7 +64,6 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerGroup.setAdapter(sp1);
 			spinnerGroup.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

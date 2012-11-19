@@ -2,106 +2,100 @@ package com.nrcan.main;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Stack;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.os.Environment;
 
 public class FileChooser extends ListActivity {
-    
-    private File currentDir;
-    private FileArrayAdapter adapter;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        currentDir = new File("/sdcard/");
-        fill(currentDir);
-    }
-    private void fill(File f)
-    {
-        File[]dirs = f.listFiles();
-         this.setTitle("Current Dir: "+f.getName());
-         List<Option>dir = new ArrayList<Option>();
-         List<Option>fls = new ArrayList<Option>();
-         try{
-             for(File ff: dirs)
-             {
-                if(ff.isDirectory())
-                    dir.add(new Option(ff.getName(),"Folder",ff.getAbsolutePath()));
-                else
-                {
-                    fls.add(new Option(ff.getName(),"File Size: "+ff.length(),ff.getAbsolutePath()));
-                }
-             }
-         }catch(Exception e)
-         {
-             
-         }
-         Collections.sort(dir);
-         Collections.sort(fls);
-         
-         boolean pickListFolder = false;
-         
-         if(fls.size()>5)
-         {
-        	 pickListFolder = true;
-	         for(int i = 0; i<=4; i++)
-	         {
-	        	 if(!fls.get(i).getName().matches("lut[a-zA-Z0-9]+.txt"))
-	        	 	pickListFolder=false;
-	         }
-         }
-         if(pickListFolder)
-        	 Toast.makeText(this, "PickList Selected: ", Toast.LENGTH_SHORT).show();
-        	 
-         
-         dir.addAll(fls);
-         if(!f.getName().equalsIgnoreCase("sdcard"))
-             dir.add(0,new Option("..","Parent Directory",f.getParent()));
-         adapter = new FileArrayAdapter(FileChooser.this,R.layout.file_view,dir);
-         this.setListAdapter(adapter);
-    }
-    Stack<File> dirStack = new Stack<File>();
-    
-    @Override
-	 protected void onListItemClick(ListView l, View v, int position, long id) {
-	 	super.onListItemClick(l, v, position, id);
-	 	Option o = adapter.getItem(position);
-	 	if(o.getData().equalsIgnoreCase("folder")){
-	     		dirStack.push(currentDir);
-	 		currentDir = new File(o.getPath());
-	 		fill(currentDir);
-	 	}
-	 	else
-	 	if(o.getData().equalsIgnoreCase("parent directory")){
-	 		currentDir = dirStack.pop();
-	     		fill(currentDir);
-	 	}
-	 	else
-	 	{
-	 		onFileClick(o);
-	 	}
-	 }
-    
-    @Override
-    public void onBackPressed() {
- 	if (dirStack.size() == 0)
- 		super.onBackPressed();
- 	else
- 	{
- 	currentDir = dirStack.pop();
-    		fill(currentDir);
- 	}
-    }
 
+	private File currentDir;
+	private FileArrayAdapter adapter;
+	private HashMap<String, Integer> bedrockFileNames;
+	private HashMap<String, Integer> surficialFileNames;
+	private List<Option>dir = new ArrayList<Option>();
 
-    private void onFileClick(Option o)
-    {
-        Toast.makeText(this, "File Clicked: "+o.getName(), Toast.LENGTH_SHORT).show();
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		bedrockFileNames = MainActivity.getBedrock();
+		surficialFileNames = MainActivity.getSurficial();
+		currentDir = new File(Environment.getExternalStorageDirectory().getName());
+		fill2(currentDir);
+		showFolders();
+	}
+
+	private boolean lookForPicklist(File f,HashMap<String, Integer> tempMap) {
+		File[] files = null;
+		//HashMap<String, Integer> tmp = new HashMap<String, Integer>(tempMap);
+		int size = tempMap.size();
+
+		files = f.listFiles();
+		if(files.length >= tempMap.size())
+		{
+			for(File file : files)
+			{
+				for(String s: tempMap.keySet())
+				{
+					if(s.equals(file.getName()))
+					{
+						//tmp.remove(s);
+						size--;
+						break;
+					}
+				}
+				
+				if(size == 0)
+				{
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+
+	private void fill2(File f)
+	{
+		File[]dirs = f.listFiles();
+
+		try {
+			for(File ff: dirs)
+			{
+				if(ff.isDirectory() && !ff.isHidden())
+				{
+					boolean b = lookForPicklist(ff, bedrockFileNames);
+					boolean s = lookForPicklist(ff, surficialFileNames);
+					if(b && s)
+					{
+						dir.add(new Option(ff, b, s));
+					}
+					else if(b)
+					{
+						dir.add(new Option(ff, b, s));
+					}
+					else if(s)
+					{
+						dir.add(new Option(ff, b, s));
+					}
+					fill2(ff);
+				}
+			}
+		} catch(Exception e) {
+
+		}
+	}
+
+	private void showFolders()
+	{
+		adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view, dir);
+		this.setListAdapter(adapter);
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+	}
 }

@@ -1,33 +1,35 @@
 package com.nrcan.main;
-public class Option implements Comparable<Option>{
-    private String name;
-    private String data;
-    private String path;
+
+import java.io.File;
+
+public class Option {
+	private File file;
+	private boolean bFlag;
+	private boolean sFlag;
     
-    public Option(String n,String d,String p)
+    public Option(File f, boolean b, boolean s)
     {
-        name = n;
-        data = d;
-        path = p;
+    	this.file = f;
+		this.bFlag = b;
+		this.sFlag = s;
     }
+    
     public String getName()
     {
-        return name;
+        return file.getName();
     }
-    public String getData()
-    {
-        return data;
-    }
+    
     public String getPath()
     {
-        return path;
+        return file.getAbsolutePath();
     }
-
-    public int compareTo(Option o) {
-        if(this.name != null)
-            return this.name.toLowerCase().compareTo(o.getName().toLowerCase()); 
-        else 
-            throw new IllegalArgumentException();
+    
+    public boolean isBedrock() {
+    	return bFlag;
+    }
+    
+    public boolean isSurficial() {
+    	return sFlag;
     }
 }
 
