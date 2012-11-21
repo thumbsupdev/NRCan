@@ -50,6 +50,7 @@ public class PFlowSurficialModel {
 
 	public PFlowSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.pflowsurficial = new PFlowSurficialEntity();
 	}
 

@@ -45,11 +45,12 @@ public class SampleSurficialModel {
 			SAMPLESURFICIAL_HORIZON + " TEXT," +
 			SAMPLESURFICIAL_STATE + " TEXT," +
 			SAMPLESURFICIAL_DUPLICATE + " TEXT," +
-			SAMPLESURFICIAL_NOTES + " TEXT," +			
+			SAMPLESURFICIAL_NOTES + " TEXT" +			
 			");";
 
 	public SampleSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.sampleSurficial = new SampleSurficialEntity();
 	}
 

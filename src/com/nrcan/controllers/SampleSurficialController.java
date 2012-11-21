@@ -180,9 +180,16 @@ public class SampleSurficialController extends BaseAdapter implements
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+		if(this.tab == 1){
+			if(sampleSurficialModel.getEntity().getPurpose().equalsIgnoreCase("")){
+				return false;
+			}
+			
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
 	}
 	
 }

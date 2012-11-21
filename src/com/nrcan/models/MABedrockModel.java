@@ -33,11 +33,12 @@ public class MABedrockModel {
 			MABEDROCK_MINERAL + " TEXT, " +
 			MABEDROCK_MODE + " TEXT, " +
 			MABEDROCK_DISTRIBUTE + " TEXT," +
-			MABEDROCK_NOTES + " TEXT," +
+			MABEDROCK_NOTES + " TEXT" +
 			");";
 
 	public MABedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.mabedrock = new MABedrockEntity();
 	}
 

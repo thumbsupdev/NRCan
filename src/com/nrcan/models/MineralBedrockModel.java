@@ -46,6 +46,7 @@ public class MineralBedrockModel {
 
 	public MineralBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.mineralbedrock = new MineralBedrockEntity();
 	}
 	

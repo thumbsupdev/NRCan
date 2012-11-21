@@ -1,22 +1,29 @@
 package com.nrcan.picklists;
 
 import com.nrcan.main.PicklistDatabaseHandler;
+import com.nrcan.values.PreparedStatements;
+
 import java.util.Map;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.FileInputStream;
 import java.util.regex.Pattern;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 public class BedrockPicklist extends PicklistDatabaseHandler implements PicklistInterface {
     
     // Store a reference to the hashmap
     private Map<String, Integer> bedrockFilenames;
+    private String filePath;
 
-    public BedrockPicklist(Context context, Map<String, Integer> bedrockFilenames) {
+    public BedrockPicklist(Context context, Map<String, Integer> bedrockFilenames, String filePath) {
 		super(context);
         this.bedrockFilenames = bedrockFilenames;
+        this.filePath = filePath;
     }
 
     // Write Bedrock functionality below
@@ -28,7 +35,9 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
 
             newSql.append("CREATE TABLE IF NOT EXISTS ");
             // set the table name
-            newSql.append((String)entry.getKey() + " (" + "id INTEGER PRIMARY KEY, ");
+            String filename = (String)entry.getKey();
+            // Delete the last 4 chars (file extension: .txt)
+            newSql.append(filename.substring(0, filename.length() - 4)  + " (" + "id INTEGER PRIMARY KEY, ");
 
             // create the appropriate number of columns
             for(int i = 0; i < ((Integer)entry.getValue()).intValue(); i++) {
@@ -37,13 +46,17 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
             }
 
             super.execSQLStatement(newSql.toString().substring(0, newSql.length() - 1) + ")");
+            newSql.delete(0, newSql.length());
         }
     }
 
     public void dropTables() {
 
-        for(Map.Entry<String, Integer> entry : bedrockFilenames.entrySet())
-            super.execSQLStatement("DROP TABLE IF EXISTS " + (String)entry.getKey());
+        for(Map.Entry<String, Integer> entry : bedrockFilenames.entrySet()) {
+
+            String tableName = (String)entry.getKey();
+            super.execSQLStatement("DROP TABLE IF EXISTS " + tableName.substring(0, tableName.length() - 4));
+        }
     }
 
     public void fillTables() {
@@ -57,7 +70,8 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
             try {
                 String filename = (String)entry.getKey();
 
-                fileIS = super.context.getAssets().open("LUT_BEDROCK/" + filename + ".txt");
+                //fileIS = super.context.getAssets().open("LUT_BEDROCK/" + filename + ".txt");
+                fileIS = new FileInputStream(filePath + "/" + filename);
                 input = new BufferedReader(new InputStreamReader(fileIS));
 
                 //consume the first line
@@ -71,15 +85,21 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
                                 String line = null;
                                 String[] cells = new String[3];
 
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_3_COL);
+
                                 while ((line = input.readLine()) != null) {
 
                                     String[] cells2 = pattern.split(line, 0);
                                     System.arraycopy(cells2, 0, cells, 0, (cells2.length > 3) ? 3 : cells2.length);
-                                    
-                                    super.execSQLStatement("INSERT INTO " + filename + " (" + "col1, col2, col3) VALUES " + "('"
-                                            + ((cells[0] == null) ? "" : cells[0]) + "', '" + ((cells[1] == null) ? "" : cells[1])
-                                            + "', '" + ((cells[2] == null) ? "" : cells[2]) + "')");
+                                    //System.out.println(((cells[0] == null) ? "" : cells[0]) + " -- " + ((cells[1] == null) ? "" : cells[1]) + " -- " + ((cells[2] == null) ? "" : cells[2]));
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(2, (cells[1] == null) ? "" : cells[1]);
+                                	s.bindString(3, (cells[2] == null) ? "" : cells[2]);
+                                	s.execute();
                                 }
+                                
+                                db.close();
                     }
                     break;
 
@@ -89,26 +109,38 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
                                 String line = null;
                                 String[] cells = new String[2];
 
-                                while ((line = input.readLine()) != null) {
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_2_COL);
 
+                                while ((line = input.readLine()) != null) {
                                     String[] cells2 = pattern.split(line, 0);
                                     System.arraycopy(cells2, 0, cells, 0, (cells2.length > 2) ? 2 : cells2.length);
-
-                                    super.execSQLStatement("INSERT INTO " + filename + " (" + "col1, col2) VALUES " + "('"
-                                            + ((cells[0] == null) ? "" : cells[0]) + "', '" + ((cells[1] == null) ? "" : cells[1]) + "')");
+                                    //System.out.println(((cells[0] == null) ? "" : cells[0]) + " -- " + ((cells[1] == null) ? "" : cells[1]));
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(2, (cells[1] == null) ? "" : cells[1]);
+                                	s.execute();
                                 }
+                                
+                                db.close();
                     }
                     break;
 
                     case 1: {
 
                                 String line = null;
+                                String[] cells = new String[1];
+
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_1_COL);
 
                                 while ((line = input.readLine()) != null) {
-
-                                    super.execSQLStatement("INSERT INTO " + filename + " (" + "col1) VALUES "
-                                        + "('" + line + "')");
+                                	cells[0] = line;
+                                    //System.out.println((cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.execute();
                                 }
+                                
+                                db.close();
                     }
                     break;
 
@@ -131,6 +163,12 @@ public class BedrockPicklist extends PicklistDatabaseHandler implements Picklist
     }
 
     public void setBedrockFilenames(Map<String, Integer> bedrockFilenames) {
-        this.bedrockFilenames = bedrockFilenames;
+
+        if(bedrockFilenames == null)
+            this.bedrockFilenames = bedrockFilenames;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }

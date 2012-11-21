@@ -1,5 +1,0 @@
-LISTVAL
-low
-moderate
-high
-n/a

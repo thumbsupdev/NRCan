@@ -2,13 +2,19 @@ package com.nrcan.main;
 
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import com.nrcan.picklists.BedrockPicklist;
+import com.nrcan.picklists.SurficialPicklist;
 
 public class FileArrayAdapter extends ArrayAdapter<Option>{
 
@@ -65,10 +71,53 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 				c2.setChecked(true);
 			else
 				c2.setEnabled(false);
+			
+			ImageButton loadPicklistButton = (ImageButton)v.findViewById(R.id.loadPicklistButton);
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(c);
+			builder.setMessage("Are you sure you want to load this Picklist (This may take a minute)")
+			       .setTitle("Picklists");
+
+			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   loadPicklists(o);
+			           }
+			       });
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			               dialog.dismiss();
+			           }
+			       });
+
+			final AlertDialog dialog = builder.create();
+			
+			loadPicklistButton.setOnClickListener(new OnClickListener() {
+				 
+				public void onClick(View arg0) {
+					dialog.show();
+				}
+	 
+			});
 
 		}
 		return v;
 	}
+
+    public void loadPicklists(Option option) {
+
+        if(option.isBedrock()) {
+            BedrockPicklist bedrockPicklist = new BedrockPicklist(c, MainActivity.getBedrock(), option.getPath());
+            bedrockPicklist.dropTables();
+            bedrockPicklist.createTables();
+            bedrockPicklist.fillTables();
+        }
+        if(option.isSurficial()) {
+            SurficialPicklist surficialPicklist = new SurficialPicklist(c, MainActivity.getSurficial(), option.getPath());
+            surficialPicklist.dropTables();
+            surficialPicklist.createTables();
+            surficialPicklist.fillTables();
+        }
+    }
 
 }
 

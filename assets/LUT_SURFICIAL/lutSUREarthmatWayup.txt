@@ -1,4 +1,0 @@
-VALUE
-
-bottom/up
-top/down

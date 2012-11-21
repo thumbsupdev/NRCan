@@ -36,6 +36,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		this.tab = 1;
 		this.earthmatbedrockModel = earthmatbedrockModel;
 		this.pldb = pldb;
+		e.add("");
 		e.add("1");
 		e.add("2");
 		e.add("3");
@@ -226,6 +227,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			
 			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
+			editTextGrnCry.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+				public void onFocusChange(View v, boolean hasFocus) {
+					System.out.println("Changed" + ((EditText)v).getText());
+				}
+			});
 
 			Spinner spinnerDefFabric = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -419,8 +425,22 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+		
+		if(this.tab == 1){
+			if(earthmatbedrockModel.getEntity().getLithGroup().equalsIgnoreCase("")){
+				return false;
+			}
+			if(earthmatbedrockModel.getEntity().getLithType().equalsIgnoreCase("")){
+				return false;
+			}
+			if(earthmatbedrockModel.getEntity().getLithDetail().equalsIgnoreCase("")){
+				return false;
+			}
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
 	}
+	
 }

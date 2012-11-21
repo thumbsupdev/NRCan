@@ -55,11 +55,12 @@ public class EnvironSurficialModel {
 			ENVIRONSURFICIAL_PCENTCOVER + " TEXT, " +
 			ENVIRONSURFICIAL_PATTERNGRN + " TEXT, " +
 			ENVIRONSURFICIAL_PATAREA + " TEXT," +
-			ENVIRONSURFICIAL_NOTES + " TEXT," +
+			ENVIRONSURFICIAL_NOTES + " TEXT" +
 			");";
 
 	public EnvironSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.environsurficial = new EnvironSurficialEntity();
 	}
 

@@ -1,6 +1,0 @@
-LISTVAL
-unoxidized
-light
-moderate
-heavy
-n/a

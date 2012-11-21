@@ -76,6 +76,7 @@ public class EarthmatBedrockModel {
 
 	public EarthmatBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.earthmatbedrock = new EarthmatBedrockEntity();
 	}
 

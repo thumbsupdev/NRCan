@@ -265,9 +265,22 @@ public class StructureController extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+		if(this.tab == 1){
+			if(structureModel.getEntity().getStrucClass().equalsIgnoreCase("")){
+				return false;
+			}
+			if(structureModel.getEntity().getStrucType().equalsIgnoreCase("")){
+				return false;
+			}
+			if(structureModel.getEntity().getDetail().equalsIgnoreCase("")){
+				return false;
+			}
+			
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
 	}
 
 	

@@ -5,11 +5,11 @@ import java.util.HashMap;
 
 import com.nrcan.controllers.*;
 import com.nrcan.models.*;
-import com.nrcan.picklists.*;
 
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
@@ -25,6 +25,7 @@ import android.widget.ViewFlipper;
 
 public class MainActivity extends ListActivity {
 	private static Button swapButton;
+	private Context context;
 	
 	private static HashMap<String, Integer> bedrockFileNames = new HashMap<String, Integer>();
 	private static HashMap<String, Integer> surficialFileNames = new HashMap<String, Integer>();
@@ -364,8 +365,21 @@ public class MainActivity extends ListActivity {
 		plSurficial.createTables();
 		plSurficial.fillTables();
 		*/
-		
+
+        earthmatBedrockModel = new EarthmatBedrockModel(databaseHandler);
+        earthmatSurficialModel = new EarthmatSurficialModel(databaseHandler);
+		environSurficialModel = new EnvironSurficialModel(databaseHandler);
+        mABedrockModel = new MABedrockModel(databaseHandler);
 		metadataModel = new MetadataModel(databaseHandler);
+        mineralBedrockModel = new MineralBedrockModel(databaseHandler);
+        pFlowSurficialModel = new PFlowSurficialModel(databaseHandler);
+        photoModel = new PhotoModel(databaseHandler);
+        sampleBedrockModel = new SampleBedrockModel(databaseHandler);
+        sampleSurficialModel = new SampleSurficialModel(databaseHandler);
+        soilProSurficialModel = new SoilProSurficialModel(databaseHandler);
+        stationBedrockModel = new StationBedrockModel(databaseHandler);
+        stationSurficialModel = new StationSurficialModel(databaseHandler);
+        structureModel = new StructureModel(databaseHandler);
 		
 		topTitle = (TextView) findViewById(R.id.textViewMainID);
 		mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
@@ -731,10 +745,28 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					swapButton.setEnabled(true);
-					swapButton = ((Button)v);
-					adap2.setTab(Integer.parseInt(((Button)v).getText().toString()));
-					swapButton.setEnabled(false);
+					
+					if(adap2.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.earthmatBedrockDialog);
+						builder.setMessage(R.string.earthmatBedrockDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					
+					
+					
 				}
 			});
 		}
@@ -755,10 +787,25 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					swapButton.setEnabled(true);
-					swapButton = ((Button)v);
-					adap4.setTab(Integer.parseInt(((Button)v).getText().toString()));
-					swapButton.setEnabled(false);
+					if(adap4.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.earthmatSurficialDialog);
+						builder.setMessage(R.string.earthmatSurficialDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					
 				}
 			});
 		}
@@ -851,10 +898,25 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					swapButton.setEnabled(true);
-					swapButton = ((Button)v);
-					adap14.setTab(Integer.parseInt(((Button)v).getText().toString()));
-					swapButton.setEnabled(false);
+					if(adap14.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.pFlowSurficialDialog);
+						builder.setMessage(R.string.pFlowSurficialDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					
 				}
 			});
 		}
@@ -888,10 +950,25 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					swapButton.setEnabled(true);
-					swapButton = ((Button)v);
-					adap18.setTab(Integer.parseInt(((Button)v).getText().toString()));
-					swapButton.setEnabled(false);
+					if(adap18.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.sampleBedrockDialog);
+						builder.setMessage(R.string.sampleBedrockDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					
 				}
 			});
 		}
@@ -907,10 +984,25 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					swapButton.setEnabled(true);
-					swapButton = ((Button)v);
-					adap20.setTab(Integer.parseInt(((Button)v).getText().toString()));
-					swapButton.setEnabled(false);
+					if(adap20.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.sampleSurficialDialog);
+						builder.setMessage(R.string.sampleSurficialDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					
 				}
 			});
 		}
@@ -988,6 +1080,24 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
+					if(adap28.setTab(Integer.parseInt(((Button)v).getText().toString()))){
+						swapButton.setEnabled(true);
+						swapButton = ((Button)v);
+						swapButton.setEnabled(false);
+					}
+					else{
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setTitle(R.string.structureDialog);
+						builder.setMessage(R.string.structureDialogMessage);
+						builder.setPositiveButton("Okay",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int whichButton) {
+
+									}
+								});
+						final AlertDialog dialog = builder.create();
+						dialog.show();
+					}
 					swapButton.setEnabled(true);
 					swapButton = ((Button)v);
 					adap28.setTab(Integer.parseInt(((Button)v).getText().toString()));

@@ -252,5 +252,17 @@
     <string name="mineral_label_occur">Occurance</string>
     <string name="mineral_label_note">Note (254 chars. max)</string>
     <string name="mineral_label_percent">Percent</string>
+    <string name="earthmatBedrockDialog">Group, Type, and Detail</string>
+    <string name="earthmatBedrockDialogMessage">You must enter Group, Type, and Detail to Advance </string>
+    <string name="sampleBedrockDialog">Purpose</string>
+    <string name="sampleBedrockDialogMessage">A value must be supplied to the Purpose Field to advance</string>
+    <string name="sampleSurficialDialog">Purpose</string>
+    <string name="sampleSurficialDialogMessage">A value must be supplied to Purpose to advance</string>
+    <string name="structureDialog">Group, Type, and Detail</string>
+    <string name="structureDialogMessage">You must supply a value to Class, Type, and Detail to advance</string>
+    <string name="pFlowSurficialDialog">Azimuth</string>
+    <string name="pFlowSurficialDialogMessage">A value must be entered for Azimuth to advance</string>
+    <string name="earthmatSurficialDialog">Material</string>
+    <string name="earthmatSurficialDialogMessage">A value must be entered for Material to Advance</string>
 
 </resources>

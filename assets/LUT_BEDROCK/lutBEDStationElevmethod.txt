@@ -1,7 +1,0 @@
-ELEVMETHOD
-
-GPS
-50k map
-250k map
-Total
-Other

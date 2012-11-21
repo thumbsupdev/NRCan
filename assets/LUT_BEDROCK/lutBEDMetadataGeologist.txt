@@ -1,7 +1,0 @@
-GEOLOGIST	GEOLOCODE
-Jordan Kurosky	KJR
-Derek Elliot	EDR
-Alex Yeung	YAL
-Saleh Yassin	YSL
-Pierre Laforestgrant	LPR
-Jamie Pospiech	PJM

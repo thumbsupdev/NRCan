@@ -57,11 +57,12 @@ public class SoilProSurficialModel {
 			SOILPROSURFICIAL_CTOP  + " TEXT," +
 			SOILPROSURFICIAL_RTOP  + " TEXT," +
 			SOILPROSURFICIAL_NOTES  + " TEXT," +
-			SOILPROSURFICIAL_ID  + " TEXT," +			
+			SOILPROSURFICIAL_ID  + " TEXT" +			
 			");";
 
 	public SoilProSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.soilproSurficial = new SoilProSurficialEntity();
 	}
 

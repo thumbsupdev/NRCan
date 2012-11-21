@@ -38,6 +38,7 @@ public class PhotoModel {
 
 	public PhotoModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.photo = new PhotoEntity();
 	}
 

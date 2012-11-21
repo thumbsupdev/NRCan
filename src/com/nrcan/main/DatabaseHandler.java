@@ -1,7 +1,5 @@
 package com.nrcan.main;
 
-import com.nrcan.models.MetadataModel;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -25,7 +23,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	db.execSQL(MetadataModel.getCreateTableStatement());
     }
     
     @Override
@@ -36,8 +33,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     	SQLiteDatabase db = getWritableDatabase();
     	
     	long rowNum = db.insert(tableName, nullCol, values);
-    	
-    	System.out.println("New Row: " + rowNum);
     	
     	db.close();
     	
@@ -68,10 +63,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void executeQuery(String query) {
     	SQLiteDatabase db = getWritableDatabase();
 
+    	/*
         if(query == null) {
-            Log.v("MetadataModel", "query is null");
             throw new IllegalArgumentException("query is null");
-        }
+        }*/
 
         try {
 
@@ -102,10 +97,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void executeQuery(String query, String[] selectionArgs) {
     	SQLiteDatabase db = getWritableDatabase();
 
+    	/*
         if(query == null) {
-            Log.v("MetadataModel", "query is null");
             throw new IllegalArgumentException("query is null");
         }
+        */
 
         try {
 
@@ -140,6 +136,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         
         return resultQuery.get(index);
+    }
+    
+    public void createTable(String query) {
+    	SQLiteDatabase db = getWritableDatabase();
+    	
+    	db.execSQL(query);
+    	
+    	db.close();
     }
     
     public String[] getSplitRow(int index) {

@@ -1,8 +1,0 @@
-STRAIN
-
-none
-massive
-weak
-moderate
-strong
-intense

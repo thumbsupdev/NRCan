@@ -1,7 +1,0 @@
-TYPE
-very well sorted
-well sorted
-moderately sorted
-poorly sorted
-very poorly sorted
-n/a

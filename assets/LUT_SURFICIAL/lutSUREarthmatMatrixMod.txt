@@ -1,7 +1,0 @@
-NAME
-
-loamy
-clayey
-silty
-sandy
-none

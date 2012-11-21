@@ -35,11 +35,12 @@ public class SampleBedrockModel {
 			SAMPLEBEDROCK_AZIMUTH  + " TEXT," +
 			SAMPLEBEDROCK_DIPPLUNGE  + " TEXT," +
 			SAMPLEBEDROCK_SURFACE  + " TEXT," +
-			SAMPLEBEDROCK_NOTES  + " TEXT," +			
+			SAMPLEBEDROCK_NOTES  + " TEXT" +			
 			");";
 
 	public SampleBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.sampleBedrock = new SampleBedrockEntity();
 	}
 

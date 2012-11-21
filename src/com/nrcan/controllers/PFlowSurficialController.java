@@ -214,9 +214,17 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+
+		if(this.tab == 2){
+			if(pflowSurficialModel.getEntity().getPfAzimuth().equalsIgnoreCase("")){
+				return false;
+			}
+			
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
 	}
 
 

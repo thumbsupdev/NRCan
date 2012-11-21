@@ -1,6 +1,0 @@
-FORM
-
-anhedral
-euhedral
-subhedral
-see comment field

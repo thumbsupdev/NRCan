@@ -1,6 +1,0 @@
-LISTVAL
-no reaction
-weak (heard/not seen)
-moderate(sm bubbles)
-strong (lrg bubbles/minor fizzing)
-vigourous

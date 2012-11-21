@@ -39,7 +39,7 @@ public class StationSurficialModel {
 	private static final String STATIONSURFICIAL_PARTNER = "partner";
 	private static final String STATIONSURFICIAL_METAID = "metaId";
 
-	private static final String STATIONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS" + STATIONSURFICIAL_TABLE_NAME + " (" +
+	private static final String STATIONSURFICIAL_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + STATIONSURFICIAL_TABLE_NAME + " (" +
 			STATIONSURFICIAL_NRCANID2 + " INTEGER PRIMARY KEY autoincrement, " +
 			STATIONSURFICIAL_NRCANID1 + " INTEGER," +
 			STATIONSURFICIAL_ID + " TEXT," +
@@ -67,11 +67,12 @@ public class StationSurficialModel {
 			STATIONSURFICIAL_MAPSHEET + " TEXT," +
 			STATIONSURFICIAL_LEGENDVAL + " TEXT," +
 			STATIONSURFICIAL_PARTNER + " TEXT," +
-			STATIONSURFICIAL_METAID + " TEXT," +			
+			STATIONSURFICIAL_METAID + " TEXT" +			
 			");";
 
 	public StationSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.stationSurficial = new StationSurficialEntity();
 	}
 

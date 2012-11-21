@@ -44,6 +44,7 @@ public class MetadataModel {
 
 	public MetadataModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.metadata = new MetadataEntity();
 	}
 

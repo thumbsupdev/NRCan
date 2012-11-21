@@ -1,7 +1,0 @@
-ROUNDNESS
-very angular
-angular
-sub-angular
-sub-rounded
-rounded
-well-rounded

@@ -1,8 +1,0 @@
-BEDTHICK
-thinly laminated 1-3 mm
-thickly laminated 3-10 mm
-very thin bedded 1-3 cm
-thin bedded 3-10 cm
-medium bedded 10-30 cm
-thick bedded 30-100 cm
-very thick bedded >100 cm

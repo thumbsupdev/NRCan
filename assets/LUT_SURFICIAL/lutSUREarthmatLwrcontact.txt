@@ -1,7 +1,0 @@
-TYPE
-abrupt (<2cm)
-sharp (2-5 cm)
-gradational (5-10 cm)
-diffuse (>10cm)
-not visible
-n/a

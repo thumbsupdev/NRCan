@@ -36,7 +36,7 @@ public class StationBedrockModel {
 	private static final String STATIONBEDROCK_PARTNER = "partner";
 	private static final String STATIONBEDROCK_METAID = "metaId";
 
-	private static final String STATIONBEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS" + STATIONBEDROCK_TABLE_NAME + " (" +
+	private static final String STATIONBEDROCK_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + STATIONBEDROCK_TABLE_NAME + " (" +
 			STATIONBEDROCK_NRCANID2 + " INTEGER PRIMARY KEY autoincrement, " +
 			STATIONBEDROCK_NRCANID1 + " INTEGER," +
 			STATIONBEDROCK_ID + " TEXT," +
@@ -61,11 +61,12 @@ public class StationBedrockModel {
 			STATIONBEDROCK_SLSNOTES + " TEXT," +
 			STATIONBEDROCK_AIRPHOTO + " TEXT," +
 			STATIONBEDROCK_PARTNER + " TEXT," +
-			STATIONBEDROCK_METAID + " TEXT," +
+			STATIONBEDROCK_METAID + " TEXT" +
 			");";
 
 	public StationBedrockModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.stationBedrock = new StationBedrockEntity();
 	}
 

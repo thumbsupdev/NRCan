@@ -1,9 +1,0 @@
-GENERATION
-
-primary
-first
-second
-third
-fourth
-undefined
-multi-generation

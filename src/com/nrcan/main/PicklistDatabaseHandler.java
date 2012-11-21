@@ -2,10 +2,12 @@ package com.nrcan.main;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.database.SQLException;
 
 public class PicklistDatabaseHandler extends SQLiteOpenHelper {

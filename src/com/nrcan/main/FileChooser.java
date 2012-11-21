@@ -7,11 +7,9 @@ import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.LayoutInflater;
 
 public class FileChooser extends ListActivity {
 

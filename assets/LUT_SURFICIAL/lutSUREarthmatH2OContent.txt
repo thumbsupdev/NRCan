@@ -1,6 +1,0 @@
-LISTVAL
-dry
-moist
-wet
-saturated
-n/a

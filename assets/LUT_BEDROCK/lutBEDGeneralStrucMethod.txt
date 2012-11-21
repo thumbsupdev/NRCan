@@ -1,7 +1,0 @@
-METHOD
-
-measured at station
-estimated at station
-estimated remotely
-calculated from data
-calculated from imagery

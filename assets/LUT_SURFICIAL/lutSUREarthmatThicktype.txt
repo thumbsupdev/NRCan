@@ -1,5 +1,0 @@
-TYPE
-measured
-obscured
-range
-estimate

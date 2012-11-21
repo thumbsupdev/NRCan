@@ -1,6 +1,0 @@
-LISTVAL
-none
-weak
-moderate
-high
-n/a

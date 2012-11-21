@@ -1,9 +1,0 @@
-TYPE
-leached
-oxidized
-weathered
-fresh
-excellent
-good
-fair
-poor

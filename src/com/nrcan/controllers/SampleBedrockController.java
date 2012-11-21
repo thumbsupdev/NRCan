@@ -157,9 +157,18 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+
+		if(this.tab == 1){
+			if(sampleBedrockModel.getEntity().getPurpose().equalsIgnoreCase("")){
+				return false;
+			}
+			
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
+		
 	}
 
 	

@@ -598,9 +598,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 		return null;
 	}
 
-	public void setTab(int tabNum) {
+	public boolean setTab(int tabNum) {
+		if(this.tab == 1){
+			if(earthmatSurficialModel.getEntity().getLithGroup().equalsIgnoreCase("")){
+				return false;
+			}
+			
+		}
 		this.tab = tabNum;
 		notifyDataSetChanged();
+		return true;
 	}
 
 	

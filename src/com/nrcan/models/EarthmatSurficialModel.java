@@ -101,11 +101,12 @@ public class EarthmatSurficialModel {
 			EARTHMATSURFICIAL_WAYUP + " TEXT," +
 			EARTHMATSURFICIAL_NOTES + " TEXT," +
 			EARTHMATSURFICIAL_INTERP + " TEXT," +
-			EARTHMATSURFICIAL_INTERPCONF + " TEXT," +
+			EARTHMATSURFICIAL_INTERPCONF + " TEXT" +
 			");";
 
 	public EarthmatSurficialModel(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
+		this.dbHandler.createTable(getCreateTableStatement());
 		this.earthmatsurficial = new EarthmatSurficialEntity();
 	}
 
