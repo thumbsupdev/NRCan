@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class FileArrayAdapter extends ArrayAdapter<Option>{
@@ -40,8 +41,10 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 		
 		if (o != null)
 		{
-			TextView t1 = (TextView) v.findViewById(R.id.TextView01);
-			TextView t2 = (TextView) v.findViewById(R.id.TextView02);
+			TextView t1 = (TextView) v.findViewById(R.id.folderName);
+			TextView t2 = (TextView) v.findViewById(R.id.folderPath);
+			CheckBox c1 = (CheckBox) v.findViewById(R.id.checkBedrock);
+			CheckBox c2 = (CheckBox) v.findViewById(R.id.checkSurficial);
 			
 			if(t1!=null)
 			{
@@ -51,6 +54,17 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 			{
 				t2.setText(o.getPath());
 			}
+			
+			if(o.isBedrock())
+				c1.setChecked(true);
+			else
+				c1.setEnabled(false);
+				
+			
+			if(o.isSurficial())
+				c2.setChecked(true);
+			else
+				c2.setEnabled(false);
 
 		}
 		return v;

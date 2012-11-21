@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.LayoutInflater;
 
 public class FileChooser extends ListActivity {
 
@@ -90,8 +94,27 @@ public class FileChooser extends ListActivity {
 
 	private void showFolders()
 	{
+		if(dir.isEmpty()||dir==null)
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("There are no available Picklists")
+			       .setTitle("Picklists");
+
+			builder.setPositiveButton("Return", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   onBackPressed();
+			           }
+			       });
+
+			AlertDialog dialog = builder.create();
+			
+			dialog.show();
+		}
+		else
+		{
 		adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view, dir);
 		this.setListAdapter(adapter);
+		}
 	}
 
 	@Override

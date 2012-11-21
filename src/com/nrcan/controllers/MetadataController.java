@@ -1,5 +1,8 @@
 package com.nrcan.controllers;
 
+import java.util.ArrayList;
+
+import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 
 import android.app.Activity;
@@ -7,11 +10,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+
 import com.nrcan.models.MetadataModel;
 import com.nrcan.main.DatabaseHandler;
 
@@ -22,15 +28,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	private Context context;
     private int tab;
 	private MetadataModel metadataModel;
+	private PicklistDatabaseHandler pldb;
+	private ArrayList<String> e = new ArrayList<String>();
 
     public MetadataController() { }
 
-	public MetadataController(Context context, Activity activity, MetadataModel metadataModel) {
+	public MetadataController(Context context, Activity activity, MetadataModel metadataModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
         this.metadataModel = metadataModel;
+        this.pldb = pldb;
 	}
 
     public MetadataModel getMetadataModel() {
@@ -61,9 +70,20 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			editTextProjectLeader.setText(metadataModel.getEntity().getPrjct_type());
 			
 			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
-			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMetadataPrjctType");
+			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerProjectType.setAdapter(sp1);
-			sp1.setElementsCol1();
+			sp1.setElements(e);//(pldb.getCol1("lutBEDMetadataPrjctType"));
+			spinnerProjectType.setAdapter(sp1);
+			spinnerProjectType.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					//earthmatbedrockModel.getEntity().setLithGroup("");
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -71,24 +91,68 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			convertView = mInflater.inflate(R.layout.metadata2, null);
 
 			Spinner spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
-			SpinnerController sp1 = new SpinnerController(context, activity, "lutBEDMetadataGeologist");
+			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerGeologistName.setAdapter(sp1);
-			sp1.setElementsCol1();
+			sp1.setElements(e);//(pldb.getCol1("lutBEDMetadataGeologist"));
+			spinnerGeologistName.setAdapter(sp1);
+			spinnerGeologistName.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					//earthmatbedrockModel.getEntity().setLithGroup("");
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 			
 			Spinner spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
-			SpinnerController sp2 = new SpinnerController(context, activity, "lutBEDMetadataGeologist");
+			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerGeologistCode.setAdapter(sp2);
-			sp2.setElementsCol2(""); // NEEDS INPUT
+			sp2.setElements(e);//(pldb.getCol2("lutBEDMetadataGeologist"));
+			spinnerGeologistCode.setAdapter(sp2);
+			spinnerGeologistCode.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					//earthmatbedrockModel.getEntity().setLithGroup("");
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 			
 			Spinner spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
-			SpinnerController sp3 = new SpinnerController(context, activity, "lutBEDMetadataDigcamera");
+			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerCameraPrefix.setAdapter(sp3);
-			sp3.setElementsCol1();
+			sp3.setElements(e);//(pldb.getCol1("lutBEDMetadataDigcamera"));
+			spinnerCameraPrefix.setAdapter(sp3);
+			spinnerCameraPrefix.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					//earthmatbedrockModel.getEntity().setLithGroup("");
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 			
 			Spinner spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
-			SpinnerController sp4 = new SpinnerController(context, activity, "lutBEDMetadataPrjname");
+			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMapProjection.setAdapter(sp4);
-			sp4.setElementsCol1();
+			sp4.setElements(e);//(pldb.getCol1("lutBEDMetadataPrjname"));
+			spinnerMapProjection.setAdapter(sp4);
+			spinnerMapProjection.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					//earthmatbedrockModel.getEntity().setLithGroup("");
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 			
 			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
 			

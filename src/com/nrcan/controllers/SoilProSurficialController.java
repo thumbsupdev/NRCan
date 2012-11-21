@@ -1,6 +1,10 @@
 package com.nrcan.controllers;
 
+import java.util.ArrayList;
+
+import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
+import com.nrcan.models.SoilProSurficialModel;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,12 +25,17 @@ public class SoilProSurficialController extends BaseAdapter implements
 	private Activity activity;
 	private Context context;
 	private int tab;
+	private SoilProSurficialModel soilproModel;
+	private PicklistDatabaseHandler pldb;
+	private ArrayList<String> e = new ArrayList<String>();
 
-	public SoilProSurficialController(Context context, Activity activity) {
+	public SoilProSurficialController(Context context, Activity activity,SoilProSurficialModel soilproModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
+		this.soilproModel = soilproModel;
+		this.pldb = pldb;
 	}
 
 	public int getCount() {

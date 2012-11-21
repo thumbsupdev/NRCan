@@ -1,27 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fileLayout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/fileLayout"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/folderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dip"
         android:layout_marginTop="5dip"
         android:singleLine="true"
         android:text="test"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" >
     </TextView>
 
     <TextView
-        android:id="@+id/TextView02"
+        android:id="@+id/folderPath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
         android:text="test" >
     </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.6" >
+
+            <CheckBox
+                android:id="@+id/checkBedrock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bedrock" />
+
+            <CheckBox
+                android:id="@+id/checkSurficial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Surficial" />
+        </LinearLayout>
+
+      
+
+        <ImageButton
+            android:id="@+id/loadPicklistButton"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="0.35"
+            android:paddingBottom="10dp"
+            android:src="@drawable/file_icon5"
+            android:background="@android:color/black"
+            android:scaleType="fitXY" ></ImageButton>"
+    </LinearLayout>
 
 </LinearLayout>
