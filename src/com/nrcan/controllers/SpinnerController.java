@@ -150,6 +150,16 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
 		return null;
 	}
 	
+	public int getPosition(String item) {
+		int size = elements.size();
+		
+		for(int i = 0; i < size; i++)
+			if(elements.get(i).equalsIgnoreCase(item))
+				return i;
+		
+		return -1;
+	}
+	
 	public void setElements(ArrayList<String> elements) {
 		this.elements = elements;
 		notifyDataSetChanged();

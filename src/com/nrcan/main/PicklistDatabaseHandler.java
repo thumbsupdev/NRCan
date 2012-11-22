@@ -41,7 +41,7 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
 
 			while(cursor.moveToNext()) {
 				list.add(cursor.getString(cursor.getColumnIndex("col1")));
-				System.out.println(cursor.getString(cursor.getColumnIndex("col1")));
+				//System.out.println(cursor.getString(cursor.getColumnIndex("col1")));
 			}
 		}
 		else {
@@ -71,7 +71,7 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
 			list.add(" ");
 			while(cursor.moveToNext()) {
 				list.add(cursor.getString(cursor.getColumnIndex("col2")));
-				System.out.println(cursor.getString(cursor.getColumnIndex("col2")));
+				//System.out.println(cursor.getString(cursor.getColumnIndex("col2")));
 			}
 		}
 		else {
@@ -101,7 +101,7 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
             list.add(" ");
 			while(cursor.moveToNext()) {
 				list.add(cursor.getString(cursor.getColumnIndex("col3")));
-				System.out.println(cursor.getString(cursor.getColumnIndex("col3")));
+				//System.out.println(cursor.getString(cursor.getColumnIndex("col3")));
 			}
 		}
 		else {

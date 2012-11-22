@@ -83,10 +83,12 @@ public class MetadataEntity {
 	}
 
 	public String getPrjct_type() {
+		System.out.println("getPrjct_type: " + this.prjct_type);
 		return prjct_type;
 	}
 
 	public void setPrjct_type(String prjct_type) {
+		System.out.println("setPrjct_type: " + prjct_type);
 		this.prjct_type = prjct_type;
 	}
 
