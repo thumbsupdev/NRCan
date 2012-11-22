@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.nrcan.models.MetadataModel;
-import com.nrcan.main.DatabaseHandler;
 
 public class MetadataController extends BaseAdapter implements Filterable {
 
@@ -74,32 +73,17 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			EditText editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
 			editTextProjectLeader.setText(metadataEntity.getPrjct_lead());
 			
-			
-			
-			final Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
+			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			
 			sp1.setElements(pldb.getCol1("lutBEDMetadataPrjctType"));
-			
 			spinnerProjectType.setAdapter(sp1);
-			
-			System.out.println("n: " + sp1.getPosition(metadataEntity.getPrjct_type().toString()));
-
 			spinnerProjectType.setSelection(sp1.getPosition(metadataEntity.getPrjct_type()));
-			
 			spinnerProjectType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					metadataEntity.setPrjct_type(spinnerProjectType.getSelectedItem().toString());
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					//System.out.println(parent.getItemAtPosition(position));
+					metadataEntity.setPrjct_type(parent.getItemAtPosition(position).toString());
 				}
 			});
-
-			
 		} else if (tab == 2) {
 			
 			convertView = mInflater.inflate(R.layout.metadata2, null);
