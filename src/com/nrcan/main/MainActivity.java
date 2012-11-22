@@ -7,14 +7,19 @@ import com.nrcan.controllers.*;
 import com.nrcan.models.*;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -26,17 +31,22 @@ import android.widget.ViewFlipper;
 public class MainActivity extends ListActivity {
 	private static Button swapButton;
 	private Context context;
-	
+
 	private static HashMap<String, Integer> bedrockFileNames = new HashMap<String, Integer>();
 	private static HashMap<String, Integer> surficialFileNames = new HashMap<String, Integer>();
-	
+	public static ArrayList<Option> dir = new ArrayList<Option>();
+
+	private ProgressThread progThread;
+	private ProgressDialog progDialog;
+	int typeBar = 0;
+
 	private boolean selectionFlag;
 	private boolean newFlag;
 	private int nrCanId1;
 	private int nrCanId2;
 	private int nrCanId3;
 	private int nrCanId4;
-	
+
 	private int detail;
 
 	private PicklistDatabaseHandler pldb;
@@ -44,7 +54,7 @@ public class MainActivity extends ListActivity {
 	private ViewFlipper flipper;
 	private Button button1;
 	private Button button2;
-	
+
 	private MetadataModel metadataModel;
 	private EnvironSurficialModel environSurficialModel;
 	private SoilProSurficialModel soilProSurficialModel;
@@ -343,13 +353,13 @@ public class MainActivity extends ListActivity {
 
 		databaseHandler = new DatabaseHandler(this);
 		pldb = new PicklistDatabaseHandler(this);
-		
+
 		setupMaps();
-		
+
 		/*
 		HashMap<String, Integer> mapBedrock = new HashMap<String, Integer>();
 		mapBedrock.put("lutBEDEarthmatBedthick", 1);
-		
+
 		HashMap<String, Integer> mapSurficial = new HashMap<String, Integer>();
 		mapSurficial.put("lutSUREarthmatLith2", 3);
 
@@ -364,23 +374,23 @@ public class MainActivity extends ListActivity {
 		plSurficial.dropTables();
 		plSurficial.createTables();
 		plSurficial.fillTables();
-		*/
+		 */
 
-        earthmatBedrockModel = new EarthmatBedrockModel(databaseHandler);
-        earthmatSurficialModel = new EarthmatSurficialModel(databaseHandler);
+		earthmatBedrockModel = new EarthmatBedrockModel(databaseHandler);
+		earthmatSurficialModel = new EarthmatSurficialModel(databaseHandler);
 		environSurficialModel = new EnvironSurficialModel(databaseHandler);
-        mABedrockModel = new MABedrockModel(databaseHandler);
+		mABedrockModel = new MABedrockModel(databaseHandler);
 		metadataModel = new MetadataModel(databaseHandler);
-        mineralBedrockModel = new MineralBedrockModel(databaseHandler);
-        pFlowSurficialModel = new PFlowSurficialModel(databaseHandler);
-        photoModel = new PhotoModel(databaseHandler);
-        sampleBedrockModel = new SampleBedrockModel(databaseHandler);
-        sampleSurficialModel = new SampleSurficialModel(databaseHandler);
-        soilProSurficialModel = new SoilProSurficialModel(databaseHandler);
-        stationBedrockModel = new StationBedrockModel(databaseHandler);
-        stationSurficialModel = new StationSurficialModel(databaseHandler);
-        structureModel = new StructureModel(databaseHandler);
-		
+		mineralBedrockModel = new MineralBedrockModel(databaseHandler);
+		pFlowSurficialModel = new PFlowSurficialModel(databaseHandler);
+		photoModel = new PhotoModel(databaseHandler);
+		sampleBedrockModel = new SampleBedrockModel(databaseHandler);
+		sampleSurficialModel = new SampleSurficialModel(databaseHandler);
+		soilProSurficialModel = new SoilProSurficialModel(databaseHandler);
+		stationBedrockModel = new StationBedrockModel(databaseHandler);
+		stationSurficialModel = new StationSurficialModel(databaseHandler);
+		structureModel = new StructureModel(databaseHandler);
+
 		topTitle = (TextView) findViewById(R.id.textViewMainID);
 		mainTitle = (TextView) findViewById(R.id.textViewMainTitle);
 
@@ -504,8 +514,8 @@ public class MainActivity extends ListActivity {
 		lv30.setAdapter(adap30);
 
 		setupButtons();
-		
-		flipper.setDisplayedChild(9);
+
+		flipper.setDisplayedChild(0);
 		//button2.setVisibility(View.INVISIBLE);
 		//button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
@@ -515,7 +525,7 @@ public class MainActivity extends ListActivity {
 		nrCanId2 = 0;
 		nrCanId3 = 0;
 		nrCanId4 = 0;
-		
+
 		swapButton = (Button)findViewById(R.id.tab_host_5_button1);
 		swapButton.setEnabled(false);
 
@@ -560,15 +570,15 @@ public class MainActivity extends ListActivity {
 		details1.add("ENVIRONMENT");
 		details1.add("SOIL PROFILE");
 		details1.add("PHOTO");
-		
+
 		details2.add("SAMPLE");
 		details2.add("STRUCTURE");
 		details2.add("PALEO FLOW");
-		
+
 		adap29.notifyDataSetChanged();
 		adap30.notifyDataSetChanged();
 	}
-	
+
 	public void setupMaps() {
 		bedrockFileNames.put("lutBEDEarthmatBedthick.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatColour.txt", Integer.valueOf(1));
@@ -614,7 +624,7 @@ public class MainActivity extends ListActivity {
 		bedrockFileNames.put("lutBEDStrucStrain.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDStrucType.txt", Integer.valueOf(3));
 		bedrockFileNames.put("lutBEDStrucYounging.txt", Integer.valueOf(1));
-		
+
 		surficialFileNames.put("lutSUREarthmatClastform.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSUREarthmatColour.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSUREarthmatCompaction.txt", Integer.valueOf(1));
@@ -679,7 +689,7 @@ public class MainActivity extends ListActivity {
 		surficialFileNames.put("lutSURStrucType.txt", Integer.valueOf(3));
 		surficialFileNames.put("lutSURStrucYounging.txt", Integer.valueOf(1));
 	}
-	
+
 	public void setDetail(int temp){
 		this.detail = temp;
 	}
@@ -745,7 +755,7 @@ public class MainActivity extends ListActivity {
 		for(int i = 0; i < buttons.length; i++) {
 			buttons[i].setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					
+
 					if(adap2.setTab(Integer.parseInt(((Button)v).getText().toString()))){
 						swapButton.setEnabled(true);
 						swapButton = ((Button)v);
@@ -757,16 +767,16 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.earthmatBedrockDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-					
-					
-					
+
+
+
 				}
 			});
 		}
@@ -798,19 +808,19 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.earthmatSurficialDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-					
+
 				}
 			});
 		}
 	}
-	
+
 	public void setupButtonsEnvironSurficial() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_3_button1),
@@ -831,7 +841,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsMABedrock() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_4_button1),
@@ -867,7 +877,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsMineralBedrock() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_6_button1),
@@ -887,7 +897,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsPFlowSurficial() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_7_button1),
@@ -909,19 +919,19 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.pFlowSurficialDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-					
+
 				}
 			});
 		}
 	}
-	
+
 	public void setupButtonsPhoto() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_8_button1),
@@ -939,7 +949,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsSampleBedrock() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_9_button1),
@@ -961,19 +971,19 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.sampleBedrockDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-					
+
 				}
 			});
 		}
 	}
-	
+
 	public void setupButtonsSampleSurficial() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_10_button1),
@@ -995,19 +1005,19 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.sampleSurficialDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-					
+
 				}
 			});
 		}
 	}
-	
+
 	public void setupButtonsSoilProSurficial() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_11_button1),
@@ -1025,7 +1035,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsStationBedrock() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_12_button1),
@@ -1046,7 +1056,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsStationSurficial() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_13_button1),
@@ -1067,7 +1077,7 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	public void setupButtonsStructure() {
 		Button [] buttons = {
 				(Button) findViewById(R.id.tab_host_14_button1),
@@ -1091,10 +1101,10 @@ public class MainActivity extends ListActivity {
 						builder.setMessage(R.string.structureDialogMessage);
 						builder.setPositiveButton("Okay",
 								new DialogInterface.OnClickListener() {
-									public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog, int whichButton) {
 
-									}
-								});
+							}
+						});
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
@@ -1106,11 +1116,11 @@ public class MainActivity extends ListActivity {
 			});
 		}
 	}
-	
+
 	private void startFileChooser()
 	{
 		Intent intent = new Intent(this, FileChooser.class);
-        startActivity(intent);
+		startActivity(intent);
 	}
 
 	@Override
@@ -1124,30 +1134,72 @@ public class MainActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage("Are you sure you want to find Picklists? (May take a few seconds)")
-		       .setTitle("Picklists");
+		.setTitle("Picklists");
 
 		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-		           public void onClick(DialogInterface dialog, int id) {
-		        	   startFileChooser();
-		           }
-		       });
+			public void onClick(DialogInterface dialog, int id) {
+				System.out.println("PICKLIST BUTTON CLICKED"); 
+				showDialog(0);
+			}
+		});
 		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-		           public void onClick(DialogInterface dialog, int id) {
-		               dialog.dismiss();
-		           }
-		       });
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.dismiss();
+			}
+		});
 
 		AlertDialog dialog = builder.create();
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case 0:
-	        	dialog.show();
-	            return true;
-	        case 1:
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+
+		switch (item.getItemId()) {
+		case 0:
+			dialog.show();
+			return true;
+		case 1:
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch(id) {
+		case 0:
+			progDialog = new ProgressDialog(this){
+				@Override
+				public void onAttachedToWindow()
+				{
+					//super.onAttachedToWindow();
+					this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+				}
+				
+				@Override
+				public boolean onSearchRequested() {
+					return false;
+				}
+			};
+			System.out.println("NEW DIALOG CREATED");
+			progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+			progDialog.setMessage("Loading...");
+			progDialog.setCancelable(false);
+			progThread = new ProgressThread(handler);
+			System.out.println("NEW THREAD CREATED");
+			progThread.start();
+			System.out.println("THREAD STARTED");
+			return progDialog;
+
+		case 1:/*
+            progDialog = new ProgressDialog(this);
+            progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progDialog.setMax(maxBarValue);
+            progDialog.setMessage("Dollars in checking account:");
+            progThread = new ProgressThread(handler);
+            progThread.start();
+            return progDialog;*/
+
+		default:
+			return null;
+		}
 	}
 
 	public void setAnimationBack() {
@@ -1414,7 +1466,7 @@ public class MainActivity extends ListActivity {
 				button1.setVisibility(View.INVISIBLE);
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				
+
 			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
 				flipper.setDisplayedChild(24);
 				button2.setVisibility(View.VISIBLE);
@@ -1422,8 +1474,8 @@ public class MainActivity extends ListActivity {
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 			}
-			
-			
+
+
 		}
 
 		public void backAction29() {
@@ -1442,11 +1494,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(29);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.INVISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction1() {
@@ -1458,11 +1510,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(29);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.INVISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction3() {
@@ -1474,11 +1526,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(5);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction5() {
@@ -1490,11 +1542,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(7);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction7() {
@@ -1502,19 +1554,19 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void cellAction8() {
-			
-				nrCanId1= metadataModel.getEntity().getNrcanId1();
-				
-			
+
+			nrCanId1= metadataModel.getEntity().getNrcanId1();
+
+
 			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
 				flipper.setDisplayedChild(22);
-				
+
 			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
 				flipper.setDisplayedChild(24);
-				
+
 			}else {}
-			
-			
+
+
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.INVISIBLE);
@@ -1529,15 +1581,15 @@ public class MainActivity extends ListActivity {
 		public void cellAction10() {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
-			
-			
-			
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction11() {
@@ -1547,15 +1599,15 @@ public class MainActivity extends ListActivity {
 		public void cellAction12() {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
-			
-			
-			
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction13() {
@@ -1567,11 +1619,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(15);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction15() {
@@ -1583,11 +1635,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(17);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction17() {
@@ -1597,15 +1649,15 @@ public class MainActivity extends ListActivity {
 		public void cellAction18() {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
-			
-			
-			
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction19() {
@@ -1617,11 +1669,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(21);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction21() {
@@ -1631,11 +1683,11 @@ public class MainActivity extends ListActivity {
 		public void cellAction22() {
 			nrCanId2= stationBedrockModel.getEntity().getNrcanId2();
 
-				flipper.setDisplayedChild(28);
-				
-			
-			
-			
+			flipper.setDisplayedChild(28);
+
+
+
+
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.INVISIBLE);
@@ -1652,11 +1704,11 @@ public class MainActivity extends ListActivity {
 
 			flipper.setDisplayedChild(28);
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.INVISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction25() {
@@ -1666,15 +1718,15 @@ public class MainActivity extends ListActivity {
 		public void cellAction26() {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
-			
-			
-			
 
-		newFlag = false;
-		button2.setVisibility(View.VISIBLE);
-		button1.setVisibility(View.VISIBLE);
-		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-		topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+
+			newFlag = false;
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.VISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void cellAction27() {
@@ -1682,7 +1734,7 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void cellAction28() {
-			
+
 			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
 				if(detail==0){
 					flipper.setDisplayedChild(0);
@@ -1693,8 +1745,8 @@ public class MainActivity extends ListActivity {
 				else if (detail==2){
 					flipper.setDisplayedChild(14);
 				}
-				
-				
+
+
 			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
 				if(detail==0){
 					flipper.setDisplayedChild(2);
@@ -1708,10 +1760,10 @@ public class MainActivity extends ListActivity {
 				else if (detail==3){
 					flipper.setDisplayedChild(14);
 				}
-				
+
 			}
-			
-			
+
+
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.INVISIBLE);
@@ -1730,8 +1782,8 @@ public class MainActivity extends ListActivity {
 				else if (detail==2){
 					flipper.setDisplayedChild(10);
 				}
-				
-				
+
+
 			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
 				if(detail==0){
 					flipper.setDisplayedChild(18);
@@ -1742,11 +1794,11 @@ public class MainActivity extends ListActivity {
 				else if (detail==2){
 					flipper.setDisplayedChild(12);
 				}
-				
-				
+
+
 			}
-			
-			
+
+
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.INVISIBLE);
@@ -1796,7 +1848,7 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void editAction5() {
-			
+
 		}
 
 		public void editAction6() {
@@ -2028,8 +2080,8 @@ public class MainActivity extends ListActivity {
 			button1.setVisibility(View.VISIBLE);
 			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
-			
-			
+
+
 		}
 
 		public void newAction9() {
@@ -2183,22 +2235,22 @@ public class MainActivity extends ListActivity {
 				earthmatBedrockModel.insertRow();
 				nrCanId3= earthmatBedrockModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				earthmatBedrockModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(29);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction2() {
@@ -2211,22 +2263,22 @@ public class MainActivity extends ListActivity {
 				earthmatSurficialModel.insertRow();
 				nrCanId3= earthmatSurficialModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				earthmatSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(29);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(29);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction4() {
@@ -2239,22 +2291,22 @@ public class MainActivity extends ListActivity {
 				environSurficialModel.insertRow();
 				nrCanId3= environSurficialModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				environSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(4);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(4);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction6() {
@@ -2267,22 +2319,22 @@ public class MainActivity extends ListActivity {
 				mABedrockModel.insertRow();
 				nrCanId3= mABedrockModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				mABedrockModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(6);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(6);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction8() {
@@ -2290,19 +2342,19 @@ public class MainActivity extends ListActivity {
 		}
 
 		public void saveAction9() {
-				//check to see if anything has been done on the form page yet
+			//check to see if anything has been done on the form page yet
 			//if its a NEW form, set nrcanID1 on save
 			//run insert row to save current fields entered
 			//then advance to station list (22)
-			
+
 			//if you reached the form by hitting edit, the nrcanid1 already is set
 			//you will update the already populate fields in the database
 			//then advance to station list(22)
-			
+
 			//in both cases, a project type *bedrock or surficial will be set
 			//and this information is needed as it effects if you go to
 			//station(22 bedrock) or station (24 surficial)
-			
+
 			//a .equals is performed on .getPrjct_type() to determine which project type has been set
 			//if a project type was NOT set and save was initiated, I would suggest a modal dialog
 			//pop up reminding them to select it. For now I will just not code the advancement to
@@ -2312,15 +2364,15 @@ public class MainActivity extends ListActivity {
 				metadataModel.insertRow();
 				nrCanId1= metadataModel.getEntity().getNrcanId1();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				metadataModel.updateRow();
-				
-				
+
+
 			}
 			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
 				flipper.setDisplayedChild(22);
@@ -2329,7 +2381,7 @@ public class MainActivity extends ListActivity {
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				newFlag = false;
-				
+
 			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
 				flipper.setDisplayedChild(24);
 				button2.setVisibility(View.VISIBLE);
@@ -2344,11 +2396,11 @@ public class MainActivity extends ListActivity {
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 			}
-			
-			
-			
-			
-			
+
+
+
+
+
 		}
 
 		public void saveAction10() {
@@ -2361,22 +2413,22 @@ public class MainActivity extends ListActivity {
 				mineralBedrockModel.insertRow();
 				nrCanId4= mineralBedrockModel.getEntity().getNrcanId4();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				mineralBedrockModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(10);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(10);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction12() {
@@ -2389,22 +2441,22 @@ public class MainActivity extends ListActivity {
 				pFlowSurficialModel.insertRow();
 				nrCanId4= pFlowSurficialModel.getEntity().getNrcanId4();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				pFlowSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(12);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(12);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction14() {
@@ -2417,22 +2469,22 @@ public class MainActivity extends ListActivity {
 				photoModel.insertRow();
 				nrCanId3= photoModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				photoModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(14);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(14);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction16() {
@@ -2445,22 +2497,22 @@ public class MainActivity extends ListActivity {
 				sampleBedrockModel.insertRow();
 				nrCanId4= sampleBedrockModel.getEntity().getNrcanId4();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				sampleBedrockModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(16);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(16);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction18() {
@@ -2473,22 +2525,22 @@ public class MainActivity extends ListActivity {
 				sampleSurficialModel.insertRow();
 				nrCanId4= sampleSurficialModel.getEntity().getNrcanId4();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				sampleSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(18);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(18);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction20() {
@@ -2501,22 +2553,22 @@ public class MainActivity extends ListActivity {
 				soilProSurficialModel.insertRow();
 				nrCanId3= soilProSurficialModel.getEntity().getNrcanId3();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				soilProSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(20);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(20);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction22() {
@@ -2529,23 +2581,23 @@ public class MainActivity extends ListActivity {
 				stationBedrockModel.insertRow();
 				nrCanId2= stationBedrockModel.getEntity().getNrcanId2();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				stationBedrockModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(28);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
-			
+
+
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
 		}
 
 		public void saveAction24() {
@@ -2558,25 +2610,25 @@ public class MainActivity extends ListActivity {
 				stationSurficialModel.insertRow();
 				nrCanId2= stationSurficialModel.getEntity().getNrcanId2();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				stationSurficialModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(28);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
-			
+
+
+			flipper.setDisplayedChild(28);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
 		}
-		
+
 
 		public void saveAction26() {
 			//no save functionality on list view with cells
@@ -2588,22 +2640,22 @@ public class MainActivity extends ListActivity {
 				structureModel.insertRow();
 				nrCanId4= structureModel.getEntity().getNrcanId4();
 				newFlag = false;
-				
-				
-				
+
+
+
 			}
 			else
 			{
 				structureModel.updateRow();
-				
+
 			}
-			
-			
-				flipper.setDisplayedChild(26);
-				button2.setVisibility(View.VISIBLE);
-				button1.setVisibility(View.INVISIBLE);
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+
+
+			flipper.setDisplayedChild(26);
+			button2.setVisibility(View.VISIBLE);
+			button1.setVisibility(View.INVISIBLE);
+			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
 		public void saveAction28() {
@@ -2614,15 +2666,15 @@ public class MainActivity extends ListActivity {
 			//no save functionality on list view with cells
 		}
 	}
-	
+
 	public static HashMap<String, Integer> getBedrock() {
 		return bedrockFileNames;
 	}
-	
+
 	public static HashMap<String, Integer> getSurficial() {
 		return surficialFileNames;
 	}
-	
+
 	/*
     public ArrayList<String> readRows() {
         dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { METADATA_TABLE_NAME });
@@ -2687,4 +2739,43 @@ public class MainActivity extends ListActivity {
 		}
 	}
 
+	final Handler handler =  new Handler() {
+		public void handleMessage(Message msg) {
+			boolean isdone = msg.getData().getBoolean("isdone");
+			if (isdone) {
+				removeDialog(0);
+				progThread.setState(ProgressThread.DONE);
+				startFileChooser();
+			}
+		}
+	};
+
+	private class ProgressThread extends Thread {	
+		final static int DONE = 0;
+		final static int RUNNING = 1;
+
+		FileChooser fc = new FileChooser();
+		Handler mHandler;
+		int mState;
+
+		ProgressThread(Handler h) {
+			mHandler = h;
+		}
+
+		@Override
+		public void run() {
+			mState = RUNNING;
+			dir = fc.doWork();
+
+			Message msg = mHandler.obtainMessage();
+			Bundle b = new Bundle();
+			b.putBoolean("isdone", fc.isDoneWork());
+			msg.setData(b);
+			mHandler.sendMessage(msg);
+		}
+
+		public void setState(int state) {
+			mState = state;
+		}
+	}
 }

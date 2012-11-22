@@ -30,7 +30,6 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	private MetadataModel metadataModel;
 	private MetadataEntity metadataEntity;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 
     public MetadataController() { }
 
@@ -169,22 +168,24 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		notifyDataSetChanged();
 	}
 	
-	public void save() {
-		metadataModel.getEntity().setPrjct_name("Field 1");
-		metadataModel.getEntity().setPrjct_code("Field 2");
-		metadataModel.getEntity().setPrjct_lead("Field 3");
-		metadataModel.getEntity().setPrjct_type("Field 4");
-		metadataModel.getEntity().setGeolcode("Field 5");
-		metadataModel.getEntity().setGeologist("Field 6");
-		metadataModel.getEntity().setMappath("Field 7");
-		metadataModel.getEntity().setPrj_name("Field 8");
-		metadataModel.getEntity().setPrj_type("Field 9");
-		metadataModel.getEntity().setPrj_datum("Field 10");
-		metadataModel.getEntity().setDigcamera("Field 11");
-		metadataModel.getEntity().setStnstartno("Field 12");
-		metadataModel.getEntity().setMetaid("Field 13");
+	public void saveTab1() {
+		EditText editTextProjectName = (EditText) activity.findViewById(R.id.metadata_editText_projectName);
+		EditText editTextProjectCode = (EditText) activity.findViewById(R.id.metadata_editText_projectCode);
+		EditText editTextProjectLeader = (EditText) activity.findViewById(R.id.metadata_editText_projectLeader);
 		
-		//metadataModel.insertRow();
+		metadataEntity.setPrjct_name(editTextProjectName.getText().toString());
+		metadataEntity.setPrjct_code(editTextProjectCode.getText().toString());
+		metadataEntity.setPrjct_lead(editTextProjectLeader.getText().toString());
+		//metadataEntity.setPrjct_type("Field 4");
+		//metadataEntity.setGeolcode("Field 5");
+		//metadataEntity.setGeologist("Field 6");
+		metadataEntity.setMappath("Field 7");
+		metadataEntity.setPrj_name("Field 8");
+		metadataEntity.setPrj_type("Field 9");
+		metadataEntity.setPrj_datum("Field 10");
+		metadataEntity.setDigcamera("Field 11");
+		metadataEntity.setStnstartno("Field 12");
+		//metadataEntity.setMetaid("Field 13");			<-- NEVER SET
 	}
 	
 	public void tUpdate() {

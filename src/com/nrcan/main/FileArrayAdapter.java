@@ -28,13 +28,13 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 		this.id = textViewResourceId;
 		this.items = objects;
 	}
-	
+
 	public Option getItem(int i)
 	{
 		return items.get(i);
 	}
 	@Override
-	
+
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
 		if (v == null)
@@ -42,16 +42,16 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 			LayoutInflater vi = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			v = vi.inflate(id, null);
 		}
-		
+
 		final Option o = items.get(position);
-		
+
 		if (o != null)
 		{
 			TextView t1 = (TextView) v.findViewById(R.id.folderName);
 			TextView t2 = (TextView) v.findViewById(R.id.folderPath);
 			CheckBox c1 = (CheckBox) v.findViewById(R.id.checkBedrock);
 			CheckBox c2 = (CheckBox) v.findViewById(R.id.checkSurficial);
-			
+
 			if(t1!=null)
 			{
 				t1.setText(o.getName());
@@ -60,64 +60,64 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 			{
 				t2.setText(o.getPath());
 			}
-			
+
 			if(o.isBedrock())
 				c1.setChecked(true);
 			else
 				c1.setEnabled(false);
-				
-			
+
+
 			if(o.isSurficial())
 				c2.setChecked(true);
 			else
 				c2.setEnabled(false);
-			
+
 			ImageButton loadPicklistButton = (ImageButton)v.findViewById(R.id.loadPicklistButton);
-			
+
 			AlertDialog.Builder builder = new AlertDialog.Builder(c);
 			builder.setMessage("Are you sure you want to load this Picklist (This may take a minute)")
-			       .setTitle("Picklists");
+			.setTitle("Picklists");
 
 			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			        	   loadPicklists(o);
-			           }
-			       });
+				public void onClick(DialogInterface dialog, int id) {
+					loadPicklists(o);
+				}
+			});
 			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			               dialog.dismiss();
-			           }
-			       });
+				public void onClick(DialogInterface dialog, int id) {
+					dialog.dismiss();
+				}
+			});
 
 			final AlertDialog dialog = builder.create();
-			
+
 			loadPicklistButton.setOnClickListener(new OnClickListener() {
-				 
+
 				public void onClick(View arg0) {
 					dialog.show();
 				}
-	 
+
 			});
 
 		}
 		return v;
 	}
 
-    public void loadPicklists(Option option) {
+	public void loadPicklists(Option option) {
 
-        if(option.isBedrock()) {
-            BedrockPicklist bedrockPicklist = new BedrockPicklist(c, MainActivity.getBedrock(), option.getPath());
-            bedrockPicklist.dropTables();
-            bedrockPicklist.createTables();
-            bedrockPicklist.fillTables();
-        }
-        if(option.isSurficial()) {
-            SurficialPicklist surficialPicklist = new SurficialPicklist(c, MainActivity.getSurficial(), option.getPath());
-            surficialPicklist.dropTables();
-            surficialPicklist.createTables();
-            surficialPicklist.fillTables();
-        }
-    }
+		if(option.isBedrock()) {
+			BedrockPicklist bedrockPicklist = new BedrockPicklist(c, MainActivity.getBedrock(), option.getPath());
+			bedrockPicklist.dropTables();
+			bedrockPicklist.createTables();
+			bedrockPicklist.fillTables();
+		}
+		if(option.isSurficial()) {
+			SurficialPicklist surficialPicklist = new SurficialPicklist(c, MainActivity.getSurficial(), option.getPath());
+			surficialPicklist.dropTables();
+			surficialPicklist.createTables();
+			surficialPicklist.fillTables();
+		}
+	}
 
 }
 

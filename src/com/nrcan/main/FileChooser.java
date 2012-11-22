@@ -3,7 +3,6 @@ package com.nrcan.main;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -17,21 +16,31 @@ public class FileChooser extends ListActivity {
 	private FileArrayAdapter adapter;
 	private HashMap<String, Integer> bedrockFileNames;
 	private HashMap<String, Integer> surficialFileNames;
-	private List<Option>dir = new ArrayList<Option>();
+	private ArrayList<Option>dir = new ArrayList<Option>();
+	private boolean doneWork = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		dir = MainActivity.dir;
+		showFolders();
+	}
+	
+	public ArrayList<Option> doWork() {
 		bedrockFileNames = MainActivity.getBedrock();
 		surficialFileNames = MainActivity.getSurficial();
 		currentDir = new File(Environment.getExternalStorageDirectory().getName());
-		fill2(currentDir);
-		showFolders();
+		fill(currentDir);
+		doneWork = true;
+		return dir;
+	}
+	
+	public boolean isDoneWork(){
+		return doneWork;
 	}
 
 	private boolean lookForPicklist(File f,HashMap<String, Integer> tempMap) {
 		File[] files = null;
-		//HashMap<String, Integer> tmp = new HashMap<String, Integer>(tempMap);
 		int size = tempMap.size();
 
 		files = f.listFiles();
@@ -43,7 +52,6 @@ public class FileChooser extends ListActivity {
 				{
 					if(s.equals(file.getName()))
 					{
-						//tmp.remove(s);
 						size--;
 						break;
 					}
@@ -59,7 +67,7 @@ public class FileChooser extends ListActivity {
 		return false;
 	}
 
-	private void fill2(File f)
+	private void fill(File f)
 	{
 		File[]dirs = f.listFiles();
 
@@ -82,7 +90,7 @@ public class FileChooser extends ListActivity {
 					{
 						dir.add(new Option(ff, b, s));
 					}
-					fill2(ff);
+					fill(ff);
 				}
 			}
 		} catch(Exception e) {
