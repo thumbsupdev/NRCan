@@ -20,7 +20,21 @@ public class PFlowSurficialEntity {
 	private String notes_1;
 	
 	public PFlowSurficialEntity(){
-		
+		this.stationId = "";
+		this.earthMatId = "";
+		this.pFlowId = "";
+		this.pFlowNo = "";
+		this.pfClass = "";
+		this.pfFeature = "";
+		this.pfSense = "";
+		this.method = "";
+		this.pfAzimuth = "";
+		this.notes = "";
+		this.relage = "";
+		this.numIndic = "";
+		this.definition = "";
+		this.relation = "";
+		this.notes_1 = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

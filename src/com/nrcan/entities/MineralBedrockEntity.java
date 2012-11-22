@@ -14,11 +14,23 @@ public class MineralBedrockEntity {
 	private String colour;
 	private String sizeMinmm;
 	private String SizeMaxmm;
-	private String mode;	//
-	private String notes;	//mineral_editText_note
+	private String mode;
+	private String notes;
 	
 	public MineralBedrockEntity(){
-		
+		this.stationID = "";
+		this.earthmatID = "";
+		this.mineralID = "";
+		this.mineralNo = "";
+		this.mineral = "";
+		this.form = "";
+		this.habit = "";
+		this.occurrence = "";
+		this.colour = "";
+		this.sizeMinmm = "";
+		this.SizeMaxmm = "";
+		this.mode = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

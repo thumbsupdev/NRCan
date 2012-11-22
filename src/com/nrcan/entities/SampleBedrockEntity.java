@@ -15,7 +15,16 @@ public class SampleBedrockEntity {
 	private String notes;
 	
 	public SampleBedrockEntity(){
-		
+		this.stationId = "";
+		this.earthMatId = "";
+		this.sampleNo = "";
+		this.sampleType = "";
+		this.purpose = "";
+		this.format = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.surface = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

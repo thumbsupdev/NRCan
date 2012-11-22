@@ -20,7 +20,21 @@ public class SampleSurficialEntity {
 	private String notes;
 	
 	public SampleSurficialEntity(){
-		
+		this.stationId = "";
+		this.earthMatId = "";
+		this.sampleId = "";
+		this.sampleNo = "";
+		this.sampleType = "";
+		this.purpose = "";
+		this.format = "";
+		this.sampleDep = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.surface = "";
+		this.horizon = "";
+		this.state = "";
+		this.duplicate = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

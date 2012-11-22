@@ -48,7 +48,49 @@ public class EarthmatSurficialEntity {
 	private String interpConf;
 	
 	public EarthmatSurficialEntity(){
-		
+		this.stationId = "";
+		this.earthMatLt = "";
+		this.earthMatNo = "";
+		this.earthMatId = "";
+		this.lithGroup = "";
+		this.lithType = "";
+		this.lithDetail = "";
+		this.mapUnit = "";
+		this.sufform = "";
+		this.unitNo = "";
+		this.matrixMod = "";
+		this.matrix = "";
+		this.jointing = "";
+		this.compaction = "";
+		this.oxidation = "";
+		this.h2oContent = "";
+		this.fissilty = "";
+		this.hclReact = "";
+		this.clastModal = "";
+		this.clastMin = "";
+		this.clastMax = "";
+		this.clastPct = "";
+		this.clastForm = "";
+		this.sorting = "";
+		this.modalRnd = "";
+		this.maxRound = "";
+		this.minRound = "";
+		this.thickType = "";
+		this.thickMin = "";
+		this.thickMax = "";
+		this.colour = "";
+		this.lwrContact = "";
+		this.intContact = "";
+		this.latContact = "";
+		this.erraticTyp = "";
+		this.erraticPer = "";
+		this.landForm = "";
+		this.primeStruc = "";
+		this.scndStruc = "";
+		this.wayUp = "";
+		this.notes = "";
+		this.interp = "";
+		this.interpConf = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

@@ -14,7 +14,15 @@ public class MABedrockEntity {
 	private String notes;
 	
 	public MABedrockEntity(){
-		
+		this.stationID = "";
+		this.maNo = "";
+		this.manID = "";
+		this.ma = "";
+		this.unit = "";
+		this.mineral = "";
+		this.mode = "";
+		this.distribute = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

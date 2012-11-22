@@ -26,7 +26,27 @@ public class StructureEntity {
 	private String notes;
 	
 	public StructureEntity(){
-		
+		this.stationId = "";
+		this.earthMatID = "";
+		this.structId = "";
+		this.structNo = "";
+		this.strucClass = "";
+		this.strucType = "";
+		this.detail = "";
+		this.method = "";
+		this.format = "";
+		this.attitude = "";
+		this.younging = "";
+		this.generation = "";
+		this.strain = "";
+		this.flattening = "";
+		this.related = "";
+		this.fabric = "";
+		this.sense = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.symang = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

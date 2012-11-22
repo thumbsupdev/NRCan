@@ -25,7 +25,26 @@ public class EnvironSurficialEntity {
 	private String notes;
 	
 	public EnvironSurficialEntity(){
-		
+		this.stationId = "";
+		this.drainage = "";
+		this.slope = "";
+		this.aspect = "";
+		this.pfPresent = "";
+		this.pfIndic = "";
+		this.pfDepth = "";
+		this.gossanPres = "";
+		this.gossanMat = "";
+		this.bRock = "";
+		this.exposure = "";
+		this.vegetation = "";
+		this.boulders = "";
+		this.bouldFld = "";
+		this.boFldTyp = "";
+		this.grndCover = "";
+		this.pcentCover = "";
+		this.patternGrn = "";
+		this.patArea = "";
+		this.notes = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

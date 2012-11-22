@@ -26,7 +26,27 @@ public class SoilProSurficialEntity {
 	private String id;
 	
 	public SoilProSurficialEntity(){
-		
+		this.soilProId = "";
+		this.stationId = "";
+		this.o_hrz = "";
+		this.a_hrz = "";
+		this.b_hrz = "";
+		this.c_hrz = "";
+		this.r_hrz = "";
+		this.l_f_h = "";
+		this.oQualifier = "";
+		this.aQualifier = "";
+		this.bQualifier = "";
+		this.cQualifier = "";
+		this.rQualifier = "";
+		this.l_f_HQuali = "";
+		this.totThick = "";
+		this.aTop = "";
+		this.bTop = "";
+		this.cTop = "";
+		this.rTop = "";
+		this.notes = "";
+		this.id = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

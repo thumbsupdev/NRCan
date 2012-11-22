@@ -14,7 +14,15 @@ public class PhotoEntity {
 	private String linkId;
 	
 	public PhotoEntity(){
-		
+		this.stationId = "";
+		this.photoId = "";
+		this.photoNo = "";
+		this.category = "";
+		this.fileNo = "";
+		this.fileName = "";
+		this.direction = "";
+		this.caption = "";
+		this.linkId = "";
 	}
 	
 	public void setEntity (String[] contentValues) {

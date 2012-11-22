@@ -33,7 +33,34 @@ public class EarthmatBedrockEntity {
 	private String interpConf;
 	
 	public EarthmatBedrockEntity(){
-		
+		this.stationID = "";
+		this.earthmatLT = "";
+		this.earthmatNo = "";
+		this.earthmatID = "";
+		this.lithGroup = "";
+		this.lithType = "";
+		this.lithDetail = "";
+		this.mapUnit = "";
+		this.occurAs = "";
+		this.modStruc = "";
+		this.modTexture = "";
+		this.modComp = "";
+		this.grcrySize = "";
+		this.defFabric = "";
+		this.bedThick = "";
+		this.mineral = "";
+		this.minNote = "";
+		this.colourF = "";
+		this.colourW = "";
+		this.colourInd = "";
+		this.magSuscept = "";
+		this.fossils = "";
+		this.fossilNote = "";
+		this.contact = "";
+		this.contactUp = "";
+		this.contactLow = "";
+		this.interp = "";
+		this.interpConf = ""; 
 	}
 	
 	public void setEntity (String[] contentValues) {
