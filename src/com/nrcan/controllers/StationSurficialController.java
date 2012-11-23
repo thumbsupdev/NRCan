@@ -10,6 +10,8 @@ import com.nrcan.models.StationSurficialModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,16 +33,15 @@ public class StationSurficialController extends BaseAdapter implements
 	private int tab;
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
-	private StationSurficialModel stationSurficialModel;
+	
 	private StationSurficialEntity stationSurficialEntity;
 
-	public StationSurficialController(Context context, Activity activity,StationSurficialModel stationSurficialModel,PicklistDatabaseHandler pldb) {
+	public StationSurficialController(Context context, Activity activity,StationSurficialEntity stationSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
-		this.tab = 1;
-		this.stationSurficialModel = stationSurficialModel;
-		this.stationSurficialEntity = stationSurficialModel.getEntity();
+		this.tab = 1;	
+		this.stationSurficialEntity = stationSurficialEntity;
 		this.pldb = pldb;
 	}
 
@@ -64,6 +65,16 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_traverse);
 			editTextTrav.setText(stationSurficialEntity.getTravNo());
+			editTextTrav.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setTravNo("");
+					else
+						stationSurficialEntity.setTravNo(s.toString());
+				}
+			});
 			//Button buttonDate = (Button) convertView
 			//		.findViewById(R.id.station_surficial_button_date);
 			
@@ -72,6 +83,16 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_elevation);
 			editTextElev.setText(stationSurficialEntity.getElevation());
+			editTextElev.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setElevation("");
+					else
+						stationSurficialEntity.setElevation(s.toString());
+				}
+			});
 			
 			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_elevation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -90,15 +111,55 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_easting);
 			editTextEasting.setText(stationSurficialEntity.getEasting());
+			editTextEasting.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setEasting("");
+					else
+						stationSurficialEntity.setEasting(s.toString());
+				}
+			});
 			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_northing);
 			editTextNorthing.setText(stationSurficialEntity.getNorthing());
+			editTextNorthing.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setNorthing("");
+					else
+						stationSurficialEntity.setNorthing(s.toString());
+				}
+			});
 			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_latitude);
 			editTextLatitude.setText(stationSurficialEntity.getLatitude());
+			editTextLatitude.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setLatitude("");
+					else
+						stationSurficialEntity.setLatitude(s.toString());
+				}
+			});
 			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_longitude);
 			editTextLongitude.setText(stationSurficialEntity.getLongitude());
+			editTextLongitude.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setLongitude("");
+					else
+						stationSurficialEntity.setLongitude(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -175,15 +236,45 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextInterpretation = (EditText) convertView
 					.findViewById(R.id.station_surficial_editText_interpretation);
 			editTextInterpretation.setText(stationSurficialEntity.getOcSize());
+			editTextInterpretation.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setOcSize("");
+					else
+						stationSurficialEntity.setOcSize(s.toString());
+				}
+			});
 			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_airphoto);
 			editTextAirPhoto.setText(stationSurficialEntity.getAirPhoto());
+			editTextAirPhoto.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setAirPhoto("");
+					else
+						stationSurficialEntity.setAirPhoto(s.toString());
+				}
+			});
 			//Button buttonAirPhoto = (Button) convertView
 			//		.findViewById(R.id.station_surficial_button_airphoto);
 			//Need some button functionality
 			EditText editTextMapSheet = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_mapsheet);
 			editTextMapSheet.setText(stationSurficialEntity.getMapSheet());
+			editTextMapSheet.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setMapSheet("");
+					else
+						stationSurficialEntity.setMapSheet(s.toString());
+				}
+			});
 			//Button buttonMapSheet = (Button) convertView
 			//		.findViewById(R.id.station_surficial_button_mapsheet);
 			//need some button functionality
@@ -195,6 +286,16 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_stationnote);
 			editTextStationNote.setText(stationSurficialEntity.getNotes());
+			editTextStationNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setNotes("");
+					else
+						stationSurficialEntity.setNotes(s.toString());
+				}
+			});
 			
 		} else if (tab == 5) {
 			
@@ -202,6 +303,16 @@ public class StationSurficialController extends BaseAdapter implements
 			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_sincelaststationnote);
 			editTextLastStationNote.setText(stationSurficialEntity.getSlsNotes());
+			editTextLastStationNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationSurficialEntity.setSlsNotes("");
+					else
+						stationSurficialEntity.setSlsNotes(s.toString());
+				}
+			});
 
 		}
 

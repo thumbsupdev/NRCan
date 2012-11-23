@@ -19,39 +19,45 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+
 import com.nrcan.picklists.BedrockPicklist;
 import com.nrcan.picklists.SurficialPicklist;
 
 public class FileArrayAdapter extends ArrayAdapter<Option>{
 
-	private Context c;
+	private AlertDialog dialog;
+	private AlertDialog.Builder builder;
+	private Context context;
 	private int id;
 	private List<Option>items;
 	ProgressThread progThread;
-    ProgressDialog progDialog;                            
-    int maxBarValue = 0;
+	ProgressDialog progDialog;                            
+	int maxBarValue = 0;
 
 	public FileArrayAdapter(Context context, int textViewResourceId, List<Option> objects) {
 		super(context, textViewResourceId, objects);
-		this.c = context;
+		this.context = context;
 		this.id = textViewResourceId;
 		this.items = objects;
 	}
-	
+
 	final Handler handler = new Handler() {
-        public void handleMessage(Message msg) {
-            // Get the current value of the variable total from the message data
-            // and update the progress bar.
-            int total = msg.getData().getInt("total");
-            progDialog.setProgress(total);
-            if (total >= maxBarValue){
-                progDialog.dismiss();
-                progThread.setState(ProgressThread.DONE);
-            }
-        }
-    };
+		public void handleMessage(Message msg) {
+			// Get the current value of the variable total from the message data
+			// and update the progress bar.
+			int total = msg.getData().getInt("total");
+			progDialog.setProgress(total);
+			if (total >= maxBarValue){
+				progDialog.dismiss();
+				progThread.setState(ProgressThread.DONE);
+			}
+		}
+	};
 
 	public Option getItem(int i)
 	{
@@ -63,7 +69,7 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 		View v = convertView;
 		if (v == null)
 		{
-			LayoutInflater vi = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater vi = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			v = vi.inflate(id, null);
 		}
 
@@ -75,6 +81,18 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 			TextView t2 = (TextView) v.findViewById(R.id.folderPath);
 			CheckBox c1 = (CheckBox) v.findViewById(R.id.checkBedrock);
 			CheckBox c2 = (CheckBox) v.findViewById(R.id.checkSurficial);
+
+			c1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					o.setBChecked(isChecked);
+				}
+			});
+
+			c2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					o.setSChecked(isChecked);
+				}
+			});
 
 			if(t1!=null)
 			{
@@ -90,175 +108,135 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
 			else
 				c1.setEnabled(false);
 
-
 			if(o.isSurficial())
 				c2.setChecked(true);
 			else
 				c2.setEnabled(false);
 
 			ImageButton loadPicklistButton = (ImageButton)v.findViewById(R.id.loadPicklistButton);
+			loadPicklistButton.setOnClickListener(new OnClickListener() {
+				public void onClick(View arg0) {
+					setupDialog(o);
+					dialog = builder.create();
+					dialog.show();
+				}
+			});
+		}
+		return v;
+	}
 
-			AlertDialog.Builder builder = new AlertDialog.Builder(c);
+	public void setupDialog(final Option o) {
+		builder = new AlertDialog.Builder(context);
+
+		if(o.isBChecked() && o.isSChecked()) {
+			builder.setMessage("Are you sure you want to load both Picklists (This may take a minute)")
+			.setTitle("Bedrock and Surficial Picklists");
+		} else if(o.isBChecked()) {
 			builder.setMessage("Are you sure you want to load this Picklist (This may take a minute)")
-			.setTitle("Picklists");
+			.setTitle("Bedrock Picklists");
+		} else if(o.isSChecked()) {
+			builder.setMessage("Are you sure you want to load this Picklist (This may take a minute)")
+			.setTitle("Surficial Picklists");
+		} else {
+			builder.setMessage("Please select a picklist to load")
+			.setTitle("No Picklist Selected");
+		}
 
+		if(o.isBChecked() || o.isSChecked()) {
 			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
 					maxBarValue = 0;
-					//loadPicklists(o);
-					if(o.isBedrock())
+					if(o.isBChecked())
 						maxBarValue+=MainActivity.getBedrock().size();
-					if(o.isSurficial())
+					if(o.isSChecked())
 						maxBarValue+=MainActivity.getSurficial().size();
-						
-					progDialog = new ProgressDialog(c){
+
+					progDialog = new ProgressDialog(context){
 						@Override
 						public boolean onSearchRequested() {
 							return false;
 						}
 					};
-		            progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		            progDialog.setMax(maxBarValue);
-		            progDialog.setMessage("Loading Picklists:");
-		            progDialog.setCancelable(false);
-		            progThread = new ProgressThread(handler, o);
-		            progThread.start();
-		            
-		            progDialog.show();
+					progDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+					progDialog.setMax(maxBarValue);
+					progDialog.setMessage("Loading Picklists:");
+					progDialog.setCancelable(false);
+					progThread = new ProgressThread(handler, o);
+					progThread.start();
+
+					progDialog.show();
 				}
 			});
-			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					dialog.dismiss();
-				}
-			});
-
-			final AlertDialog dialog = builder.create();
-
-			loadPicklistButton.setOnClickListener(new OnClickListener() {
-
-				public void onClick(View arg0) {
-					dialog.show();
-				}
-
-			});
-
 		}
-		return v;
+
+		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.dismiss();
+			}
+		});
 	}
 
-	public void loadPicklists(Option option) {
+	private class ProgressThread extends Thread {
+		final static int DONE = 0;
+		final static int RUNNING = 1;
 
-		if(option.isBedrock()) {
-			BedrockPicklist bedrockPicklist = new BedrockPicklist(c, MainActivity.getBedrock(), option.getPath());
-			bedrockPicklist.dropTables();
-			bedrockPicklist.createTables();
-			//bedrockPicklist.fillTables();
+		Handler mHandler;
+		int mState;
+		int total;
+		Option option;
+
+		ProgressThread(Handler h, Option o) {
+			mHandler = h;
+			option = o;
 		}
-		if(option.isSurficial()) {
-			SurficialPicklist surficialPicklist = new SurficialPicklist(c, MainActivity.getSurficial(), option.getPath());
-			surficialPicklist.dropTables();
-			surficialPicklist.createTables();
-			//surficialPicklist.fillTables();
+
+		@Override
+		public void run() {
+			mState = RUNNING;   
+			total = 0;
+			if(option.isBChecked()) {
+				BedrockPicklist bedrockPicklist = new BedrockPicklist(context, MainActivity.getBedrock(), option.getPath());
+				bedrockPicklist.dropTables();
+				bedrockPicklist.createTables();
+
+				for(Map.Entry<String, Integer> entry : bedrockPicklist.getBedrockFilenames().entrySet())
+				{
+					bedrockPicklist.fillTable(entry);
+
+					Message msg = mHandler.obtainMessage();
+					Bundle b = new Bundle();
+					b.putInt("total", total + 1);
+					msg.setData(b);
+					mHandler.sendMessage(msg);
+
+					total++;
+				}
+			}
+
+			if(option.isSChecked()) {
+				SurficialPicklist surficialPicklist = new SurficialPicklist(context, MainActivity.getSurficial(), option.getPath());
+				surficialPicklist.dropTables();
+				surficialPicklist.createTables();
+
+				for(Map.Entry<String, Integer> entry : surficialPicklist.getSurficialFilenames().entrySet())
+				{
+					surficialPicklist.fillTable(entry);
+
+					Message msg = mHandler.obtainMessage();
+					Bundle b = new Bundle();
+					b.putInt("total", total + 1);
+					msg.setData(b);
+					mHandler.sendMessage(msg);
+
+					total++;
+				}
+			}
+		}
+
+		public void setState(int state) {
+			mState = state;
 		}
 	}
-	
-	 private class ProgressThread extends Thread {	
-         
-         // Class constants defining state of the thread
-         final static int DONE = 0;
-         final static int RUNNING = 1;
-         
-         Handler mHandler;
-         int mState;
-         int total;
-         Option option;
-     
-         // Constructor with an argument that specifies Handler on main thread
-         // to which messages will be sent by this thread.
-         
-         ProgressThread(Handler h, Option o) {
-             mHandler = h;
-             option = o;
-         }
-         
-         // Override the run() method that will be invoked automatically when 
-         // the Thread starts.  Do the work required to update the progress bar on this
-         // thread but send a message to the Handler on the main UI thread to actually
-         // change the visual representation of the progress. In this example we count
-         // the index total down to zero, so the horizontal progress bar will start full and
-         // count down.
-         
-         @Override
-         public void run() {
-             mState = RUNNING;   
-             total = 0;
-             if(option.isBedrock()) {
-     			BedrockPicklist bedrockPicklist = new BedrockPicklist(c, MainActivity.getBedrock(), option.getPath());
-     			bedrockPicklist.dropTables();
-     			bedrockPicklist.createTables();
-     			//bedrockPicklist.fillTables();
-     		
-	             for(Map.Entry<String, Integer> entry : bedrockPicklist.getBedrockFilenames().entrySet())
-	             {
-	            	 bedrockPicklist.fillTable(entry);
-	                 // The method Thread.sleep throws an InterruptedException if Thread.interrupt() 
-	                 // were to be issued while thread is sleeping; the exception must be caught.
-	            	 /*try {
-	                     // Control speed of update (but precision of delay not guaranteed)
-	                     Thread.sleep(40);
-	                 } catch (InterruptedException e) {
-	                     Log.e("ERROR", "Thread was Interrupted");
-	                 }*/
-	                 // Send message (with current value of  total as data) to Handler on UI thread
-	                 // so that it can update the progress bar.
-	                 
-	                 Message msg = mHandler.obtainMessage();
-	                 Bundle b = new Bundle();
-	                 b.putInt("total", total+1);
-	                 msg.setData(b);
-	                 mHandler.sendMessage(msg);
-	                 
-	                 total++;    // Count down
-	             }
-             }
-             
-             if(option.isSurficial()) {
-            	 SurficialPicklist surficialPicklist = new SurficialPicklist(c, MainActivity.getSurficial(), option.getPath());
-     			surficialPicklist.dropTables();
-     			surficialPicklist.createTables();
-      			//bedrockPicklist.fillTables();
-      		
- 	             for(Map.Entry<String, Integer> entry : surficialPicklist.getSurficialFilenames().entrySet())
- 	             {
- 	            	 surficialPicklist.fillTable(entry);
- 	                 // The method Thread.sleep throws an InterruptedException if Thread.interrupt() 
- 	                 // were to be issued while thread is sleeping; the exception must be caught.
- 	            	 /*try {
- 	                     // Control speed of update (but precision of delay not guaranteed)
- 	                     Thread.sleep(40);
- 	                 } catch (InterruptedException e) {
- 	                     Log.e("ERROR", "Thread was Interrupted");
- 	                 }*/
- 	                 // Send message (with current value of  total as data) to Handler on UI thread
- 	                 // so that it can update the progress bar.
- 	                 
- 	                 Message msg = mHandler.obtainMessage();
- 	                 Bundle b = new Bundle();
- 	                 b.putInt("total", total+1);
- 	                 msg.setData(b);
- 	                 mHandler.sendMessage(msg);
- 	                 
- 	                 total++;    // Count down
- 	             }
-              }
-         }
-         
-         // Set current state of thread (use state=ProgressThread.DONE to stop thread)
-         public void setState(int state) {
-             mState = state;
-         }
-     }
 
 }
 

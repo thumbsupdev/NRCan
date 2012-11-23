@@ -23,7 +23,6 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
@@ -441,7 +440,7 @@ public class MainActivity extends ListActivity {
 		lv30 = (ListView)findViewById(R.id.listDetail2);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
-		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel, pldb);
+		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel.getEntity(), pldb);
 		adap3 = new ListController(this, this, "EARTH MATERIAL");
 		adap4 = new EarthmatSurficialController(this, this,earthmatSurficialModel, pldb);
 		adap5 = new ListController(this, this, "ENVIRONMENT");
@@ -463,9 +462,9 @@ public class MainActivity extends ListActivity {
 		adap21 = new ListController(this, this, "SOIL PROFILE");
 		adap22 = new SoilProSurficialController(this, this,soilProSurficialModel, pldb);
 		adap23 = new ListController(this, this, "STATION");
-		adap24 = new StationBedrockController(this, this,stationBedrockModel, pldb);
+		adap24 = new StationBedrockController(this, this,stationBedrockModel.getEntity(), pldb);
 		adap25 = new ListController(this, this, "STATION");
-		adap26 = new StationSurficialController(this, this,stationSurficialModel, pldb);
+		adap26 = new StationSurficialController(this, this,stationSurficialModel.getEntity(), pldb);
 		adap27 = new ListController(this, this, "STRUCTURE");
 		adap28 = new StructureController(this, this,structureModel.getEntity(), pldb);
 		adap29 = new DetailController(this, this, details1);
@@ -1155,12 +1154,6 @@ public class MainActivity extends ListActivity {
 		switch(id) {
 		case 0:
 			progDialog = new ProgressDialog(this){
-				@Override
-				public void onAttachedToWindow()
-				{
-					super.onAttachedToWindow();
-					this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
-				}
 				@Override
 				public boolean onSearchRequested() {
 					return false;

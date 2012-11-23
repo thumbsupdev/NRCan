@@ -6,6 +6,8 @@ import com.nrcan.main.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,9 +135,29 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			EditText editTextStrike = (EditText) convertView.findViewById(R.id.structure_text_strike);
 			editTextStrike.setText(structureEntity.getAzimuth());
+			editTextStrike.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setAzimuth("");
+					else
+						structureEntity.setAzimuth(s.toString());
+				}
+			});
 			
 			EditText editTextDip = (EditText) convertView.findViewById(R.id.structure_text_dip);
 			editTextDip.setText(structureEntity.getDipplunge());
+			editTextDip.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setDipplunge("");
+					else
+						structureEntity.setDipplunge(s.toString());
+				}
+			});
 			
 		} else if (tab == 3) {
 			convertView = mInflater.inflate(R.layout.structure_3, null);
@@ -202,21 +224,61 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			EditText editTextRelated = (EditText) convertView.findViewById(R.id.structure_editText_related);
 			editTextRelated.setText(structureEntity.getFlattening());
+			editTextRelated.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setFlattening("");
+					else
+						structureEntity.setFlattening(s.toString());
+				}
+			});
 			
 		} else if (tab == 4) {
 			convertView = mInflater.inflate(R.layout.structure_4, null);
 
 			EditText editTextFabric = (EditText) convertView.findViewById(R.id.structure_text_fabric);
 			editTextFabric.setText(structureEntity.getFabric());
+			editTextFabric.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setFabric("");
+					else
+						structureEntity.setFabric(s.toString());
+				}
+			});
 			
 			EditText editTextSense = (EditText) convertView.findViewById(R.id.structure_text_sense);
 			editTextSense.setText(structureEntity.getSense());
+			editTextSense.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setSense("");
+					else
+						structureEntity.setSense(s.toString());
+				}
+			});
 			
 		} else if (tab == 5) {
 			convertView = mInflater.inflate(R.layout.structure_5, null);
 
 			EditText editTextNote = (EditText) convertView.findViewById(R.id.structure_text_note);
 			editTextNote.setText(structureEntity.getNotes());
+			editTextNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						structureEntity.setNotes("");
+					else
+						structureEntity.setNotes(s.toString());
+				}
+			});
 		}
 
 		return convertView;
@@ -244,37 +306,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 		return true;
 	}
 	
-	public void saveTab1() {
-		
-	}
 	
-	public void saveTab2() {
-		EditText editTextStrike = (EditText) activity.findViewById(R.id.structure_text_strike);
-		EditText editTextDip = (EditText) activity.findViewById(R.id.structure_text_dip);
-		
-		//structureEntity.setAzimuth();
-		//structureEntity.setDipplunge();
-	}
-	
-	public void saveTab3() {
-		EditText editTextRelated = (EditText) activity.findViewById(R.id.structure_editText_related);
-		
-		//structureEntity.setRelated();
-	}
-	
-	public void saveTab4() {
-		EditText editTextFabric = (EditText) activity.findViewById(R.id.structure_text_fabric);
-		EditText editTextSense = (EditText) activity.findViewById(R.id.structure_text_sense);
-		
-		//structureEntity
-		//structureEntity
-	}
-	
-	public void saveTab5() {
-		EditText editTextNote = (EditText) activity.findViewById(R.id.structure_text_note);
-		
-		//structureEntity
-	}
 
 	
 

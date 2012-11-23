@@ -10,6 +10,8 @@ import com.nrcan.models.StationBedrockModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,16 +31,15 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 	private int tab;
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
-	private StationBedrockModel stationBedrockModel;
 	private StationBedrockEntity stationBedrockEntity;
 
-	public StationBedrockController(Context context, Activity activity,StationBedrockModel stationBedrockModel,PicklistDatabaseHandler pldb) {
+	public StationBedrockController(Context context, Activity activity,StationBedrockEntity stationBedrockEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-		this.stationBedrockModel = stationBedrockModel;
-		this.stationBedrockEntity = stationBedrockModel.getEntity();
+		
+		this.stationBedrockEntity = stationBedrockEntity;
 		this.pldb = pldb;
 	}
 
@@ -62,12 +63,32 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_text_traverse);
 			editTextTrav.setText(stationBedrockEntity.getTravNo());
+			editTextTrav.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setTravNo("");
+					else
+						stationBedrockEntity.setTravNo(s.toString());
+				}
+			});
 			//Button buttonDate = (Button) convertView
 			//		.findViewById(R.id.station_button_date);
 			// need some button functionality
 			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_text_elevation);
 			editTextElev.setText(stationBedrockEntity.getElevation());
+			editTextElev.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setElevation("");
+					else
+						stationBedrockEntity.setElevation(s.toString());
+				}
+			});
 			
 			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_spinner_elevation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -86,15 +107,55 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_text_easting);
 			editTextEasting.setText(stationBedrockEntity.getEasting());
+			editTextEasting.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setEasting("");
+					else
+						stationBedrockEntity.setEasting(s.toString());
+				}
+			});
 			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_text_northing);
 			editTextNorthing.setText(stationBedrockEntity.getNorthing());
+			editTextNorthing.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setNorthing("");
+					else
+						stationBedrockEntity.setNorthing(s.toString());
+				}
+			});
 			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_text_latitude);
 			editTextLatitude.setText(stationBedrockEntity.getLatitude());
+			editTextLatitude.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setLatitude("");
+					else
+						stationBedrockEntity.setLatitude(s.toString());
+				}
+			});
 			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_text_longitude);
 			editTextLongitude.setText(stationBedrockEntity.getLongitude());
+			editTextLongitude.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setLongitude("");
+					else
+						stationBedrockEntity.setLongitude(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -143,6 +204,16 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextOutcropSize = (EditText) convertView
 					.findViewById(R.id.station_text_outcropsize);
 			editTextOutcropSize.setText(stationBedrockEntity.getOcSize());
+			editTextOutcropSize.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setOcSize("");
+					else
+						stationBedrockEntity.setOcSize(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 3) {
@@ -151,9 +222,29 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_text_airphoto);
 			editTextAirPhoto.setText(stationBedrockEntity.getAirPhoto());
+			editTextAirPhoto.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setAirPhoto("");
+					else
+						stationBedrockEntity.setAirPhoto(s.toString());
+				}
+			});
 			EditText editTextPartner = (EditText) convertView
 					.findViewById(R.id.station_editText_partner);
 			editTextPartner.setText(stationBedrockEntity.getPartner());
+			editTextPartner.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setPartner("");
+					else
+						stationBedrockEntity.setPartner(s.toString());
+				}
+			});
 			
 			
 		} else if (tab == 4) {
@@ -163,6 +254,16 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_stationnote);
 			editTextStationNote.setText(stationBedrockEntity.getNotes());
+			editTextStationNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setNotes("");
+					else
+						stationBedrockEntity.setNotes(s.toString());
+				}
+			});
 			
 		} else if (tab == 5) {
 			
@@ -171,6 +272,16 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_sincelaststationnote);
 			editTextLastStationNote.setText(stationBedrockEntity.getSlsNotes());
+			editTextLastStationNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						stationBedrockEntity.setSlsNotes("");
+					else
+						stationBedrockEntity.setSlsNotes(s.toString());
+				}
+			});
 			
 		}
 

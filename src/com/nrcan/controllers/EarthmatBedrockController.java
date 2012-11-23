@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import com.nrcan.entities.EarthmatBedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-import com.nrcan.models.EarthmatBedrockModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,20 +27,17 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private EarthmatBedrockModel earthmatbedrockModel;
 	private EarthmatBedrockEntity earthmatBedrockEntity;
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
 
-	public EarthmatBedrockController(Context context, Activity activity, EarthmatBedrockModel earthmatbedrockModel, PicklistDatabaseHandler pldb) {
+	public EarthmatBedrockController(Context context, Activity activity, EarthmatBedrockEntity earthmatBedrockEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-		this.earthmatbedrockModel = earthmatbedrockModel;
-		this.earthmatBedrockEntity = earthmatbedrockModel.getEntity();
+		this.earthmatBedrockEntity = earthmatBedrockEntity;
 		this.pldb = pldb;
-		
 	}
 
 	public int getCount() {
@@ -63,12 +61,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatRocktype"));
 			spinnerGroup.setAdapter(sp1);
 			spinnerGroup.setSelection(sp1.getPosition(earthmatBedrockEntity.getLithGroup()));
-			
 			spinnerGroup.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = parent.getItemAtPosition(position).toString();
 					if(!tmp.equalsIgnoreCase(earthmatBedrockEntity.getLithGroup()))
@@ -77,177 +71,144 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setLithType("");
 						earthmatBedrockEntity.setLithDetail("");
 						earthmatBedrockEntity.setOccurAs("");
-						System.out.println(parent.getItemAtPosition(position));
 						notifyDataSetChanged();
 					}
-					
-					
-					//sp2.setElements(pldb.getCol2("lutBEDEarthmatRocktype",parent.getItemAtPosition(position).toString()));
-					
 				}
-				
-			
 			});
-			
-		
-			
+
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatRocktype",earthmatBedrockEntity.getLithGroup()));
 			spinnerType.setAdapter(sp2);
 			spinnerType.setSelection(sp2.getPosition(earthmatBedrockEntity.getLithType()));
-			
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = parent.getItemAtPosition(position).toString();
 					if(!tmp.equalsIgnoreCase(earthmatBedrockEntity.getLithType()))
 					{
 						earthmatBedrockEntity.setLithType(tmp);
 						earthmatBedrockEntity.setLithDetail("");
-						System.out.println(parent.getItemAtPosition(position));
 						notifyDataSetChanged();
 					}
-					//earthmatBedrockEntity.setLithType(parent.getItemAtPosition(position).toString());
-					//System.out.println(parent.getItemAtPosition(position));
-					
 				}
 			});
-			
+
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
-			
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol3("lutBEDEarthmatRocktype",earthmatBedrockEntity.getLithGroup(),earthmatBedrockEntity.getLithType()));
 			spinnerDetail.setAdapter(sp3);
 			spinnerDetail.setSelection(sp3.getPosition(earthmatBedrockEntity.getLithDetail()));
-			
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setLithDetail(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
 			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			
-			//sp4.setElementsCol1();
 			sp4.setElements(pldb.getCol1("lutBEDEarthmatMapUnit"));
 			spinnerUnit.setAdapter(sp4);
 			spinnerUnit.setSelection(sp4.getPosition(earthmatBedrockEntity.getMapUnit()));
 			spinnerUnit.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setMapUnit(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
+
 			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			//sp5.setElementsCol2("");  // NEEDS INPUT
 			spinnerOccurs.setAdapter(sp5);
 			sp5.setElements(pldb.getCol2("lutBEDEarthmatOccurs",earthmatBedrockEntity.getLithGroup()));
 			spinnerOccurs.setSelection(sp5.getPosition(earthmatBedrockEntity.getOccurAs()));
 			spinnerOccurs.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setOccurAs(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
 		} else if (tab == 2) {
-			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock2, null);
-			
+
 			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatStructural",earthmatBedrockEntity.getLithGroup()));
 			spinnerStructure.setAdapter(sp1);
 			spinnerStructure.setSelection(sp1.getPosition(earthmatBedrockEntity.getModStruc()));
 			spinnerStructure.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setModStruc(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getModStruc();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setModStruc(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setModStruc(sel);
+						
+						notifyDataSetChanged();
+					}
 				}
 			});
-		
-			
-			
-			
-			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
+
 			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
+			editTextStructure.setText(earthmatBedrockEntity.getModStruc());
+			editTextStructure.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setModStruc("");
+					else
+						earthmatBedrockEntity.setModStruc(s.toString());
+				}
+			});
+
+			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
+			buttonStructure.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setModStruc("");
+					notifyDataSetChanged();
+				}
+			});
 
 			Spinner spinnerTexture = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_texture);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatTextural",earthmatBedrockEntity.getLithGroup()));
 			spinnerTexture.setAdapter(sp2);
 			spinnerTexture.setSelection(sp2.getPosition(earthmatBedrockEntity.getModTexture()));
-			
 			spinnerTexture.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setModTexture(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
-			
-			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
+
 			EditText editTextTexture = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_texture);
+			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
 
 			Spinner spinnerComposition = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_composition);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerComposition.setAdapter(sp3);
 			sp3.setElements(pldb.getCol2("lutBEDEarthmatComposition",earthmatBedrockEntity.getLithGroup()));
 			spinnerComposition.setSelection(sp3.getPosition(earthmatBedrockEntity.getModComp()));
-			
 			spinnerComposition.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setModComp(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
-			
-			
-			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
+
 			EditText editTextComposition = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_composition);
-			
+			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
+
 		} else if (tab == 3) {
-			
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock3, null);
-			
+
 			Spinner spinnerGrnCry = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatGCSize",earthmatBedrockEntity.getLithGroup()));
@@ -255,7 +216,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerGrnCry.setSelection(sp1.getPosition(earthmatBedrockEntity.getGrcrySize()));
 			spinnerGrnCry.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -263,8 +224,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
 			editTextGrnCry.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -280,7 +241,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerDefFabric.setSelection(sp2.getPosition(earthmatBedrockEntity.getDefFabric()));
 			spinnerDefFabric.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -288,8 +249,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
 			EditText editTextDefFabric = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_defFabric);
 
@@ -300,7 +261,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerBedThick.setSelection(sp3.getPosition(earthmatBedrockEntity.getBedThick()));
 			spinnerBedThick.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -308,13 +269,13 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
 			EditText editTextBedThick = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_bedThick);
-			
+
 		} else if (tab == 4) {
-			
+
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock4, null);
 
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_mineral);
@@ -324,7 +285,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerMineral.setSelection(sp1.getPosition(earthmatBedrockEntity.getMineral()));
 			spinnerMineral.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -332,16 +293,16 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
 			EditText editTextMineral = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_mineral);
 			EditText editTextRockDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-			
+
 		} else if (tab == 5) {
-			
+
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock5, null);
-			
+
 			Spinner spinnerFresh = (Spinner) convertView.findViewById(R.id.earthmat_spinner_fresh);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatColour"));
@@ -349,7 +310,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerFresh.setSelection(sp1.getPosition(earthmatBedrockEntity.getColourF()));
 			spinnerFresh.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -357,8 +318,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Spinner spinnerWeathered = (Spinner) convertView.findViewById(R.id.earthmat_spinner_weathered);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutBEDEarthmatColour"));
@@ -366,7 +327,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerWeathered.setSelection(sp2.getPosition(earthmatBedrockEntity.getColourW()));
 			spinnerWeathered.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -374,15 +335,15 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			EditText editTextIndex = (EditText) convertView.findViewById(R.id.earthmat_editText_index);
 			EditText editTextMagSus = (EditText) convertView.findViewById(R.id.earthmat_editText_magSusceptibility);
 
 		} else if (tab == 6) {
-			
+
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock6, null);
-			
+
 			Spinner spinnerFossil = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_fossil);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatFossil"));
@@ -390,7 +351,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerFossil.setSelection(sp1.getPosition(earthmatBedrockEntity.getFossils()));
 			spinnerFossil.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -399,15 +360,15 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
+
 			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
 			EditText editTextFossil = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_fossil);
 			EditText editTextFossilDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-			
+
 		} else if (tab == 7) {
-			
+
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock7, null);
-			
+
 			Spinner spinnerContactUpper = (Spinner) convertView.findViewById(R.id.earthmat_spinner_upper);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatContact"));
@@ -415,7 +376,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerContactUpper.setSelection(sp1.getPosition(earthmatBedrockEntity.getContactUp()));
 			spinnerContactUpper.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -423,8 +384,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-			
+
+
 			Spinner spinnerContactLower = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lower);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerContactLower.setAdapter(sp2);
@@ -432,7 +393,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerContactLower.setSelection(sp2.getPosition(earthmatBedrockEntity.getContactLow()));
 			spinnerContactLower.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -442,11 +403,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 
 			EditText editTextContactDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
-			
+
 		} else if (tab == 8) {
-			
+
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock8, null);
-			
+
 			EditText editTextLithDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
 			Spinner spinnerLithInterp = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -455,7 +416,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerLithInterp.setSelection(sp1.getPosition(earthmatBedrockEntity.getInterpConf()));
 			spinnerLithInterp.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
-					
+
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -473,7 +434,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	}
 
 	public boolean setTab(int tabNum) {
-		
+
 		if(this.tab == 1){
 			if(earthmatBedrockEntity.getLithGroup().equalsIgnoreCase("")){
 				return false;
@@ -489,5 +450,5 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		notifyDataSetChanged();
 		return true;
 	}
-	
+
 }
