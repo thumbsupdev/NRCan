@@ -1,11 +1,8 @@
 package com.nrcan.controllers;
 
-import java.util.ArrayList;
-
 import com.nrcan.entities.StructureEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-import com.nrcan.models.StructureModel;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,11 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -27,19 +22,15 @@ public class StructureController extends BaseAdapter implements Filterable {
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private StructureModel structureModel;
 	private StructureEntity structureEntity;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
-	
 
-	public StructureController(Context context, Activity activity,StructureModel structureModel,PicklistDatabaseHandler pldb) {
+	public StructureController(Context context, Activity activity,StructureEntity structureEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-		this.structureModel = structureModel;
-		this.structureEntity = structureModel.getEntity();
+		this.structureEntity = structureEntity;
 		this.pldb = pldb;
 	}
 
@@ -56,9 +47,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-
 		if (tab == 1) {
-			
 			convertView = mInflater.inflate(R.layout.structure_1, null);
 			
 			Spinner spinnerClass = (Spinner) convertView.findViewById(R.id.structure_spinner_class);
@@ -67,7 +56,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			spinnerClass.setAdapter(sp1);
 			spinnerClass.setSelection(sp1.getPosition(structureEntity.getStrucClass()));
 			spinnerClass.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {}
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = parent.getItemAtPosition(position).toString();
 					if(!tmp.equalsIgnoreCase(structureEntity.getStrucClass()))
@@ -81,14 +70,13 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
-			
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.structure_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDStrucType", structureEntity.getStrucClass()));
 			spinnerType.setAdapter(sp2);
 			spinnerType.setSelection(sp2.getPosition(structureEntity.getStrucType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {}
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = parent.getItemAtPosition(position).toString();
 					if(!tmp.equalsIgnoreCase(structureEntity.getStrucType()))
@@ -106,22 +94,17 @@ public class StructureController extends BaseAdapter implements Filterable {
 			spinnerDetail.setAdapter(sp3);
 			spinnerDetail.setSelection(sp3.getPosition(structureEntity.getDetail()));
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {}
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = parent.getItemAtPosition(position).toString();
 					if(!tmp.equalsIgnoreCase(structureEntity.getDetail()))
 					{
-						structureEntity.setDetail(parent.getItemAtPosition(position).toString());					
-						
+						structureEntity.setDetail(parent.getItemAtPosition(position).toString());
 					}
 				}
 			});
 			
-			
-
-			
 		} else if (tab == 2) {
-			
 			convertView = mInflater.inflate(R.layout.structure_2, null);
 			
 			Spinner spinnerMethod = (Spinner) convertView.findViewById(R.id.structure_spinner_method);
@@ -148,17 +131,13 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
-			
-			
-			EditText editTextStrike = (EditText) convertView
-					.findViewById(R.id.structure_text_strike);
+			EditText editTextStrike = (EditText) convertView.findViewById(R.id.structure_text_strike);
 			editTextStrike.setText(structureEntity.getAzimuth());
-			EditText editTextDip = (EditText) convertView
-					.findViewById(R.id.structure_text_dip);
+			
+			EditText editTextDip = (EditText) convertView.findViewById(R.id.structure_text_dip);
 			editTextDip.setText(structureEntity.getDipplunge());
 			
 		} else if (tab == 3) {
-			
 			convertView = mInflater.inflate(R.layout.structure_3, null);
 			
 			Spinner spinnerAttitude = (Spinner) convertView.findViewById(R.id.structure_spinner_attitude);
@@ -221,32 +200,23 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
-			
-			
-			EditText editTextRelated = (EditText) convertView
-					.findViewById(R.id.structure_editText_related);
+			EditText editTextRelated = (EditText) convertView.findViewById(R.id.structure_editText_related);
 			editTextRelated.setText(structureEntity.getFlattening());
 			
 		} else if (tab == 4) {
-			
 			convertView = mInflater.inflate(R.layout.structure_4, null);
 
-			EditText editTextFabric = (EditText) convertView
-					.findViewById(R.id.structure_text_fabric);
+			EditText editTextFabric = (EditText) convertView.findViewById(R.id.structure_text_fabric);
 			editTextFabric.setText(structureEntity.getFabric());
-			EditText editTextSense = (EditText) convertView
-					.findViewById(R.id.structure_text_sense);
+			
+			EditText editTextSense = (EditText) convertView.findViewById(R.id.structure_text_sense);
 			editTextSense.setText(structureEntity.getSense());
-
 			
 		} else if (tab == 5) {
-			
 			convertView = mInflater.inflate(R.layout.structure_5, null);
 
-			EditText editTextNote = (EditText) convertView
-					.findViewById(R.id.structure_text_sense);
-			editTextNote.setText(structureEntity.getNote());
-			
+			EditText editTextNote = (EditText) convertView.findViewById(R.id.structure_text_note);
+			editTextNote.setText(structureEntity.getNotes());
 		}
 
 		return convertView;
@@ -258,13 +228,13 @@ public class StructureController extends BaseAdapter implements Filterable {
 
 	public boolean setTab(int tabNum) {
 		if(this.tab == 1){
-			if(structureModel.getEntity().getStrucClass().equalsIgnoreCase("")){
+			if(structureEntity.getStrucClass().equalsIgnoreCase("")){
 				return false;
 			}
-			if(structureModel.getEntity().getStrucType().equalsIgnoreCase("")){
+			if(structureEntity.getStrucType().equalsIgnoreCase("")){
 				return false;
 			}
-			if(structureModel.getEntity().getDetail().equalsIgnoreCase("")){
+			if(structureEntity.getDetail().equalsIgnoreCase("")){
 				return false;
 			}
 			
@@ -272,6 +242,38 @@ public class StructureController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 		return true;
+	}
+	
+	public void saveTab1() {
+		
+	}
+	
+	public void saveTab2() {
+		EditText editTextStrike = (EditText) activity.findViewById(R.id.structure_text_strike);
+		EditText editTextDip = (EditText) activity.findViewById(R.id.structure_text_dip);
+		
+		//structureEntity.setAzimuth();
+		//structureEntity.setDipplunge();
+	}
+	
+	public void saveTab3() {
+		EditText editTextRelated = (EditText) activity.findViewById(R.id.structure_editText_related);
+		
+		//structureEntity.setRelated();
+	}
+	
+	public void saveTab4() {
+		EditText editTextFabric = (EditText) activity.findViewById(R.id.structure_text_fabric);
+		EditText editTextSense = (EditText) activity.findViewById(R.id.structure_text_sense);
+		
+		//structureEntity
+		//structureEntity
+	}
+	
+	public void saveTab5() {
+		EditText editTextNote = (EditText) activity.findViewById(R.id.structure_text_note);
+		
+		//structureEntity
 	}
 
 	

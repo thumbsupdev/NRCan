@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,6 +40,11 @@ public class MainActivity extends ListActivity {
 	private ProgressThread progThread;
 	private ProgressDialog progDialog;
 	int typeBar = 0;
+	
+	
+
+    private InputMethodManager im;// = (InputMethodManager)Context.getSystemService(Context.INPUT_METHOD_SERVICE);
+    //im.showSoftInput(textEdit, InputMethodManager.SHOW_IMPLICIT);
 
 	private boolean selectionFlag;
 	private boolean newFlag;
@@ -450,6 +456,9 @@ public class MainActivity extends ListActivity {
 		lv28 = (ListView)findViewById(R.id.listStructure);
 		lv29 = (ListView)findViewById(R.id.listDetail1);
 		lv30 = (ListView)findViewById(R.id.listDetail2);
+		
+
+        im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
 		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel, pldb);
@@ -460,7 +469,7 @@ public class MainActivity extends ListActivity {
 		adap7 = new ListController(this, this, "MINERALIZATION / ALTERATION");
 		adap8 = new MABedrockController(this, this,mABedrockModel,pldb);
 		adap9 = new ListController(this, this, "METADATA");
-		adap10 = new MetadataController(this, this, metadataModel.getEntity(), pldb);
+		adap10 = new MetadataController(this, this, metadataModel.getEntity(), pldb, im);
 		adap11 = new ListController(this, this, "MINERAL");
 		adap12 = new MineralBedrockController(this, this,mineralBedrockModel, pldb);
 		adap13 = new ListController(this, this, "PALEO FLOW");
@@ -478,7 +487,7 @@ public class MainActivity extends ListActivity {
 		adap25 = new ListController(this, this, "STATION");
 		adap26 = new StationSurficialController(this, this,stationSurficialModel, pldb);
 		adap27 = new ListController(this, this, "STRUCTURE");
-		adap28 = new StructureController(this, this,structureModel, pldb);
+		adap28 = new StructureController(this, this,structureModel.getEntity(), pldb);
 		adap29 = new DetailController(this, this, details1);
 		adap30  =new DetailController(this, this, details2);
 
@@ -515,7 +524,7 @@ public class MainActivity extends ListActivity {
 
 		setupButtons();
 
-		flipper.setDisplayedChild(9);
+		flipper.setDisplayedChild(8);
 		//button2.setVisibility(View.INVISIBLE);
 		//button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());

@@ -75,7 +75,7 @@ public class StationSurficialController extends BaseAdapter implements
 			
 			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_elevation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutStationSURElevmethod"));
+			sp1.setElements(pldb.getCol1("lutSURStationElevmethod"));
 			spinnerElev.setAdapter(sp1);
 			spinnerElev.setSelection(sp1.getPosition(stationSurficialEntity.getElevation()));
 			spinnerElev.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -131,7 +131,7 @@ public class StationSurficialController extends BaseAdapter implements
 			
 			Spinner spinnerLegendValue = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_legendvalue);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp3.setElements(pldb.getCol1("lutBEDMetadataPrjctType"));
+			sp3.setElements(pldb.getCol1("lutSURStationLegendval"));
 			spinnerLegendValue.setAdapter(sp3);
 			spinnerLegendValue.setSelection(sp3.getPosition(stationSurficialEntity.getLegendVal()));
 			spinnerLegendValue.setOnItemSelectedListener(new OnItemSelectedListener() {

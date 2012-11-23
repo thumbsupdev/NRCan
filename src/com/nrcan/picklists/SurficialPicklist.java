@@ -4,6 +4,7 @@ import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.values.PreparedStatements;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,9 +17,10 @@ import android.database.sqlite.SQLiteStatement;
 import java.io.FileInputStream;
 
 public class SurficialPicklist extends PicklistDatabaseHandler implements PicklistInterface {
-    
-    // Store a reference to the hashmap
     private Map<String, Integer> surficialFilenames;
+    public Map<String, Integer> getSurficialFilenames() {
+		return surficialFilenames;
+	}
     private String filePath;
     
     public SurficialPicklist(Context context, Map<String, Integer> surficialFilenames, String filePath) {
@@ -58,6 +60,104 @@ public class SurficialPicklist extends PicklistDatabaseHandler implements Pickli
             String tableName = (String)entry.getKey();
             super.execSQLStatement("DROP TABLE IF EXISTS " + tableName.substring(0, tableName.length() - 4));
         }
+    }
+    
+    public void fillTable(Entry<String, Integer> entry)
+    {
+    	InputStream fileIS = null;
+        BufferedReader input = null;
+
+            try {
+                String filename = (String)entry.getKey();
+
+                //fileIS = super.context.getAssets().open("LUT_SURFICIAL/" + filename + ".txt");
+                fileIS = new FileInputStream(filePath + "/" + filename);
+                input = new BufferedReader(new InputStreamReader(fileIS));
+
+                //consume the first line
+                input.readLine();
+
+                switch(((Integer)entry.getValue()).intValue()) {
+
+                    case 3: {          
+                                Pattern pattern = Pattern.compile("\t"); // compiles regex string into a pattern
+                                String line = null;
+                                String[] cells = new String[3];
+                                
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_3_COL);
+                                
+                                while ((line = input.readLine()) != null) {
+
+                                    String[] cells2 = pattern.split(line, 0);
+                                    System.arraycopy(cells2, 0, cells, 0, (cells2.length > 3) ? 3 : cells2.length);
+                                    //System.out.println(((cells[0] == null) ? "" : cells[0]) + " -- " + ((cells[1] == null) ? "" : cells[1]) + " -- " + ((cells[2] == null) ? "" : cells[2]));
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(2, (cells[1] == null) ? "" : cells[1]);
+                                	s.bindString(3, (cells[2] == null) ? "" : cells[2]);
+                                	s.execute();
+                                }
+                                
+                                db.close();
+                    }
+                    break;
+
+                    case 2: {
+
+                                Pattern pattern = Pattern.compile("\t");
+                                String line = null;
+                                String[] cells = new String[2];
+                                
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_2_COL);
+
+                                while ((line = input.readLine()) != null) {
+                                    String[] cells2 = pattern.split(line, 0);
+                                    System.arraycopy(cells2, 0, cells, 0, (cells2.length > 2) ? 2 : cells2.length);
+                                    //System.out.println(((cells[0] == null) ? "" : cells[0]) + " -- " + ((cells[1] == null) ? "" : cells[1]));
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(2, (cells[1] == null) ? "" : cells[1]);
+                                	s.execute();
+                                }
+                                
+                                db.close();
+                    }
+                    break;
+
+                    case 1: {
+
+                                String line = null;
+                                String[] cells = new String[1];
+
+                                SQLiteDatabase db = getWritableDatabase();
+                            	SQLiteStatement s = db.compileStatement("INSERT INTO " + filename.substring(0, filename.length() - 4) + PreparedStatements.INSERT_1_COL);
+
+                                while ((line = input.readLine()) != null) {
+                                	cells[0] = line;
+                                    //System.out.println((cells[0] == null) ? "" : cells[0]);
+                                	s.bindString(1, (cells[0] == null) ? "" : cells[0]);
+                                	s.execute();
+                                }
+                                
+                                db.close();
+                    }
+                    break;
+
+                    default: break;
+                }
+
+                if(input != null) {
+                    input.close();
+                }
+
+                if(fileIS != null) {
+                    fileIS.close();
+                }
+
+            } catch (IOException ioe) {
+                //throw new IOException(ioe.getCause().getMessage());
+                System.out.println(ioe.getCause().getMessage());
+            }
     }
 
     public void fillTables() {

@@ -6,9 +6,13 @@ import com.nrcan.main.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -24,14 +28,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	private PicklistDatabaseHandler pldb;
 	private MetadataEntity metadataEntity;
     private int tab;
+    private EditText focus;
+    private InputMethodManager im;
 
-	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity,PicklistDatabaseHandler pldb) {
+	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity, PicklistDatabaseHandler pldb, InputMethodManager im) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
         this.pldb = pldb;
         this.metadataEntity = metadataEntity;
+        this.im = im;
+        this.focus = null;
 	}
 
 	public int getCount() {
@@ -52,6 +60,23 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 			EditText editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
 			editTextProjectName.setText(metadataEntity.getPrjct_name());
+			editTextProjectName.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						metadataEntity.setPrjct_name("");
+					else
+						metadataEntity.setPrjct_name(s.toString());
+				}
+			});
+			editTextProjectName.setOnTouchListener(new View.OnTouchListener() {
+				public boolean onTouch(View v, MotionEvent event) {
+			        //im.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT);
+			        focus = (EditText)v;//.requestFocus();
+					return false;
+				}
+			});
 			
 			EditText editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
 			editTextProjectCode.setText(metadataEntity.getPrjct_code());
@@ -82,7 +107,13 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			spinnerGeologistName.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					metadataEntity.setGeologist(parent.getItemAtPosition(position).toString());
+					String tmp = parent.getItemAtPosition(position).toString();
+					if(!tmp.equalsIgnoreCase(metadataEntity.getGeologist()))
+					{
+						metadataEntity.setGeologist(tmp);
+						metadataEntity.setGeolcode("");
+						notifyDataSetChanged();
+					}
 				}
 			});
 			
@@ -125,6 +156,9 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
 			editTextStationStartNo.setText(metadataEntity.getStnstartno());
 		}
+		
+		if(focus != null)
+			focus.requestFocus();
 
 		return convertView;
 	}
@@ -134,6 +168,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	public void setTab(int tabNum) {
+		focus = null;
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
