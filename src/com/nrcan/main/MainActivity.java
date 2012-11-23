@@ -442,7 +442,7 @@ public class MainActivity extends ListActivity {
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
 		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel.getEntity(), pldb);
 		adap3 = new ListController(this, this, "EARTH MATERIAL");
-		adap4 = new EarthmatSurficialController(this, this,earthmatSurficialModel, pldb);
+		adap4 = new EarthmatSurficialController(this, this,earthmatSurficialModel.getEntity(), pldb);
 		adap5 = new ListController(this, this, "ENVIRONMENT");
 		adap6 = new EnvironSurficialController(this, this,environSurficialModel.getEntity(), pldb);
 		adap7 = new ListController(this, this, "MINERALIZATION / ALTERATION");

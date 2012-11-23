@@ -132,16 +132,6 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock2, null);
 			
-			//
-			//////////////////////////////////////
-			// VERIFIED
-			//////////////////////////////////////
-			// [] JORDAN KUROSKY
-			// [] DEREK ELLIOT
-			// [] JAMIE POSPIECH
-			// [] ALEX YEUNG
-			// [] PIERRE LAFOREST-GRANT
-			//////////////////////////////////////
 			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatStructural", earthmatBedrockEntity.getLithGroup()));
@@ -163,7 +153,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}
 				}
 			});
-
+			
 			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
 			editTextStructure.setText(earthmatBedrockEntity.getModStruc());
 			editTextStructure.addTextChangedListener(new TextWatcher() {
@@ -176,7 +166,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setModStruc(s.toString());
 				}
 			});
-
+			
 			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
 			buttonStructure.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -269,8 +259,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-
-
+			
 			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
 			editTextGrnCry.setOnFocusChangeListener(new View.OnFocusChangeListener() {

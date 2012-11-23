@@ -185,6 +185,7 @@
     <string name="earthmat_label_secondary">Secondary</string>
     <string name="earthmat_label_interpConf">Interpretation Confidence</string>
     <string name="earthmat_label_wayUp">Way up</string>
+    <string name="earthmat_label_landForm">Landform</string>
    
 
     <!-- ENVIRON SURFICIAL -->
