@@ -9,10 +9,8 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -28,18 +26,14 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	private PicklistDatabaseHandler pldb;
 	private MetadataEntity metadataEntity;
     private int tab;
-    private EditText focus;
-    private InputMethodManager im;
 
-	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity, PicklistDatabaseHandler pldb, InputMethodManager im) {
+	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
         this.pldb = pldb;
         this.metadataEntity = metadataEntity;
-        this.im = im;
-        this.focus = null;
 	}
 
 	public int getCount() {
@@ -70,19 +64,32 @@ public class MetadataController extends BaseAdapter implements Filterable {
 						metadataEntity.setPrjct_name(s.toString());
 				}
 			});
-			editTextProjectName.setOnTouchListener(new View.OnTouchListener() {
-				public boolean onTouch(View v, MotionEvent event) {
-			        //im.showSoftInput(v, InputMethodManager.SHOW_IMPLICIT);
-			        focus = (EditText)v;//.requestFocus();
-					return false;
-				}
-			});
 			
 			EditText editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
 			editTextProjectCode.setText(metadataEntity.getPrjct_code());
+			editTextProjectCode.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						metadataEntity.setPrjct_code("");
+					else
+						metadataEntity.setPrjct_code(s.toString());
+				}
+			});
 			
 			EditText editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
 			editTextProjectLeader.setText(metadataEntity.getPrjct_lead());
+			editTextProjectLeader.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						metadataEntity.setPrjct_lead("");
+					else
+						metadataEntity.setPrjct_lead(s.toString());
+				}
+			});
 			
 			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -150,15 +157,24 @@ public class MetadataController extends BaseAdapter implements Filterable {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					metadataEntity.setPrj_name(parent.getItemAtPosition(position).toString());
+					metadataEntity.setPrj_type(pldb.getCol2("lutBEDMetadataPrjname", metadataEntity.getPrj_name()).get(1));
+					metadataEntity.setPrj_datum(pldb.getCol3("lutBEDMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
 				}
 			});
 			
 			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
 			editTextStationStartNo.setText(metadataEntity.getStnstartno());
+			editTextStationStartNo.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						metadataEntity.setStnstartno("");
+					else
+						metadataEntity.setStnstartno(s.toString());
+				}
+			});
 		}
-		
-		if(focus != null)
-			focus.requestFocus();
 
 		return convertView;
 	}
@@ -168,28 +184,10 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	}
 
 	public void setTab(int tabNum) {
-		focus = null;
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
 	
-	public void saveTab1() {
-		EditText editTextProjectName = (EditText) activity.findViewById(R.id.metadata_editText_projectName);
-		EditText editTextProjectCode = (EditText) activity.findViewById(R.id.metadata_editText_projectCode);
-		EditText editTextProjectLeader = (EditText) activity.findViewById(R.id.metadata_editText_projectLeader);
-		
-		metadataEntity.setPrjct_name(editTextProjectName.getText().toString());
-		metadataEntity.setPrjct_code(editTextProjectCode.getText().toString());
-		metadataEntity.setPrjct_lead(editTextProjectLeader.getText().toString());
-	}
-	
-	public void saveTab2() {
-		EditText editTextStationStartNo = (EditText) activity.findViewById(R.id.metadata_editText_stationStartNo);
-
-		metadataEntity.setStnstartno(editTextStationStartNo.getText().toString());
-		metadataEntity.setPrj_type(pldb.getCol2("lutBEDMetadataPrjname", metadataEntity.getPrj_name()).get(1));
-		metadataEntity.setPrj_datum(pldb.getCol3("lutBEDMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
-	}
 	/*
     <<<--- APPLICATION --->>>
 	private int nrcanId1;		<<<--- APP GENERATED

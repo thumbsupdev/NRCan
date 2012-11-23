@@ -23,6 +23,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
@@ -360,27 +361,9 @@ public class MainActivity extends ListActivity {
 		databaseHandler = new DatabaseHandler(this);
 		pldb = new PicklistDatabaseHandler(this);
 
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+		
 		setupMaps();
-
-		/*
-		HashMap<String, Integer> mapBedrock = new HashMap<String, Integer>();
-		mapBedrock.put("lutBEDEarthmatBedthick", 1);
-
-		HashMap<String, Integer> mapSurficial = new HashMap<String, Integer>();
-		mapSurficial.put("lutSUREarthmatLith2", 3);
-
-		BedrockPicklist plBedrock = new BedrockPicklist(this, mapBedrock);
-		plBedrock.setBedrockFilenames(mapBedrock);
-		plBedrock.dropTables();
-		plBedrock.createTables();
-		plBedrock.fillTables();
-
-		SurficialPicklist plSurficial = new SurficialPicklist(this, mapSurficial);
-		plSurficial.setSurficialFilenames(mapSurficial);
-		plSurficial.dropTables();
-		plSurficial.createTables();
-		plSurficial.fillTables();
-		 */
 
 		earthmatBedrockModel = new EarthmatBedrockModel(databaseHandler);
 		earthmatSurficialModel = new EarthmatSurficialModel(databaseHandler);
@@ -456,9 +439,6 @@ public class MainActivity extends ListActivity {
 		lv28 = (ListView)findViewById(R.id.listStructure);
 		lv29 = (ListView)findViewById(R.id.listDetail1);
 		lv30 = (ListView)findViewById(R.id.listDetail2);
-		
-
-        im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
 		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel, pldb);
@@ -469,7 +449,7 @@ public class MainActivity extends ListActivity {
 		adap7 = new ListController(this, this, "MINERALIZATION / ALTERATION");
 		adap8 = new MABedrockController(this, this,mABedrockModel,pldb);
 		adap9 = new ListController(this, this, "METADATA");
-		adap10 = new MetadataController(this, this, metadataModel.getEntity(), pldb, im);
+		adap10 = new MetadataController(this, this, metadataModel.getEntity(), pldb);
 		adap11 = new ListController(this, this, "MINERAL");
 		adap12 = new MineralBedrockController(this, this,mineralBedrockModel, pldb);
 		adap13 = new ListController(this, this, "PALEO FLOW");
