@@ -1,7 +1,5 @@
 package com.nrcan.controllers;
 
-import java.util.ArrayList;
-
 import com.nrcan.entities.MetadataEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
@@ -19,33 +17,22 @@ import android.widget.Filterable;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-import com.nrcan.models.MetadataModel;
-
 public class MetadataController extends BaseAdapter implements Filterable {
-
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
-    private int tab;
-	private MetadataModel metadataModel;
-	private MetadataEntity metadataEntity;
 	private PicklistDatabaseHandler pldb;
+	private MetadataEntity metadataEntity;
+    private int tab;
 
-    public MetadataController() { }
-
-	public MetadataController(Context context, Activity activity, MetadataModel metadataModel,PicklistDatabaseHandler pldb) {
+	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-        this.metadataModel = metadataModel;
         this.pldb = pldb;
-        this.metadataEntity = metadataModel.getEntity();
+        this.metadataEntity = metadataEntity;
 	}
-
-    public MetadataModel getMetadataModel() {
-        return metadataModel;
-    }
 
 	public int getCount() {
 		return 1;
@@ -83,77 +70,60 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					metadataEntity.setPrjct_type(parent.getItemAtPosition(position).toString());
 				}
 			});
-		} else if (tab == 2) {
 			
+		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.metadata2, null);
 
 			Spinner spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerGeologistName.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutBEDMetadataGeologist"));
 			spinnerGeologistName.setAdapter(sp1);
+			spinnerGeologistName.setSelection(sp1.getPosition(metadataEntity.getGeologist()));
 			spinnerGeologistName.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					//System.out.println(parent.getItemAtPosition(position));
+					metadataEntity.setGeologist(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
 			Spinner spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerGeologistCode.setAdapter(sp2);
 			sp2.setElements(pldb.getCol2("lutBEDMetadataGeologist", metadataEntity.getGeologist()));
 			spinnerGeologistCode.setAdapter(sp2);
+			spinnerGeologistCode.setSelection(sp2.getPosition(metadataEntity.getGeolcode()));
 			spinnerGeologistCode.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					//System.out.println(parent.getItemAtPosition(position));
+					metadataEntity.setGeolcode(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
 			Spinner spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerCameraPrefix.setAdapter(sp3);
 			sp3.setElements(pldb.getCol1("lutBEDMetadataDigcamera"));
 			spinnerCameraPrefix.setAdapter(sp3);
+			spinnerCameraPrefix.setSelection(sp3.getPosition(metadataEntity.getDigcamera()));
 			spinnerCameraPrefix.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					//System.out.println(parent.getItemAtPosition(position));
+					metadataEntity.setDigcamera(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
 			Spinner spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerMapProjection.setAdapter(sp4);
 			sp4.setElements(pldb.getCol1("lutBEDMetadataPrjname"));
 			spinnerMapProjection.setAdapter(sp4);
+			spinnerMapProjection.setSelection(sp4.getPosition(metadataEntity.getPrj_name()));
 			spinnerMapProjection.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					//System.out.println(parent.getItemAtPosition(position));
+					metadataEntity.setPrj_name(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
 			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
-			
-
+			editTextStationStartNo.setText(metadataEntity.getStnstartno());
 		}
 
 		return convertView;
@@ -176,60 +146,36 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		metadataEntity.setPrjct_name(editTextProjectName.getText().toString());
 		metadataEntity.setPrjct_code(editTextProjectCode.getText().toString());
 		metadataEntity.setPrjct_lead(editTextProjectLeader.getText().toString());
-		//metadataEntity.setPrjct_type("Field 4");
-		//metadataEntity.setGeolcode("Field 5");
-		//metadataEntity.setGeologist("Field 6");
-		metadataEntity.setMappath("Field 7");
-		metadataEntity.setPrj_name("Field 8");
-		metadataEntity.setPrj_type("Field 9");
-		metadataEntity.setPrj_datum("Field 10");
-		metadataEntity.setDigcamera("Field 11");
-		metadataEntity.setStnstartno("Field 12");
-		//metadataEntity.setMetaid("Field 13");			<-- NEVER SET
 	}
 	
-	public void tUpdate() {
-		notifyDataSetChanged();
+	public void saveTab2() {
+		EditText editTextStationStartNo = (EditText) activity.findViewById(R.id.metadata_editText_stationStartNo);
+
+		metadataEntity.setStnstartno(editTextStationStartNo.getText().toString());
+		metadataEntity.setPrj_type(pldb.getCol2("lutBEDMetadataPrjname", metadataEntity.getPrj_name()).get(1));
+		metadataEntity.setPrj_datum(pldb.getCol3("lutBEDMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
 	}
-
- //   public void insertMetadataInfo() {
-    	//metadataModel.getEntity();
-/*
-        String[] contents = {
-            (EditText) activity.findViewById(R.id.metadata_editText_workspace).getText().toString(),
-            "-1",
-            ((EditText) activity.findViewById(R.id.metadata_editText_projectName)).getText().toString(),
-            ((EditText) activity.findViewById(R.id.metadata_editText_projectCode)).getText().toString(),
-            ((EditText) activity.findViewById(R.id.metadata_editText_projectLeader)).getText().toString(),
-            ((Spinner) activity.findViewById(R.id.metadata_spinner_projectType)).getSelectedItem().toString(),
-            ((EditText) activity.findViewById(R.id.metadata_editText_geologistName)).getText().toString(),
-            ((EditText) activity.findViewById(R.id.metadata_editText_geologistCode)).getText().toString(),
-            ((Spinner) activity.findViewById(R.id.metadata_spinner_cameraPrefix)).getSelectedItem().toString(),
-            "0",
-            ((Spinner) activity.findViewById(R.id.metadata_spinner_selectMapProjection)).getSelectedItem().toString()
-        };*/
-
-    	/*
-        String[] contents = {
-            "0",
-            "TestName",
-            "C123",
-            "TestLead",
-            "Type1",
-            "TestGeologist",
-            "123Code",
-            "DigCam",
-            "datum",
-            "mappath"
-        };
-        */
-
-        //metadataModel.setEntity(contents);
-        //long rowsAffected = metadataModel.insertRow();
-
-        //Log.v("MetadataController insertMetadataInfo()", "Rows affected = " + rowsAffected);
-
-//    }
-
-
+	/*
+    <<<--- APPLICATION --->>>
+	private int nrcanId1;		<<<--- APP GENERATED
+    
+	<<<--- TAB 1 --->>>
+    private String prjct_name;	<<<--- TEXT
+    private String prjct_code;	<<<--- TEXT
+    private String prjct_lead;	<<<--- TEXT
+    private String prjct_type;	<<<--- PICKLIST
+    
+	<<<--- TAB 2 --->>>
+    private String geologist;	<<<--- PICKLIST
+    private String geolcode;	<<<--- PICKLIST
+    private String prj_name;	<<<--- PICKLIST
+    private String prj_type;	<<<--- PICKLIST / APP GENERATED
+    private String prj_datum;	<<<--- PICKLIST / APP GENERATED
+    private String digcamera;	<<<--- PICKLIST
+    private String stnstartno;	<<<--- TEXT
+    
+    <<<--- UNKNOWN --->>>
+    private String mappath;
+    private String metaid;
+	*/
 }

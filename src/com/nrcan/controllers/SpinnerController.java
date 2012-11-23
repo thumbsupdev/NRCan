@@ -89,38 +89,6 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
 	public View getDropDownView(int position, View convertView, ViewGroup parent) {
 
         if(position == elements.size()) {
-
-			//convertView = mInflater.inflate(R.layout.cell_spinner_new, null);
-			
-            /*
-			EditText editText = (EditText) convertView.findViewById(R.id.cell_spinner_new_edit_text);
-			editText.setHint("New Element");
-            editText.setFocusable(false);*/
-            //ImageButton button = (ImageButton)convertView.findViewById(R.id.button1);
-            /*
-                    InputMethodManager m = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    parent.requestFocus();
-                    m.toggleSoftInputFromWindow(convertView.getWindowToken(), InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);*/
-           /* editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                
-                public void onFocusChange(View v, boolean hasFocus) {
-                    //InputMethodManager m = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    //m.toggleSoftInputFromWindow(v.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
-                    if(hasFocus) {
-                        buildDialog();
-                        System.out.println("this edittext has focus.");
-                    }
-                }
-            });*/
-            /*
-            button.setOnClickListener(new OnClickListener() {
-                public void onClick(View v) {
-                    System.out.println("push da button");
-                    newSpinnerElementDialog();
-                }
-            });*/
-
-
 			convertView = mInflater.inflate(R.layout.cell_new, null);
             
             TextView newText = (TextView)convertView.findViewById(R.id.cell_new_textView1);

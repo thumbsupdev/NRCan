@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.SampleBedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.SampleBedrockModel;
@@ -27,8 +28,8 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 	private SampleBedrockModel sampleBedrockModel;
+	private SampleBedrockEntity sampleBedrockEntity;
 
 	public SampleBedrockController(Context context, Activity activity, SampleBedrockModel sampleBedrockModel,PicklistDatabaseHandler pldb ) {
 		this.mInflater = LayoutInflater.from(context);
@@ -37,6 +38,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 		this.tab = 1;
 		this.sampleBedrockModel = sampleBedrockModel;
 		this.pldb = pldb;
+		this.sampleBedrockEntity = sampleBedrockModel.getEntity();
 	}
 
 	public int getCount() {
@@ -60,8 +62,9 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.sample_bedrock_spinner_type);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerType.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDSampleType"));
+			sp1.setElements(pldb.getCol1("lutBEDSampleType"));
 			spinnerType.setAdapter(sp1);
+			spinnerType.setSelection(sp1.getPosition(sampleBedrockEntity.getSampleType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -69,6 +72,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleBedrockEntity.setSampleType(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -77,8 +81,9 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.sample_bedrock_spinner_purpose);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPurpose.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutBEDSamplePurpose"));
+			sp2.setElements(pldb.getCol1("lutBEDSamplePurpose"));
 			spinnerPurpose.setAdapter(sp2);
+			spinnerPurpose.setSelection(sp2.getPosition(sampleBedrockEntity.getPurpose()));
 			spinnerPurpose.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -86,6 +91,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleBedrockEntity.setPurpose(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -104,8 +110,9 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.sample_bedrock_spinner_format);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerFormat.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDGeneralStrucFormat"));
+			sp1.setElements(pldb.getCol1("lutBEDGeneralStrucFormat"));
 			spinnerFormat.setAdapter(sp1);
+			spinnerFormat.setSelection(sp1.getPosition(sampleBedrockEntity.getFormat()));
 			spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -113,6 +120,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleBedrockEntity.setFormat(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -125,8 +133,9 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.sample_bedrock_spinner_surface);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSurface.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutBEDSampleSurface"));
+			sp2.setElements(pldb.getCol1("lutBEDSampleSurface"));
 			spinnerSurface.setAdapter(sp2);
+			spinnerSurface.setSelection(sp2.getPosition(sampleBedrockEntity.getSurface()));
 			spinnerSurface.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -134,6 +143,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleBedrockEntity.setSurface(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

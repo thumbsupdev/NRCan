@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.MABedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.MABedrockModel;
@@ -27,8 +28,8 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 	private Context context;
 	private int tab;
 	private MABedrockModel maBedrockModel;
+	private MABedrockEntity maBedrockEntity;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 
 	public MABedrockController(Context context, Activity activity,MABedrockModel maBedrockModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -36,7 +37,9 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
+		this.maBedrockEntity = maBedrockModel.getEntity();
 		this.maBedrockModel = maBedrockModel;
+		
 
 	}
 
@@ -60,13 +63,23 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			Spinner spinnerMinAlt = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_minAlt);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMinAlt.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDMAMineralogy"));
+			sp1.setElements(pldb.getCol1("lutBEDMAMineralogy"));
+			spinnerMinAlt.setSelection(sp1.getPosition(maBedrockEntity.getMa()));
 			spinnerMinAlt.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					String tmp = parent.getItemAtPosition(position).toString();
+					if(!tmp.equalsIgnoreCase(maBedrockEntity.getMineral()));
+					{
+						maBedrockEntity.setMa(tmp);
+						maBedrockEntity.setMineral("");
+						
+						System.out.println(parent.getItemAtPosition(position));
+						notifyDataSetChanged();
+					}
 					//earthmatbedrockModel.getEntity().setLithGroup("");
 					System.out.println(parent.getItemAtPosition(position));
 				}
@@ -75,7 +88,7 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_mineral);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMineral.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol2("lutBEDMAMineralogy"));
+			sp2.setElements(pldb.getCol2("lutBEDMAMineralogy",maBedrockEntity.getMa()));
 			spinnerMineral.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -83,6 +96,8 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					maBedrockEntity.setMineral(parent.getItemAtPosition(position).toString());
+					
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -90,7 +105,8 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			Spinner spinnerMineralPercent = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_mineralPercent);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMineralPercent.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSURGeneralPercent5incr"));
+			sp3.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
+			//spinnerMineralPercent.setSelection(sp3.getPosition(maBedrockEntity.get))
 			spinnerMineralPercent.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -105,7 +121,8 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			Spinner spinnerDistribution = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_distribution);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerDistribution.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol2("lutBEDMADistribute"));
+			sp4.setElements(pldb.getCol2("lutBEDMADistribute",maBedrockEntity.getMa()));
+			spinnerDistribution.setSelection(sp4.getPosition(maBedrockEntity.getDistribute()));
 			spinnerDistribution.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -113,6 +130,7 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					maBedrockEntity.setDistribute(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -124,7 +142,8 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			Spinner spinnerWhatAffected = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_whatAffected);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerWhatAffected.setAdapter(sp5);
-			sp5.setElements(e);//(pldb.getCol1("lutBEDMAUnit"));
+			sp5.setElements(pldb.getCol1("lutBEDMAUnit"));
+			spinnerWhatAffected.setSelection(sp5.getPosition(maBedrockEntity.getUnit()));
 			spinnerWhatAffected.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -132,6 +151,7 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					maBedrockEntity.setUnit(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

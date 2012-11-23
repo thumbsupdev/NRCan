@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.PhotoEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.PhotoModel;
@@ -27,8 +28,8 @@ public class PhotoController extends BaseAdapter implements Filterable {
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 	private PhotoModel photoModel;
+	private PhotoEntity photoEntity;
 
 	public PhotoController(Context context, Activity activity,PhotoModel photoModel,PicklistDatabaseHandler pldb ) {
 		this.mInflater = LayoutInflater.from(context);
@@ -37,6 +38,7 @@ public class PhotoController extends BaseAdapter implements Filterable {
 		this.tab = 1;
 		this.pldb = pldb;
 		this.photoModel = photoModel;
+		this.photoEntity = photoModel.getEntity();
 	}
 
 	public int getCount() {
@@ -61,8 +63,9 @@ public class PhotoController extends BaseAdapter implements Filterable {
 					.findViewById(R.id.photo_spinner_category);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerCategory.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSURPhotoCategory"));
+			sp1.setElements(pldb.getCol1("lutSURPhotoCategory"));
 			spinnerCategory.setAdapter(sp1);
+			spinnerCategory.setSelection(sp1.getPosition(photoEntity.getCategory()));
 			spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -70,6 +73,7 @@ public class PhotoController extends BaseAdapter implements Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					photoEntity.setCaption(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

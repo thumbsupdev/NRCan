@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.StationSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.StationBedrockModel;
@@ -31,6 +32,7 @@ public class StationSurficialController extends BaseAdapter implements
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
 	private StationSurficialModel stationSurficialModel;
+	private StationSurficialEntity stationSurficialEntity;
 
 	public StationSurficialController(Context context, Activity activity,StationSurficialModel stationSurficialModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -38,6 +40,7 @@ public class StationSurficialController extends BaseAdapter implements
 		this.context = context;
 		this.tab = 1;
 		this.stationSurficialModel = stationSurficialModel;
+		this.stationSurficialEntity = stationSurficialModel.getEntity();
 		this.pldb = pldb;
 	}
 
@@ -60,136 +63,130 @@ public class StationSurficialController extends BaseAdapter implements
 
 			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_traverse);
-			Button buttonDate = (Button) convertView
-					.findViewById(R.id.station_surficial_button_date);
+			editTextTrav.setText(stationSurficialEntity.getTravNo());
+			//Button buttonDate = (Button) convertView
+			//		.findViewById(R.id.station_surficial_button_date);
+			
+			//Needs date button functionality
+			
 			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_elevation);
-			Spinner spinnerElev = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_elevation);
+			editTextElev.setText(stationSurficialEntity.getElevation());
+			
+			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_elevation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp1.setElements(pldb.getCol1("lutStationSURElevmethod"));
 			spinnerElev.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutStationSURElevmethod"));
+			spinnerElev.setSelection(sp1.getPosition(stationSurficialEntity.getElevation()));
 			spinnerElev.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationSurficialEntity.setElevation(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
+			
+			
 			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_easting);
+			editTextEasting.setText(stationSurficialEntity.getEasting());
 			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_northing);
+			editTextNorthing.setText(stationSurficialEntity.getNorthing());
 			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_latitude);
+			editTextLatitude.setText(stationSurficialEntity.getLatitude());
 			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_longitude);
+			editTextLongitude.setText(stationSurficialEntity.getLongitude());
 
 			
 		} else if (tab == 2) {
 			
 			convertView = mInflater.inflate(R.layout.station_surficial_2, null);
 
-			Spinner spinnerObsType = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_obstype);
+			Spinner spinnerObsType = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_obstype);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp1.setElements(pldb.getCol1("lutSURStationObsType"));
 			spinnerObsType.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSURStationObsType"));
+			spinnerObsType.setSelection(sp1.getPosition(stationSurficialEntity.getObsType()));
 			spinnerObsType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationSurficialEntity.setObsType(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerEntrytype = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_entryType);
+			Spinner spinnerEntrytype = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_entryType);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp2.setElements(pldb.getCol1("lutSURStationEntrytype"));
 			spinnerEntrytype.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSURStationEntrytype"));
-			spinnerObsType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+			spinnerEntrytype.setSelection(sp2.getPosition(stationSurficialEntity.getEntryType()));
+			spinnerEntrytype.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationSurficialEntity.setEntryType(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerLegendValue = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_legendvalue);
+			Spinner spinnerLegendValue = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_legendvalue);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp3.setElements(pldb.getCol1("lutBEDMetadataPrjctType"));
 			spinnerLegendValue.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSURStationLegendval"));
-			spinnerObsType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+			spinnerLegendValue.setSelection(sp3.getPosition(stationSurficialEntity.getLegendVal()));
+			spinnerLegendValue.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationSurficialEntity.setLegendVal(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
 
 			
 		} else if (tab == 3) {
 			
 			convertView = mInflater.inflate(R.layout.station_surficial_3, null);
-
-			Spinner spinnerSiteQual = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_sitequal);
+			
+			Spinner spinnerSiteQual = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_sitequal);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp1.setElements(pldb.getCol1("lutSURStationSitequality"));
 			spinnerSiteQual.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSURStationSitequality"));
+			spinnerSiteQual.setSelection(sp1.getPosition(stationSurficialEntity.getOcQuality()));
 			spinnerSiteQual.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationSurficialEntity.setOcQuality(parent.getItemAtPosition(position).toString());
+				}
+			});
+
+			Spinner spinnerPhysEnviron = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_physenviron);
+			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp2.setElements(pldb.getCol1("lutSURStationPhysenv"));
+			spinnerPhysEnviron.setAdapter(sp2);
+			spinnerPhysEnviron.setSelection(sp2.getPosition(stationSurficialEntity.getPhysEnv()));
+			spinnerPhysEnviron.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) { }
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					stationSurficialEntity.setPhysEnv(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerPhysEnviron = (Spinner) convertView
-					.findViewById(R.id.station_surficial_spinner_physenviron);
-			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerPhysEnviron.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSURStationPhysenv"));
-			spinnerPhysEnviron.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
-				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
-				}
-			});
+			
 			
 			EditText editTextInterpretation = (EditText) convertView
 					.findViewById(R.id.station_surficial_editText_interpretation);
+			editTextInterpretation.setText(stationSurficialEntity.getOcSize());
 			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_airphoto);
-			Button buttonAirPhoto = (Button) convertView
-					.findViewById(R.id.station_surficial_button_airphoto);
+			editTextAirPhoto.setText(stationSurficialEntity.getAirPhoto());
+			//Button buttonAirPhoto = (Button) convertView
+			//		.findViewById(R.id.station_surficial_button_airphoto);
+			//Need some button functionality
 			EditText editTextMapSheet = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_mapsheet);
-			Button buttonMapSheet = (Button) convertView
-					.findViewById(R.id.station_surficial_button_mapsheet);
+			editTextMapSheet.setText(stationSurficialEntity.getMapSheet());
+			//Button buttonMapSheet = (Button) convertView
+			//		.findViewById(R.id.station_surficial_button_mapsheet);
+			//need some button functionality
 			
 		} else if (tab == 4) {
 			
@@ -197,12 +194,14 @@ public class StationSurficialController extends BaseAdapter implements
 
 			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_stationnote);
+			editTextStationNote.setText(stationSurficialEntity.getNotes());
 			
 		} else if (tab == 5) {
 			
 			convertView = mInflater.inflate(R.layout.station_surficial_5, null);
 			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_surficial_text_sincelaststationnote);
+			editTextLastStationNote.setText(stationSurficialEntity.getSlsNotes());
 
 		}
 

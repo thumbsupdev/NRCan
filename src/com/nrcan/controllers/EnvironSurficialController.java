@@ -38,7 +38,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	private boolean gossanBoolean = false;
 	private boolean boulderBoolean = false;
 	//private CheckBox permaFrostCheckBox;
-	private ArrayList<String> e = new ArrayList<String>();
+    private EnvironSurficialEntity environSurficialEntity;
 
 	public EnvironSurficialController(Context context, Activity activity,EnvironSurficialModel environSurficialModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -46,8 +46,8 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		this.context = context;
 		this.tab = 1;
 		this.environSurficialModel = environSurficialModel;
+		this.environSurficialEntity = environSurficialModel.getEntity();
 		this.pldb = pldb;
-		e.add("1");
 		
 	}
 
@@ -75,19 +75,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				permafrostBoolean = false;
 			
 			convertView = mInflater.inflate(R.layout.environ_surficial1, null);
-			/*
+			
 				Spinner spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
 				SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerRelief.setAdapter(sp1);
-				sp1.setElements(e);//(pldb.getCol1("lutSUREnvironsRelief"));
+				sp1.setElements(pldb.getCol1("lutSUREnvironsRelief"));
 				spinnerRelief.setAdapter(sp1);
+				spinnerRelief.setSelection(sp1.getPosition(environSurficialEntity.getDrainage()));
 				spinnerRelief.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setDrainage(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -97,7 +98,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 
 
-			 */
+			 
 			
 			CheckBox checkBoxPermafrost = (CheckBox)convertView.findViewById(R.id.environ_checkBox_permafrost);
 			checkBoxPermafrost.setChecked(permafrostBoolean);
@@ -125,19 +126,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			/*
+			
 				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerIndicators.setAdapter(sp2);
-				sp2.setElements(e);//(pldb.getCol1("lutSUREnvironsPFindic"));
+				sp2.setElements(pldb.getCol1("lutSUREnvironsPFindic"));
 				spinnerIndicators.setAdapter(sp2);
+				spinnerIndicators.setSelection(sp2.getPosition(environSurficialEntity.getPfIndic()));
 				spinnerIndicators.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setPfIndic(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -145,7 +147,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 				EditText editTextIndicators = (EditText)convertView.findViewById(R.id.environ_surficial_editText_indicators);
 				EditText editTextDepthOfAL = (EditText)convertView.findViewById(R.id.environ_surficial_editText_depthOfAL);
-			 */
+			 
 
 		}
 		else if (tab == 2)
@@ -185,19 +187,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			
 			});
-			/*EditText editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
+			EditText editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
 				Spinner spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
 				SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerPercentBedrock.setAdapter(sp1);
-				sp1.setElements(e);//(pldb.getCol1("lutSURGeneralPercent5incr"));
+				sp1.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
 				spinnerPercentBedrock.setAdapter(sp1);
+				spinnerPercentBedrock.setSelection(sp1.getPosition(environSurficialEntity.getPfPresent()));
 				spinnerPercentBedrock.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setPfPresent(parent.getItemAtPosition(position).toString());
 						//System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -205,18 +208,19 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				Spinner spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerExposureType.setAdapter(sp2);
-				sp2.setElements(e);//(pldb.getCol1("lutSUREnvironsExposure"));
+				sp2.setElements(pldb.getCol1("lutSUREnvironsExposure"));
 				spinnerExposureType.setAdapter(sp2);
+				spinnerExposureType.setSelection(sp2.getPosition(environSurficialEntity.getExposure()));
 				spinnerExposureType.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setExposure(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
-				});*/
+				});
 		}
 		else if (tab == 3)
 		{
@@ -225,19 +229,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			else
 				boulderBoolean = false;
 			convertView = mInflater.inflate(R.layout.environ_surficial3, null);
-			/*
+			
 				Spinner spinnerVegetation = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetation);
 				SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerVegetation.setAdapter(sp1);
-				sp1.setElements(e);//(pldb.getCol1("lutSUREnvironsVegetation"));
+				sp1.setElements(pldb.getCol1("lutSUREnvironsVegetation"));
 				spinnerVegetation.setAdapter(sp1);
+				spinnerVegetation.setSelection(sp1.getPosition(environSurficialEntity.getVegetation()));
 				spinnerVegetation.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setVegetation(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -245,8 +250,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				Spinner spinnerVegetationPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetationPer);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerVegetationPer.setAdapter(sp2);
-				sp2.setElements(e);//(pldb.getCol1("lutSURGeneralPercent5incr"));
+				sp2.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
 				spinnerVegetationPer.setAdapter(sp2);
+				//spinnerVegetationPer.setSelection(sp2.getPosition(environSurficialEntity.getV));
 				spinnerVegetationPer.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -264,8 +270,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				Spinner spinnerBoulders = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulders);
 				SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerBoulders.setAdapter(sp3);
-				sp3.setElements(e);//(pldb.getCol1("lutSUREnvironsBoulders"));
+				sp3.setElements(pldb.getCol1("lutSUREnvironsBoulders"));
 				spinnerBoulders.setAdapter(sp3);
+				spinnerBoulders.setSelection(sp3.getPosition(environSurficialEntity.getBoulders()));
 				spinnerBoulders.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -273,9 +280,10 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setBoulders(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
-				});*/
+				});
 
 
 			CheckBox checkBoxBoulderField = (CheckBox)convertView.findViewById(R.id.environ_checkBox_boulderField);
@@ -309,22 +317,23 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			
 			
 			});
-			/*
+			
 				Spinner spinnerBoulderField = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
 				SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerBoulderField.setAdapter(sp4);
-				sp4.setElements(e);//(pldb.getCol1("lutSUREnvironsBoFldTyp"));
+				sp4.setElements(pldb.getCol1("lutSUREnvironsBoFldTyp"));
 				spinnerBoulderField.setAdapter(sp4);
+				spinnerBoulderField.setSelection(sp4.getPosition(environSurficialEntity.getBoFldTyp()));
 				spinnerBoulderField.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						environSurficialEntity.setBoFldTyp(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
-				});*/
+				});
 
 		}
 		else if (tab == 4)
@@ -335,8 +344,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			Spinner spinnerGroundCover = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCover);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerGroundCover.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREnvironsGroundcover"));
+			sp1.setElements(pldb.getCol1("lutSUREnvironsGroundcover"));
 			spinnerGroundCover.setAdapter(sp1);
+			spinnerGroundCover.setSelection(sp1.getPosition(environSurficialEntity.getGrndCover()));
 			spinnerGroundCover.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -344,6 +354,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					environSurficialEntity.setGrndCover(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -351,8 +362,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			Spinner spinnerGroundCoverPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCoverPer);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerGroundCoverPer.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSURGeneralPercent5incr"));
+			sp2.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
 			spinnerGroundCoverPer.setAdapter(sp2);
+			//spinnerGroundCoverPer.setSelection(sp2.getPosition(environSurficialEntity.getc))
 			spinnerGroundCoverPer.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -369,8 +381,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			Spinner spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPattGrnd.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSUREnvironsPatterngrn"));
+			sp3.setElements(pldb.getCol1("lutSUREnvironsPatterngrn"));
 			spinnerPattGrnd.setAdapter(sp3);
+			spinnerPattGrnd.setSelection(sp3.getPosition(environSurficialEntity.getPatternGrn()));
 			spinnerPattGrnd.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -378,6 +391,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					environSurficialEntity.setPatArea(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

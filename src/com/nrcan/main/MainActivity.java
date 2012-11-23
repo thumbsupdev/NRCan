@@ -454,31 +454,31 @@ public class MainActivity extends ListActivity {
 		adap1 = new ListController(this, this, "EARTH MATERIAL");
 		adap2 = new EarthmatBedrockController(this, this, earthmatBedrockModel, pldb);
 		adap3 = new ListController(this, this, "EARTH MATERIAL");
-		adap4 = new EarthmatSurficialController(this, this,earthmatSurficialModel,pldb);
+		adap4 = new EarthmatSurficialController(this, this,earthmatSurficialModel, pldb);
 		adap5 = new ListController(this, this, "ENVIRONMENT");
-		adap6 = new EnvironSurficialController(this, this,environSurficialModel,pldb);
+		adap6 = new EnvironSurficialController(this, this,environSurficialModel, pldb);
 		adap7 = new ListController(this, this, "MINERALIZATION / ALTERATION");
 		adap8 = new MABedrockController(this, this,mABedrockModel,pldb);
 		adap9 = new ListController(this, this, "METADATA");
-		adap10 = new MetadataController(this, this, metadataModel,pldb);
+		adap10 = new MetadataController(this, this, metadataModel.getEntity(), pldb);
 		adap11 = new ListController(this, this, "MINERAL");
-		adap12 = new MineralBedrockController(this, this,mineralBedrockModel,pldb);
+		adap12 = new MineralBedrockController(this, this,mineralBedrockModel, pldb);
 		adap13 = new ListController(this, this, "PALEO FLOW");
-		adap14 = new PFlowSurficialController(this, this,pFlowSurficialModel,pldb);
+		adap14 = new PFlowSurficialController(this, this,pFlowSurficialModel ,pldb);
 		adap15 = new ListController(this, this, "PHOTO");
-		adap16 = new PhotoController(this, this,photoModel,pldb);
+		adap16 = new PhotoController(this, this,photoModel, pldb);
 		adap17 = new ListController(this, this, "SAMPLE");
-		adap18 = new SampleBedrockController(this, this,sampleBedrockModel,pldb);
+		adap18 = new SampleBedrockController(this, this,sampleBedrockModel, pldb);
 		adap19 = new ListController(this, this, "SAMPLE");
-		adap20 = new SampleSurficialController(this, this,sampleSurficialModel,pldb);
+		adap20 = new SampleSurficialController(this, this,sampleSurficialModel, pldb);
 		adap21 = new ListController(this, this, "SOIL PROFILE");
-		adap22 = new SoilProSurficialController(this, this,soilProSurficialModel,pldb);
+		adap22 = new SoilProSurficialController(this, this,soilProSurficialModel, pldb);
 		adap23 = new ListController(this, this, "STATION");
-		adap24 = new StationBedrockController(this, this,stationBedrockModel,pldb);
+		adap24 = new StationBedrockController(this, this,stationBedrockModel, pldb);
 		adap25 = new ListController(this, this, "STATION");
-		adap26 = new StationSurficialController(this, this,stationSurficialModel,pldb);
+		adap26 = new StationSurficialController(this, this,stationSurficialModel, pldb);
 		adap27 = new ListController(this, this, "STRUCTURE");
-		adap28 = new StructureController(this, this,structureModel,pldb);	
+		adap28 = new StructureController(this, this,structureModel, pldb);
 		adap29 = new DetailController(this, this, details1);
 		adap30  =new DetailController(this, this, details2);
 
@@ -515,7 +515,7 @@ public class MainActivity extends ListActivity {
 
 		setupButtons();
 
-		flipper.setDisplayedChild(0);
+		flipper.setDisplayedChild(9);
 		//button2.setVisibility(View.INVISIBLE);
 		//button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
@@ -1169,10 +1169,9 @@ public class MainActivity extends ListActivity {
 				@Override
 				public void onAttachedToWindow()
 				{
-					//super.onAttachedToWindow();
+					super.onAttachedToWindow();
 					this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
 				}
-				
 				@Override
 				public boolean onSearchRequested() {
 					return false;

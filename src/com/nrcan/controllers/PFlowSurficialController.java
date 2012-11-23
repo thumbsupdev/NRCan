@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.PFlowSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.PFlowSurficialModel;
@@ -28,7 +29,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 	private int tab;
 	private PFlowSurficialModel pflowSurficialModel;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
+	private PFlowSurficialEntity pflowSurficialEntity;
 	
 	public PFlowSurficialController(Context context, Activity activity,PFlowSurficialModel pflowSurficialModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -37,6 +38,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 		this.tab = 1;
 		this.pldb = pldb;
 		this.pflowSurficialModel = pflowSurficialModel;
+		this.pflowSurficialEntity = pflowSurficialModel.getEntity();
 	}
 
 	public int getCount() {
@@ -60,15 +62,26 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
 				SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerClass.setAdapter(sp1);
-				sp1.setElements(e);//(pldb.getCol1("lutSURPflowPaleoflow"));
+				sp1.setElements(pldb.getCol1("lutSURPflowPaleoflow"));
 				spinnerClass.setAdapter(sp1);
+				spinnerClass.setSelection(sp1.getPosition(pflowSurficialEntity.getPfClass()));
 				spinnerClass.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
+						
+						String tmp = parent.getItemAtPosition(position).toString();
+						if(!tmp.equalsIgnoreCase(pflowSurficialEntity.getPfClass()))
+						{
+							pflowSurficialEntity.setPfClass(tmp);
+							pflowSurficialEntity.setPfFeature("");
+						
+							System.out.println(parent.getItemAtPosition(position));
+							notifyDataSetChanged();
+						}
+						
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -76,8 +89,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerSense = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_sense);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerSense.setAdapter(sp2);
-				sp2.setElements(e);//(pldb.getCol1("lutSURPflowPFsense"));
+				sp2.setElements(pldb.getCol1("lutSURPflowPFsense"));
 				spinnerSense.setAdapter(sp2);
+				spinnerSense.setSelection(sp2.getPosition(pflowSurficialEntity.getPfSense()));
 				spinnerSense.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -85,6 +99,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						pflowSurficialEntity.setPfSense(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -92,8 +107,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerFeature = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_feature);
 				SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerFeature.setAdapter(sp3);
-				sp3.setElements(e);//(pldb.getCol2("lutSURPflowPaleoflow"));
+				sp3.setElements(pldb.getCol2("lutSURPflowPaleoflow",pflowSurficialEntity.getPfClass()));
 				spinnerFeature.setAdapter(sp3);
+				spinnerFeature.setSelection(sp3.getPosition(pflowSurficialEntity.getPfFeature()));
 				spinnerFeature.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -111,8 +127,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
 				SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerBedrockSurface.setAdapter(sp4);
-				sp4.setElements(e);//(pldb.getCol1("lutSURPflowBedrocksurface"));
+				sp4.setElements(pldb.getCol1("lutSURPflowBedrocksurface"));
 				spinnerBedrockSurface.setAdapter(sp4);
+				//spinnerBedrockSurface.setSelection(sp4.getPosition(pflowSurficialEntity.get))
 				spinnerBedrockSurface.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -132,8 +149,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
 				SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerMethod.setAdapter(sp1);
-				sp1.setElements(e);//(pldb.getCol1("lutSURGeneralStrucMethod"));
+				sp1.setElements(pldb.getCol1("lutSURGeneralStrucMethod"));
 				spinnerMethod.setAdapter(sp1);
+				spinnerMethod.setSelection(sp1.getPosition(pflowSurficialEntity.getMethod()));
 				spinnerMethod.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -141,6 +159,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						pflowSurficialEntity.setMethod(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -150,8 +169,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerIndicators.setAdapter(sp2);
-				sp2.setElements(e);//(pldb.getCol1("lutSURPflowNumindic"));
+				sp2.setElements(pldb.getCol1("lutSURPflowNumindic"));
 				spinnerIndicators.setAdapter(sp2);
+				spinnerIndicators.setSelection(sp2.getPosition(pflowSurficialEntity.getNumIndic()));
 				spinnerIndicators.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -159,6 +179,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						pflowSurficialEntity.setNumIndic(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -166,8 +187,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerDefinition = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_definition);
 				SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerDefinition.setAdapter(sp3);
-				sp3.setElements(e);//(pldb.getCol1("lutSURPflowDefinition"));
+				sp3.setElements(pldb.getCol1("lutSURPflowDefinition"));
 				spinnerDefinition.setAdapter(sp3);
+				spinnerDefinition.setSelection(sp3.getPosition(pflowSurficialEntity.getDefinition()));
 				spinnerDefinition.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -175,6 +197,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						pflowSurficialEntity.setDefinition(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});
@@ -182,8 +205,9 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				Spinner spinnerRelationship = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_relationship);
 				SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerRelationship.setAdapter(sp4);
-				sp4.setElements(e);//(pldb.getCol1("lutSURPflowRelation"));
+				sp4.setElements(pldb.getCol1("lutSURPflowRelation"));
 				spinnerRelationship.setAdapter(sp4);
+				spinnerRelationship.setSelection(sp4.getPosition(pflowSurficialEntity.getRelation()));
 				spinnerRelationship.setOnItemSelectedListener(new OnItemSelectedListener() {
 					public void onNothingSelected(AdapterView<?> arg0) {
 						
@@ -191,6 +215,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 						//earthmatbedrockModel.getEntity().setLithGroup("");
+						pflowSurficialEntity.setRelation(parent.getItemAtPosition(position).toString());
 						System.out.println(parent.getItemAtPosition(position));
 					}
 				});

@@ -2,6 +2,8 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.StationBedrockEntity;
+
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.StationBedrockModel;
@@ -13,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -29,6 +30,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
 	private StationBedrockModel stationBedrockModel;
+	private StationBedrockEntity stationBedrockEntity;
 
 	public StationBedrockController(Context context, Activity activity,StationBedrockModel stationBedrockModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -36,6 +38,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		this.context = context;
 		this.tab = 1;
 		this.stationBedrockModel = stationBedrockModel;
+		this.stationBedrockEntity = stationBedrockModel.getEntity();
 		this.pldb = pldb;
 	}
 
@@ -58,107 +61,88 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			convertView = mInflater.inflate(R.layout.station_bedrock_1, null);
 			EditText editTextTrav = (EditText) convertView
 					.findViewById(R.id.station_text_traverse);
-			Button buttonDate = (Button) convertView
-					.findViewById(R.id.station_button_date);
+			editTextTrav.setText(stationBedrockEntity.getTravNo());
+			//Button buttonDate = (Button) convertView
+			//		.findViewById(R.id.station_button_date);
+			// need some button functionality
 			EditText editTextElev = (EditText) convertView
 					.findViewById(R.id.station_text_elevation);
-			Spinner spinnerElev = (Spinner) convertView
-					.findViewById(R.id.station_spinner_elevation);
+			editTextElev.setText(stationBedrockEntity.getElevation());
+			
+			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_spinner_elevation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp1.setElements(pldb.getCol1("lutBEDStationElevmethod"));
 			spinnerElev.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDStationElevmethod"));
+			spinnerElev.setSelection(sp1.getPosition(stationBedrockEntity.getElevMethod()));
 			spinnerElev.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationBedrockEntity.setElevMethod(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
+			
+			
 			EditText editTextEasting = (EditText) convertView
 					.findViewById(R.id.station_text_easting);
+			editTextEasting.setText(stationBedrockEntity.getEasting());
 			EditText editTextNorthing = (EditText) convertView
 					.findViewById(R.id.station_text_northing);
+			editTextNorthing.setText(stationBedrockEntity.getNorthing());
 			EditText editTextLatitude = (EditText) convertView
 					.findViewById(R.id.station_text_latitude);
+			editTextLatitude.setText(stationBedrockEntity.getLatitude());
 			EditText editTextLongitude = (EditText) convertView
 					.findViewById(R.id.station_text_longitude);
+			editTextLongitude.setText(stationBedrockEntity.getLongitude());
 
 			
 		} else if (tab == 2) {
 			
 			convertView = mInflater.inflate(R.layout.station_bedrock_2, null);
 
-			Spinner spinnerObsType = (Spinner) convertView
-					.findViewById(R.id.station_spinner_obstype);
+			Spinner spinnerObsType = (Spinner) convertView.findViewById(R.id.station_spinner_obstype);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp1.setElements(pldb.getCol1("lutBEDStationObstype"));
 			spinnerObsType.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDStationObstype"));
+			spinnerObsType.setSelection(sp1.getPosition(stationBedrockEntity.getObsType()));
 			spinnerObsType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationBedrockEntity.setObsType(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerEntryType = (Spinner) convertView
-					.findViewById(R.id.station_spinner_entryType);
+			Spinner spinnerEntryType = (Spinner) convertView.findViewById(R.id.station_spinner_entryType);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			sp2.setElements(pldb.getCol1("lutBEDStationEntrytype"));
 			spinnerEntryType.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutBEDStationEntrytype"));
+			spinnerEntryType.setSelection(sp2.getPosition(stationBedrockEntity.getEntryType()));
 			spinnerEntryType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationBedrockEntity.setEntryType(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerOutcrop = (Spinner) convertView
-					.findViewById(R.id.station_spinner_outcropqual);
+			Spinner spinnerPhysEnviron = (Spinner) convertView.findViewById(R.id.station_spinner_physenviron);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerOutcrop.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutBEDStationOutcropqual"));
-			spinnerOutcrop.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+			sp3.setElements(pldb.getCol1("lutBEDStationPhysenviron"));
+			spinnerPhysEnviron.setAdapter(sp3);
+			spinnerPhysEnviron.setSelection(sp3.getPosition(stationBedrockEntity.getPhysEnv()));
+			spinnerPhysEnviron.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
+					stationBedrockEntity.setPhysEnv(parent.getItemAtPosition(position).toString());
 				}
 			});
 			
-			Spinner spinnerPhysEnviron = (Spinner) convertView
-					.findViewById(R.id.station_spinner_physenviron);
-			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerPhysEnviron.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol1("lutBEDStationPhysenviron"));
-			spinnerPhysEnviron.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
-				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					System.out.println(parent.getItemAtPosition(position));
-				}
-			});
+			
+			
 			
 			EditText editTextOutcropSize = (EditText) convertView
 					.findViewById(R.id.station_text_outcropsize);
-			
+			editTextOutcropSize.setText(stationBedrockEntity.getOcSize());
 
 			
 		} else if (tab == 3) {
@@ -166,8 +150,10 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			convertView = mInflater.inflate(R.layout.station_bedrock_3, null);
 			EditText editTextAirPhoto = (EditText) convertView
 					.findViewById(R.id.station_text_airphoto);
+			editTextAirPhoto.setText(stationBedrockEntity.getAirPhoto());
 			EditText editTextPartner = (EditText) convertView
 					.findViewById(R.id.station_editText_partner);
+			editTextPartner.setText(stationBedrockEntity.getPartner());
 			
 			
 		} else if (tab == 4) {
@@ -176,6 +162,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 
 			EditText editTextStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_stationnote);
+			editTextStationNote.setText(stationBedrockEntity.getNotes());
 			
 		} else if (tab == 5) {
 			
@@ -183,6 +170,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 
 			EditText editTextLastStationNote = (EditText) convertView
 					.findViewById(R.id.station_text_sincelaststationnote);
+			editTextLastStationNote.setText(stationBedrockEntity.getSlsNotes());
 			
 		}
 

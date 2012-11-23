@@ -2,6 +2,8 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+
+import com.nrcan.entities.EarthmatSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.EarthmatSurficialModel;
@@ -27,6 +29,7 @@ public class EarthmatSurficialController extends BaseAdapter implements
 	private Context context;
 	private int tab;
 	private EarthmatSurficialModel earthmatSurficialModel;
+	private EarthmatSurficialEntity earthmatSurficialEntity;
 	private PicklistDatabaseHandler pldb;
 	private ArrayList<String> e = new ArrayList<String>();
 
@@ -35,6 +38,7 @@ public class EarthmatSurficialController extends BaseAdapter implements
 		this.activity = activity;
 		this.context = context;
 		this.earthmatSurficialModel = earthmatSurficialModel;
+		this.earthmatSurficialEntity = earthmatSurficialModel.getEntity();
 		this.pldb = pldb;
 		this.tab = 1;
 	}
@@ -59,16 +63,26 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_group);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerGroup.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatLith2"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatLith2"));
 			spinnerGroup.setAdapter(sp1);
+			spinnerGroup.setSelection(sp1.getPosition(earthmatSurficialEntity.getLithGroup()));
 			spinnerGroup.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					earthmatSurficialModel.getEntity().setLithGroup("");
+					String tmp = parent.getItemAtPosition(position).toString();
+					if(!tmp.equalsIgnoreCase(earthmatSurficialEntity.getLithGroup()))
+					{
+						earthmatSurficialEntity.setLithGroup(tmp);
+						earthmatSurficialEntity.setLithType("");
+						earthmatSurficialEntity.setLithDetail("");
+					
+						System.out.println(parent.getItemAtPosition(position));
+						notifyDataSetChanged();
+					}
+					
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -78,16 +92,24 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerType.setAdapter(sp2);
 			
-			sp2.setElements(e);//(pldb.getCol2("lutSUREarthmatLith2"));
+			sp2.setElements(pldb.getCol2("lutSUREarthmatLith2",earthmatSurficialEntity.getLithGroup()));
 			spinnerType.setAdapter(sp2);
+			spinnerType.setSelection(sp2.getPosition(earthmatSurficialEntity.getLithType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					earthmatSurficialModel.getEntity().setLithType("");
+					String tmp = parent.getItemAtPosition(position).toString();
+					if(!tmp.equalsIgnoreCase(earthmatSurficialEntity.getLithGroup()))
+					{
+						earthmatSurficialEntity.setLithType(tmp);
+						earthmatSurficialEntity.setLithDetail("");
+					
+						System.out.println(parent.getItemAtPosition(position));
+						notifyDataSetChanged();
+					}
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -95,16 +117,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_detail);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerDetail.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol3("lutSUREarthmatLith2"));
+			sp3.setElements(pldb.getCol3("lutSUREarthmatLith2",earthmatSurficialEntity.getLithGroup(),earthmatSurficialEntity.getLithType()));
 			spinnerDetail.setAdapter(sp3);
+			spinnerDetail.setSelection(sp3.getPosition(earthmatSurficialEntity.getLithDetail()));
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					earthmatSurficialModel.getEntity().setLithDetail("");
+					earthmatSurficialEntity.setLithDetail(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -112,16 +134,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerColour = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_colour);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerColour.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol1("lutSUREarthmatColour"));
+			sp4.setElements(pldb.getCol1("lutSUREarthmatColour"));
 			spinnerColour.setAdapter(sp4);
+			spinnerColour.setSelection(sp4.getPosition(earthmatSurficialEntity.getColour()));
 			spinnerColour.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					earthmatSurficialModel.getEntity().setColour("");
+					earthmatSurficialEntity.setColour(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -134,15 +156,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerPrimary = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_primary);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPrimary.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatPrimestruct"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatPrimestruct"));
 			spinnerPrimary.setAdapter(sp1);
+			spinnerPrimary.setSelection(sp1.getPosition(earthmatSurficialEntity.getPrimeStruc()));
 			spinnerPrimary.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setPrimeStruc("");
+					earthmatSurficialEntity.setPrimeStruc(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -154,15 +177,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerWayUp = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_wayup);
 			SpinnerController sp2= new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerWayUp.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSUREarthmatWayup"));
+			sp2.setElements(pldb.getCol1("lutSUREarthmatWayup"));
 			spinnerWayUp.setAdapter(sp2);
+			spinnerWayUp.setSelection(sp2.getPosition(earthmatSurficialEntity.getWayUp()));
 			spinnerWayUp.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setWayUp("");
+					earthmatSurficialEntity.setWayUp(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -171,15 +195,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerSecondary = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_secondary);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSecondary.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSUREarthmatScndstruct"));
+			sp3.setElements(pldb.getCol1("lutSUREarthmatScndstruct"));
 			spinnerSecondary.setAdapter(sp3);
+			spinnerSecondary.setSelection(sp3.getPosition(earthmatSurficialEntity.getScndStruc()));
 			spinnerSecondary.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setScndStruc("");
+					earthmatSurficialEntity.setScndStruc(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -194,16 +219,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerIntThickness = (Spinner) convertView	.findViewById(R.id.earthmat_surficial_spinner_intThickness);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerIntThickness.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatThickType"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatThickType"));
 			spinnerIntThickness.setAdapter(sp1);
+			spinnerIntThickness.setSelection(sp1.getPosition(earthmatSurficialEntity.getThickType()));
 			spinnerIntThickness.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					earthmatSurficialModel.getEntity().setThickType("");
+					earthmatSurficialEntity.setThickType(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -215,15 +240,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerLowContact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_lowContact);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerLowContact.setAdapter(sp2);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatLwrcontact"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatLwrcontact"));
 			spinnerLowContact.setAdapter(sp2);
+			spinnerLowContact.setSelection(sp1.getPosition(earthmatSurficialEntity.getLwrContact()));
 			spinnerLowContact.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setLwrContact("");
+					earthmatSurficialEntity.setLwrContact(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -231,15 +257,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerInterpretation = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_interpretation);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerInterpretation.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSUREarthmatIntcontact"));
+			sp3.setElements(pldb.getCol1("lutSUREarthmatIntcontact"));
 			spinnerInterpretation.setAdapter(sp3);
+			spinnerInterpretation.setSelection(sp3.getPosition(earthmatSurficialEntity.getIntContact()));
 			spinnerInterpretation.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setIntContact("");
+					earthmatSurficialEntity.setIntContact(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -248,15 +275,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerLatContact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_latContact);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerLatContact.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol1("lutSUREarthmatLatcontact"));
+			sp4.setElements(pldb.getCol1("lutSUREarthmatLatcontact"));
 			spinnerLatContact.setAdapter(sp4);
+			spinnerLatContact.setSelection(sp4.getPosition(earthmatSurficialEntity.getLatContact()));
 			spinnerLatContact.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatSurficialModel.getEntity().setLatContact("");
+					earthmatSurficialEntity.setLatContact(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -269,15 +297,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerSorting = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_sorting);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSorting.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatSorting"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatSorting"));
 			spinnerSorting.setAdapter(sp1);
+			spinnerSorting.setSelection(sp1.getPosition(earthmatSurficialEntity.getSorting()));
 			spinnerSorting.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setSorting(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -285,15 +314,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerMatrix = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_matrix);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMatrix.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSUREarthmatMatrix"));
+			sp2.setElements(pldb.getCol1("lutSUREarthmatMatrix"));
 			spinnerMatrix.setAdapter(sp2);
+			spinnerMatrix.setSelection(sp2.getPosition(earthmatSurficialEntity.getMatrix()));
 			spinnerMatrix.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setMatrix(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -302,15 +332,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerModifier = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_modifier);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerModifier.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSUREarthmatMatrixMod"));
+			sp3.setElements(pldb.getCol1("lutSUREarthmatMatrixMod"));
 			spinnerModifier.setAdapter(sp3);
+			spinnerModifier.setSelection(sp3.getPosition(earthmatSurficialEntity.getMatrixMod()));
 			spinnerModifier.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setMatrixMod(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -320,15 +351,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerOxidation = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_oxidation);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerOxidation.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol1("lutSUREarthmatOxidation"));
+			sp4.setElements(pldb.getCol1("lutSUREarthmatOxidation"));
 			spinnerOxidation.setAdapter(sp4);
+			spinnerOxidation.setSelection(sp4.getPosition(earthmatSurficialEntity.getOxidation()));
 			spinnerOxidation.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setOxidation(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -336,15 +368,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerCompact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_compact);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerCompact.setAdapter(sp5);
-			sp5.setElements(e);//(pldb.getCol1("lutSUREarthmatCompaction"));
+			sp5.setElements(pldb.getCol1("lutSUREarthmatCompaction"));
 			spinnerCompact.setAdapter(sp5);
+			spinnerCompact.setSelection(sp5.getPosition(earthmatSurficialEntity.getCompaction()));
 			spinnerCompact.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setCompaction(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -353,15 +386,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerJointing = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_jointing);
 			SpinnerController sp6 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerJointing.setAdapter(sp6);
-			sp6.setElements(e);//(pldb.getCol1("lutSUREarthmatJointing"));
+			sp6.setElements(pldb.getCol1("lutSUREarthmatJointing"));
 			spinnerJointing.setAdapter(sp6);
+			spinnerJointing.setSelection(sp6.getPosition(earthmatSurficialEntity.getJointing()));
 			spinnerJointing.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setJointing(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -370,15 +404,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerh2oContent = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_h2oContent);
 			SpinnerController sp7 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerh2oContent.setAdapter(sp7);
-			sp7.setElements(e);//(pldb.getCol1("lutSUREarthmatH2OContent"));
+			sp7.setElements(pldb.getCol1("lutSUREarthmatH2OContent"));
 			spinnerh2oContent.setAdapter(sp7);
+			spinnerh2oContent.setSelection(sp7.getPosition(earthmatSurficialEntity.getH2oContent()));
 			spinnerh2oContent.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setH2oContent(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -386,15 +421,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerHclReact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_hclReact);
 			SpinnerController sp8 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerHclReact.setAdapter(sp8);
-			sp8.setElements(e);//(pldb.getCol1("lutSUREarthmatHCLReact"));
+			sp8.setElements(pldb.getCol1("lutSUREarthmatHCLReact"));
 			spinnerHclReact.setAdapter(sp8);
+			spinnerHclReact.setSelection(sp8.getPosition(earthmatSurficialEntity.getHclReact()));
 			spinnerHclReact.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setHclReact(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -403,15 +439,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			Spinner spinnerFissility = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_fissility);
 			SpinnerController sp9 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerFissility.setAdapter(sp9);
-			sp9.setElements(e);//(pldb.getCol1("lutSUREarthmatFissility"));
+			sp9.setElements(pldb.getCol1("lutSUREarthmatFissility"));
 			spinnerFissility.setAdapter(sp9);
+			spinnerFissility.setSelection(sp9.getPosition(earthmatSurficialEntity.getFissilty()));
 			spinnerFissility.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setFissilty(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -423,15 +460,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_mapUnit);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMapUnit.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatMapunit"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatMapunit"));
 			spinnerMapUnit.setAdapter(sp1);
+			spinnerMapUnit.setSelection(sp1.getPosition(earthmatSurficialEntity.getMapUnit()));
 			spinnerMapUnit.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setMapUnit(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -441,15 +479,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_surficialOrigin);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSurficialOrigin.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSUREarthmatSufform"));
+			sp2.setElements(pldb.getCol1("lutSUREarthmatSufform"));
 			spinnerSurficialOrigin.setAdapter(sp2);
+			spinnerSurficialOrigin.setSelection(sp2.getPosition(earthmatSurficialEntity.getSufform()));
 			spinnerSurficialOrigin.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setSufform(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -472,15 +511,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_clastForms);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerClastForms.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDEarthmatRocktype"));
+			sp1.setElements(pldb.getCol1("lutBEDEarthmatRocktype"));
 			spinnerClastForms.setAdapter(sp1);
+			spinnerClastForms.setSelection(sp1.getPosition(earthmatSurficialEntity.getClastForm()));
 			spinnerClastForms.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setClastForm(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -490,15 +530,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_averageModal);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerAverageModal.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSUREarthmatRoundness"));
+			sp2.setElements(pldb.getCol1("lutSUREarthmatRoundness"));
 			spinnerAverageModal.setAdapter(sp2);
+			spinnerAverageModal.setSelection(sp2.getPosition(earthmatSurficialEntity.getModalRnd()));
 			spinnerAverageModal.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setModalRnd(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -507,15 +548,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_roundMax);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMaximum.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSUREarthmatRoundness"));
+			sp3.setElements(pldb.getCol1("lutSUREarthmatRoundness"));
 			spinnerMaximum.setAdapter(sp3);
+			spinnerMaximum.setSelection(sp3.getPosition(earthmatSurficialEntity.getMaxRound()));
 			spinnerMaximum.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setMaxRound(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -524,15 +566,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_roundMin);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerMinimum.setAdapter(sp4);
-			sp4.setElements(e);//(pldb.getCol1("lutSUREarthmatRoundness"));
+			sp4.setElements(pldb.getCol1("lutSUREarthmatRoundness"));
 			spinnerMinimum.setAdapter(sp4);
+			spinnerMinimum.setSelection(sp4.getPosition(earthmatSurficialEntity.getMinRound()));
 			spinnerMinimum.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setMinRound(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -547,15 +590,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_erraticType);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerErratic.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSUREarthmatErratictyp"));
+			sp1.setElements(pldb.getCol1("lutSUREarthmatErratictyp"));
 			spinnerErratic.setAdapter(sp1);
+			spinnerErratic.setSelection(sp1.getPosition(earthmatSurficialEntity.getErraticTyp()));
 			spinnerErratic.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setErraticTyp(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -564,15 +608,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 					.findViewById(R.id.earthmat_surficial_spinner_erraticPer);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerErraticPer.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutBEDEarthmatRocktype"));
+			sp2.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
 			spinnerErraticPer.setAdapter(sp2);
+			spinnerErraticPer.setSelection(sp2.getPosition(earthmatSurficialEntity.getErraticPer()));
 			spinnerErraticPer.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
+					earthmatSurficialEntity.setErraticPer(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -600,7 +645,7 @@ public class EarthmatSurficialController extends BaseAdapter implements
 
 	public boolean setTab(int tabNum) {
 		if(this.tab == 1){
-			if(earthmatSurficialModel.getEntity().getLithGroup().equalsIgnoreCase("")){
+			if(earthmatSurficialEntity.getLithGroup().equalsIgnoreCase("")){
 				return false;
 			}
 			

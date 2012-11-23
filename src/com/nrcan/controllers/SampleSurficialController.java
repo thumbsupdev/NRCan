@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.SampleSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.SampleSurficialModel;
@@ -28,8 +29,8 @@ public class SampleSurficialController extends BaseAdapter implements
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 	private SampleSurficialModel sampleSurficialModel;
+	private SampleSurficialEntity sampleSurficialEntity;
 
 	public SampleSurficialController(Context context, Activity activity,SampleSurficialModel sampleSurficialModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -37,6 +38,7 @@ public class SampleSurficialController extends BaseAdapter implements
 		this.context = context;
 		this.tab = 1;
 		this.sampleSurficialModel = sampleSurficialModel;
+		this.sampleSurficialEntity = sampleSurficialModel.getEntity();
 		this.pldb = pldb;
 	}
 
@@ -63,7 +65,8 @@ public class SampleSurficialController extends BaseAdapter implements
 			
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerType.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSURSampleType"));
+			sp1.setElements(pldb.getCol1("lutSURSampleType"));
+			spinnerType.setSelection(sp1.getPosition(sampleSurficialEntity.getSampleType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -71,6 +74,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleSurficialEntity.setSampleType(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -79,7 +83,8 @@ public class SampleSurficialController extends BaseAdapter implements
 					.findViewById(R.id.sample_surficial_spinner_purpose);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPurpose.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSURSamplePurpose"));
+			sp2.setElements(pldb.getCol1("lutSURSamplePurpose"));
+			spinnerPurpose.setSelection(sp2.getPosition(sampleSurficialEntity.getPurpose()));
 			spinnerPurpose.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -87,6 +92,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleSurficialEntity.setPurpose(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -110,7 +116,8 @@ public class SampleSurficialController extends BaseAdapter implements
 					.findViewById(R.id.sample_surficial_spinner_sampleState);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSampleState.setAdapter(sp1);
-			sp1.setElements(e);//(pldb.getCol1("lutSURSampleState"));
+			sp1.setElements(pldb.getCol1("lutSURSampleState"));
+			spinnerSampleState.setSelection(sp1.getPosition(sampleSurficialEntity.getState()));
 			spinnerSampleState.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -118,6 +125,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleSurficialEntity.setState(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -126,8 +134,9 @@ public class SampleSurficialController extends BaseAdapter implements
 					.findViewById(R.id.sample_surficial_spinner_format);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerFormat.setAdapter(sp2);
-			sp2.setElements(e);//(pldb.getCol1("lutSURGeneralStrucFormat"));
+			sp2.setElements(pldb.getCol1("lutSURGeneralStrucFormat"));
 			spinnerFormat.setAdapter(sp2);
+			spinnerFormat.setSelection(sp2.getPosition(sampleSurficialEntity.getFormat()));
 			spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -135,6 +144,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleSurficialEntity.setFormat(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -147,7 +157,8 @@ public class SampleSurficialController extends BaseAdapter implements
 					.findViewById(R.id.sample_surficial_spinner_surface);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerSurface.setAdapter(sp3);
-			sp3.setElements(e);//(pldb.getCol1("lutSURSampleSurface"));
+			sp3.setElements(pldb.getCol1("lutSURSampleSurface"));
+			spinnerSurface.setSelection(sp3.getPosition(sampleSurficialEntity.getSurface()));
 			spinnerSurface.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -155,6 +166,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					sampleSurficialEntity.setSurface(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

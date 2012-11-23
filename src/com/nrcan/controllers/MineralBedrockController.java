@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.MineralBedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.MineralBedrockModel;
@@ -28,8 +29,8 @@ Filterable {
 	private Context context;
 	private int tab;
 	private MineralBedrockModel mineralBedrockModel;
+	private MineralBedrockEntity mineralBedrockEntity;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 
 	public MineralBedrockController(Context context, Activity activity,MineralBedrockModel mineralBedrockModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -38,6 +39,7 @@ Filterable {
 		this.tab = 1;
 		this.pldb = pldb;
 		this.mineralBedrockModel = mineralBedrockModel;
+		this.mineralBedrockEntity = mineralBedrockModel.getEntity();
 	}
 
 	public int getCount() {
@@ -61,8 +63,9 @@ Filterable {
 			Spinner spinnerMineral = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_mineral);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDMineralMineral"));
+			sp1.setElements(pldb.getCol1("lutBEDMineralMineral"));
 			spinnerMineral.setAdapter(sp1);
+			spinnerMineral.setSelection(sp1.getPosition(mineralBedrockEntity.getMineral()));
 			spinnerMineral.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -70,6 +73,7 @@ Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					mineralBedrockEntity.setMineral(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -85,8 +89,9 @@ Filterable {
 			Spinner spinnerColour = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_colour);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDMineralColour"));
+			sp1.setElements(pldb.getCol1("lutBEDMineralColour"));
 			spinnerColour.setAdapter(sp1);
+			spinnerColour.setSelection(sp1.getPosition(mineralBedrockEntity.getColour()));
 			spinnerColour.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -94,6 +99,7 @@ Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					mineralBedrockEntity.setColour(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -111,8 +117,9 @@ Filterable {
 			Spinner spinnerForm = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_form);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(e);//(pldb.getCol1("lutBEDMineralForm"));
+			sp1.setElements(pldb.getCol1("lutBEDMineralForm"));
 			spinnerForm.setAdapter(sp1);
+			spinnerForm.setSelection(sp1.getPosition(mineralBedrockEntity.getForm()));
 			spinnerForm.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -120,6 +127,7 @@ Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					mineralBedrockEntity.setForm(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -127,8 +135,9 @@ Filterable {
 			Spinner spinnerHabit = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_habit);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp2.setElements(e);//(pldb.getCol1("lutBEDMineralHabit"));
+			sp2.setElements(pldb.getCol1("lutBEDMineralHabit"));
 			spinnerHabit.setAdapter(sp2);
+			spinnerHabit.setSelection(sp2.getPosition(mineralBedrockEntity.getHabit()));
 			spinnerHabit.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -136,6 +145,7 @@ Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					mineralBedrockEntity.setHabit(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
@@ -143,8 +153,9 @@ Filterable {
 			Spinner spinnerOccur = (Spinner) convertView
 					.findViewById(R.id.mineral_bedrock_spinner_occur);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp3.setElements(e);//(pldb.getCol1("lutBEDMineralOccur"));
+			sp3.setElements(pldb.getCol1("lutBEDMineralOccur"));
 			spinnerOccur.setAdapter(sp3);
+			spinnerOccur.setSelection(sp3.getPosition(mineralBedrockEntity.getOccurrence()));
 			spinnerOccur.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
@@ -152,6 +163,7 @@ Filterable {
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
+					mineralBedrockEntity.setOccurrence(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});

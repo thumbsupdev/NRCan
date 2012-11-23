@@ -2,6 +2,7 @@ package com.nrcan.controllers;
 
 import java.util.ArrayList;
 
+import com.nrcan.entities.SoilProSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 import com.nrcan.models.SoilProSurficialModel;
@@ -27,7 +28,7 @@ public class SoilProSurficialController extends BaseAdapter implements
 	private int tab;
 	private SoilProSurficialModel soilproModel;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
+	private SoilProSurficialEntity soilProSurficialEntity;
 
 	public SoilProSurficialController(Context context, Activity activity,SoilProSurficialModel soilproModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -36,6 +37,7 @@ public class SoilProSurficialController extends BaseAdapter implements
 		this.tab = 1;
 		this.soilproModel = soilproModel;
 		this.pldb = pldb;
+		this.soilProSurficialEntity = soilproModel.getEntity();
 	}
 
 	public int getCount() {
