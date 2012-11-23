@@ -9,6 +9,8 @@ import com.nrcan.models.SampleBedrockModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,17 +30,16 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private SampleBedrockModel sampleBedrockModel;
+	
 	private SampleBedrockEntity sampleBedrockEntity;
 
-	public SampleBedrockController(Context context, Activity activity, SampleBedrockModel sampleBedrockModel,PicklistDatabaseHandler pldb ) {
+	public SampleBedrockController(Context context, Activity activity, SampleBedrockEntity sampleBedrockEntity,PicklistDatabaseHandler pldb ) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-		this.sampleBedrockModel = sampleBedrockModel;
 		this.pldb = pldb;
-		this.sampleBedrockEntity = sampleBedrockModel.getEntity();
+		this.sampleBedrockEntity = sampleBedrockEntity;
 	}
 
 	public int getCount() {
@@ -90,16 +91,41 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					sampleBedrockEntity.setPurpose(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = sampleBedrockEntity.getPurpose();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							sampleBedrockEntity.setPurpose(tmp + " | " + sel);
+						else
+							sampleBedrockEntity.setPurpose(sel);
+						
+						notifyDataSetChanged();
+					}
 				}
 			});
 			
-			Button buttonPurpose = (Button) convertView
-					.findViewById(R.id.sample_bedrock_button_purpose);
+			
+			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_bedrock_button_purpose);
+			buttonPurpose.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					sampleBedrockEntity.setPurpose("");
+					notifyDataSetChanged();
+				}
+			});
 			EditText editTextPurpose = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_text_purpose);
+			editTextPurpose.setText(sampleBedrockEntity.getPurpose());
+			editTextPurpose.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleBedrockEntity.setPurpose("");
+					else
+						sampleBedrockEntity.setPurpose(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -127,8 +153,30 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			
 			EditText editTextAzimuth = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_editText_azimuth);
+			editTextAzimuth.setText(sampleBedrockEntity.getAzimuth());
+			editTextAzimuth.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleBedrockEntity.setAzimuth("");
+					else
+						sampleBedrockEntity.setAzimuth(s.toString());
+				}
+			});
 			EditText editTextDipPlunge = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_editText_dipPlunge);
+			editTextDipPlunge.setText(sampleBedrockEntity.getDipplunge());
+			editTextDipPlunge.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleBedrockEntity.setDipplunge("");
+					else
+						sampleBedrockEntity.setDipplunge(s.toString());
+				}
+			});
 			Spinner spinnerSurface = (Spinner) convertView
 					.findViewById(R.id.sample_bedrock_spinner_surface);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -156,6 +204,17 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 
 			EditText editTextNote = (EditText) convertView
 					.findViewById(R.id.sample_bedrock_text_note);
+			editTextNote.setText(sampleBedrockEntity.getNotes());
+			editTextNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleBedrockEntity.setNotes("");
+					else
+						sampleBedrockEntity.setNotes(s.toString());
+				}
+			});
 
 			
 		}
@@ -170,7 +229,7 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 	public boolean setTab(int tabNum) {
 
 		if(this.tab == 1){
-			if(sampleBedrockModel.getEntity().getPurpose().equalsIgnoreCase("")){
+			if(sampleBedrockEntity.getPurpose().equalsIgnoreCase("")){
 				return false;
 			}
 			

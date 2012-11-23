@@ -9,6 +9,8 @@ import com.nrcan.models.SampleSurficialModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,16 +31,16 @@ public class SampleSurficialController extends BaseAdapter implements
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private SampleSurficialModel sampleSurficialModel;
+	
 	private SampleSurficialEntity sampleSurficialEntity;
 
-	public SampleSurficialController(Context context, Activity activity,SampleSurficialModel sampleSurficialModel,PicklistDatabaseHandler pldb) {
+	public SampleSurficialController(Context context, Activity activity,SampleSurficialEntity sampleSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-		this.sampleSurficialModel = sampleSurficialModel;
-		this.sampleSurficialEntity = sampleSurficialModel.getEntity();
+		
+		this.sampleSurficialEntity = sampleSurficialEntity;
 		this.pldb = pldb;
 	}
 
@@ -86,26 +88,72 @@ public class SampleSurficialController extends BaseAdapter implements
 			sp2.setElements(pldb.getCol1("lutSURSamplePurpose"));
 			spinnerPurpose.setSelection(sp2.getPosition(sampleSurficialEntity.getPurpose()));
 			spinnerPurpose.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
+				public void onNothingSelected(AdapterView<?> arg0) {			
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					sampleSurficialEntity.setPurpose(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = sampleSurficialEntity.getPurpose();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							sampleSurficialEntity.setPurpose(tmp + " | " + sel);
+						else
+							sampleSurficialEntity.setPurpose(sel);
+						
+						notifyDataSetChanged();
+					}
 				}
 			});
 			
-			Button buttonPurpose = (Button) convertView
-					.findViewById(R.id.sample_surficial_button_purpose);
+			
+			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_surficial_button_purpose);
+			buttonPurpose.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					sampleSurficialEntity.setPurpose("");
+					notifyDataSetChanged();
+				}
+			});
 			EditText editTextPurpose = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_purpose);
+			editTextPurpose.setText(sampleSurficialEntity.getPurpose());
+			editTextPurpose.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setPurpose("");
+					else
+						sampleSurficialEntity.setPurpose(s.toString());
+				}
+			});
 			EditText editTextHorizon = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_horizon);
+			editTextHorizon.setText(sampleSurficialEntity.getHorizon());
+			editTextHorizon.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setHorizon("");
+					else
+						sampleSurficialEntity.setHorizon(s.toString());
+				}
+			});
+			
 			EditText editTextDepth = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_depthInterval);
-			
+			editTextDepth.setText(sampleSurficialEntity.getSampleDep());
+			editTextDepth.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setSampleDep("");
+					else
+						sampleSurficialEntity.setSampleDep(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -151,8 +199,30 @@ public class SampleSurficialController extends BaseAdapter implements
 			
 			EditText editTextAzimuth = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_azimuth);
+			editTextAzimuth.setText(sampleSurficialEntity.getAzimuth());
+			editTextAzimuth.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setAzimuth("");
+					else
+						sampleSurficialEntity.setAzimuth(s.toString());
+				}
+			});
 			EditText editTextDipPlunge = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_dipPlunge);
+			editTextDipPlunge.setText(sampleSurficialEntity.getDipplunge());
+			editTextDipPlunge.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setDipplunge("");
+					else
+						sampleSurficialEntity.setDipplunge(s.toString());
+				}
+			});
 			Spinner spinnerSurface = (Spinner) convertView
 					.findViewById(R.id.sample_surficial_spinner_surface);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -181,6 +251,17 @@ public class SampleSurficialController extends BaseAdapter implements
 			
 			EditText editTextNotes = (EditText) convertView
 					.findViewById(R.id.sample_surficial_editText_notes);
+			editTextNotes.setText(sampleSurficialEntity.getNotes());
+			editTextNotes.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						sampleSurficialEntity.setNotes("");
+					else
+						sampleSurficialEntity.setNotes(s.toString());
+				}
+			});
 
 			
 		} 
@@ -194,7 +275,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 	public boolean setTab(int tabNum) {
 		if(this.tab == 1){
-			if(sampleSurficialModel.getEntity().getPurpose().equalsIgnoreCase("")){
+			if(sampleSurficialEntity.getPurpose().equalsIgnoreCase("")){
 				return false;
 			}
 			

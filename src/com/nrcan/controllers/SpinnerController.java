@@ -132,6 +132,10 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
 		this.elements = elements;
 		notifyDataSetChanged();
 	}
+	
+	public void addSpace() {
+		elements.add(0, "");
+	}
 
     public void setDataUpdated(boolean dataUpdated) {
         this.dataUpdated = dataUpdated;

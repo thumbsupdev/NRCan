@@ -9,6 +9,8 @@ import com.nrcan.models.PFlowSurficialModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,18 +29,18 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private PFlowSurficialModel pflowSurficialModel;
+	
 	private PicklistDatabaseHandler pldb;
 	private PFlowSurficialEntity pflowSurficialEntity;
 	
-	public PFlowSurficialController(Context context, Activity activity,PFlowSurficialModel pflowSurficialModel,PicklistDatabaseHandler pldb) {
+	public PFlowSurficialController(Context context, Activity activity,PFlowSurficialEntity pflowSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
-		this.pflowSurficialModel = pflowSurficialModel;
-		this.pflowSurficialEntity = pflowSurficialModel.getEntity();
+		
+		this.pflowSurficialEntity = pflowSurficialEntity;
 	}
 
 	public int getCount() {
@@ -116,14 +118,40 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 					}
 
 					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						//earthmatbedrockModel.getEntity().setLithGroup("");
-						System.out.println(parent.getItemAtPosition(position));
+						String tmp = pflowSurficialEntity.getPfFeature();
+						String sel = parent.getItemAtPosition(position).toString();
+						if(!tmp.contains(sel))
+						{
+							if(tmp.length() > 1)
+								pflowSurficialEntity.setPfFeature(tmp + " | " + sel);
+							else
+								pflowSurficialEntity.setPfFeature(sel);
+							
+							notifyDataSetChanged();
+						}
 					}
 				});
 				
-				Button buttonFeature = (Button)convertView.findViewById(R.id.pflow_surficial_button_feature);
-				EditText editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
+				Button buttonFeature = (Button) convertView.findViewById(R.id.pflow_surficial_button_feature);
+				buttonFeature.setOnClickListener(new View.OnClickListener() {
+					public void onClick(View v) {
+						pflowSurficialEntity.setPfFeature("");
+						notifyDataSetChanged();
+					}
+				});
 				
+				EditText editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
+				editTextFeature.setText(pflowSurficialEntity.getPfFeature());
+				editTextFeature.addTextChangedListener(new TextWatcher() {
+					public void onTextChanged(CharSequence s, int start, int before, int count) { }
+					public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+					public void afterTextChanged(Editable s) {
+						if (s.length() == 0)
+							pflowSurficialEntity.setPfFeature("");
+						else
+							pflowSurficialEntity.setPfFeature(s.toString());
+					}
+				});
 				Spinner spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
 				SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerBedrockSurface.setAdapter(sp4);
@@ -165,7 +193,29 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				});
 				
 				EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
+				editTextAzimuth.setText(pflowSurficialEntity.getPfAzimuth());
+				editTextAzimuth.addTextChangedListener(new TextWatcher() {
+					public void onTextChanged(CharSequence s, int start, int before, int count) { }
+					public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+					public void afterTextChanged(Editable s) {
+						if (s.length() == 0)
+							pflowSurficialEntity.setPfAzimuth("");
+						else
+							pflowSurficialEntity.setPfAzimuth(s.toString());
+					}
+				});
 				EditText editTextAge = (EditText)convertView.findViewById(R.id.pflow_surficial_editText_age);
+				editTextAge.setText(pflowSurficialEntity.getRelage());
+				editTextAge.addTextChangedListener(new TextWatcher() {
+					public void onTextChanged(CharSequence s, int start, int before, int count) { }
+					public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+					public void afterTextChanged(Editable s) {
+						if (s.length() == 0)
+							pflowSurficialEntity.setRelage("");
+						else
+							pflowSurficialEntity.setRelage(s.toString());
+					}
+				});
 				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
 				SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 				spinnerIndicators.setAdapter(sp2);
@@ -228,6 +278,17 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				convertView = mInflater.inflate(R.layout.pflow_surficial_3, null);
 				
 				EditText editTextNote = (EditText)convertView.findViewById(R.id.pflow_surficial_text_note);
+				editTextNote.setText(pflowSurficialEntity.getNotes());
+				editTextNote.addTextChangedListener(new TextWatcher() {
+					public void onTextChanged(CharSequence s, int start, int before, int count) { }
+					public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+					public void afterTextChanged(Editable s) {
+						if (s.length() == 0)
+							pflowSurficialEntity.setNotes("");
+						else
+							pflowSurficialEntity.setNotes(s.toString());
+					}
+				});
 				
 			
 			}
@@ -242,7 +303,7 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 	public boolean setTab(int tabNum) {
 
 		if(this.tab == 2){
-			if(pflowSurficialModel.getEntity().getPfAzimuth().equalsIgnoreCase("")){
+			if(pflowSurficialEntity.getPfAzimuth().equalsIgnoreCase("")){
 				return false;
 			}
 			

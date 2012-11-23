@@ -6,7 +6,6 @@ import com.nrcan.entities.StationBedrockEntity;
 
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-import com.nrcan.models.StationBedrockModel;
 
 import android.app.Activity;
 import android.content.Context;

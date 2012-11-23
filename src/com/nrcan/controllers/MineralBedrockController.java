@@ -9,6 +9,8 @@ import com.nrcan.models.MineralBedrockModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,18 +30,18 @@ Filterable {
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private MineralBedrockModel mineralBedrockModel;
+	
 	private MineralBedrockEntity mineralBedrockEntity;
 	private PicklistDatabaseHandler pldb;
 
-	public MineralBedrockController(Context context, Activity activity,MineralBedrockModel mineralBedrockModel,PicklistDatabaseHandler pldb) {
+	public MineralBedrockController(Context context, Activity activity,MineralBedrockEntity mineralBedrockEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
-		this.mineralBedrockModel = mineralBedrockModel;
-		this.mineralBedrockEntity = mineralBedrockModel.getEntity();
+		
+		this.mineralBedrockEntity = mineralBedrockEntity;
 	}
 
 	public int getCount() {
@@ -80,6 +82,17 @@ Filterable {
 			
 			EditText editTextMode = (EditText) convertView
 					.findViewById(R.id.mineral_bedrock_editText_percent);
+			editTextMode.setText(mineralBedrockEntity.getMineralNo());
+			editTextMode.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						mineralBedrockEntity.setMineralNo("");
+					else
+						mineralBedrockEntity.setMineralNo(s.toString());
+				}
+			});
 
 			
 		} else if (tab == 2) {
@@ -106,8 +119,30 @@ Filterable {
 			
 			EditText editTextMin = (EditText) convertView
 					.findViewById(R.id.mineal_bedrock_editText_min);
+			editTextMin.setText(mineralBedrockEntity.getSizeMinmm());
+			editTextMin.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						mineralBedrockEntity.setSizeMinmm("");
+					else
+						mineralBedrockEntity.setSizeMinmm(s.toString());
+				}
+			});
 			EditText editTextMax = (EditText) convertView
 					.findViewById(R.id.mineral_bedrock_editText_max);
+			editTextMax.setText(mineralBedrockEntity.getSizeMaxmm());
+			editTextMax.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						mineralBedrockEntity.setSizeMaxmm("");
+					else
+						mineralBedrockEntity.setSizeMaxmm(s.toString());
+				}
+			});
 			
 			
 		} else if (tab == 3) {
@@ -176,6 +211,17 @@ Filterable {
 
 			EditText editTextNotes = (EditText) convertView
 					.findViewById(R.id.mineral_editText_note);
+			editTextNotes.setText(mineralBedrockEntity.getNotes());
+			editTextNotes.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						mineralBedrockEntity.setNotes("");
+					else
+						mineralBedrockEntity.setNotes(s.toString());
+				}
+			});
 			
 			
 		} 

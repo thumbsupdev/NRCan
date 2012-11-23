@@ -10,6 +10,8 @@ import com.nrcan.models.EarthmatSurficialModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,23 +24,19 @@ import android.widget.Filterable;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class EarthmatSurficialController extends BaseAdapter implements
-		Filterable {
+public class EarthmatSurficialController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private EarthmatSurficialModel earthmatSurficialModel;
 	private EarthmatSurficialEntity earthmatSurficialEntity;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
 
-	public EarthmatSurficialController(Context context, Activity activity,EarthmatSurficialModel earthmatSurficialModel,PicklistDatabaseHandler pldb) {
+	public EarthmatSurficialController(Context context, Activity activity, EarthmatSurficialEntity earthmatSurficialEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
-		this.earthmatSurficialModel = earthmatSurficialModel;
-		this.earthmatSurficialEntity = earthmatSurficialModel.getEntity();
+		this.earthmatSurficialEntity = earthmatSurficialEntity;
 		this.pldb = pldb;
 		this.tab = 1;
 	}
@@ -57,7 +55,6 @@ public class EarthmatSurficialController extends BaseAdapter implements
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			
 			convertView = mInflater.inflate(R.layout.earthmat_surficial1, null);
 
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_group);
@@ -172,7 +169,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			
 			Button buttonPrimary = (Button) convertView.findViewById(R.id.earthmat_surficial_button_primary_clear);
 			EditText editTextPrimary = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_primary);
-			
+			editTextPrimary.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setPrimeStruc("");
+					else
+						earthmatSurficialEntity.setPrimeStruc(s.toString());
+				}
+			});
 			
 			Spinner spinnerWayUp = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_wayup);
 			SpinnerController sp2= new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -211,7 +217,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			
 			Button buttonSecondary = (Button) convertView.findViewById(R.id.earthmat_surficial_button_secondary_clear);
 			EditText editTextSecondary = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_secondary);
-			
+			editTextSecondary.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setScndStruc("");
+					else
+						earthmatSurficialEntity.setScndStruc(s.toString());
+				}
+			});
 		} else if (tab == 3) {
 			
 			
@@ -235,7 +250,27 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			
 			
 			EditText editTextTo = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_to);
+			editTextTo.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setThickMin("");
+					else
+						earthmatSurficialEntity.setThickMin(s.toString());
+				}
+			});
 			EditText editTextFrom = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_from);
+			editTextFrom.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setThickMax("");
+					else
+						earthmatSurficialEntity.setThickMax(s.toString());
+				}
+			});
 		
 			Spinner spinnerLowContact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_lowContact);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
@@ -348,6 +383,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			
 			Button buttonMatrixClear = (Button) convertView.findViewById(R.id.earthmat_surficial_button_matrixMod_clear);
 			EditText editTextMatrixMod = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_matrixMod);
+			editTextMatrixMod.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setMatrixMod("");
+					else
+						earthmatSurficialEntity.setMatrixMod(s.toString());
+				}
+			});
 			Spinner spinnerOxidation = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_oxidation);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerOxidation.setAdapter(sp4);
@@ -500,12 +545,52 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			convertView = mInflater.inflate(R.layout.earthmat_surficial6, null);
 			EditText editTextModal = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_clastModal);
+			editTextModal.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setClastModal("");
+					else
+						earthmatSurficialEntity.setClastModal(s.toString());
+				}
+			});
 			EditText editTextMax = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_clastMax);
+			editTextMax.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setClastMax("");
+					else
+						earthmatSurficialEntity.setClastMax(s.toString());
+				}
+			});
 			EditText editTextMin = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_clastMin);
+			editTextMin.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setClastMin("");
+					else
+						earthmatSurficialEntity.setClastMin(s.toString());
+				}
+			});
 			EditText editTextClastPer = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_clastPer);
+			editTextClastPer.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setClastPct("");
+					else
+						earthmatSurficialEntity.setClastPct(s.toString());
+				}
+			});
 
 			Spinner spinnerClastForms = (Spinner) convertView
 					.findViewById(R.id.earthmat_surficial_spinner_clastForms);
@@ -624,8 +709,45 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			
 			EditText editTextErraticComp = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_erraticComp);
+			editTextErraticComp.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setErraticTyp("");
+					else
+						earthmatSurficialEntity.setClastModal(s.toString());
+				}
+			});
 			EditText editTextInterpretation = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_interpretation);
+			editTextInterpretation.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setInterp("");
+					else
+						earthmatSurficialEntity.setInterp(s.toString());
+				}
+			});
+			
+			Spinner spinnerLandForm = (Spinner) convertView
+					.findViewById(R.id.earthmat_surficial_spinner_landForm);
+			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			spinnerLandForm.setAdapter(sp3);
+			sp3.setElements(pldb.getCol1("lutSUREarthmatLandform"));
+			spinnerLandForm.setSelection(sp3.getPosition(earthmatSurficialEntity.getLandForm()));
+			spinnerLandForm.setOnItemSelectedListener(new OnItemSelectedListener() {
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					earthmatSurficialEntity.setErraticPer(parent.getItemAtPosition(position).toString());
+					System.out.println(parent.getItemAtPosition(position));
+				}
+			});
 			
 		} else if (tab == 8) {
 			
@@ -633,6 +755,16 @@ public class EarthmatSurficialController extends BaseAdapter implements
 			convertView = mInflater.inflate(R.layout.earthmat_surficial8, null);
 			EditText editTextNotes = (EditText) convertView
 					.findViewById(R.id.earthmat_surficial_editText_notes);
+			editTextNotes.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatSurficialEntity.setNotes("");
+					else
+						earthmatSurficialEntity.setNotes(s.toString());
+				}
+			});
 			
 		}
 

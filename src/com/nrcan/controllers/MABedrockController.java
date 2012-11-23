@@ -9,6 +9,8 @@ import com.nrcan.models.MABedrockModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,19 +29,17 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 	private Activity activity;
 	private Context context;
 	private int tab;
-	private MABedrockModel maBedrockModel;
+	
 	private MABedrockEntity maBedrockEntity;
 	private PicklistDatabaseHandler pldb;
 
-	public MABedrockController(Context context, Activity activity,MABedrockModel maBedrockModel,PicklistDatabaseHandler pldb) {
+	public MABedrockController(Context context, Activity activity,MABedrockEntity maBedrockEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
-		this.maBedrockEntity = maBedrockModel.getEntity();
-		this.maBedrockModel = maBedrockModel;
-		
+		this.maBedrockEntity = maBedrockEntity;
 
 	}
 
@@ -129,16 +129,41 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
-					maBedrockEntity.setDistribute(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = maBedrockEntity.getDistribute();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							maBedrockEntity.setDistribute(tmp + " | " + sel);
+						else
+							maBedrockEntity.setDistribute(sel);
+						
+						notifyDataSetChanged();
+					}
 				}
 			});
 			
-			Button buttonMAClear = (Button) convertView
-					.findViewById(R.id.ma_bedrock_button_mAClear);
+			Button buttonMAClear = (Button) convertView.findViewById(R.id.ma_bedrock_button_mAClear);
+			buttonMAClear.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					maBedrockEntity.setDistribute("");
+					notifyDataSetChanged();
+				}
+			});
+			
 			EditText editTextMA = (EditText) convertView
 					.findViewById(R.id.ma_bedrock_editText_mA);
+			editTextMA.setText(maBedrockEntity.getDistribute());
+			editTextMA.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						maBedrockEntity.setDistribute("");
+					else
+						maBedrockEntity.setDistribute(s.toString());
+				}
+			});
 			Spinner spinnerWhatAffected = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_whatAffected);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerWhatAffected.setAdapter(sp5);
@@ -163,6 +188,17 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 
 			EditText editTextNote = (EditText) convertView
 					.findViewById(R.id.ma_bedrock_editText_note);
+			editTextNote.setText(maBedrockEntity.getNotes());
+			editTextNote.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						maBedrockEntity.setNotes("");
+					else
+						maBedrockEntity.setNotes(s.toString());
+				}
+			});
 
 			
 
