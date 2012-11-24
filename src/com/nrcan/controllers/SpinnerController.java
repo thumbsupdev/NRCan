@@ -29,6 +29,7 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
     private String columnOne;
     private String columnTwo;
     private PicklistDatabaseHandler picklistDatabase;
+    private String value;
 
 	public SpinnerController(Context context, int resource) {
 		super(context, resource);
@@ -60,12 +61,12 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 // put the value from the edittext into the data list
-                String text = textEdit.getText().toString();
+                value = textEdit.getText().toString();
 
-                if(text != null) {
+                if(value != null) {
                     // Add text to the spinner
-                    elements.add(text);
-                    picklistDatabase.insertNewValue(tableName, columnNumber, text, columnOne, columnTwo);
+                    picklistDatabase.insertNewValue(tableName, columnNumber, value, columnOne, columnTwo);
+                    elements.add(value);
                 }
 
                 dialog.dismiss();

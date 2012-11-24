@@ -497,7 +497,7 @@ public class MainActivity extends ListActivity {
 
 		setupButtons();
 
-		flipper.setDisplayedChild(8);
+		flipper.setDisplayedChild(0);
 		//button2.setVisibility(View.INVISIBLE);
 		//button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());

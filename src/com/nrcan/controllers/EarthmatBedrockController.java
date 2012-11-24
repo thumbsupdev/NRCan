@@ -52,7 +52,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock1, null);
-			//SPINNER LITH GROUP
+			
+			/////////////////////////////////////
+			// SPINNER LITH GROUP
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (1/5)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_group);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatRocktype"));
@@ -73,8 +86,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}
 				}
 			});
-			
-			//SPINNER LITH TYPE
+
+			/////////////////////////////////////
+			// SPINNER LITH TYPE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (2/5)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatRocktype", earthmatBedrockEntity.getLithGroup()));
@@ -94,7 +119,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//SPINNER LITH DETAIL
+			/////////////////////////////////////
+			// SPINNER LITH DETAIL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (3/5)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol3("lutBEDEarthmatRocktype", earthmatBedrockEntity.getLithGroup(), earthmatBedrockEntity.getLithType()));
@@ -108,7 +145,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//SPINNER MAP UNIT
+			/////////////////////////////////////
+			// SPINNER MAP UNIT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (4/5)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp4.setElements(pldb.getCol1("lutBEDEarthmatMapUnit"));
@@ -121,8 +170,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					earthmatBedrockEntity.setMapUnit(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
-			//SPINNER OCCURS AS
+
+			/////////////////////////////////////
+			// SPINNER OCCURS AS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (5/5)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp5.setElements(pldb.getCol2("lutBEDEarthmatOccurs", earthmatBedrockEntity.getLithGroup()));
@@ -139,10 +200,23 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock2, null);
 			
-			//CONCAT SPINNER MOD STRUCT
+			/////////////////////////////////////
+			// CONCAT SPINNER MOD STRUCT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (1/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatStructural", earthmatBedrockEntity.getLithGroup()));
+            sp1.setNewElement(pldb, "lutBEDEarthmatStructural", 2, earthmatBedrockEntity.getLithGroup(), null);
 			spinnerStructure.setAdapter(sp1);
 			spinnerStructure.setSelection(sp1.getPosition(earthmatBedrockEntity.getModStruc()));
 			spinnerStructure.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -161,8 +235,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}
 				}
 			});
-			
-			//CONCAT EDITTEXT MOD STRUCT
+
+			/////////////////////////////////////
+			// CONCAT EDITTEXT MOD STRUCT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (2/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
 			editTextStructure.setText(earthmatBedrockEntity.getModStruc());
 			editTextStructure.addTextChangedListener(new TextWatcher() {
@@ -175,8 +261,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setModStruc(s.toString());
 				}
 			});
-			
-			//CONCAT BUTTON MOD STRUCT
+
+			/////////////////////////////////////
+			// CONCAT BUTTON MOD STRUCT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (3/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
 			buttonStructure.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -184,11 +282,24 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					notifyDataSetChanged();
 				}
 			});
-			
-			//CONCAT SPINNER MOD TEXTURE
+
+			/////////////////////////////////////
+			// CONCAT SPINNER MOD TEXTURE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (4/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerTexture = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_texture);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatTextural", earthmatBedrockEntity.getLithGroup()));
+            sp2.setNewElement(pldb, "lutBEDEarthmatTextural", 2, earthmatBedrockEntity.getLithGroup(), null);
 			spinnerTexture.setAdapter(sp2);
 			spinnerTexture.setSelection(sp2.getPosition(earthmatBedrockEntity.getModTexture()));
 			spinnerTexture.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -207,7 +318,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}}
 			});
 
-			//CONCAT EDITTEXT MOD TEXTURE
+			/////////////////////////////////////
+			// CONCAT EDITTEXT MOD TEXTURE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (5/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextTexture = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_texture);
 			editTextTexture.setText(earthmatBedrockEntity.getModTexture());
 			editTextTexture.addTextChangedListener(new TextWatcher() {
@@ -220,8 +343,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setModTexture(s.toString());
 				}
 			});
-			
-			//CONCAT BUTTON MOD TEXTURE
+
+			/////////////////////////////////////
+			// CONCAT BUTTON MOD TEXTURE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (6/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
 			buttonTexture.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -229,12 +364,25 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					notifyDataSetChanged();
 				}
 			});
-			
-			//CONCAT SPINNER MOD COMPOSITION
+
+			/////////////////////////////////////
+			// CONCAT SPINNER MOD COMPOSITION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (7/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerComposition = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_composition);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerComposition.setAdapter(sp3);
 			sp3.setElements(pldb.getCol2("lutBEDEarthmatComposition", earthmatBedrockEntity.getLithGroup()));
+            sp3.setNewElement(pldb, 
+			spinnerComposition.setAdapter(sp3);
 			spinnerComposition.setSelection(sp3.getPosition(earthmatBedrockEntity.getModComp()));
 			spinnerComposition.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
@@ -252,7 +400,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}}
 			});
 
-			//CONCAT EDITTEXT MOD COMPOSITION
+			/////////////////////////////////////
+			// CONCAT EDITTEXT MOD COMPOSITION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (8/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextComposition = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_composition);
 			editTextComposition.setText(earthmatBedrockEntity.getModComp());
 			editTextComposition.addTextChangedListener(new TextWatcher() {
@@ -265,8 +425,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setModComp(s.toString());
 				}
 			});
-			
-			//CONCAT BUTTON MOD COMPOSITION
+
+			/////////////////////////////////////
+			// CONCAT BUTTON MOD COMPOSITION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (9/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
 			buttonComposition.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -277,10 +449,23 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		} else if (tab == 3) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock3, null);
 
-			//CONCAT SPINNER GRN/CRY
+			/////////////////////////////////////
+			// CONCAT SPINNER GRN/CRY
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (1/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerGrnCry = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatGCSize",earthmatBedrockEntity.getLithGroup()));
+            sp1.setNewElement(pldb, 
 			spinnerGrnCry.setAdapter(sp1);
 			spinnerGrnCry.setSelection(sp1.getPosition(earthmatBedrockEntity.getGrcrySize()));
 			spinnerGrnCry.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -302,17 +487,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}
 					}
 			});
-			
-			//CONCAT BUTTON GRN/CRY
-			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
-			buttonGrnCry.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					earthmatBedrockEntity.setGrcrySize("");
-					notifyDataSetChanged();
-				}
-			});
-			
-			//CONCAT EDITTEXT GRN/CRY
+
+			/////////////////////////////////////
+			// CONCAT EDITTEXT GRN/CRY
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (2/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
 			editTextGrnCry.setText(earthmatBedrockEntity.getGrcrySize());
 			editTextGrnCry.addTextChangedListener(new TextWatcher() {
@@ -326,10 +514,44 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//CONCAT SPINNER DEF/FABRIC
+			/////////////////////////////////////
+			// CONCAT BUTTON GRN/CRY
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (3/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
+			buttonGrnCry.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setGrcrySize("");
+					notifyDataSetChanged();
+				}
+			});
+
+			/////////////////////////////////////
+			// CONCAT SPINNER DEF/FABRIC
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (4/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerDefFabric = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutBEDEarthmatDeffabric"));
+            sp2.setNewElement(pldb, 
 			spinnerDefFabric.setAdapter(sp2);
 			spinnerDefFabric.setSelection(sp2.getPosition(earthmatBedrockEntity.getDefFabric()));
 			spinnerDefFabric.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -352,16 +574,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//BUTTON DEF FABRIC
-			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
-			buttonDefFabric.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					earthmatBedrockEntity.setDefFabric("");
-					notifyDataSetChanged();
-				}
-			});
-			
-			//EDITTEXT DEF FABRIC
+			/////////////////////////////////////
+			// CONCAT EDITTEXT DEF FABRIC
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (5/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextDefFabric = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_defFabric);
 			editTextDefFabric.setText(earthmatBedrockEntity.getDefFabric());
 			editTextDefFabric.addTextChangedListener(new TextWatcher() {
@@ -374,11 +599,45 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setDefFabric(s.toString());
 				}
 			});
-			
-			//SPINNER BED THIK
+
+			/////////////////////////////////////
+			// CONCAT BUTTON DEF FABRIC
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (6/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
+			buttonDefFabric.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setDefFabric("");
+					notifyDataSetChanged();
+				}
+			});
+
+			/////////////////////////////////////
+			// CONCAT SPINNER BED THIK
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (7/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerBedThick = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_bedThick);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol1("lutBEDEarthmatBedthick"));
+            sp3.setNewElement(pldb, 
 			spinnerBedThick.setAdapter(sp3);
 			spinnerBedThick.setSelection(sp3.getPosition(earthmatBedrockEntity.getBedThick()));
 			spinnerBedThick.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -400,18 +659,21 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}	
 				}
 			});
+			
 
-			//BUTTON BED THICK
-			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
-			buttonBedThick.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					earthmatBedrockEntity.setBedThick("");
-					notifyDataSetChanged();
-				}
-			});
-			
-			
-			//EDITTEXT BED THICK
+			/////////////////////////////////////
+			// CONCAT EDITTEXT BED THICK
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (8/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextBedThick = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_bedThick);
 			editTextBedThick.setText(earthmatBedrockEntity.getBedThick());
 			editTextBedThick.addTextChangedListener(new TextWatcher() {
@@ -424,16 +686,48 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setBedThick(s.toString());
 				}
 			});
-			
+
+			/////////////////////////////////////
+			// CONCAT BUTTON BED THICK
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (9/9)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
+			buttonBedThick.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setBedThick("");
+					notifyDataSetChanged();
+				}
+			});
 			
 		} else if (tab == 4) {
-
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock4, null);
 
-			//SPINNER MINERAL
+			/////////////////////////////////////
+			// CONCAT SPINNER MINERAL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (1/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_mineral);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatMineral"));
+            sp1.setNewElement(pldb, 
 			spinnerMineral.setAdapter(sp1);
 			spinnerMineral.setSelection(sp1.getPosition(earthmatBedrockEntity.getMineral()));
 			spinnerMineral.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -456,15 +750,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//BUTTON MINERAL 
-			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
-			buttonClear.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					earthmatBedrockEntity.setMineral("");
-					notifyDataSetChanged();
-				}
-			});
-			
+			/////////////////////////////////////
+			// CONCAT EDITTEXT MINERAL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (2/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextMineral = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_mineral);
 			editTextMineral.setText(earthmatBedrockEntity.getMineral());
 			editTextMineral.addTextChangedListener(new TextWatcher() {
@@ -477,7 +775,41 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setMineral(s.toString());
 				}
 			});
-			
+
+			/////////////////////////////////////
+			// CONCAT BUTTON MINERAL 
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (3/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
+			buttonClear.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setMineral("");
+					notifyDataSetChanged();
+				}
+			});
+
+			/////////////////////////////////////
+			// EDITTEXT MINERAL DESC (254)
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (4/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextRockDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
 			editTextRockDescription.setText(earthmatBedrockEntity.getMinNote());
 			editTextRockDescription.addTextChangedListener(new TextWatcher() {
@@ -492,12 +824,25 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 				
 		} else if (tab == 5) {
-
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock5, null);
-			//SPINNER FRESH
+
+			/////////////////////////////////////
+			// SPINNER COLOUR FRESH
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (1/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerFresh = (Spinner) convertView.findViewById(R.id.earthmat_spinner_fresh);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatColour"));
+            sp1.setNewElement(pldb, 
 			spinnerFresh.setAdapter(sp1);
 			spinnerFresh.setSelection(sp1.getPosition(earthmatBedrockEntity.getColourF()));
 			spinnerFresh.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -511,10 +856,23 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-
+			/////////////////////////////////////
+			// SPINNER COLOUR WEATHERED
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (2/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerWeathered = (Spinner) convertView.findViewById(R.id.earthmat_spinner_weathered);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutBEDEarthmatColour"));
+            sp2.setNewElement(pldb, 
 			spinnerWeathered.setAdapter(sp2);
 			spinnerWeathered.setSelection(sp2.getPosition(earthmatBedrockEntity.getColourW()));
 			spinnerWeathered.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -528,7 +886,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-			//EDITTEXT INDEX
+			/////////////////////////////////////
+			// EDITTEXT INDEX
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (3/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextIndex = (EditText) convertView.findViewById(R.id.earthmat_editText_index);
 			editTextIndex.setText(earthmatBedrockEntity.getColourInd());
 			editTextIndex.addTextChangedListener(new TextWatcher() {
@@ -541,8 +911,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setColourInd(s.toString());
 				}
 			});
-			
-			//EDITTEXT MAG SUSP
+
+			/////////////////////////////////////
+			// EDITTEXT MAG SUSCEPTIBILITY
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (4/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextMagSus = (EditText) convertView.findViewById(R.id.earthmat_editText_magSusceptibility);
 			editTextMagSus.setText(earthmatBedrockEntity.getMagSuscept());
 			editTextMagSus.addTextChangedListener(new TextWatcher() {
@@ -557,13 +939,25 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 			
 		} else if (tab == 6) {
-
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock6, null);
-			
-			//SPINNER FOSSIL
+
+			/////////////////////////////////////
+			// CONCAT SPINNER FOSSIL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 6 - ELEMENT (1/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerFossil = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_fossil);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatFossil"));
+            sp1.setNewElement(pldb, 
 			spinnerFossil.setAdapter(sp1);
 			spinnerFossil.setSelection(sp1.getPosition(earthmatBedrockEntity.getFossils()));
 			spinnerFossil.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -585,16 +979,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}	
 				}
 			});
-
-			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
-			buttonFossil.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					earthmatBedrockEntity.setFossils("");
-					notifyDataSetChanged();
-				}
-			});
 			
-			
+			/////////////////////////////////////
+			// CONCAT EDITTEXT FOSSIL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 6 - ELEMENT (2/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextFossil = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_fossil);
 			editTextFossil.setText(earthmatBedrockEntity.getFossils());
 			editTextFossil.addTextChangedListener(new TextWatcher() {
@@ -607,7 +1005,41 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 						earthmatBedrockEntity.setFossils(s.toString());
 				}
 			});
-			
+
+			/////////////////////////////////////
+			// CONCAT BUTTON FOSSIL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 6 - ELEMENT (3/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
+			buttonFossil.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setFossils("");
+					notifyDataSetChanged();
+				}
+			});
+
+			/////////////////////////////////////
+			// EDITTEXT FOSSIL DESC (254)
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 6 - ELEMENT (4/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextFossilDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
 			editTextFossilDescription.setText(earthmatBedrockEntity.getFossilNote());
 			editTextFossilDescription.addTextChangedListener(new TextWatcher() {
@@ -626,9 +1058,23 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock7, null);
 
+			/////////////////////////////////////
+			// SPINNER CONTACT UPPER
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 7 - ELEMENT (1/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerContactUpper = (Spinner) convertView.findViewById(R.id.earthmat_spinner_upper);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatContact"));
+            sp1.setNewElement(pldb, 
 			spinnerContactUpper.setAdapter(sp1);
 			spinnerContactUpper.setSelection(sp1.getPosition(earthmatBedrockEntity.getContactUp()));
 			spinnerContactUpper.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -643,10 +1089,24 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 
 
+			/////////////////////////////////////
+			// SPINNER CONTACT LOWER
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 7 - ELEMENT (2/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerContactLower = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lower);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerContactLower.setAdapter(sp2);
 			sp2.setElements(pldb.getCol1("lutBEDEarthmatContact"));
+            sp2.setNewElement(pldb, 
+			spinnerContactLower.setAdapter(sp2);
 			spinnerContactLower.setSelection(sp2.getPosition(earthmatBedrockEntity.getContactLow()));
 			spinnerContactLower.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
@@ -659,6 +1119,19 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
+			/////////////////////////////////////
+			// EDITTEXT CONTACT DESC (254)
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 7 - ELEMENT (3/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextContactDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
 			editTextContactDescription.setText(earthmatBedrockEntity.getContact());
 			editTextContactDescription.addTextChangedListener(new TextWatcher() {
@@ -672,12 +1145,22 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
-			
 		} else if (tab == 8) {
-
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock8, null);
 
-			//EDIT TEXT
+			/////////////////////////////////////
+			// EDITTEXT LITH INTERP (254)
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 8 - ELEMENT (1/2)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextLithDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
 			editTextLithDescription.setText(earthmatBedrockEntity.getInterp());
 			editTextLithDescription.addTextChangedListener(new TextWatcher() {
@@ -691,11 +1174,25 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
-			
+
+			/////////////////////////////////////
+			// SPINNER LITH INTERP CONFIDENCE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 8 - ELEMENT (2/2)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerLithInterp = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerLithInterp.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatInterpconf"));
+            sp1.setNewElement(pldb, 
+			spinnerLithInterp.setAdapter(sp1);
 			spinnerLithInterp.setSelection(sp1.getPosition(earthmatBedrockEntity.getInterpConf()));
 			spinnerLithInterp.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {
