@@ -96,7 +96,7 @@
 
             <Spinner
                 android:id="@+id/station_spinner_elevation"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

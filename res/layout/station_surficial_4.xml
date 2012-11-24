@@ -20,7 +20,8 @@
         android:layout_marginRight="20dp"
         android:inputType="textMultiLine"
         android:lines="12"
-        android:maxLength="254" >
+        android:maxLength="254"
+        android:hint="@string/station_label_stationnote" >
     </EditText>
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:hint="@string/station_label_partner" />
 
 </LinearLayout>

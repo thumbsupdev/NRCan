@@ -18,7 +18,7 @@
     <string name="station_label_northing">Northing (m)</string>
     <string name="station_label_latitude">Latitude</string>
     <string name="station_label_longitude">Longitude</string>
-    <string name="station_label_obstype">Observation Type*</string>
+    <string name="station_label_obstype">Observation Type</string>
     
     <string name="station_label_outcropqual">Outcrop Quality</string>
     <string name="station_label_physenviron">Phys. Environ</string>
@@ -36,8 +36,8 @@
     <string name="station_label_entryType">Entry Type</string>
     
     <!-- SAMPLE -->
-    <string name="sample_label_type">Type*</string>
-    <string name="sample_label_purpose">Purpose*</string>
+    <string name="sample_label_type">Type</string>
+    <string name="sample_label_purpose">Purpose</string>
     <string name="sample_button_purpose">C</string>
     <string name="sample_label_format">Format</string>
     <string name="sample_label_strike">Strike</string>
@@ -48,11 +48,11 @@
     <string name="sample_label_note">Note</string>
 
     <!-- STRUCTURE -->
-    <string name="structure_label_class">Class*</string>
-    <string name="structure_label_type">Type*</string>
-    <string name="structure_label_detail">Detail*</string>
+    <string name="structure_label_class">Class</string>
+    <string name="structure_label_type">Type</string>
+    <string name="structure_label_detail">Detail</string>
     <string name="structure_label_method">Method</string>
-    <string name="structure_label_format">Format*</string>
+    <string name="structure_label_format">Format</string>
     <string name="structure_label_strike">Azimuth</string>
     <string name="structure_label_dip">Dip/Plunge</string>
     <string name="structure_label_attitude">Attitude</string>
@@ -67,15 +67,15 @@
 
     <!-- PHOTO -->
     <string name="photo_button_summary">S</string>
-    <string name="photo_label_category">Category*</string>
-    <string name="photo_label_filename">File name*</string>
+    <string name="photo_label_category">Category</string>
+    <string name="photo_label_filename">File name</string>
     <string name="photo_label_direction">Direction</string>
-    <string name="photo_label_caption">Caption* (254 chars max)</string>
+    <string name="photo_label_caption">Caption (254 chars max)</string>
     <string name="photo_button_caption">L</string>
 
     <!-- PFLOW -->
-    <string name="pflow_label_class">Class*</string>
-    <string name="pflow_label_direction">Direction*</string>
+    <string name="pflow_label_class">Class</string>
+    <string name="pflow_label_direction">Direction</string>
     <string name="pflow_label_feature">Feature</string>
     <string name="pflow_label_method">Method</string>
     <string name="pflow_label_azimuth">Azimuth</string>
@@ -86,7 +86,7 @@
     <string name="pflow_label_relationship">Relationship</string>
     <string name="pflow_label_note">Note (254 chars max)</string>
     
-    <string name="pflow_label_sense">Sense*</string>
+    <string name="pflow_label_sense">Sense</string>
     <string name="pflow_label_bedrockSurface">Bedrock Surface</string>
 
     <!-- TAB HOST NUMBERS -->
@@ -181,7 +181,7 @@
     <string name="earthmat_label_percent">%</string>
     <string name="earthmat_label_genFossilCategories">General Fossil Categories</string>
     <string name="earthmat_label_interpretation2">Interpretation</string>
-    <string name="earthmat_label_notes">Notes (max. 254 characters)</string>
+    <string name="earthmat_label_notes">Notes (254 chars max)</string>
     <string name="earthmat_label_secondary">Secondary</string>
     <string name="earthmat_label_interpConf">Interpretation Confidence</string>
     <string name="earthmat_label_wayUp">Way up</string>
@@ -196,7 +196,7 @@
     <string name="environ_label_indicators">Indicators</string>
     <string name="environ_label_depthOfAL">Depth of Active Layers (m)</string>
     <string name="environ_label_gossan">Gossan</string>
-    <string name="environ_label_minOfImp">Mineralization of Importance</string>
+    <string name="environ_label_minOfImp">Mineralization of Importance (254 chars max)</string>
     <string name="environ_label_specificNotes">Specific Notes</string>
     <string name="environ_label_exposureType">Exposure Type</string>
     <string name="environ_label_vegetation">Vegetation</string>
@@ -233,8 +233,8 @@
     <string name="sample_label_notes">Notes (254 chars max)</string>
 
     <!-- MA -->
-    <string name="ma_label_minAlt">Min/Alter*</string>
-    <string name="ma_label_mineral">Mineral*</string>
+    <string name="ma_label_minAlt">Min/Alter</string>
+    <string name="ma_label_mineral">Mineral</string>
     <string name="ma_label_distribution">Distribution</string>
     <string name="ma_label_unit">Unit</string>
     <string name="ma_label_mode">Mode</string>
@@ -242,8 +242,8 @@
     <string name="ma_label_whataffected">What Affected</string>
 
     <!-- MINERAL -->
-    <string name="mineral_label_mineral">Mineral*</string>
-    <string name="mineral_label_mode">Mode*</string>
+    <string name="mineral_label_mineral">Mineral</string>
+    <string name="mineral_label_mode">Mode</string>
     <string name="mineral_label_colour">Colour</string>
     <string name="mineral_label_size">Size (mm)</string>
     <string name="mineral_label_min">Min</string>
@@ -251,7 +251,7 @@
     <string name="mineral_label_form">Form</string>
     <string name="mineral_label_habit">Habit</string>
     <string name="mineral_label_occur">Occurance</string>
-    <string name="mineral_label_note">Note (254 chars. max)</string>
+    <string name="mineral_label_note">Note (254 chars max)</string>
     <string name="mineral_label_percent">Percent</string>
     <string name="earthmatBedrockDialog">Group, Type, and Detail</string>
     <string name="earthmatBedrockDialogMessage">You must enter Group, Type, and Detail to Advance </string>
@@ -265,5 +265,11 @@
     <string name="pFlowSurficialDialogMessage">A value must be entered for Azimuth to advance</string>
     <string name="earthmatSurficialDialog">Material</string>
     <string name="earthmatSurficialDialogMessage">A value must be entered for Material to Advance</string>
+    
+    <string name="hints_zero">0</string>
+    <string name="percent">%</string>
+    <string name="C">C</string>
+    <string name="L">L</string>
+    <string name="P">P</string>
 
 </resources>

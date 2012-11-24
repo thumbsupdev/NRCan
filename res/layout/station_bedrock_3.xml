@@ -25,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.9"
             android:layout_height="wrap_content"
-            
+            android:hint="@string/station_label_airphoto"
             android:inputType="text" />
 
         <Button
@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:hint="@string/station_label_partner"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

@@ -448,7 +448,7 @@ public class MainActivity extends ListActivity {
 		adap13 = new ListController(this, this, "PALEO FLOW");
 		adap14 = new PFlowSurficialController(this, this,pFlowSurficialModel.getEntity(), pldb);
 		adap15 = new ListController(this, this, "PHOTO");
-		adap16 = new PhotoController(this, this,photoModel, pldb);
+		adap16 = new PhotoController(this, this,photoModel.getEntity(), pldb);
 		adap17 = new ListController(this, this, "SAMPLE");
 		adap18 = new SampleBedrockController(this, this,sampleBedrockModel.getEntity(), pldb);
 		adap19 = new ListController(this, this, "SAMPLE");
@@ -564,28 +564,28 @@ public class MainActivity extends ListActivity {
 	public void setupMaps() {
 		bedrockFileNames.put("lutBEDEarthmatBedthick.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatColour.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDEarthmatComposition.txt", Integer.valueOf(2));	// <<<---
+		bedrockFileNames.put("lutBEDEarthmatComposition.txt", Integer.valueOf(2));
 		bedrockFileNames.put("lutBEDEarthmatContact.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatDeffabric.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatFossil.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatGCSize.txt", Integer.valueOf(2));
 		bedrockFileNames.put("lutBEDEarthmatInterpconf.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDEarthmatMapunit.txt", Integer.valueOf(1));		// <<<---
+		bedrockFileNames.put("lutBEDEarthmatMapunit.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDEarthmatMineral.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDEarthmatOccurs.txt", Integer.valueOf(2));		// <<<---
-		bedrockFileNames.put("lutBEDEarthmatRocktype.txt", Integer.valueOf(3));		// <<<---
-		bedrockFileNames.put("lutBEDEarthmatStructural.txt", Integer.valueOf(2));	// <<<---
-		bedrockFileNames.put("lutBEDEarthmatTextural.txt", Integer.valueOf(2));		// <<<---
+		bedrockFileNames.put("lutBEDEarthmatOccurs.txt", Integer.valueOf(2));
+		bedrockFileNames.put("lutBEDEarthmatRocktype.txt", Integer.valueOf(3));
+		bedrockFileNames.put("lutBEDEarthmatStructural.txt", Integer.valueOf(2));
+		bedrockFileNames.put("lutBEDEarthmatTextural.txt", Integer.valueOf(2));
 		bedrockFileNames.put("lutBEDGeneralPercent5incr.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDGeneralStrucFormat.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDGeneralStrucMethod.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDMADistribute.txt", Integer.valueOf(2));
 		bedrockFileNames.put("lutBEDMAMineralogy.txt", Integer.valueOf(2));
 		bedrockFileNames.put("lutBEDMAUnit.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDMetadataDigcamera.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDMetadataGeologist.txt", Integer.valueOf(2));
-		bedrockFileNames.put("lutBEDMetadataPrjctType.txt", Integer.valueOf(1));
-		bedrockFileNames.put("lutBEDMetadataPrjname.txt", Integer.valueOf(3));
+		bedrockFileNames.put("lutMetadataDigcamera.txt", Integer.valueOf(1));
+		bedrockFileNames.put("lutMetadataGeologist.txt", Integer.valueOf(2));
+		bedrockFileNames.put("lutMetadataPrjctType.txt", Integer.valueOf(1));
+		bedrockFileNames.put("lutMetadataPrjname.txt", Integer.valueOf(3));
 		bedrockFileNames.put("lutBEDMineralColour.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDMineralForm.txt", Integer.valueOf(1));
 		bedrockFileNames.put("lutBEDMineralHabit.txt", Integer.valueOf(1));
@@ -643,10 +643,10 @@ public class MainActivity extends ListActivity {
 		surficialFileNames.put("lutSURGeneralPercent5incr.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSURGeneralStrucFormat.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSURGeneralStrucMethod.txt", Integer.valueOf(1));
-		surficialFileNames.put("lutSURMetadataDigcamera.txt", Integer.valueOf(1));
-		surficialFileNames.put("lutSURMetadataGeologist.txt", Integer.valueOf(2));
-		surficialFileNames.put("lutSURMetadataPrjctType.txt", Integer.valueOf(1));
-		surficialFileNames.put("lutSURMetadataPrjname.txt", Integer.valueOf(3));
+		surficialFileNames.put("lutMetadataDigcamera.txt", Integer.valueOf(1));
+		surficialFileNames.put("lutMetadataGeologist.txt", Integer.valueOf(2));
+		surficialFileNames.put("lutMetadataPrjctType.txt", Integer.valueOf(1));
+		surficialFileNames.put("lutMetadataPrjname.txt", Integer.valueOf(3));
 		surficialFileNames.put("lutSURPflowBedrocksurface.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSURPflowDefinition.txt", Integer.valueOf(1));
 		surficialFileNames.put("lutSURPflowNumindic.txt", Integer.valueOf(1));

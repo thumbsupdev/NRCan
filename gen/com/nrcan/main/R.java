@@ -216,7 +216,7 @@ public final class R {
         public static final int ma_bedrock_spinner_mineral=0x7f0700fc;
         public static final int ma_bedrock_spinner_mineralPercent=0x7f0700fd;
         public static final int ma_bedrock_spinner_whatAffected=0x7f070101;
-        public static final int menu_settings=0x7f0701cf;
+        public static final int menu_settings=0x7f0701d0;
         public static final int metadata_editText_projectCode=0x7f070105;
         public static final int metadata_editText_projectLeader=0x7f070106;
         public static final int metadata_editText_projectName=0x7f070104;
@@ -347,6 +347,7 @@ public final class R {
         public static final int station_surficial_button_date=0x7f07018e;
         public static final int station_surficial_button_mapsheet=0x7f0701aa;
         public static final int station_surficial_editText_interpretation=0x7f0701a4;
+        public static final int station_surficial_editText_partner=0x7f0701ad;
         public static final int station_surficial_label_airphoto=0x7f0701a5;
         public static final int station_surficial_label_date=0x7f07018d;
         public static final int station_surficial_label_easting=0x7f070191;
@@ -359,7 +360,7 @@ public final class R {
         public static final int station_surficial_label_northing=0x7f070193;
         public static final int station_surficial_label_obstype=0x7f070199;
         public static final int station_surficial_label_physenviron=0x7f0701a1;
-        public static final int station_surficial_label_sincelaststationnote=0x7f0701ad;
+        public static final int station_surficial_label_sincelaststationnote=0x7f0701ae;
         public static final int station_surficial_label_sitequal=0x7f07019f;
         public static final int station_surficial_label_stationnote=0x7f0701ab;
         public static final int station_surficial_label_traverse=0x7f07018b;
@@ -376,7 +377,7 @@ public final class R {
         public static final int station_surficial_text_longitude=0x7f070198;
         public static final int station_surficial_text_mapsheet=0x7f0701a9;
         public static final int station_surficial_text_northing=0x7f070194;
-        public static final int station_surficial_text_sincelaststationnote=0x7f0701ae;
+        public static final int station_surficial_text_sincelaststationnote=0x7f0701af;
         public static final int station_surficial_text_stationnote=0x7f0701ac;
         public static final int station_surficial_text_traverse=0x7f07018c;
         public static final int station_text_airphoto=0x7f070183;
@@ -389,38 +390,38 @@ public final class R {
         public static final int station_text_sincelaststationnote=0x7f07018a;
         public static final int station_text_stationnote=0x7f070188;
         public static final int station_text_traverse=0x7f07016b;
-        public static final int structure_editText_related=0x7f0701c8;
-        public static final int structure_label_attitude=0x7f0701bd;
-        public static final int structure_label_class=0x7f0701af;
-        public static final int structure_label_detail=0x7f0701b3;
-        public static final int structure_label_dip=0x7f0701bb;
-        public static final int structure_label_fabric=0x7f0701c9;
-        public static final int structure_label_flattening=0x7f0701c5;
-        public static final int structure_label_format=0x7f0701b7;
-        public static final int structure_label_generation=0x7f0701c1;
-        public static final int structure_label_method=0x7f0701b5;
-        public static final int structure_label_note=0x7f0701cd;
-        public static final int structure_label_related=0x7f0701c7;
-        public static final int structure_label_sense=0x7f0701cb;
-        public static final int structure_label_strain=0x7f0701c3;
-        public static final int structure_label_strike=0x7f0701b9;
-        public static final int structure_label_type=0x7f0701b1;
-        public static final int structure_label_younging=0x7f0701bf;
-        public static final int structure_spinner_attitude=0x7f0701be;
-        public static final int structure_spinner_class=0x7f0701b0;
-        public static final int structure_spinner_detail=0x7f0701b4;
-        public static final int structure_spinner_flattening=0x7f0701c6;
-        public static final int structure_spinner_format=0x7f0701b8;
-        public static final int structure_spinner_generation=0x7f0701c2;
-        public static final int structure_spinner_method=0x7f0701b6;
-        public static final int structure_spinner_strain=0x7f0701c4;
-        public static final int structure_spinner_type=0x7f0701b2;
-        public static final int structure_spinner_younging=0x7f0701c0;
-        public static final int structure_text_dip=0x7f0701bc;
-        public static final int structure_text_fabric=0x7f0701ca;
-        public static final int structure_text_note=0x7f0701ce;
-        public static final int structure_text_sense=0x7f0701cc;
-        public static final int structure_text_strike=0x7f0701ba;
+        public static final int structure_editText_related=0x7f0701c9;
+        public static final int structure_label_attitude=0x7f0701be;
+        public static final int structure_label_class=0x7f0701b0;
+        public static final int structure_label_detail=0x7f0701b4;
+        public static final int structure_label_dip=0x7f0701bc;
+        public static final int structure_label_fabric=0x7f0701ca;
+        public static final int structure_label_flattening=0x7f0701c6;
+        public static final int structure_label_format=0x7f0701b8;
+        public static final int structure_label_generation=0x7f0701c2;
+        public static final int structure_label_method=0x7f0701b6;
+        public static final int structure_label_note=0x7f0701ce;
+        public static final int structure_label_related=0x7f0701c8;
+        public static final int structure_label_sense=0x7f0701cc;
+        public static final int structure_label_strain=0x7f0701c4;
+        public static final int structure_label_strike=0x7f0701ba;
+        public static final int structure_label_type=0x7f0701b2;
+        public static final int structure_label_younging=0x7f0701c0;
+        public static final int structure_spinner_attitude=0x7f0701bf;
+        public static final int structure_spinner_class=0x7f0701b1;
+        public static final int structure_spinner_detail=0x7f0701b5;
+        public static final int structure_spinner_flattening=0x7f0701c7;
+        public static final int structure_spinner_format=0x7f0701b9;
+        public static final int structure_spinner_generation=0x7f0701c3;
+        public static final int structure_spinner_method=0x7f0701b7;
+        public static final int structure_spinner_strain=0x7f0701c5;
+        public static final int structure_spinner_type=0x7f0701b3;
+        public static final int structure_spinner_younging=0x7f0701c1;
+        public static final int structure_text_dip=0x7f0701bd;
+        public static final int structure_text_fabric=0x7f0701cb;
+        public static final int structure_text_note=0x7f0701cf;
+        public static final int structure_text_sense=0x7f0701cd;
+        public static final int structure_text_strike=0x7f0701bb;
         public static final int tab_host_10_button1=0x7f070051;
         public static final int tab_host_10_button2=0x7f070052;
         public static final int tab_host_10_button3=0x7f070053;
@@ -553,6 +554,9 @@ public final class R {
         public static final int activity_main=0x7f060000;
     }
     public static final class string {
+        public static final int C=0x7f0400e7;
+        public static final int L=0x7f0400e8;
+        public static final int P=0x7f0400e9;
         /**  APP GENERAL 
          */
         public static final int app_name=0x7f040000;
@@ -657,6 +661,7 @@ public final class R {
         public static final int environ_label_specificNotes=0x7f0400aa;
         public static final int environ_label_vegetation=0x7f0400ac;
         public static final int hello_world=0x7f040001;
+        public static final int hints_zero=0x7f0400e5;
         public static final int ma_label_distribution=0x7f0400c9;
         /**  MA 
          */
@@ -694,6 +699,7 @@ public final class R {
         public static final int mineral_label_size=0x7f0400d1;
         public static final int pFlowSurficialDialog=0x7f0400e1;
         public static final int pFlowSurficialDialogMessage=0x7f0400e2;
+        public static final int percent=0x7f0400e6;
         public static final int pflow_label_age=0x7f040043;
         public static final int pflow_label_azimuth=0x7f040041;
         public static final int pflow_label_bedrockSurface=0x7f040049;

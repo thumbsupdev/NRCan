@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.nrcan.entities.PhotoEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-import com.nrcan.models.PhotoModel;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,11 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -28,17 +25,17 @@ public class PhotoController extends BaseAdapter implements Filterable {
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private PhotoModel photoModel;
 	private PhotoEntity photoEntity;
+	private ArrayList<String> plNames = new ArrayList<String>();
 
-	public PhotoController(Context context, Activity activity,PhotoModel photoModel,PicklistDatabaseHandler pldb ) {
+	public PhotoController(Context context, Activity activity, PhotoEntity photoEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
-		this.photoModel = photoModel;
-		this.photoEntity = photoModel.getEntity();
+		this.photoEntity = photoEntity;
+		setPLBedrock();
 	}
 
 	public int getCount() {
@@ -55,46 +52,31 @@ public class PhotoController extends BaseAdapter implements Filterable {
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			
-
 			convertView = mInflater.inflate(R.layout.photo_1, null);
 
-			Spinner spinnerCategory = (Spinner) convertView
-					.findViewById(R.id.photo_spinner_category);
+			Spinner spinnerCategory = (Spinner) convertView.findViewById(R.id.photo_spinner_category);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerCategory.setAdapter(sp1);
-			sp1.setElements(pldb.getCol1("lutSURPhotoCategory"));
+			sp1.setElements(pldb.getCol1(plNames.get(0)));
 			spinnerCategory.setAdapter(sp1);
 			spinnerCategory.setSelection(sp1.getPosition(photoEntity.getCategory()));
 			spinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
 					photoEntity.setCaption(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 			
-			EditText editTextPhotoName = (EditText) convertView
-					.findViewById(R.id.photo_text_filename);
-			EditText editTextFileNumber = (EditText) convertView
-					.findViewById(R.id.photo_text_filenumber);
-			EditText editTextDirection = (EditText) convertView
-					.findViewById(R.id.photo_text_direction);
-			
+			EditText editTextPhotoName = (EditText) convertView.findViewById(R.id.photo_text_filename);
+			EditText editTextFileNumber = (EditText) convertView.findViewById(R.id.photo_text_filenumber);
+			EditText editTextDirection = (EditText) convertView.findViewById(R.id.photo_text_direction);
 			
 		} else if (tab == 2) {
-			
 			convertView = mInflater.inflate(R.layout.photo_2, null);
 
-			EditText editTextCaption = (EditText) convertView
-					.findViewById(R.id.photo_text_caption);
-
-		
+			EditText editTextCaption = (EditText) convertView.findViewById(R.id.photo_text_caption);
 		}
+		
 		return convertView;
 	}
 
@@ -106,8 +88,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
-
 	
-
+	public void setPLBedrock() {
+		plNames.clear();
+		plNames.add("lutBEDPhotoCategory");
+	}
 	
+	public void setPLSurficial() {
+		plNames.clear();
+		plNames.add("lutSURPhotoCategory");
+	}
 }

@@ -1,5 +1,7 @@
 package com.nrcan.controllers;
 
+import java.util.ArrayList;
+
 import com.nrcan.entities.StructureEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
@@ -26,6 +28,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 	private int tab;
 	private StructureEntity structureEntity;
 	private PicklistDatabaseHandler pldb;
+	private ArrayList<String> plNames = new ArrayList<String>();
 
 	public StructureController(Context context, Activity activity,StructureEntity structureEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -34,6 +37,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 		this.tab = 1;
 		this.structureEntity = structureEntity;
 		this.pldb = pldb;
+		setPLBedrock();
 	}
 
 	public int getCount() {
@@ -54,7 +58,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerClass = (Spinner) convertView.findViewById(R.id.structure_spinner_class);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutBEDStrucType"));
+			sp1.setElements(pldb.getCol1(plNames.get(0)));
 			spinnerClass.setAdapter(sp1);
 			spinnerClass.setSelection(sp1.getPosition(structureEntity.getStrucClass()));
 			spinnerClass.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -74,7 +78,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.structure_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp2.setElements(pldb.getCol2("lutBEDStrucType", structureEntity.getStrucClass()));
+			sp2.setElements(pldb.getCol2(plNames.get(1), structureEntity.getStrucClass()));
 			spinnerType.setAdapter(sp2);
 			spinnerType.setSelection(sp2.getPosition(structureEntity.getStrucType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -92,7 +96,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.structure_spinner_detail);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp3.setElements(pldb.getCol3("lutBEDStrucType", structureEntity.getStrucClass(), structureEntity.getStrucType()));
+			sp3.setElements(pldb.getCol3(plNames.get(2), structureEntity.getStrucClass(), structureEntity.getStrucType()));
 			spinnerDetail.setAdapter(sp3);
 			spinnerDetail.setSelection(sp3.getPosition(structureEntity.getDetail()));
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -111,7 +115,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerMethod = (Spinner) convertView.findViewById(R.id.structure_spinner_method);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutBEDGeneralStrucMethod"));
+			sp1.setElements(pldb.getCol1(plNames.get(3)));
 			spinnerMethod.setAdapter(sp1);
 			spinnerMethod.setSelection(sp1.getPosition(structureEntity.getMethod()));
 			spinnerMethod.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -123,7 +127,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.structure_spinner_format);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp2.setElements(pldb.getCol1("lutBEDGeneralStrucFormat"));
+			sp2.setElements(pldb.getCol1(plNames.get(4)));
 			spinnerFormat.setAdapter(sp2);
 			spinnerFormat.setSelection(sp1.getPosition(structureEntity.getFormat()));
 			spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -164,7 +168,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerAttitude = (Spinner) convertView.findViewById(R.id.structure_spinner_attitude);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutBEDStrucAttitude"));
+			sp1.setElements(pldb.getCol1(plNames.get(5)));
 			spinnerAttitude.setAdapter(sp1);
 			spinnerAttitude.setSelection(sp1.getPosition(structureEntity.getAttitude()));
 			spinnerAttitude.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -176,7 +180,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerYounging = (Spinner) convertView.findViewById(R.id.structure_spinner_younging);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp2.setElements(pldb.getCol1("lutBEDStrucYounging"));
+			sp2.setElements(pldb.getCol1(plNames.get(6)));
 			spinnerYounging.setAdapter(sp2);
 			spinnerYounging.setSelection(sp2.getPosition(structureEntity.getYounging()));
 			spinnerYounging.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -188,7 +192,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerGeneration = (Spinner) convertView.findViewById(R.id.structure_spinner_generation);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp3.setElements(pldb.getCol1("lutBEDStrucGeneration"));
+			sp3.setElements(pldb.getCol1(plNames.get(7)));
 			spinnerGeneration.setAdapter(sp3);
 			spinnerGeneration.setSelection(sp3.getPosition(structureEntity.getGeneration()));
 			spinnerGeneration.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -200,7 +204,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerStrain = (Spinner) convertView.findViewById(R.id.structure_spinner_strain);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp4.setElements(pldb.getCol1("lutBEDMetadataPrjctType"));
+			sp4.setElements(pldb.getCol1(plNames.get(8)));
 			spinnerStrain.setAdapter(sp4);
 			spinnerStrain.setSelection(sp4.getPosition(structureEntity.getStrain()));
 			spinnerStrain.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -212,7 +216,7 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerFlattening = (Spinner) convertView.findViewById(R.id.structure_spinner_flattening);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp5.setElements(pldb.getCol1("lutBEDStrucFlattening"));
+			sp5.setElements(pldb.getCol1(plNames.get(9)));
 			spinnerFlattening.setAdapter(sp5);
 			spinnerFlattening.setSelection(sp5.getPosition(structureEntity.getFlattening()));
 			spinnerFlattening.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -306,8 +310,31 @@ public class StructureController extends BaseAdapter implements Filterable {
 		return true;
 	}
 	
+	public void setPLBedrock() {
+		plNames.clear();
+		plNames.add("lutBEDStrucType");
+		plNames.add("lutBEDStrucType");
+		plNames.add("lutBEDStrucType");
+		plNames.add("lutBEDGeneralStrucMethod");
+		plNames.add("lutBEDGeneralStrucFormat");
+		plNames.add("lutBEDStrucAttitude");
+		plNames.add("lutBEDStrucYounging");
+		plNames.add("lutBEDStrucGeneration");
+		plNames.add("lutBEDStrucStrain");
+		plNames.add("lutBEDStrucFlattening");
+	}
 	
-
-	
-
+	public void setPLSurficial() {
+		plNames.clear();
+		plNames.add("lutSURStrucType");
+		plNames.add("lutSURStrucType");
+		plNames.add("lutSURStrucType");
+		plNames.add("lutSURGeneralStrucMethod");
+		plNames.add("lutSURGeneralStrucFormat");
+		plNames.add("lutSURStrucAttitude");
+		plNames.add("lutSURStrucYounging");
+		plNames.add("lutSURStrucGeneration");
+		plNames.add("lutSURStrucStrain");
+		plNames.add("lutSURStrucFlattening");
+	}
 }

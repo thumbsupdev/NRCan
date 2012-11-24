@@ -25,7 +25,7 @@ public class FileChooser extends ListActivity {
 		dir = MainActivity.dir;
 		showFolders();
 	}
-	
+
 	public ArrayList<Option> doWork() {
 		bedrockFileNames = MainActivity.getBedrock();
 		surficialFileNames = MainActivity.getSurficial();
@@ -34,7 +34,7 @@ public class FileChooser extends ListActivity {
 		doneWork = true;
 		return dir;
 	}
-	
+
 	public boolean isDoneWork(){
 		return doneWork;
 	}
@@ -56,14 +56,14 @@ public class FileChooser extends ListActivity {
 						break;
 					}
 				}
-				
+
 				if(size == 0)
 				{
 					return true;
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -104,22 +104,22 @@ public class FileChooser extends ListActivity {
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage("There are no available Picklists")
-			       .setTitle("Picklists");
+			.setTitle("Picklists");
 
 			builder.setPositiveButton("Return", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			        	   onBackPressed();
-			           }
-			       });
+				public void onClick(DialogInterface dialog, int id) {
+					onBackPressed();
+				}
+			});
 
 			AlertDialog dialog = builder.create();
-			
+
 			dialog.show();
 		}
 		else
 		{
-		adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view, dir);
-		this.setListAdapter(adapter);
+			adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view, dir);
+			this.setListAdapter(adapter);
 		}
 	}
 

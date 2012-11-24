@@ -30,8 +30,6 @@
                 android:layout_marginRight="20dp"
                 android:hint="0"
                 android:inputType="number" >
-
-                <requestFocus />
             </EditText>
         </LinearLayout>
 
@@ -98,7 +96,7 @@
 
             <Spinner
                 android:id="@+id/station_surficial_spinner_elevation"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

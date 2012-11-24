@@ -68,12 +68,13 @@
         
         <EditText
             android:id="@+id/earthmat_editText_index"
-            android:layout_width="match_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
         	android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:inputType="number" >
+            android:inputType="number"
+            android:hint="0" >
         </EditText>
         
         </LinearLayout>
@@ -92,12 +93,13 @@
 
         <EditText
             android:id="@+id/earthmat_editText_magSusceptibility"
-            android:layout_width="match_parent"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
         	android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:inputType="number" >
+            android:inputType="number"
+            android:hint="0" >
         </EditText>
     </LinearLayout>
     </LinearLayout>

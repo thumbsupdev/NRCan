@@ -93,7 +93,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutBEDMetadataPrjctType"));
+			sp1.setElements(pldb.getCol1("lutMetadataPrjctType"));
 			spinnerProjectType.setAdapter(sp1);
 			spinnerProjectType.setSelection(sp1.getPosition(metadataEntity.getPrjct_type()));
 			spinnerProjectType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -108,7 +108,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 			Spinner spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutBEDMetadataGeologist"));
+			sp1.setElements(pldb.getCol1("lutMetadataGeologist"));
 			spinnerGeologistName.setAdapter(sp1);
 			spinnerGeologistName.setSelection(sp1.getPosition(metadataEntity.getGeologist()));
 			spinnerGeologistName.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -126,7 +126,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp2.setElements(pldb.getCol2("lutBEDMetadataGeologist", metadataEntity.getGeologist()));
+			sp2.setElements(pldb.getCol2("lutMetadataGeologist", metadataEntity.getGeologist()));
 			spinnerGeologistCode.setAdapter(sp2);
 			spinnerGeologistCode.setSelection(sp2.getPosition(metadataEntity.getGeolcode()));
 			spinnerGeologistCode.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -138,7 +138,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp3.setElements(pldb.getCol1("lutBEDMetadataDigcamera"));
+			sp3.setElements(pldb.getCol1("lutMetadataDigcamera"));
 			spinnerCameraPrefix.setAdapter(sp3);
 			spinnerCameraPrefix.setSelection(sp3.getPosition(metadataEntity.getDigcamera()));
 			spinnerCameraPrefix.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -150,15 +150,15 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			
 			Spinner spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp4.setElements(pldb.getCol1("lutBEDMetadataPrjname"));
+			sp4.setElements(pldb.getCol1("lutMetadataPrjname"));
 			spinnerMapProjection.setAdapter(sp4);
 			spinnerMapProjection.setSelection(sp4.getPosition(metadataEntity.getPrj_name()));
 			spinnerMapProjection.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					metadataEntity.setPrj_name(parent.getItemAtPosition(position).toString());
-					metadataEntity.setPrj_type(pldb.getCol2("lutBEDMetadataPrjname", metadataEntity.getPrj_name()).get(1));
-					metadataEntity.setPrj_datum(pldb.getCol3("lutBEDMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
+					metadataEntity.setPrj_type(pldb.getCol2("lutMetadataPrjname", metadataEntity.getPrj_name()).get(1));
+					metadataEntity.setPrj_datum(pldb.getCol3("lutMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
 				}
 			});
 			

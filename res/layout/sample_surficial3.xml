@@ -24,6 +24,7 @@
             android:layout_marginRight="20dp"
             android:inputType="textMultiLine"
             android:lines="4"
+            android:hint="@string/sample_label_notes"
             android:textAppearance="?android:attr/textAppearanceLarge" >
         </EditText>
     </LinearLayout>

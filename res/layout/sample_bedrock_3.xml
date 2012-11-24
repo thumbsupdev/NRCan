@@ -19,9 +19,9 @@
      	android:layout_marginRight="20dp"
         android:inputType="textMultiLine"
         android:lines="12"
-        android:maxLength="254" >
-
-        <requestFocus />
+        android:maxLength="254"
+        android:hint="@string/sample_label_notes" >
+        
     </EditText>
 
 </LinearLayout>

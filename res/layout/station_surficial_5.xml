@@ -20,9 +20,8 @@
      	android:layout_marginRight="20dp"
         android:inputType="textMultiLine"
         android:lines="12"
-        android:maxLength="254" >
-
-        <requestFocus />
+        android:maxLength="254"
+        android:hint="@string/station_label_sincelaststationnote" >
     </EditText>
 
 </LinearLayout>
