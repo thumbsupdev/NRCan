@@ -1,8 +1,8 @@
 package com.nrcan.main;
 
 import java.util.ArrayList;
+import com.nrcan.values.PreparedStatements;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -136,6 +136,50 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
             if(database != null) {
                 database.close();
             }
+        }
+    }
+
+    public void insertNewValue(String tableName, int columnNumber, String value, String columnOne, String columnTwo) {
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        String newSql = "INSERT INTO " + tableName;
+        SQLiteStatement sqlStatement;
+
+        switch(columnNumber) {
+
+            case 1:
+
+                sqlStatement = database.compileStatement(newSql + PreparedStatements.INSERT_1_COL);
+
+                sqlStatement.bindString(1, value);
+                sqlStatement.execute();
+                break;
+
+            case 2:
+                
+                sqlStatement = database.compileStatement(newSql + PreparedStatements.INSERT_2_COL);
+
+                sqlStatement.bindString(1, columnOne);
+                sqlStatement.bindString(2, value);
+                sqlStatement.execute();
+                break;
+
+            case 3:
+
+                sqlStatement = database.compileStatement(newSql + PreparedStatements.INSERT_3_COL);
+
+                sqlStatement.bindString(1, columnOne);
+                sqlStatement.bindString(2, columnTwo);
+                sqlStatement.bindString(3, value);
+                sqlStatement.execute();
+                break; 
+
+            default: break;
+
+        }
+
+        if(database != null) {
+            database.close();
         }
     }
 }

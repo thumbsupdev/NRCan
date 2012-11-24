@@ -24,13 +24,16 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
 	private LayoutInflater mInflater;
 	private ArrayList<String> elements = new ArrayList<String>();
     private Context context;
-    private boolean dataUpdated;
+    private String tableName; 
+    private int columnNumber;
+    private String columnOne;
+    private String columnTwo;
+    private PicklistDatabaseHandler picklistDatabase;
 
 	public SpinnerController(Context context, int resource) {
 		super(context, resource);
         this.context = context;
 		this.mInflater = LayoutInflater.from(context);
-        dataUpdated = false;
 	}
 
 	public int getCount() {
@@ -62,7 +65,7 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
                 if(text != null) {
                     // Add text to the spinner
                     elements.add(text);
-                    setDataUpdated(true);
+                    picklistDatabase.insertNewValue(tableName, columnNumber, text, columnOne, columnTwo);
                 }
 
                 dialog.dismiss();
@@ -125,23 +128,26 @@ public class SpinnerController extends ArrayAdapter<String> implements Filterabl
 			if(elements.get(i).equalsIgnoreCase(item))
 				return i;
 		
+        // The element was not added to the picklistdb
+        //picklistDatabase.insertNewValue(tableName, columnNumber, item, columnOne, columnTwo);
+
 		return -1;
+	}
+	
+	public void addSpace() {
+		elements.add(0, "");
 	}
 	
 	public void setElements(ArrayList<String> elements) {
 		this.elements = elements;
 		notifyDataSetChanged();
 	}
-	
-	public void addSpace() {
-		elements.add(0, "");
-	}
 
-    public void setDataUpdated(boolean dataUpdated) {
-        this.dataUpdated = dataUpdated;
-    }
-
-    public boolean isDataUpdated() {
-        return dataUpdated = !dataUpdated;
+    public void setNewElement(PicklistDatabaseHandler picklistDatabase, String tableName, int columnNumber, String columnOne, String columnTwo) {
+    	this.picklistDatabase = picklistDatabase;
+        this.tableName = tableName;
+        this.columnNumber = columnNumber;
+        this.columnOne = columnOne;
+        this.columnTwo = columnTwo;
     }
 }

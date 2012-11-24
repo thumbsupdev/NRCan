@@ -1,7 +1,5 @@
 package com.nrcan.controllers;
 
-import java.util.ArrayList;
-
 import com.nrcan.entities.EarthmatBedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
@@ -54,10 +52,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock1, null);
-
+			//SPINNER LITH GROUP
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_group);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatRocktype"));
+            sp1.setNewElement(pldb, "lutBEDEarthmatRocktype", 1, null, null);
 			spinnerGroup.setAdapter(sp1);
 			spinnerGroup.setSelection(sp1.getPosition(earthmatBedrockEntity.getLithGroup()));
 			spinnerGroup.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -74,10 +73,12 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					}
 				}
 			});
-
+			
+			//SPINNER LITH TYPE
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatRocktype", earthmatBedrockEntity.getLithGroup()));
+            sp2.setNewElement(pldb, "lutBEDEarthmatRocktype", 2, earthmatBedrockEntity.getLithGroup(), null);
 			spinnerType.setAdapter(sp2);
 			spinnerType.setSelection(sp2.getPosition(earthmatBedrockEntity.getLithType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -93,9 +94,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
+			//SPINNER LITH DETAIL
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol3("lutBEDEarthmatRocktype", earthmatBedrockEntity.getLithGroup(), earthmatBedrockEntity.getLithType()));
+            sp3.setNewElement(pldb, "lutBEDEarthmatRocktype", 3, earthmatBedrockEntity.getLithGroup(), earthmatBedrockEntity.getLithType());
 			spinnerDetail.setAdapter(sp3);
 			spinnerDetail.setSelection(sp3.getPosition(earthmatBedrockEntity.getLithDetail()));
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -105,9 +108,11 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
+			//SPINNER MAP UNIT
 			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp4.setElements(pldb.getCol1("lutBEDEarthmatMapUnit"));
+            sp4.setNewElement(pldb, "lutBEDEarthmatMapUnit", 1, null, null);
 			spinnerUnit.setAdapter(sp4);
 			spinnerUnit.setSelection(sp4.getPosition(earthmatBedrockEntity.getMapUnit()));
 			spinnerUnit.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -116,11 +121,13 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					earthmatBedrockEntity.setMapUnit(parent.getItemAtPosition(position).toString());
 				}
 			});
-
+			
+			//SPINNER OCCURS AS
 			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerOccurs.setAdapter(sp5);
 			sp5.setElements(pldb.getCol2("lutBEDEarthmatOccurs", earthmatBedrockEntity.getLithGroup()));
+            sp5.setNewElement(pldb, "lutBEDEarthmatOccurs", 2, earthmatBedrockEntity.getLithGroup(), null);
+			spinnerOccurs.setAdapter(sp5);
 			spinnerOccurs.setSelection(sp5.getPosition(earthmatBedrockEntity.getOccurAs()));
 			spinnerOccurs.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
@@ -132,19 +139,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock2, null);
 			
-			//////////////////////////////////////
-			//
-			// SPINNER
-			//
-			//////////////////////////////////////
-			// VERIFIED
-			//////////////////////////////////////
-			// [] JORDAN KUROSKY
-			// [] DEREK ELLIOT
-			// [] JAMIE POSPIECH
-			// [] ALEX YEUNG
-			// [] PIERRE LAFOREST-GRANT
-			//////////////////////////////////////
+			//CONCAT SPINNER MOD STRUCT
 			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatStructural", earthmatBedrockEntity.getLithGroup()));
@@ -167,6 +162,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
+			//CONCAT EDITTEXT MOD STRUCT
 			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
 			editTextStructure.setText(earthmatBedrockEntity.getModStruc());
 			editTextStructure.addTextChangedListener(new TextWatcher() {
@@ -180,6 +176,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
+			//CONCAT BUTTON MOD STRUCT
 			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
 			buttonStructure.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -187,7 +184,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					notifyDataSetChanged();
 				}
 			});
-
+			
+			//CONCAT SPINNER MOD TEXTURE
 			Spinner spinnerTexture = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_texture);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2("lutBEDEarthmatTextural", earthmatBedrockEntity.getLithGroup()));
@@ -196,10 +194,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerTexture.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setModTexture(parent.getItemAtPosition(position).toString());
-				}
+					String tmp = earthmatBedrockEntity.getModTexture();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setModTexture(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setModTexture(sel);
+						
+						notifyDataSetChanged();
+					}}
 			});
 
+			//CONCAT EDITTEXT MOD TEXTURE
 			EditText editTextTexture = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_texture);
 			editTextTexture.setText(earthmatBedrockEntity.getModTexture());
 			editTextTexture.addTextChangedListener(new TextWatcher() {
@@ -213,6 +221,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
+			//CONCAT BUTTON MOD TEXTURE
 			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
 			buttonTexture.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -220,7 +229,8 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					notifyDataSetChanged();
 				}
 			});
-
+			
+			//CONCAT SPINNER MOD COMPOSITION
 			Spinner spinnerComposition = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_composition);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerComposition.setAdapter(sp3);
@@ -229,10 +239,20 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			spinnerComposition.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setModComp(parent.getItemAtPosition(position).toString());
-				}
+					String tmp = earthmatBedrockEntity.getModComp();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setModComp(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setModComp(sel);
+						
+						notifyDataSetChanged();
+					}}
 			});
 
+			//CONCAT EDITTEXT MOD COMPOSITION
 			EditText editTextComposition = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_composition);
 			editTextComposition.setText(earthmatBedrockEntity.getModComp());
 			editTextComposition.addTextChangedListener(new TextWatcher() {
@@ -246,6 +266,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 			
+			//CONCAT BUTTON MOD COMPOSITION
 			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
 			buttonComposition.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
@@ -253,10 +274,10 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 					notifyDataSetChanged();
 				}
 			});
-
 		} else if (tab == 3) {
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock3, null);
 
+			//CONCAT SPINNER GRN/CRY
 			Spinner spinnerGrnCry = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol2("lutBEDEarthmatGCSize",earthmatBedrockEntity.getLithGroup()));
@@ -268,19 +289,44 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setGrcrySize(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getGrcrySize();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setGrcrySize(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setGrcrySize(sel);
+						
+						notifyDataSetChanged();
+					}
+					}
+			});
+			
+			//CONCAT BUTTON GRN/CRY
+			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
+			buttonGrnCry.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setGrcrySize("");
+					notifyDataSetChanged();
 				}
 			});
 			
-			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
+			//CONCAT EDITTEXT GRN/CRY
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
-			editTextGrnCry.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-				public void onFocusChange(View v, boolean hasFocus) {
-					System.out.println("Changed" + ((EditText)v).getText());
+			editTextGrnCry.setText(earthmatBedrockEntity.getGrcrySize());
+			editTextGrnCry.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setGrcrySize("");
+					else
+						earthmatBedrockEntity.setGrcrySize(s.toString());
 				}
 			});
 
+			//CONCAT SPINNER DEF/FABRIC
 			Spinner spinnerDefFabric = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutBEDEarthmatDeffabric"));
@@ -292,15 +338,44 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setDefFabric(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getDefFabric();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setDefFabric(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setDefFabric(sel);
+						
+						notifyDataSetChanged();
+					}	
 				}
 			});
 
-
+			//BUTTON DEF FABRIC
 			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
+			buttonDefFabric.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setDefFabric("");
+					notifyDataSetChanged();
+				}
+			});
+			
+			//EDITTEXT DEF FABRIC
 			EditText editTextDefFabric = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_defFabric);
-
+			editTextDefFabric.setText(earthmatBedrockEntity.getDefFabric());
+			editTextDefFabric.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setDefFabric("");
+					else
+						earthmatBedrockEntity.setDefFabric(s.toString());
+				}
+			});
+			
+			//SPINNER BED THIK
 			Spinner spinnerBedThick = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_bedThick);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol1("lutBEDEarthmatBedthick"));
@@ -312,19 +387,50 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setBedThick(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getBedThick();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setBedThick(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setBedThick(sel);
+						
+						notifyDataSetChanged();
+					}	
 				}
 			});
 
-
+			//BUTTON BED THICK
 			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
+			buttonBedThick.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setBedThick("");
+					notifyDataSetChanged();
+				}
+			});
+			
+			
+			//EDITTEXT BED THICK
 			EditText editTextBedThick = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_bedThick);
-
+			editTextBedThick.setText(earthmatBedrockEntity.getBedThick());
+			editTextBedThick.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setBedThick("");
+					else
+						earthmatBedrockEntity.setBedThick(s.toString());
+				}
+			});
+			
+			
 		} else if (tab == 4) {
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock4, null);
 
+			//SPINNER MINERAL
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_mineral);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatMineral"));
@@ -336,20 +442,59 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setMineral(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getMineral();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setMineral(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setMineral(sel);
+						
+						notifyDataSetChanged();
+					}	
 				}
 			});
 
-
+			//BUTTON MINERAL 
 			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
+			buttonClear.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setMineral("");
+					notifyDataSetChanged();
+				}
+			});
+			
 			EditText editTextMineral = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_mineral);
+			editTextMineral.setText(earthmatBedrockEntity.getMineral());
+			editTextMineral.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setMineral("");
+					else
+						earthmatBedrockEntity.setMineral(s.toString());
+				}
+			});
+			
 			EditText editTextRockDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-
+			editTextRockDescription.setText(earthmatBedrockEntity.getMinNote());
+			editTextRockDescription.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setMinNote("");
+					else
+						earthmatBedrockEntity.setMinNote(s.toString());
+				}
+			});
+				
 		} else if (tab == 5) {
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock5, null);
-
+			//SPINNER FRESH
 			Spinner spinnerFresh = (Spinner) convertView.findViewById(R.id.earthmat_spinner_fresh);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatColour"));
@@ -362,7 +507,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					earthmatBedrockEntity.setColourF(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
+					
 				}
 			});
 
@@ -383,14 +528,39 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 			});
 
-
+			//EDITTEXT INDEX
 			EditText editTextIndex = (EditText) convertView.findViewById(R.id.earthmat_editText_index);
+			editTextIndex.setText(earthmatBedrockEntity.getColourInd());
+			editTextIndex.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setColourInd("");
+					else
+						earthmatBedrockEntity.setColourInd(s.toString());
+				}
+			});
+			
+			//EDITTEXT MAG SUSP
 			EditText editTextMagSus = (EditText) convertView.findViewById(R.id.earthmat_editText_magSusceptibility);
-
+			editTextMagSus.setText(earthmatBedrockEntity.getMagSuscept());
+			editTextMagSus.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setMagSuscept("");
+					else
+						earthmatBedrockEntity.setMagSuscept(s.toString());
+				}
+			});
+			
 		} else if (tab == 6) {
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock6, null);
-
+			
+			//SPINNER FOSSIL
 			Spinner spinnerFossil = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_fossil);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutBEDEarthmatFossil"));
@@ -402,16 +572,56 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setFossils(parent.getItemAtPosition(position).toString());
-					//editTextFossil.setText();
-					System.out.println(parent.getItemAtPosition(position));
+					String tmp = earthmatBedrockEntity.getFossils();
+					String sel = parent.getItemAtPosition(position).toString();
+					if(!tmp.contains(sel))
+					{
+						if(tmp.length() > 1)
+							earthmatBedrockEntity.setFossils(tmp + " | " + sel);
+						else
+							earthmatBedrockEntity.setFossils(sel);
+						
+						notifyDataSetChanged();
+					}	
 				}
 			});
 
 			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
+			buttonFossil.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					earthmatBedrockEntity.setFossils("");
+					notifyDataSetChanged();
+				}
+			});
+			
+			
 			EditText editTextFossil = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_fossil);
+			editTextFossil.setText(earthmatBedrockEntity.getFossils());
+			editTextFossil.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setFossils("");
+					else
+						earthmatBedrockEntity.setFossils(s.toString());
+				}
+			});
+			
 			EditText editTextFossilDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
-
+			editTextFossilDescription.setText(earthmatBedrockEntity.getFossilNote());
+			editTextFossilDescription.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setFossilNote("");
+					else
+						earthmatBedrockEntity.setFossilNote(s.toString());
+				}
+			});
+			
+			
 		} else if (tab == 7) {
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock7, null);
@@ -450,12 +660,38 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 
 			EditText editTextContactDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
-
+			editTextContactDescription.setText(earthmatBedrockEntity.getContact());
+			editTextContactDescription.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setContact("");
+					else
+						earthmatBedrockEntity.setContact(s.toString());
+				}
+			});
+			
+			
 		} else if (tab == 8) {
 
 			convertView = mInflater.inflate(R.layout.earthmat_bedrock8, null);
 
+			//EDIT TEXT
 			EditText editTextLithDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
+			editTextLithDescription.setText(earthmatBedrockEntity.getInterp());
+			editTextLithDescription.addTextChangedListener(new TextWatcher() {
+				public void onTextChanged(CharSequence s, int start, int before, int count) { }
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+				public void afterTextChanged(Editable s) {
+					if (s.length() == 0)
+						earthmatBedrockEntity.setInterp("");
+					else
+						earthmatBedrockEntity.setInterp(s.toString());
+				}
+			});
+			
+			
 			Spinner spinnerLithInterp = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lithInterpConfidence);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerLithInterp.setAdapter(sp1);
@@ -467,7 +703,7 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 				}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					earthmatBedrockEntity.setInterpConf("");
+					earthmatBedrockEntity.setInterpConf(parent.getItemAtPosition(position).toString());
 					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
