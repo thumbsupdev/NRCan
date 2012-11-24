@@ -28,6 +28,7 @@ public class StationBedrockModel {
 	private static final String STATIONBEDROCK_PDOP = "pDop";
 	private static final String STATIONBEDROCK_SATSUSED = "satsUsed";
 	private static final String STATIONBEDROCK_OBSTYPE = "obsType";
+	private static final String STATIONBEDROCK_OCQUALITY = "ocQuality";
 	private static final String STATIONBEDROCK_PHYSENV = "physEnv";
 	private static final String STATIONBEDROCK_OCSIZE = "ocSize";
 	private static final String STATIONBEDROCK_NOTES = "notes";
@@ -55,6 +56,7 @@ public class StationBedrockModel {
 			STATIONBEDROCK_PDOP + " TEXT," +
 			STATIONBEDROCK_SATSUSED + " TEXT," +
 			STATIONBEDROCK_OBSTYPE + " TEXT," +
+			STATIONBEDROCK_OCQUALITY + " TEXT," +
 			STATIONBEDROCK_PHYSENV + " TEXT," +
 			STATIONBEDROCK_OCSIZE + " TEXT," +
 			STATIONBEDROCK_NOTES + " TEXT," +
@@ -96,6 +98,7 @@ public class StationBedrockModel {
 		values.put(STATIONBEDROCK_PDOP, " ");
 		values.put(STATIONBEDROCK_SATSUSED, " ");
 		values.put(STATIONBEDROCK_OBSTYPE, " ");
+		values.put(STATIONBEDROCK_OCQUALITY, " ");
 		values.put(STATIONBEDROCK_PHYSENV, " ");
 		values.put(STATIONBEDROCK_OCSIZE, " ");
 		values.put(STATIONBEDROCK_NOTES, " ");
@@ -129,6 +132,7 @@ public class StationBedrockModel {
 		values.put(STATIONBEDROCK_PDOP, stationBedrock.getpDop());
 		values.put(STATIONBEDROCK_SATSUSED, stationBedrock.getSatsUsed());
 		values.put(STATIONBEDROCK_OBSTYPE, stationBedrock.getObsType());
+		values.put(STATIONBEDROCK_OCQUALITY, stationBedrock.getOCQuality());
 		values.put(STATIONBEDROCK_PHYSENV, stationBedrock.getPhysEnv());
 		values.put(STATIONBEDROCK_OCSIZE, stationBedrock.getOcSize());
 		values.put(STATIONBEDROCK_NOTES, stationBedrock.getNotes());

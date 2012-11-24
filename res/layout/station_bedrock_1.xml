@@ -30,8 +30,6 @@
                 android:layout_marginRight="20dp"
                 android:hint="0"
                 android:inputType="number" >
-
-                <requestFocus />
             </EditText>
         </LinearLayout>
 

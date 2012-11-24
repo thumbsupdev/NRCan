@@ -21,8 +21,6 @@
         android:inputType="textMultiLine"
         android:lines="12"
         android:maxLength="254" >
-
-        <requestFocus />
     </EditText>
 
 </LinearLayout>

@@ -19,6 +19,7 @@ public class StationBedrockEntity {
 	private String pDop;
 	private String satsUsed;
 	private String obsType;
+	private String ocQuality;
 	private String physEnv;
 	private String ocSize;
 	private String notes;
@@ -44,6 +45,7 @@ public class StationBedrockEntity {
 		this.pDop = "";
 		this.satsUsed = "";
 		this.obsType = "";
+		this.ocQuality = "";
 		this.physEnv = "";
 		this.ocSize = "";
 		this.notes = "";
@@ -72,13 +74,14 @@ public class StationBedrockEntity {
 		this.pDop = contentValues[15];
 		this.satsUsed = contentValues[16];
 		this.obsType = contentValues[17];
-		this.physEnv = contentValues[18];
-		this.ocSize = contentValues[19];
-		this.notes = contentValues[20];
-		this.slsNotes = contentValues[21];
-		this.airPhoto = contentValues[22];
-		this.partner = contentValues[23];
-		this.metaId = contentValues[24];
+		this.ocQuality = contentValues[18];
+		this.physEnv = contentValues[19];
+		this.ocSize = contentValues[20];
+		this.notes = contentValues[21];
+		this.slsNotes = contentValues[22];
+		this.airPhoto = contentValues[23];
+		this.partner = contentValues[24];
+		this.metaId = contentValues[25];
     }
 	
 	public int getNrcanId2() {
@@ -188,6 +191,12 @@ public class StationBedrockEntity {
 	}
 	public void setObsType(String obsType) {
 		this.obsType = obsType;
+	}
+	public String getOCQuality() {
+		return ocQuality;
+	}
+	public void setOCQuality(String ocQuality) {
+		this.ocQuality = ocQuality;
 	}
 	public String getPhysEnv() {
 		return physEnv;

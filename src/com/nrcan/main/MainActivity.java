@@ -387,23 +387,23 @@ public class MainActivity extends ListActivity {
 		button1 = (Button) findViewById(R.id.buttonSave);
 		button1.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//saveActions[flipper.getDisplayedChild()].runSave();
+				saveActions[flipper.getDisplayedChild()].runSave();
 				//adap10.save();
 				//adap10.insertMetadataInfo();
 				//metadataModel.insertRow();
-				flipper.showNext();
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				//flipper.showNext();
+				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});
 		button2 = (Button) findViewById(R.id.buttonBack);
 		button2.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//backActions[flipper.getDisplayedChild()].runBack();
+				backActions[flipper.getDisplayedChild()].runBack();
 				//adap10.tUpdate();
 				//metadataModel.deleteRow();
-				flipper.showPrevious();
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				//flipper.showPrevious();
+				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});

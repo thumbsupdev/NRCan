@@ -732,8 +732,7 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 				}
 			});
 			
-			Spinner spinnerLandForm = (Spinner) convertView
-					.findViewById(R.id.earthmat_surficial_spinner_landForm);
+			Spinner spinnerLandForm = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_landForm);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerLandForm.setAdapter(sp3);
 			sp3.setElements(pldb.getCol1("lutSUREarthmatLandform"));
