@@ -27,7 +27,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class EnvironSurficialController  extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
-	private Activity activity;
+	//private Activity activity;
 	private Context context;
 	private int tab;
 
@@ -46,7 +46,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 	public EnvironSurficialController(Context context, Activity activity,EnvironSurficialEntity environSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		this.activity = activity;
+		//this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.environSurficialEntity = environSurficialEntity;
@@ -74,24 +74,49 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				permafrostBoolean = false;
 
 			convertView = mInflater.inflate(R.layout.environ_surficial1, null);
-
+			
+			
+			/////////////////////////////////////
+			// SPINNER RELIEF
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (1/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerRelief.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutSUREnvironsRelief"));
+			sp1.setNewElement(pldb, "lutSUREnvironsRelief", 1, null, null);
+			sp1.addSpace();
 			spinnerRelief.setAdapter(sp1);
 			spinnerRelief.setSelection(sp1.getPosition(environSurficialEntity.getDrainage()));
 			spinnerRelief.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
+				public void onNothingSelected(AdapterView<?> arg0) {}
 
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					environSurficialEntity.setDrainage(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 
+			/////////////////////////////////////
+			// EDITTEXT SLOPE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (2/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextSlope = (EditText)convertView.findViewById(R.id.environ_surficial_editText_slope);
 			editTextSlope.setText(environSurficialEntity.getSlope());
 			editTextSlope.addTextChangedListener(new TextWatcher() {
@@ -104,6 +129,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setSlope(s.toString());
 				}
 			});
+			
+			/////////////////////////////////////
+			// EDITTEXT AZIMUTH
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (3/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.environ_surficial_editText_azimuth);
 			editTextAzimuth.setText(environSurficialEntity.getAspect());
 			editTextAzimuth.addTextChangedListener(new TextWatcher() {
@@ -119,7 +158,19 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 
 
-
+			/////////////////////////////////////
+			// CHECKBOX PERMAFROS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (4/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			CheckBox checkBoxPermafrost = (CheckBox)convertView.findViewById(R.id.environ_checkBox_permafrost);
 			checkBoxPermafrost.setChecked(permafrostBoolean);
 			//setCheckPermafrost(tmp);
@@ -147,17 +198,29 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
+			/////////////////////////////////////
+			// CONCAT SPINNER INDICATORS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (5/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerIndicators.setAdapter(sp2);
 			sp2.setElements(pldb.getCol1("lutSUREnvironsPFindic"));
+			sp2.setNewElement(pldb, "lutSUREnvironsPFindic", 1, null, null);
+			sp2.addSpace();
 			spinnerIndicators.setAdapter(sp2);
 			spinnerIndicators.setSelection(sp2.getPosition(environSurficialEntity.getPfIndic()));
 			spinnerIndicators.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = environSurficialEntity.getPfIndic();
 					String sel = parent.getItemAtPosition(position).toString();
@@ -174,6 +237,19 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			});
 
 
+			/////////////////////////////////////
+			// CONCAT EDITTEXT INDICATORS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (6/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextIndicators = (EditText)convertView.findViewById(R.id.environ_surficial_editText_indicators);
 			editTextIndicators.setText(environSurficialEntity.getPfIndic());
 			editTextIndicators.addTextChangedListener(new TextWatcher() {
@@ -186,6 +262,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setPfIndic(s.toString());
 				}
 			});
+			
+			/////////////////////////////////////
+			// EDITTEXT PERMAFROST DEPTH
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (7/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextDepthOfAL = (EditText)convertView.findViewById(R.id.environ_surficial_editText_depthOfAL);
 			editTextDepthOfAL.setText(environSurficialEntity.getPfDepth());
 			editTextDepthOfAL.addTextChangedListener(new TextWatcher() {
@@ -211,6 +301,19 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 			convertView = mInflater.inflate(R.layout.environ_surficial2, null);
 
+			/////////////////////////////////////
+			// CHECKBOX GOSSAN PRES
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (1/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			CheckBox checkBoxGossan = (CheckBox)convertView.findViewById(R.id.environ_checkBox_gossan);
 			checkBoxGossan.setChecked(gossanBoolean);
 
@@ -237,6 +340,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 
 			});
+			
+			/////////////////////////////////////
+			// EDITTEXT MINERALIZATION OF IMPORTANCE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (2/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
 			editTextMinOfImp.setText(environSurficialEntity.getGossanMat());
 			editTextMinOfImp.addTextChangedListener(new TextWatcher() {
@@ -249,10 +366,26 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setGossanMat(s.toString());
 				}
 			});
+			
+			/////////////////////////////////////
+			// SPINNER PERCENT BEDROCK
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (3/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPercentBedrock.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
+			sp1.setNewElement(pldb, "lutSURGeneralPercent5incr", 1, null, null);
+			sp1.addSpace();
 			spinnerPercentBedrock.setAdapter(sp1);
 			spinnerPercentBedrock.setSelection(sp1.getPosition(environSurficialEntity.getPfPresent()));
 			spinnerPercentBedrock.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -266,10 +399,25 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
+			/////////////////////////////////////
+			// SPINNER EXPOSURE TYPE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (4/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerExposureType.setAdapter(sp2);
 			sp2.setElements(pldb.getCol1("lutSUREnvironsExposure"));
+			sp2.setNewElement(pldb, "lutSUREnvironsExposure", 1, null, null);
+			sp2.addSpace();
 			spinnerExposureType.setAdapter(sp2);
 			spinnerExposureType.setSelection(sp2.getPosition(environSurficialEntity.getExposure()));
 			spinnerExposureType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -292,9 +440,23 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			else
 				boulderBoolean = false;
 
+			/////////////////////////////////////
+			// CONCAT SPINNER VEGETATION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (1/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerVegetation = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetation);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutSUREnvironsVegetation"));
+			sp1.setNewElement(pldb, "lutSUREnvironsVegetation", 1, null, null);
 			sp1.addSpace();
 			spinnerVegetation.setAdapter(sp1);
 			spinnerVegetation.setEnabled(vegitation1Boolean);
@@ -314,9 +476,23 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
+			/////////////////////////////////////
+			// PERCENT SPINNER VEGETATION %
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (2/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK 'vegitation' ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerVegetationPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetationPer);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
+			sp2.setNewElement(pldb, "lutSURGeneralPercent5incr", 1, null, null);
 			sp2.addSpace();
 			spinnerVegetationPer.setAdapter(sp2);
 			spinnerVegetationPer.setEnabled(vegitation2Boolean);
@@ -340,15 +516,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-
-
-			Button buttonVegetation = (Button) convertView.findViewById(R.id.environ_surficial_button_vegetation);
-			buttonVegetation.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					environSurficialEntity.setVegetation("");
-					notifyDataSetChanged();
-				}
-			});
+			
+			/////////////////////////////////////
+			// PERCENT EDITTEXT VEGETATION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (3/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextVegetation = (EditText)convertView.findViewById(R.id.environ_surficial_editText_vegetation);
 			editTextVegetation.setText(environSurficialEntity.getVegetation());
 			editTextVegetation.addTextChangedListener(new TextWatcher() {
@@ -361,29 +542,88 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setVegetation(s.toString());
 				}
 			});
+			
+			/////////////////////////////////////
+			// PERCENT BUTTON VEGETATION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (4/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonVegetation = (Button) convertView.findViewById(R.id.environ_surficial_button_vegetation);
+			buttonVegetation.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					environSurficialEntity.setVegetation("");
+					notifyDataSetChanged();
+				}
+			});
+			
+			/////////////////////////////////////
+			// SPINNER BOULDERS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (5/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerBoulders = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulders);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerBoulders.setAdapter(sp3);
 			sp3.setElements(pldb.getCol1("lutSUREnvironsBoulders"));
+			sp3.setNewElement(pldb, "lutSUREnvironsBoulders", 1, null, null);
+			sp3.addSpace();
 			spinnerBoulders.setAdapter(sp3);
 			spinnerBoulders.setSelection(sp3.getPosition(environSurficialEntity.getBoulders()));
 			spinnerBoulders.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					//earthmatbedrockModel.getEntity().setLithGroup("");
 					environSurficialEntity.setBoulders(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 
-
+			/////////////////////////////////////
+			// CHECKBOX BOULDERFIELD
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (6/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			CheckBox checkBoxBoulderField = (CheckBox)convertView.findViewById(R.id.environ_checkBox_boulderField);
 			checkBoxBoulderField.setChecked(boulderBoolean);
 			//setCheckPermafrost(tmp);
 
+			
+			/////////////////////////////////////
+			//  WHAT THE HELL IS THIS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT ()
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [???] DERRICK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner boulderSpinner = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
 			if(boulderBoolean)
 				boulderSpinner.setVisibility(LinearLayout.VISIBLE);
@@ -404,39 +644,58 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setBouldFld("F");
 					}
 				}
-
-
-
-
-
 			});
-
+			
+			/////////////////////////////////////
+			// SPINNER BOULDERFIELD
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (7/7)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerBoulderField = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerBoulderField.setAdapter(sp4);
 			sp4.setElements(pldb.getCol1("lutSUREnvironsBoFldTyp"));
+			sp4.setNewElement(pldb, "lutSUREnvironsBoFldTyp", 1, null, null);
+			sp4.addSpace();
 			spinnerBoulderField.setAdapter(sp4);
 			spinnerBoulderField.setSelection(sp4.getPosition(environSurficialEntity.getBoFldTyp()));
 			spinnerBoulderField.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					environSurficialEntity.setBoFldTyp(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 
 		}
 		else if (tab == 4)
 		{
-
 			convertView = mInflater.inflate(R.layout.environ_surficial4, null);
-
+			
+			/////////////////////////////////////
+			// PERECENT SPINNER GROUND COVER
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (1/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerGroundCover = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCover);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1("lutSUREnvironsGroundcover"));
+			sp1.setNewElement(pldb, "lutSUREnvironsGroundcover", 1, null, null);
 			sp1.addSpace();
 			spinnerGroundCover.setAdapter(sp1);
 			spinnerGroundCover.setEnabled(groundCover1Boolean);
@@ -456,9 +715,23 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
+			/////////////////////////////////////
+			// PERECENT SPINNER GROUND COVER PERECENT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (2/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerGroundCoverPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCoverPer);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1("lutSURGeneralPercent5incr"));
+			sp2.setNewElement(pldb, "lutSURGeneralPercent5incr", 1, null, null);
 			sp2.addSpace();
 			spinnerGroundCoverPer.setAdapter(sp2);
 			spinnerGroundCoverPer.setEnabled(groundCover2Boolean);
@@ -483,14 +756,19 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 			
-			Button buttonGroundCover = (Button) convertView.findViewById(R.id.environ_surficial_button_groundCover);
-			buttonGroundCover.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					environSurficialEntity.setGrndCover("");
-					notifyDataSetChanged();
-				}
-			});
-
+			/////////////////////////////////////
+			// PERCENT EDITTEXT GROUND COVER 
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (3/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextGroundCover = (EditText)convertView.findViewById(R.id.environ_surficial_editText_groundCover);
 			editTextGroundCover.setText(environSurficialEntity.getGrndCover());
 			editTextGroundCover.addTextChangedListener(new TextWatcher() {
@@ -504,17 +782,52 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
+			
+			/////////////////////////////////////
+			// PERCENT BUTTON GROUND COVER  CLEAR
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (4/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonGroundCover = (Button) convertView.findViewById(R.id.environ_surficial_button_groundCover);
+			buttonGroundCover.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					environSurficialEntity.setGrndCover("");
+					notifyDataSetChanged();
+				}
+			});
+
+			
+			/////////////////////////////////////
+			// CONCAT SPINNER PATT GROUND
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (5/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			spinnerPattGrnd.setAdapter(sp3);
 			sp3.setElements(pldb.getCol1("lutSUREnvironsPatterngrn"));
+			sp3.setNewElement(pldb, "lutSUREnvironsPatterngrn", 1, null, null);
+			sp3.addSpace();
 			spinnerPattGrnd.setAdapter(sp3);
 			spinnerPattGrnd.setSelection(sp3.getPosition(environSurficialEntity.getPatternGrn()));
 			spinnerPattGrnd.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = environSurficialEntity.getPatternGrn();
 					String sel = parent.getItemAtPosition(position).toString();
@@ -529,15 +842,20 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-
-			Button buttonPattGrndClear = (Button) convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
-			buttonPattGrndClear.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					environSurficialEntity.setPatternGrn("");
-					notifyDataSetChanged();
-				}
-			});
-
+			
+			/////////////////////////////////////
+			// CONCAT EDITTEXT PATT GROUND
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (6/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextPattGrnd = (EditText)convertView.findViewById(R.id.environ_surficial_editText_pattGrnd);
 			editTextPattGrnd.setText(environSurficialEntity.getPatternGrn());
 			editTextPattGrnd.addTextChangedListener(new TextWatcher() {
@@ -550,6 +868,43 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setPatternGrn(s.toString());
 				}
 			});
+
+			/////////////////////////////////////
+			// CONCAT BUTTON PATT GROUND CLEAR
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (7/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonPattGrndClear = (Button) convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
+			buttonPattGrndClear.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					environSurficialEntity.setPatternGrn("");
+					notifyDataSetChanged();
+				}
+			});
+
+			
+			
+			/////////////////////////////////////
+			// EDITTEXT PATT AREA
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (8/8)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextPatternArea = (EditText)convertView.findViewById(R.id.environ_surficial_editText_patternArea);
 			editTextPatternArea.setText(environSurficialEntity.getPatArea());
 			editTextPatternArea.addTextChangedListener(new TextWatcher() {
@@ -566,9 +921,21 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		}
 		else if (tab == 5)
 		{
-
 			convertView = mInflater.inflate(R.layout.environ_surficial5, null);
-
+			
+			/////////////////////////////////////
+			// NOTES
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (1/1)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextEnvironNote = (EditText)convertView.findViewById(R.id.environ_surficial_editText_environNote);
 			editTextEnvironNote.setText(environSurficialEntity.getNotes());
 			editTextEnvironNote.addTextChangedListener(new TextWatcher() {
@@ -581,7 +948,6 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setNotes(s.toString());
 				}
 			});
-
 		}
 
 		return convertView;

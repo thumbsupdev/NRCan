@@ -1,11 +1,11 @@
 package com.nrcan.controllers;
 
-import java.util.ArrayList;
+
 
 import com.nrcan.entities.SampleSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-import com.nrcan.models.SampleSurficialModel;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,7 +27,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 public class SampleSurficialController extends BaseAdapter implements
 		Filterable {
 	private LayoutInflater mInflater;
-	private Activity activity;
+	//private Activity activity;
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
@@ -36,7 +36,7 @@ public class SampleSurficialController extends BaseAdapter implements
 
 	public SampleSurficialController(Context context, Activity activity,SampleSurficialEntity sampleSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		this.activity = activity;
+		//this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		
@@ -62,35 +62,55 @@ public class SampleSurficialController extends BaseAdapter implements
 			convertView = mInflater.inflate(R.layout.sample_surficial1, null);
 			
 			
-			Spinner spinnerType = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_type);
-			
+			/////////////////////////////////////
+			// SPINNER TYPE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (1/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_type);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerType.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutSURSampleType"));
+			sp1.setNewElement(pldb, "lutSURSampleType", 1, null, null);
+			sp1.addSpace();
+			spinnerType.setAdapter(sp1);
 			spinnerType.setSelection(sp1.getPosition(sampleSurficialEntity.getSampleType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
 					sampleSurficialEntity.setSampleType(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 			
-			Spinner spinnerPurpose = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_purpose);
+			/////////////////////////////////////
+			// CONCAT SPINNER PURPOSE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (2/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Spinner spinnerPurpose = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_purpose);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerPurpose.setAdapter(sp2);
 			sp2.setElements(pldb.getCol1("lutSURSamplePurpose"));
+			sp2.setNewElement(pldb, "lutSURSamplePurpose", 1, null, null);
+			sp2.addSpace();
+			spinnerPurpose.setAdapter(sp2);
 			spinnerPurpose.setSelection(sp2.getPosition(sampleSurficialEntity.getPurpose()));
 			spinnerPurpose.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {			
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					String tmp = sampleSurficialEntity.getPurpose();
 					String sel = parent.getItemAtPosition(position).toString();
@@ -106,16 +126,20 @@ public class SampleSurficialController extends BaseAdapter implements
 				}
 			});
 			
-			
-			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_surficial_button_purpose);
-			buttonPurpose.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					sampleSurficialEntity.setPurpose("");
-					notifyDataSetChanged();
-				}
-			});
-			EditText editTextPurpose = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_purpose);
+			/////////////////////////////////////
+			// SPINNER 
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (3/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextPurpose = (EditText) convertView.findViewById(R.id.sample_surficial_editText_purpose);
 			editTextPurpose.setText(sampleSurficialEntity.getPurpose());
 			editTextPurpose.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -127,8 +151,44 @@ public class SampleSurficialController extends BaseAdapter implements
 						sampleSurficialEntity.setPurpose(s.toString());
 				}
 			});
-			EditText editTextHorizon = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_horizon);
+			
+			/////////////////////////////////////
+			// CONCAT BUTTON PURPOSE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (4/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_surficial_button_purpose);
+			buttonPurpose.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					sampleSurficialEntity.setPurpose("");
+					notifyDataSetChanged();
+				}
+			});
+			
+			
+			
+			/////////////////////////////////////
+			// EDITTEXT HORIZON
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (1/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextHorizon = (EditText) convertView.findViewById(R.id.sample_surficial_editText_horizon);
 			editTextHorizon.setText(sampleSurficialEntity.getHorizon());
 			editTextHorizon.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -141,8 +201,20 @@ public class SampleSurficialController extends BaseAdapter implements
 				}
 			});
 			
-			EditText editTextDepth = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_depthInterval);
+			/////////////////////////////////////
+			// EDITTEXT DEPTH
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (6/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextDepth = (EditText) convertView.findViewById(R.id.sample_surficial_editText_depthInterval);
 			editTextDepth.setText(sampleSurficialEntity.getSampleDep());
 			editTextDepth.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -160,45 +232,74 @@ public class SampleSurficialController extends BaseAdapter implements
 			
 			convertView = mInflater.inflate(R.layout.sample_surficial2, null);
 			
-			Spinner spinnerSampleState = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_sampleState);
+			/////////////////////////////////////
+			// SPINNER SAMPLE STATE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (1/5)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Spinner spinnerSampleState = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_sampleState);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerSampleState.setAdapter(sp1);
 			sp1.setElements(pldb.getCol1("lutSURSampleState"));
+			sp1.setNewElement(pldb, "lutSURSampleState", 1, null, null);
+			sp1.addSpace();
+			spinnerSampleState.setAdapter(sp1);
 			spinnerSampleState.setSelection(sp1.getPosition(sampleSurficialEntity.getState()));
 			spinnerSampleState.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
 					sampleSurficialEntity.setState(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 			
-			Spinner spinnerFormat = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_format);
+			/////////////////////////////////////
+			// SPINNER FORMAT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (2/5)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_format);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerFormat.setAdapter(sp2);
 			sp2.setElements(pldb.getCol1("lutSURGeneralStrucFormat"));
+			sp2.setNewElement(pldb, "lutSURGeneralStrucFormat", 1, null, null);
+			sp2.addSpace();
 			spinnerFormat.setAdapter(sp2);
 			spinnerFormat.setSelection(sp2.getPosition(sampleSurficialEntity.getFormat()));
 			spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
 					sampleSurficialEntity.setFormat(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 			
-			EditText editTextAzimuth = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_azimuth);
+			/////////////////////////////////////
+			// EDITTEXT AZIMUTH
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (3/5)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextAzimuth = (EditText) convertView.findViewById(R.id.sample_surficial_editText_azimuth);
 			editTextAzimuth.setText(sampleSurficialEntity.getAzimuth());
 			editTextAzimuth.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -210,8 +311,21 @@ public class SampleSurficialController extends BaseAdapter implements
 						sampleSurficialEntity.setAzimuth(s.toString());
 				}
 			});
-			EditText editTextDipPlunge = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_dipPlunge);
+			
+			/////////////////////////////////////
+			// EDITTEXT DIP/PLUNGE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (4/5)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextDipPlunge = (EditText) convertView.findViewById(R.id.sample_surficial_editText_dipPlunge);
 			editTextDipPlunge.setText(sampleSurficialEntity.getDipplunge());
 			editTextDipPlunge.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -223,34 +337,50 @@ public class SampleSurficialController extends BaseAdapter implements
 						sampleSurficialEntity.setDipplunge(s.toString());
 				}
 			});
-			Spinner spinnerSurface = (Spinner) convertView
-					.findViewById(R.id.sample_surficial_spinner_surface);
+			
+			/////////////////////////////////////
+			// SPINNER SURFACE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (5/5)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			Spinner spinnerSurface = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_surface);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			spinnerSurface.setAdapter(sp3);
 			sp3.setElements(pldb.getCol1("lutSURSampleSurface"));
+			sp3.setNewElement(pldb, "lutSURSampleSurface", 1, null, null);
+			sp3.addSpace();
+			spinnerSurface.setAdapter(sp3);
 			spinnerSurface.setSelection(sp3.getPosition(sampleSurficialEntity.getSurface()));
 			spinnerSurface.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-					
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) {}
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-					//earthmatbedrockModel.getEntity().setLithGroup("");
 					sampleSurficialEntity.setSurface(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
-			
-	
-
-			
 		} else if (tab == 3) {
-			
 			convertView = mInflater.inflate(R.layout.sample_surficial3, null);
-
 			
-			EditText editTextNotes = (EditText) convertView
-					.findViewById(R.id.sample_surficial_editText_notes);
+			/////////////////////////////////////
+			// NOTES
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (1/1)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
+			EditText editTextNotes = (EditText) convertView.findViewById(R.id.sample_surficial_editText_notes);
 			editTextNotes.setText(sampleSurficialEntity.getNotes());
 			editTextNotes.addTextChangedListener(new TextWatcher() {
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
@@ -262,8 +392,6 @@ public class SampleSurficialController extends BaseAdapter implements
 						sampleSurficialEntity.setNotes(s.toString());
 				}
 			});
-
-			
 		} 
 
 		return convertView;
