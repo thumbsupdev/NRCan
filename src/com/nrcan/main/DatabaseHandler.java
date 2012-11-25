@@ -10,147 +10,158 @@ import android.util.Log;
 import android.app.Activity;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "nrcanDatabase";
-    private static final int DATABASE_VERSION = 1;
+	private static final String DATABASE_NAME = "nrcanDatabase";
+	private static final int DATABASE_VERSION = 1;
 
-    private ArrayList<String> resultQuery;
-    private Context context;
+	private ArrayList<String> resultQuery;
+	private Context context;
 
-    public DatabaseHandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
-    }
+	public DatabaseHandler(Context context) {
+		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+		this.context = context;
+	}
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-    }
-    
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    }
-    
-    public long insertRow(String tableName, String nullCol, ContentValues values) {
-    	SQLiteDatabase db = getWritableDatabase();
-    	
-    	long rowNum = db.insert(tableName, nullCol, values);
-    	
-    	db.close();
-    	
-    	return rowNum;
-    }
-    
-    public void updateRow(String tableName, ContentValues values, String whereClause, String[] whereArgs) {
-    	SQLiteDatabase db = getWritableDatabase();
-    	
-    	db.update(tableName, values, whereClause, whereArgs);
-    	
-    	db.close();
-    }
-    
-    /*
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	}
+
+	public long insertRow(String tableName, String nullCol, ContentValues values) {
+		SQLiteDatabase db = getWritableDatabase();
+
+		long rowNum = db.insert(tableName, nullCol, values);
+
+		db.close();
+
+		return rowNum;
+	}
+
+	public void updateRow(String tableName, ContentValues values, String whereClause, String[] whereArgs) {
+		SQLiteDatabase db = getWritableDatabase();
+
+		db.update(tableName, values, whereClause, whereArgs);
+
+		db.close();
+	}
+
+	/*
     public void deleteRow() {
     	SQLiteDatabase db = getWritableDatabase();
-    	
+
     	long tmp = db.delete("metadata", "nrcanid1 = ?", new String[] { String.valueOf(rowNum) } );
-    	
+
     	System.out.println("Returnd Row: " + tmp);
     	System.out.println("Deleted Row: " + rowNum--);
-    	
+
     	db.close();
     }
-    */
+	 */
 
-    public void executeQuery(String query) {
-    	SQLiteDatabase db = getWritableDatabase();
+	public void executeQuery(String query) {
+		SQLiteDatabase db = getWritableDatabase();
 
-    	/*
+		/*
         if(query == null) {
             throw new IllegalArgumentException("query is null");
         }*/
 
-        try {
+		try {
+			Cursor cursor = db.rawQuery(query, null);
 
-            Cursor cursor = db.rawQuery(query, null);
+			((Activity)context).startManagingCursor(cursor);
 
-            ((Activity)context).startManagingCursor(cursor);
+			if(cursor != null) {
+				resultQuery = new ArrayList<String>();
+				String[] columnNames = cursor.getColumnNames();
+				StringBuilder results = new StringBuilder();
 
-            if(cursor != null) {
+				while(cursor.moveToNext()) {
+					for(String s : columnNames) {
+						results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
+					}
+					resultQuery.add(results.toString().trim());
+				}
+			}
 
-                resultQuery = new ArrayList<String>();
-                String[] columnNames = cursor.getColumnNames();
-                StringBuilder results = new StringBuilder();
+			cursor.close();
+		} finally {
+			db.close();
+		}
+	}
 
-                while(cursor.moveToNext()) {
-                    for(String s : columnNames) {
-                        results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
-                    }
-                    resultQuery.add(results.toString().trim());
-                }
-            }
+	public void executeQuery(String query, String[] selectionArgs) {
+		SQLiteDatabase db = getWritableDatabase();
+		Cursor cursor = db.rawQuery(query + selectionArgs[0] + " = " + selectionArgs[1], null);
 
-            cursor.close();
-        } finally {
-        	db.close();
-        }
-    }
+		if(cursor != null) {
+			resultQuery = new ArrayList<String>();
+			String columnNames[] = cursor.getColumnNames();
+			StringBuilder results = new StringBuilder();
 
-    public void executeQuery(String query, String[] selectionArgs) {
-    	SQLiteDatabase db = getWritableDatabase();
+			while(cursor.moveToNext()) {
+				for(String s : columnNames) {
+					results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
+				}
+				resultQuery.add(results.toString().trim());
+			}
+		}
 
-    	/*
-        if(query == null) {
-            throw new IllegalArgumentException("query is null");
-        }
-        */
+		cursor.close();
+		db.close();
+	}
 
-        try {
+	public String getRow(int index) {
+		if(index < 0) {
+			Log.v("getRow()", "index is below 0");
+			throw new IllegalArgumentException("index is below 0");
+		}
 
-            Cursor cursor = db.rawQuery(query, selectionArgs);
+		return resultQuery.get(index);
+	}
 
-            ((Activity)context).startManagingCursor(cursor);
+	public void createTable(String query) {
+		SQLiteDatabase db = getWritableDatabase();
 
-            if(cursor != null) {
+		db.execSQL(query);
 
-                resultQuery = new ArrayList<String>();
-                String columnNames[] = cursor.getColumnNames();
-                StringBuilder results = new StringBuilder();
+		db.close();
+	}
 
-                while(cursor.moveToNext()) {
-                    for(String s : columnNames) {
-                        results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
-                    }
-                    resultQuery.add(results.toString().trim());
-                }
-            }
+	public String[] getSplitRow(int index) {
+		String[] t = resultQuery.get(index).split("\t");
+		for(int i = 0; i < t.length; i++)
+			System.out.println(t[i]);
+		
+		return resultQuery.get(index).split("\t");
+	}
 
-            cursor.close();
-        } finally {
-        	db.close();
-        }
-    }
+	public ArrayList<String> getList() {
+		return resultQuery;
+	}
 
-    public String getRow(int index) {
-        if(index < 0) {
-            Log.v("getRow()", "index is below 0");
-            throw new IllegalArgumentException("index is below 0");
-        }
-        
-        return resultQuery.get(index);
-    }
-    
-    public void createTable(String query) {
-    	SQLiteDatabase db = getWritableDatabase();
-    	
-    	db.execSQL(query);
-    	
-    	db.close();
-    }
-    
-    public String[] getSplitRow(int index) {
-        return (String[])resultQuery.get(index).split("\t");
-    }
-    
-    public ArrayList<String> getList() {
-        return resultQuery;
-    }
+	public ArrayList<String> populateMetadataList() {
+		ArrayList<String> projects = new ArrayList<String>();
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor c = db.rawQuery("SELECT * FROM metadata ORDER BY nrcanId1 ASC", null);
+
+		if (c != null)
+		{
+			while(c.moveToNext()) {
+				String name = c.getString(c.getColumnIndex("prjct_name"));
+				String code = c.getString(c.getColumnIndex("prjct_code"));
+				projects.add(name + " - " + code);
+			}
+		}
+		else
+		{
+			projects.add("empty...");
+		}
+
+		c.close();
+		db.close();
+		return projects;
+	}
 }

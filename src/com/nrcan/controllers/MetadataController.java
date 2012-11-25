@@ -272,8 +272,11 @@ public class MetadataController extends BaseAdapter implements Filterable {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					metadataEntity.setPrj_name(parent.getItemAtPosition(position).toString());
-					metadataEntity.setPrj_type(pldb.getCol2("lutMetadataPrjname", metadataEntity.getPrj_name()).get(1));
-					metadataEntity.setPrj_datum(pldb.getCol3("lutMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
+					metadataEntity.setPrj_type(pldb.getCol2("lutMetadataPrjname", metadataEntity.getPrj_name()).get(0));
+					metadataEntity.setPrj_datum(pldb.getCol3("lutMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(0));
+					System.out.println("A: " + metadataEntity.getPrj_name());
+					System.out.println("B: " + metadataEntity.getPrj_type());
+					System.out.println("C: " + metadataEntity.getPrj_datum());
 				}
 			});
 			

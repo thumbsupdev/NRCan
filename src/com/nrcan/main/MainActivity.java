@@ -244,36 +244,36 @@ public class MainActivity extends ListActivity {
 	private EditAction editAction = new EditAction();
 
 	private EditActionInterface[] editActions = new EditActionInterface[] {
-			new EditActionInterface() { public void runEdit() { editAction.editAction0(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction1(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction2(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction3(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction4(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction5(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction6(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction7(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction8(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction9(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction10(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction11(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction12(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction13(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction14(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction15(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction16(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction17(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction18(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction19(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction20(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction21(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction22(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction23(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction24(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction25(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction26(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction27(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction28(); } },
-			new EditActionInterface() { public void runEdit() { editAction.editAction29(); } }
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction0(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction1(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction2(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction3(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction4(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction5(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction6(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction7(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction8(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction9(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction10(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction11(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction12(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction13(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction14(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction15(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction16(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction17(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction18(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction19(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction20(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction21(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction22(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction23(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction24(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction25(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction26(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction27(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction28(x); } },
+			new EditActionInterface() { public void runEdit(int x) { editAction.editAction29(x); } }
 	};
 
 	private CellAction cellAction = new CellAction();
@@ -355,7 +355,7 @@ public class MainActivity extends ListActivity {
 		pldb = new PicklistDatabaseHandler(this);
 
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-		
+
 		setupMaps();
 
 		earthmatBedrockModel = new EarthmatBedrockModel(databaseHandler);
@@ -381,23 +381,23 @@ public class MainActivity extends ListActivity {
 		button1 = (Button) findViewById(R.id.buttonSave);
 		button1.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//saveActions[flipper.getDisplayedChild()].runSave();
+				saveActions[flipper.getDisplayedChild()].runSave();
 				//adap10.save();
 				//adap10.insertMetadataInfo();
 				//metadataModel.insertRow();
-				flipper.showNext();
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				//flipper.showNext();
+				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});
 		button2 = (Button) findViewById(R.id.buttonBack);
 		button2.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				//backActions[flipper.getDisplayedChild()].runBack();
+				backActions[flipper.getDisplayedChild()].runBack();
 				//adap10.tUpdate();
 				//metadataModel.deleteRow();
-				flipper.showPrevious();
-				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				//flipper.showPrevious();
+				//mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				//setTabs(1);
 			}
 		});
@@ -497,7 +497,7 @@ public class MainActivity extends ListActivity {
 
 		setupButtons();
 
-		flipper.setDisplayedChild(6);
+		flipper.setDisplayedChild(8);
 		//button2.setVisibility(View.INVISIBLE);
 		//button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
@@ -510,6 +510,8 @@ public class MainActivity extends ListActivity {
 
 		swapButton = (Button)findViewById(R.id.tab_host_5_button1);
 		swapButton.setEnabled(false);
+		
+		adap9.setElements(databaseHandler.populateMetadataList());
 
 		//setupDetailsBedrock();
 		//setupDetailsSurficial();
@@ -680,8 +682,8 @@ public class MainActivity extends ListActivity {
 		cellActions[flipper.getDisplayedChild()].runCell();
 	}
 
-	public void editActionControl() {
-		editActions[flipper.getDisplayedChild()].runEdit();
+	public void editActionControl(int x) {
+		editActions[flipper.getDisplayedChild()].runEdit(x);
 	}
 
 	public void newActionControl() {
@@ -1199,7 +1201,7 @@ public class MainActivity extends ListActivity {
 
 	public interface EditActionInterface
 	{
-		public void runEdit();
+		public void runEdit(int x);
 	}
 
 	public interface CellActionInterface
@@ -1784,7 +1786,7 @@ public class MainActivity extends ListActivity {
 
 	public class EditAction {
 
-		public void editAction0() {
+		public void editAction0(int x) {
 			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(1);
 			newFlag = false;
@@ -1794,11 +1796,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction1() {
+		public void editAction1(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction2() {
+		public void editAction2(int x) {
 			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(3);
 			newFlag = false;
@@ -1808,11 +1810,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction3() {
+		public void editAction3(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction4() {
+		public void editAction4(int x) {
 			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(5);
 			newFlag = false;
@@ -1822,11 +1824,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction5() {
+		public void editAction5(int x) {
 
 		}
 
-		public void editAction6() {
+		public void editAction6(int x) {
 			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(7);
 			newFlag = false;
@@ -1836,12 +1838,16 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction7() {
+		public void editAction7(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction8() {
-			nrCanId1 = metadataModel.getEntity().getNrcanId1();
+		public void editAction8(int x) {
+			nrCanId1 = x;//metadataModel.getEntity().getNrcanId1();
+			metadataModel.getEntity().setNrcanId1(x);
+			metadataModel.readRow();
+			adap9.notifyDataSetChanged();
+			
 			flipper.setDisplayedChild(9);
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
@@ -1850,11 +1856,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction9() {
+		public void editAction9(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction10() {
+		public void editAction10(int x) {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
 			newFlag = false;
@@ -1864,11 +1870,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction11() {
+		public void editAction11(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction12() {
+		public void editAction12(int x) {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
 			newFlag = false;
@@ -1878,11 +1884,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction13() {
+		public void editAction13(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction14() {
+		public void editAction14(int x) {
 			nrCanId3 = photoModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(15);
 			newFlag = false;
@@ -1892,11 +1898,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction15() {
+		public void editAction15(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction16() {
+		public void editAction16(int x) {
 			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(17);
 			newFlag = false;
@@ -1906,11 +1912,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction17() {
+		public void editAction17(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction18() {
+		public void editAction18(int x) {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
 			newFlag = false;
@@ -1920,11 +1926,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction19() {
+		public void editAction19(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction20() {
+		public void editAction20(int x) {
 			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(21);
 			newFlag = false;
@@ -1934,11 +1940,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction21() {
+		public void editAction21(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction22() {
+		public void editAction22(int x) {
 			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(23);
 			newFlag = false;
@@ -1948,11 +1954,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction23() {
+		public void editAction23(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction24() {
+		public void editAction24(int x) {
 			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(25);
 			newFlag = false;
@@ -1962,11 +1968,11 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction25() {
+		public void editAction25(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction26() {
+		public void editAction26(int x) {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
 			newFlag = false;
@@ -1976,15 +1982,15 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction27() {
+		public void editAction27(int x) {
 			//no edit functionality on form
 		}
 
-		public void editAction28() {
+		public void editAction28(int x) {
 			//a list with no edit on list
 		}
 
-		public void editAction29() {
+		public void editAction29(int x) {
 			//a list with no edit on list
 		}
 	}
@@ -2649,14 +2655,40 @@ public class MainActivity extends ListActivity {
 	public static HashMap<String, Integer> getSurficial() {
 		return surficialFileNames;
 	}
+	/*
+	public void setNRCANID1(int id) { nrCanId1 = id; }
+	public void setNRCANID2(int id) { nrCanId2 = id; }
+	public void setNRCANID3(int id) { nrCanId3 = id; }
+	public void setNRCANID4(int id) { nrCanId4 = id; }
+	*/
 
 	/*
     public ArrayList<String> readRows() {
         dbHandler.executeQuery(PreparedStatements.READ_ALL_ROWS, new String [] { METADATA_TABLE_NAME });
 
         return dbHandler.getList();
-    }
-	 *//************************************************************************************
+    }*/
+	/*
+	public ArrayList<String> updateMetadataList() {
+		ArrayList<String> results = new ArrayList<String>();
+		ArrayList<String> tmp = new ArrayList<String>();
+		
+		databaseHandler.executeQuery("SELECT prjct_name, prjct_code FROM METADATA");
+		results = databaseHandler.getList();
+		
+		for(int i = 0; i < results.size(); i++)
+		{
+			tmp.add(results.get(i) + " - " + results);
+		}
+		
+		return null;
+	}*/
+	
+	public ArrayList<String> updateList(String table, String col) {
+		return null;
+	}
+    
+	/************************************************************************************
 	 * 
 	 * ANIMATION HELPER CLASS
 	 *

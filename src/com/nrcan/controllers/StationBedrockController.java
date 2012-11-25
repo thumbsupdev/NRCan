@@ -42,7 +42,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		this.tab = 1;
 		this.stationBedrockEntity = stationBedrockEntity;
 		this.pldb = pldb;
-		doGPS();
+		//doGPS();
 	}
 
 	public int getCount() {

@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.main.DatabaseHandler;
 import com.nrcan.entities.MetadataEntity;
-import com.nrcan.values.PreparedStatements;
 
 public class MetadataModel {
 	private DatabaseHandler dbHandler;
@@ -49,9 +48,10 @@ public class MetadataModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { METADATA_TABLE_NAME, METADATA_NRCANID1, String.valueOf(metadata.getNrcanId1()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
-
+		String[] tmp = new String[] { METADATA_NRCANID1, String.valueOf(metadata.getNrcanId1()) };
+		dbHandler.executeQuery("SELECT * FROM " + METADATA_TABLE_NAME + " WHERE ", tmp);
+		//metadata.setEntity(dbHandler.executeQuery("SELECT * FROM " + METADATA_TABLE_NAME + " WHERE ", tmp));
+		
 		metadata.setEntity(dbHandler.getSplitRow(0));
 	}
 

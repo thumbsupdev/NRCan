@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class MetadataEntity {
     
     private int nrcanId1;
@@ -19,6 +21,23 @@ public class MetadataEntity {
     
     public MetadataEntity() {
         clearEntity();
+    }
+    
+    public void setEntity(ArrayList<String> contentValues) {
+        this.nrcanId1 = Integer.parseInt(contentValues.get(0));
+        this.prjct_name = contentValues.get(1);
+        this.prjct_code = contentValues.get(2);
+        this.prjct_lead = contentValues.get(3);
+        this.prjct_type = contentValues.get(4);
+        this.geolcode = contentValues.get(5);
+        this.geologist = contentValues.get(6);
+        this.mappath = contentValues.get(7);
+        this.prj_name = contentValues.get(8);
+        this.prj_type = contentValues.get(9);
+        this.prj_datum = contentValues.get(10);
+        this.digcamera = contentValues.get(11);
+        this.stnstartno = contentValues.get(12);
+        this.metaid = contentValues.get(13);
     }
     
     public void setEntity(String[] contentValues) {
