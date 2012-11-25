@@ -1,5 +1,7 @@
 package com.nrcan.controllers;
 
+import java.util.ArrayList;
+
 import com.nrcan.entities.MetadataEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -25,15 +28,16 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	private Context context;
 	private PicklistDatabaseHandler pldb;
 	private MetadataEntity metadataEntity;
-    private int tab;
+	private int tab;
+	private ArrayList<String> projectTypes = new ArrayList<String>();
 
 	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		//this.activity = activity;
 		this.context = context;
 		this.tab = 1;
-        this.pldb = pldb;
-        this.metadataEntity = metadataEntity;
+		this.pldb = pldb;
+		this.metadataEntity = metadataEntity;
 	}
 
 	public int getCount() {
@@ -51,19 +55,19 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
 			convertView = mInflater.inflate(R.layout.metadata1, null);
-			
-			
+
+
 			/////////////////////////////////////
 			// EDITTEXT PROJECT NAME
 			//
-			// DESCRIPTION
+			// Text field for "Project Name"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextProjectName = (EditText) convertView.findViewById(R.id.metadata_editText_projectName);
@@ -78,18 +82,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 						metadataEntity.setPrjct_name(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT PROJECT CODE
 			//
-			// DESCRIPTION
+			// Text field for "Project Code"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextProjectCode = (EditText) convertView.findViewById(R.id.metadata_editText_projectCode);
@@ -104,18 +108,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 						metadataEntity.setPrjct_code(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			//  EDITTEXT PROJECT LEADER
 			//
-			// DESCRIPTION
+			// Text field for "Project Leader"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextProjectLeader = (EditText) convertView.findViewById(R.id.metadata_editText_projectLeader);
@@ -130,7 +134,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 						metadataEntity.setPrjct_lead(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER PROJECT TYPE
 			//
@@ -145,33 +149,36 @@ public class MetadataController extends BaseAdapter implements Filterable {
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerProjectType = (Spinner) convertView.findViewById(R.id.metadata_spinner_projectType);
-			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
-			sp1.setElements(pldb.getCol1("lutMetadataPrjctType"));
-			//sp1.setNewElement(pldb, "lutMetadataPrjctType", 1, null, null);
-			sp1.addSpace();
+			//SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
+			//sp1.setElements(pldb.getCol1("lutMetadataPrjctType"));
+			ArrayAdapter<String> sp1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item,projectTypes );
+			sp1.setDropDownViewResource(R.layout.cell_spinner_list2);
 			spinnerProjectType.setAdapter(sp1);
-			spinnerProjectType.setSelection(sp1.getPosition(metadataEntity.getPrjct_type()));
+			//sp1.setNewElement(pldb, "lutMetadataPrjctType", 1, null, null);
+			//sp1.addSpace();
+			//spinnerProjectType.setAdapter(sp1);
+			//spinnerProjectType.setSelection(sp1.getPosition(metadataEntity.getPrjct_type()));
 			spinnerProjectType.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					metadataEntity.setPrjct_type(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.metadata2, null);
-			
+
 			/////////////////////////////////////
 			// SPINNER GEOLOGIST NAME
 			//
-			// DESCRIPTION
+			// Drop-down for "Geologist Name" - Column 1 of lutMetadataGeologist Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGeologistName = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistName);
@@ -193,18 +200,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER GEOLOGIST CODE
 			//
-			// DESCRIPTION
+			// Drop-down for "Geologist Code" - Column 2 of lutMetadataGeologist Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGeologistCode = (Spinner) convertView.findViewById(R.id.metadata_spinner_geologistCode);
@@ -220,18 +227,18 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					metadataEntity.setGeolcode(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
-			// 
+			// SPINNER CAMERA PREFIX
 			//
-			// DESCRIPTION
+			// Drop-down for "Camera Prefix" - Column 1 of lutMetadataDigcamera Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerCameraPrefix = (Spinner) convertView.findViewById(R.id.metadata_spinner_cameraPrefix);
@@ -247,25 +254,25 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					metadataEntity.setDigcamera(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER MAP PROJECTION
 			//
-			// DESCRIPTION
+			// Drop-down for "Select Map Projection" - Column 1 of lutMetadataPrjname Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMapProjection = (Spinner) convertView.findViewById(R.id.metadata_spinner_selectMapProjection);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp4.setElements(pldb.getCol1("lutMetadataPrjname"));
 			sp4.setNewElement(pldb, "lutMetadataPrjname", 1, null, null);
-			//sp4.addSpace();
+			sp4.addSpace();
 			spinnerMapProjection.setAdapter(sp4);
 			spinnerMapProjection.setSelection(sp4.getPosition(metadataEntity.getPrj_name()));
 			spinnerMapProjection.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -274,23 +281,20 @@ public class MetadataController extends BaseAdapter implements Filterable {
 					metadataEntity.setPrj_name(parent.getItemAtPosition(position).toString());
 					metadataEntity.setPrj_type(pldb.getCol2("lutMetadataPrjname", metadataEntity.getPrj_name()).get(1));
 					metadataEntity.setPrj_datum(pldb.getCol3("lutMetadataPrjname", metadataEntity.getPrj_name(), metadataEntity.getPrj_type()).get(1));
-					System.out.println("A: " + metadataEntity.getPrj_name());
-					System.out.println("B: " + metadataEntity.getPrj_type());
-					System.out.println("C: " + metadataEntity.getPrj_datum());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT STATION START NO
 			//
-			// DESCRIPTION
+			// Text field for "Station Start Number"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (5/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextStationStartNo = (EditText) convertView.findViewById(R.id.metadata_editText_stationStartNo);
@@ -318,24 +322,24 @@ public class MetadataController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
-	
+
 	public void clear() {
 		metadataEntity.clearEntity();
 		tab = 1;
 		notifyDataSetChanged();
-	
+
 	}
-	
+
 	/*
     <<<--- APPLICATION --->>>
 	private int nrcanId1;		<<<--- APP GENERATED
-    
+
 	<<<--- TAB 1 --->>>
     private String prjct_name;	<<<--- TEXT
     private String prjct_code;	<<<--- TEXT
     private String prjct_lead;	<<<--- TEXT
     private String prjct_type;	<<<--- PICKLIST
-    
+
 	<<<--- TAB 2 --->>>
     private String geologist;	<<<--- PICKLIST
     private String geolcode;	<<<--- PICKLIST
@@ -344,9 +348,9 @@ public class MetadataController extends BaseAdapter implements Filterable {
     private String prj_datum;	<<<--- PICKLIST / APP GENERATED
     private String digcamera;	<<<--- PICKLIST
     private String stnstartno;	<<<--- TEXT
-    
+
     <<<--- UNKNOWN --->>>
     private String mappath;
     private String metaid;
-	*/
+	 */
 }

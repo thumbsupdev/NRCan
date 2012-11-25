@@ -152,11 +152,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		if (c != null)
 		{
 			while(c.moveToNext()) {
-				String value = c.getString(c.getColumnIndex("nrcanid1"));
+				ArrayList<String> t = new ArrayList<String>();
+				String value = c.getString(c.getColumnIndex("nrcanId1"));
 				String pcode = c.getString(c.getColumnIndex("prjct_code"));
 				String gcode = c.getString(c.getColumnIndex("geolcode"));
-				projects.get(num).add(value);
-				projects.get(num).add(pcode + " - " + gcode);
+				t.add(value);
+				t.add(pcode + " - " + gcode);
+				projects.add(t);
 				num++;
 			}
 		}
@@ -174,15 +176,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		int num = 0;
 		ArrayList<ArrayList<String>> tmp = new ArrayList<ArrayList<String>>();
 		SQLiteDatabase db = this.getWritableDatabase();
-		Cursor c = db.rawQuery("SELECT * FROM " + table + " WHERE " + col + " = " + id + " ORDER BY " + col + " ASC", null);
+		Cursor c = db.rawQuery("SELECT * FROM " + table + " WHERE " + col + " = " + id + " ORDER BY " + targetColumn1 + " ASC", null);
 
 		if (c != null)
 		{
 			while(c.moveToNext()) {
+				ArrayList<String> t = new ArrayList<String>();
 				String value1 = c.getString(c.getColumnIndex(targetColumn1));
 				String value2 = c.getString(c.getColumnIndex(targetColumn2));
-				tmp.get(num).add(value1);
-				tmp.get(num).add(value2);
+				t.add(value1);
+				t.add(value2);
+				tmp.add(t);
 				num++;
 			}
 		}

@@ -71,13 +71,13 @@ public class ListController extends BaseAdapter implements Filterable {
 			holder.button = (Button) convertView.findViewById(R.id.cell_list_buttonEdit);
 			holder.button.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					((MainActivity)activity).editActionControl();
+					((MainActivity)activity).editActionControl(Integer.parseInt(elements.get(position).get(0)));
 				}
 			});
 			
 			convertView.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					((MainActivity)activity).cellActionControl();
+					((MainActivity)activity).cellActionControl(Integer.parseInt(elements.get(position).get(0)));
 				}
 			});
 			

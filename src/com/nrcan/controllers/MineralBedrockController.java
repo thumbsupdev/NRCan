@@ -55,14 +55,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER MINERAL
 			//
-			// DESCRIPTION
+			// Drop-down for "Mineral" - Column 1 of lutBEDMineralMineral Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.mineral_bedrock_spinner_mineral);
@@ -82,14 +82,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT PERCENT
 			//
-			// DESCRIPTION
+			// Text field for "Percent"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMode = (EditText) convertView.findViewById(R.id.mineral_bedrock_editText_percent);
@@ -111,14 +111,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER COLOUR
 			//
-			// DESCRIPTION
+			// Drop-down for "Colour" - Column 1 of lutBEDMineralColour Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerColour = (Spinner) convertView.findViewById(R.id.mineral_bedrock_spinner_colour);
@@ -138,14 +138,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT SIZE MIN
 			//
-			// DESCRIPTION
+			// Text field for "Min"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMin = (EditText) convertView.findViewById(R.id.mineal_bedrock_editText_min);
@@ -164,14 +164,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT SIZE MAX
 			//
-			// DESCRIPTION
+			// Text field for "Max"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMax = (EditText) convertView.findViewById(R.id.mineral_bedrock_editText_max);
@@ -193,14 +193,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER FORM
 			//
-			// DESCRIPTION
+			// Drop-down for "Form" - Column 1 of lutBEDMineralForm Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerForm = (Spinner) convertView.findViewById(R.id.mineral_bedrock_spinner_form);
@@ -220,14 +220,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER HABIT
 			//
-			// DESCRIPTION
+			// Drop-down for "Habit" - Column 1 of lutBEDMineralHabit Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerHabit = (Spinner) convertView.findViewById(R.id.mineral_bedrock_spinner_habit);
@@ -247,14 +247,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER OCCURANCE
 			//
-			// DESCRIPTION
+			// Drop-down for "Occurance" - Column 1 of lutBEDMineralOccur Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (3/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerOccur = (Spinner) convertView.findViewById(R.id.mineral_bedrock_spinner_occur);
@@ -277,14 +277,14 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT NOTE (254)
 			//
-			// DESCRIPTION
+			// Text field for "Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNotes = (EditText) convertView.findViewById(R.id.mineral_editText_note);

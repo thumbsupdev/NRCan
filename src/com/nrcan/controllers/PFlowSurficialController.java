@@ -58,14 +58,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER CLASS
 				//
-				// DESCRIPTION
+				// Drop-down for "Class" - Column 1 of lutSURPflowPaleoflow Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (1/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerClass = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_class);
@@ -91,14 +91,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER SENSE
 				//
-				// DESCRIPTION
+				// Drop-down for "Sense" - Column 1 of lutSURPflowPFsense Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (2/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerSense = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_sense);
@@ -116,16 +116,16 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				});
 				
 				/////////////////////////////////////
-				// CONCAT SPINNER FEAUTRE
+				// CONCAT SPINNER FEATURE
 				//
-				// DESCRIPTION
+				// Drop-down for "Feature" - Column 2 of lutSURPflowPaleoflow Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (3/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerFeature = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_feature);
@@ -155,14 +155,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// CONCAT EDITTEXT FEATURE
 				//
-				// DESCRIPTION
+				// Text field concatenates selections from SPINNER FEATURE
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (4/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				EditText editTextFeature = (EditText)convertView.findViewById(R.id.pflow_surficial_text_feature);
@@ -181,14 +181,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// CONCAT BUTTON FEATURE CLEAR
 				//
-				// DESCRIPTION
+				// Button clears EDITTEXT FEATURE text field
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (5/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [] ALEX YEUNG
 				/////////////////////////////////////
 				Button buttonFeature = (Button) convertView.findViewById(R.id.pflow_surficial_button_feature);
@@ -204,14 +204,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER BEDROCK SURFACE
 				//
-				// DESCRIPTION
+				// Drop-down for "Bedrock Surface" - Column 1 of lutSURPflowBedrocksurface Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 1 - ELEMENT (6/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerBedrockSurface = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_bedrockSurface);
@@ -236,14 +236,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER METHOD
 				//
-				// DESCRIPTION
+				// Drop-down for "Method" - Column 1 of lutSURGeneralStrucMethod Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (1/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerMethod = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_method);
@@ -263,14 +263,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// EDITTEXT AZIMUTH
 				//
-				// DESCRIPTION
+				// Text field for "Azimuth"
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (2/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.pflow_surficial_text_azimuth);
@@ -289,14 +289,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// EDITTEXT RELATIVE AGE
 				//
-				// DESCRIPTION
+				// Text field for "Age"
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (3/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				EditText editTextAge = (EditText)convertView.findViewById(R.id.pflow_surficial_editText_age);
@@ -315,14 +315,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER NUM INDICATORS
 				//
-				// DESCRIPTION
+				// Drop-down for "# Indicators" - Column 1 of lutSURPflowNumindic Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (4/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_indicators);
@@ -342,14 +342,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER DEFINITION
 				//
-				// DESCRIPTION
+				// Drop-down for "Definition" - Column 1 of lutSURPflowDefinition Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (5/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerDefinition = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_definition);
@@ -369,14 +369,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// SPINNER RELATIONSHIP
 				//
-				// DESCRIPTION
+				// Drop-down for "Relationship" - Column 1 of lutSURPflowRelation Picklist
 				/////////////////////////////////////
 				// VERIFIED - TAB 2 - ELEMENT (6/6)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				Spinner spinnerRelationship = (Spinner)convertView.findViewById(R.id.pflow_surficial_spinner_relationship);
@@ -400,14 +400,14 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 				/////////////////////////////////////
 				// NOTES
 				//
-				// DESCRIPTION
+				// Text field for "Note"
 				/////////////////////////////////////
 				// VERIFIED - TAB 3 - ELEMENT (1/1)
 				/////////////////////////////////////
 				// [] JORDAN KUROSKY
 				// [] JAMIE POSPIECH
 				// [] DEREK ELLIOTT
-				// [] PIERRE LAFOREST-GRANT
+				// [X] PIERRE LAFOREST-GRANT
 				// [X] ALEX YEUNG
 				/////////////////////////////////////
 				EditText editTextNote = (EditText)convertView.findViewById(R.id.pflow_surficial_text_note);

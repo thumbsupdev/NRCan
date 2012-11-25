@@ -56,14 +56,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER LITH GROUP
 			//
-			// DESCRIPTION
+			// Drop-down for "Group" - Column 1 of lutBEDEarthmatRocktype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_group);
@@ -91,14 +91,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER LITH TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Type" - Column 2 of lutBEDEarthmatRocktype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_type);
@@ -123,14 +123,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER LITH DETAIL
 			//
-			// DESCRIPTION
+			// Drop-down for "Detail" - Column 3 of lutBEDEarthmatRocktype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_detail);
@@ -149,14 +149,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER MAP UNIT
 			//
-			// DESCRIPTION
+			// Drop-down for "Unit" - Column 1 of lutBEDEarthmatMapUnit Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerUnit = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_unit);
@@ -176,14 +176,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER OCCURS AS
 			//
-			// DESCRIPTION
+			// Drop-down for "Occurs As" - Column 2 of lutBEDEarthmatOccurs Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerOccurs = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_occursAs);
@@ -205,14 +205,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER MOD STRUCT
 			//
-			// DESCRIPTION
+			// Drop-down for "Structure" - Column 2 of lutBEDEarthmatStructural Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerStructure = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_structure);
@@ -242,14 +242,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT MOD STRUCT
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER MOD STRUCT
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextStructure = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_structure);
@@ -268,14 +268,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON MOD STRUCT
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT MOD STRUCT text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonStructure = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_structure);
@@ -289,14 +289,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER MOD TEXTURE
 			//
-			// DESCRIPTION
+			// Drop-down for "Texture" - Column 2 of lutBEDEarthmatTextural Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerTexture = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_texture);
@@ -325,14 +325,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT MOD TEXTURE
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER MOD TEXTURE
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (5/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextTexture = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_texture);
@@ -351,14 +351,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON MOD TEXTURE
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT MOD TEXTURE text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (6/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonTexture = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_texture);
@@ -372,14 +372,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER MOD COMPOSITION
 			//
-			// DESCRIPTION
+			// Drop-down for "Composition" - Column 2 of lutBEDEarthmatComposition Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (7/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerComposition = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_composition);
@@ -408,14 +408,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT MOD COMPOSITION
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER MOD COMPOSITION
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (8/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextComposition = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_composition);
@@ -434,14 +434,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON MOD COMPOSITION
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT MOD COMPOSITION text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (9/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonComposition = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_composition);
@@ -458,14 +458,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER GRN/CRY
 			//
-			// DESCRIPTION
+			// Drop-down for "Grn/Cry" - Column 2 of lutBEDEarthmatGCSize Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGrnCry = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_grnCry);
@@ -494,14 +494,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT GRN/CRY
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER GRN/CRY
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextGrnCry = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_grnCry);
@@ -520,14 +520,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON GRN/CRY
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT GRN/CRY text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (3/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonGrnCry = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_grnCry);
@@ -541,14 +541,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER DEF/FABRIC
 			//
-			// DESCRIPTION
+			// Drop-down for "Def fabric" - Column 1 of lutBEDEarthmatDeffabric Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (4/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerDefFabric = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_defFabric);
@@ -578,14 +578,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT DEF FABRIC
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER DEF FABRIC
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (5/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDefFabric = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_defFabric);
@@ -604,14 +604,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON DEF FABRIC
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT DEF FABRIC text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (6/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonDefFabric = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_defFabric);
@@ -623,16 +623,16 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			});
 
 			/////////////////////////////////////
-			// CONCAT SPINNER BED THIK
+			// CONCAT SPINNER BED THICK
 			//
-			// DESCRIPTION
+			// Drop-down for "Bed Thick" - Column 1 of lutBEDEarthmatBedthick Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (7/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerBedThick = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_bedThick);
@@ -662,14 +662,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT BED THICK
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER BED THICK
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (8/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextBedThick = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_bedThick);
@@ -688,14 +688,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON BED THICK
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT BED THICK text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (9/9)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonBedThick = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_bedThick);
@@ -712,14 +712,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER MINERAL
 			//
-			// DESCRIPTION
+			// Drop-down for "Mineral" - Column 1 of lutBEDEarthmatMineral Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_mineral);
@@ -749,14 +749,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT MINERAL
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER MINERAL
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMineral = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_mineral);
@@ -775,14 +775,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON MINERAL 
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT MINERAL text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonClear = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_mineral);
@@ -796,14 +796,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT MINERAL DESC (254)
 			//
-			// DESCRIPTION
+			// Text field for description of selected mineral(s)
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextRockDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
@@ -825,14 +825,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER COLOUR FRESH
 			//
-			// DESCRIPTION
+			// Drop-down for "Colour Fresh" - Column 1 of lutBEDEarthmatColour Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFresh = (Spinner) convertView.findViewById(R.id.earthmat_spinner_fresh);
@@ -852,14 +852,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER COLOUR WEATHERED
 			//
-			// DESCRIPTION
+			// Drop-down for "Colour Weathered" - Column 1 of lutBEDEarthmatColour Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerWeathered = (Spinner) convertView.findViewById(R.id.earthmat_spinner_weathered);
@@ -879,14 +879,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT INDEX
 			//
-			// DESCRIPTION
+			// Text field for colour index
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextIndex = (EditText) convertView.findViewById(R.id.earthmat_editText_index);
@@ -905,14 +905,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT MAG SUSCEPTIBILITY
 			//
-			// DESCRIPTION
+			// Text field for mag susceptibility
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMagSus = (EditText) convertView.findViewById(R.id.earthmat_editText_magSusceptibility);
@@ -934,14 +934,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT SPINNER FOSSIL
 			//
-			// DESCRIPTION
+			// Drop-down for "Fossil" - Column 1 of lutBEDEarthmatFossil Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 6 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFossil = (Spinner) convertView.findViewById(R.id.earthmat_bedrock_spinner_fossil);
@@ -971,14 +971,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT EDITTEXT FOSSIL
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER FOSSIL
 			/////////////////////////////////////
 			// VERIFIED - TAB 6 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextFossil = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_fossil);
@@ -997,14 +997,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// CONCAT BUTTON FOSSIL
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT FOSSIL text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 6 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonFossil = (Button) convertView.findViewById(R.id.earthmat_bedrock_button_fossil);
@@ -1018,14 +1018,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT FOSSIL DESC (254)
 			//
-			// DESCRIPTION
+			// Text field for description of selected fossil(s)
 			/////////////////////////////////////
 			// VERIFIED - TAB 6 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextFossilDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_rockDescription);
@@ -1047,14 +1047,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER CONTACT UPPER
 			//
-			// DESCRIPTION
+			// Drop-down for "Upper" - Column 1 of lutBEDEarthmatContact Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 7 - ELEMENT (1/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerContactUpper = (Spinner) convertView.findViewById(R.id.earthmat_spinner_upper);
@@ -1074,14 +1074,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER CONTACT LOWER
 			//
-			// DESCRIPTION
+			// Drop-down for "Lower" - Column 1 of lutBEDEarthmatContact Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 7 - ELEMENT (2/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerContactLower = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lower);
@@ -1101,14 +1101,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT CONTACT DESC (254)
 			//
-			// DESCRIPTION
+			// Text field for description of selected contact(s)
 			/////////////////////////////////////
 			// VERIFIED - TAB 7 - ELEMENT (3/3)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextContactDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_contactDescription);
@@ -1130,14 +1130,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// EDITTEXT LITH INTERP (254)
 			//
-			// DESCRIPTION
+			// Text field for "Lith Interpretation"
 			/////////////////////////////////////
 			// VERIFIED - TAB 8 - ELEMENT (1/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLithDescription = (EditText) convertView.findViewById(R.id.earthmat_bedrock_editText_lithInterpretation);
@@ -1156,14 +1156,14 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 			/////////////////////////////////////
 			// SPINNER LITH INTERP CONFIDENCE
 			//
-			// DESCRIPTION
+			// Drop-down for "Lith Interp Confidence" - Column 1 of lutBEDEarthmatInterpconf Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 8 - ELEMENT (2/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerLithInterp = (Spinner) convertView.findViewById(R.id.earthmat_spinner_lithInterpConfidence);

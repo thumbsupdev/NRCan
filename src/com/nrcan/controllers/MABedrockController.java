@@ -56,14 +56,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER MIN/ALT
 			//
-			// DESCRIPTION
+			// Drop-down for "Min/Alter" - Column 1 of lutBEDMAMineralogy Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMinAlt = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_minAlt);
@@ -90,14 +90,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER MINERAL
 			//
-			// DESCRIPTION
+			// Drop-down for "Mineral" - Column 2 of lutBEDMAMineralogy Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMineral = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_mineral);
@@ -122,14 +122,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER MINERAL PERCENT
 			//
-			// DESCRIPTION
+			// Drop-down for "%" - Column 1 of lutBEDGeneralPercent5incr Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMineralPercent = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_mineralPercent);
@@ -149,14 +149,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT SPINNER DISTRIBUTION
 			//
-			// DESCRIPTION
+			// Drop-down for "Distribution" - Column 2 of lutBEDMADistribute Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerDistribution = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_distribution);
@@ -185,14 +185,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT EDITTEXT DISTRIBUTION
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER DISTRIBUTION
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMA = (EditText) convertView.findViewById(R.id.ma_bedrock_editText_mA);
@@ -211,14 +211,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT BUTTON DISTRIBUTION
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT DISTRIBUTION text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonMAClear = (Button) convertView.findViewById(R.id.ma_bedrock_button_mAClear);
@@ -232,14 +232,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER WHAT AFFECTED
 			//
-			// DESCRIPTION
+			// Drop-down for "What Affected" - Column 1 of lutBEDMAUnit Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (7/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerWhatAffected = (Spinner) convertView.findViewById(R.id.ma_bedrock_spinner_whatAffected);
@@ -262,14 +262,14 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT NOTE (254)
 			//
-			// DESCRIPTION
+			// Text field for "Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNote = (EditText) convertView.findViewById(R.id.ma_bedrock_editText_note);

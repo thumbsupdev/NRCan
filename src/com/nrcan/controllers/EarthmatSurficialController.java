@@ -60,14 +60,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER GROUP
 			//
-			// DESCRIPTION
+			// Drop-down for "Group" - Column 1 of lutSUREarthmatLith2 Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGroup = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_group);
@@ -93,14 +93,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER TYPE
 			//
-			//DESCRIPTION
+			// Drop-down for "Type" - Column 2 of lutSUREarthmatLith2 Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/4)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////	
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_type);
@@ -125,14 +125,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER DETAIL
 			//
-			//DESCRIPTION
+			// Drop-down for "Detail" - Column 3 of lutSUREarthmatLith2 Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/4)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_detail);
@@ -151,14 +151,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER COLOUR
 			//
-			// DESCRIPTION
+			// Drop-down for "Colour" - Column 1 of lutSUREarthmatColour Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/4)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerColour = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_colour);
@@ -178,16 +178,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			convertView = mInflater.inflate(R.layout.earthmat_surficial2, null);
 			
 			/////////////////////////////////////
-			// CONCAT Spinner Primary
+			// CONCAT SPINNER PRIMARY
 			//
-			// DESCRIPTION
+			// Drop-down for "Primary" - Column 1 of lutSUREarthmatPrimestruc Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPrimary = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_primary);
@@ -217,14 +217,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT EDITTEXT PRIMARY
 			//
-			//DESCRIPTION
+			// Text field concatenates selections from SPINNER PRIMARY
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPrimary = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_primary);
@@ -243,14 +243,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			//CONCAT BUTTON PRIMARY
 			//
-			//DESCRIPTION
+			// Button clears EDITTEXT PRIMARY text field
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT (3/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonPrimary = (Button) convertView.findViewById(R.id.earthmat_surficial_button_primary_clear);
@@ -265,14 +265,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER WAYUP
 			//
-			//DESCRIPTION
+			// Drop-down for "Way Up" - Column 1 of lutSUREarthmatWayup Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT (4/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerWayUp = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_wayup);
@@ -291,14 +291,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER SECONDARY
 			//
-			//DESCRIPTION
+			// Drop-down for "Secondary" - Column 1 of lutSUREarthmatScndstruc Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT (5/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSecondary = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_secondary);
@@ -328,14 +328,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT EDITTEXT SECONDARY
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER SECONDARY
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT (6/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextSecondary = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_secondary);
@@ -354,14 +354,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT BUTTON SECONDARY STRUCT
 			//
-			//DESCRIPTION
+			// Button clears EDITTEXT SECONDARY text field
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT (7/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonSecondary = (Button) convertView.findViewById(R.id.earthmat_surficial_button_secondary_clear);
@@ -378,14 +378,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER THICKNESSTYPE
 			//
-			//DESCRIPTION
+			// Drop-down for "Thickness Type" - Column 1 of lutSUREarthmatThickType Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (1/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerIntThickness = (Spinner) convertView	.findViewById(R.id.earthmat_surficial_spinner_intThickness);
@@ -405,14 +405,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT TO
 			//
-			//DESCRIPTION
+			// Text field for "To(m)"
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (2/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextTo = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_to);
@@ -431,14 +431,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT FROM
 			//
-			//DESCRIPTION
+			// Text field for "From(m)"
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (3/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextFrom = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_from);
@@ -457,14 +457,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER LOWER CONTACT
 			//
-			//DESCRIPTION
+			// Drop-down for "Lower Contact" - Column 1 of lutSUREarthmatLwrcontact Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (4/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerLowContact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_lowContact);
@@ -482,16 +482,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			});
 			
 			/////////////////////////////////////
+			// SPINNER INT CONTACT
 			//
-			//
-			//DESCRIPTION
+			// Drop-down for "Contact Interpretation" - Column 1 of lutSUREarthmatIntcontact Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (5/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerInterpretation = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_interpretation);
@@ -511,14 +511,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER LAT CONTACT
 			//
-			//DESCRIPTION
+			// Drop-down for "Lateral Contact" - Column 1 of lutSUREarthmatLatcontact Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 3 - ELEMENT (6/6)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerLatContact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_latContact);
@@ -541,14 +541,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER SORTING
 			//
-			//DESCRIPTION
+			// Drop-down for "Sorting" - Column 1 of lutSUREarthmatSorting Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (1/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSorting = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_sorting);
@@ -568,14 +568,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER MATRIX
 			//
-			//DESCRIPTION
+			// Drop-down for "Matrix" - Column 1 of lutSUREarthmatMatrix Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (2/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMatrix = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_matrix);
@@ -605,14 +605,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER MODIFIER
 			//
-			//DESCRIPTION
+			// Drop-down for "Matrix" - Column 1 of lutSUREarthmatMatrixMod Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (3/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerModifier = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_modifier);
@@ -644,14 +644,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT EDITTEXT MATRIXMOD
 			//
-			//DESCRIPTION
+			// Text field concatenates selections from SPINNER MATRIX and SPINNER MATRIXMOD
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (4/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMatrixMod = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_matrixMod);
@@ -670,14 +670,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT BUTTON MATRIXMOD
 			//
-			//DESCRIPTION
+			// Button clears EDITTEXT MATRIXMOD text field
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (5/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonMatrixClear = (Button) convertView.findViewById(R.id.earthmat_surficial_button_matrixMod_clear);
@@ -690,16 +690,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			
 			
 			/////////////////////////////////////
+			// SPINNER OXIDATION
 			//
-			//
-			//DESCRIPTION
+			// Drop-down for "Oxidation" - Column 1 of lutSUREarthmatOxidation Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (6/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerOxidation = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_oxidation);
@@ -720,14 +720,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER COMPACTION
 			//
-			//DESCRIPTION
+			// Drop-down for "Compaction" - Column 1 of lutSUREarthmatCompaction Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (7/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerCompact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_compact);
@@ -747,14 +747,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER JOINTING
 			//
-			//DESCRIPTION
+			// Drop-down for "Jointing" - Column 1 of lutSUREarthmatJointing Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (8/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerJointing = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_jointing);
@@ -772,16 +772,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			});
 			
 			/////////////////////////////////////
+			// SPINNER H20 CONTENT
 			//
-			//
-			//DESCRIPTION
+			// Drop-down for "H20 Content" - Column 1 of lutSUREarthmatH2OContent Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (9/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerh2oContent = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_h2oContent);
@@ -799,16 +799,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			});
 			
 			/////////////////////////////////////
+			// SPINNER HCL React
 			//
-			//
-			//DESCRIPTION
+			// Drop-down for "HCL React." - Column 1 of lutSUREarthmatHCLReact Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (10/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerHclReact = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_hclReact);
@@ -826,16 +826,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			});
 			
 			/////////////////////////////////////
+			// SPINNER FISSILITY
 			//
-			//
-			//DESCRIPTION
+			// Drop-down for "Fissility" - Column 1 of lutSUREarthmatFissility Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 4 - ELEMENT (11/11)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFissility = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_fissility);
@@ -858,14 +858,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER MAP UNIT
 			//
-			//DESCRIPTION
+			// Drop-down for "Map Unit" - Column 1 of lutSUREarthmatMapunit Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT ()
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMapUnit = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_mapUnit);
@@ -885,14 +885,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER SURFICIAL ORIGIN
 			//
-			//DESCRIPTION
+			// Drop-down for "Surficial Origin" - Column 1 of lutSUREarthmatSurfform Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 2 - ELEMENT ()
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSurficialOrigin = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_surficialOrigin);
@@ -917,14 +917,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT MODAL
 			//
-			//DESCRIPTION
+			// Text field for "Modal"
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (1/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextModal = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_clastModal);
@@ -943,14 +943,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT MODAL MIN
 			//
-			//DESCRIPTION
+			// Text field for "Min"
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (2/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMin = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_clastMin);
@@ -969,14 +969,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT MODAL MAX
 			//
-			//DESCRIPTION
+			// Text field for "Max"
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (3/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMax = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_clastMax);
@@ -997,14 +997,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT CLAST PERCENT
 			//
-			//DESCRIPTION
+			//Text field for "Clast%"
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (4/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextClastPer = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_clastPer);
@@ -1024,14 +1024,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER CLAST FORMS
 			//
-			//DESCRIPTION
+			// Drop-down for "Clast Forms" - Column 1 of lutSUREarthmatClastform Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (5/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerClastForms = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_clastForms);
@@ -1051,14 +1051,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER MODAL ROUND
 			//
-			//DESCRIPTION
+			// Drop-down for "Average/Modal" - Column 1 of lutSUREarthmatRoundness Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (6/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerAverageModal = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_averageModal);
@@ -1078,14 +1078,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER MAX ROUNDESS
 			//
-			//DESCRIPTION
+			// Drop-down for "Maximum" - Column 1 of lutSUREarthmatRoundness Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (7/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMaximum = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_roundMax);
@@ -1106,14 +1106,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER MIN ROUNDNESS
 			//
-			//DESCRIPTION
+			// Drop-down for "Minimum" - Column 1 of lutSUREarthmatRoundness Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 6 - ELEMENT (8/8)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMinimum = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_roundMin);
@@ -1136,14 +1136,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT SPINNER ERRATIC
 			//
-			//DESCRIPTION
+			// Drop-down for "Erratic Type" - Column 1 of lutSUREarthmatErratictyp Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (1/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerErratic = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_erraticType);
@@ -1172,14 +1172,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT SPINNER ERRATIC%
 			//
-			//DESCRIPTION
+			// Drop-down for "%" - Column 1 of lutSURGeneralPercent5incr Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (2/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerErraticPer = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_erraticPer);
@@ -1213,16 +1213,16 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			});
 			
 			/////////////////////////////////////
+			// CONCAT EDITTEXT ERRATIC%
 			//
-			//
-			//DESCRIPTION
+			// Text field concatenates selections from SPINNER ERRATIC and SPINNER ERRATIC%
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (3/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextErraticComp = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_erraticComp);
@@ -1241,14 +1241,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT BUTTON ERRATIC CLEAR
 			//
-			//DESCRIPTION
+			// Button clears EDITTEXT ERRATIC% text field
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (4/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonErraticClear = (Button) convertView.findViewById(R.id.earthmat_surficial_button_erraticClear);
@@ -1262,14 +1262,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER LANDFORM
 			//
-			//DESCRIPTION
+			// Drop-down for "Landform" - Column 1 of lutSUREarthmatLandform Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (5/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerLandForm = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_landForm);
@@ -1289,14 +1289,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			//EDITTEXT INTERPRETATION
 			//
-			//DESCRIPTION
+			// Text field for "Interpretation"
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (6/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextInterpretation = (EditText) convertView.findViewById(R.id.earthmat_surficial_editText_interpretation);
@@ -1315,14 +1315,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER INTERP CONFIDENCE
 			//
-			//DESCRIPTION
+			// Drop-down for "Interpretation Confidence" - Column 1 of lutSUREarthmatInterpconf Picklist
 			/////////////////////////////////////
 			//VERIFIED - TAB 7 - ELEMENT (7/7)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerInterpConfidence = (Spinner) convertView.findViewById(R.id.earthmat_surficial_spinner_interpConf);
@@ -1347,14 +1347,14 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT NOTES
 			//
-			//DESCRIPTION
+			// Text field for "Notes"
 			/////////////////////////////////////
 			//VERIFIED - TAB 8 - ELEMENT (1/1)
 			/////////////////////////////////////
 			//[] JORDAN KUROSKY
 			//[] JAMIE POSPIECH
 			//[] DEREK ELLIOTT
-			//[] PIERRE LAFOREST-GRANT
+			//[X] PIERRE LAFOREST-GRANT
 			//[X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNotes = (EditText) convertView	.findViewById(R.id.earthmat_surficial_editText_notes);

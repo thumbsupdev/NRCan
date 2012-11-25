@@ -49,7 +49,7 @@ public class DetailController extends BaseAdapter implements Filterable {
 		convertView.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				((MainActivity)activity).setDetail(position);
-				((MainActivity)activity).cellActionControl();
+				((MainActivity)activity).cellActionControl(-1);
 			}
 		});
 		

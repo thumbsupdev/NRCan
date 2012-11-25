@@ -71,14 +71,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER RELIEF
 			//
-			// DESCRIPTION
+			// Drop-down for "Relief" - Column 1 of lutSUREnvironsRelief Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerRelief = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_relief);
@@ -98,14 +98,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT SLOPE
 			//
-			// DESCRIPTION
+			// Text field for "Slope(Degrees)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextSlope = (EditText)convertView.findViewById(R.id.environ_surficial_editText_slope);
@@ -121,14 +121,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT AZIMUTH
 			//
-			// DESCRIPTION
+			// Text field "Azimuth"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAzimuth = (EditText)convertView.findViewById(R.id.environ_surficial_editText_azimuth);
@@ -142,16 +142,16 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			});
 
 			/////////////////////////////////////
-			// CHECKBOX PERMAFROS
+			// CHECKBOX PERMAFROST
 			//
-			// DESCRIPTION
+			// Checkbox to indicate if "Permafrost"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			boolean pfFlag = environSurficialEntity.getPfPresent().equalsIgnoreCase("T");
@@ -169,14 +169,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER INDICATORS
 			//
-			// DESCRIPTION
+			// Drop-down for "Indicators" - Column 1 of lutSUREnvironsPFindic Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerIndicators = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_indicators);
@@ -203,14 +203,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT EDITTEXT INDICATORS
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER INDICATORS
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextIndicators = (EditText)convertView.findViewById(R.id.environ_surficial_editText_indicators);
@@ -226,14 +226,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT BUTTON INDICATORS
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT INDICATORS text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (7/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonIndic = (Button) convertView.findViewById(R.id.environ_surficial_button_clear);
@@ -247,14 +247,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT PERMAFROST DEPTH
 			//
-			// DESCRIPTION
+			// Text field for "Depth"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (8/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepthOfAL = (EditText)convertView.findViewById(R.id.environ_surficial_editText_depthOfAL);
@@ -273,14 +273,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CHECKBOX GOSSAN PRES
 			//
-			// DESCRIPTION
+			// Checkbox to indicate if "Gossan"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			boolean gossanFlag = environSurficialEntity.getGossanPres().equalsIgnoreCase("T");
@@ -298,14 +298,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT MINERALIZATION OF IMPORTANCE
 			//
-			// DESCRIPTION
+			// Text field for "Mineralization of Importance"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMinOfImp = (EditText)convertView.findViewById(R.id.environ_surficial_editText_minOfImp);
@@ -321,14 +321,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER PERCENT BEDROCK
 			//
-			// DESCRIPTION
+			// Drop-down for "Percent Bedrock" - Column 1 of lutSURGeneralPercent5incr Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPercentBedrock = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_percentBedrock);
@@ -349,14 +349,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER EXPOSURE TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Exposure Type" - Column 1 of lutSUREnvironsExposure Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerExposureType = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_exposureType);
@@ -380,14 +380,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER VEGETATION
 			//
-			// DESCRIPTION
+			// Drop-down for "Vegetation" - Column 1 of lutSUREnvironsVegetation Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerVegetation = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetation);
@@ -415,14 +415,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT SPINNER VEGETATION %
 			//
-			// DESCRIPTION
+			// Drop-down for "%" - Column 1 of lutSURGeneralPercent5incr Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerVegetationPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_vegetationPer);
@@ -456,14 +456,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT EDITTEXT VEGETATION
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER VEGETATION and SPINNER VEGETATION%
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (3/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextVegetation = (EditText)convertView.findViewById(R.id.environ_surficial_editText_vegetation);
@@ -479,14 +479,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT BUTTON VEGETATION
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT VEGETATION text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (4/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonVegetation = (Button) convertView.findViewById(R.id.environ_surficial_button_vegetation);
@@ -500,14 +500,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER BOULDERS
 			//
-			// DESCRIPTION
+			// Drop-down for "Boulders" - Column 1 of lutSUREnvironsBoulders Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (5/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerBoulders = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulders);
@@ -529,14 +529,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CHECKBOX BOULDERFIELD
 			//
-			// DESCRIPTION
+			// Checkbox to indicate if "Boulderfield"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (6/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			boolean boulderFlag = environSurficialEntity.getBouldFld().equalsIgnoreCase("T");
@@ -545,16 +545,16 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 
 
 			/////////////////////////////////////
-			//  WHAT THE HELL IS THIS
+			//  SPINNER BOULDERFIELD VISIBILITY CHECK
 			//
-			// DESCRIPTION
+			// Sets visibility of SPINNER BOULDERFIELD based on CHECKBOX BOULDERFIELD
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT ()
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [???] DERRICK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner boulderSpinner = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
@@ -581,14 +581,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// SPINNER BOULDERFIELD
 			//
-			// DESCRIPTION
+			// Drop-down for "Boulderfield" - Column 1 of lutSUREnvironsBoFldTyp Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (7/7)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerBoulderField = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_boulderField);
@@ -610,16 +610,16 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			convertView = mInflater.inflate(R.layout.environ_surficial4, null);
 
 			/////////////////////////////////////
-			// PERECENT SPINNER GROUND COVER
+			// SPINNER GROUND COVER
 			//
-			// DESCRIPTION
+			// Drop-down for "Ground Cover" - Column 1 of lutSUREnvironsGroundcover Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGroundCover = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCover);
@@ -645,16 +645,16 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			});
 
 			/////////////////////////////////////
-			// PERECENT SPINNER GROUND COVER PERECENT
+			// PERCENT SPINNER GROUND COVER PERCENT
 			//
-			// DESCRIPTION
+			// Drop-down for "%" - Column 1 of lutSURGeneralPercent5incr Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (2/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGroundCoverPer = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_groundCoverPer);
@@ -683,14 +683,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT EDITTEXT GROUND COVER 
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER GROUND COVER and SPINNER GROUND COVER PERCENT
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (3/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextGroundCover = (EditText)convertView.findViewById(R.id.environ_surficial_editText_groundCover);
@@ -706,14 +706,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// PERCENT BUTTON GROUND COVER  CLEAR
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT GROUND COVER text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (4/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonGroundCover = (Button) convertView.findViewById(R.id.environ_surficial_button_groundCover);
@@ -727,14 +727,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT SPINNER PATT GROUND
 			//
-			// DESCRIPTION
+			// Drop-down for "Patterned Ground" - Column 1 of lutSUREnvironsPatterngrn Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (5/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPattGrnd = (Spinner)convertView.findViewById(R.id.environ_surficial_spinner_pattGrnd);
@@ -761,14 +761,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT EDITTEXT PATT GROUND
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER PATT GROUND
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (6/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPattGrnd = (EditText)convertView.findViewById(R.id.environ_surficial_editText_pattGrnd);
@@ -784,14 +784,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// CONCAT BUTTON PATT GROUND CLEAR
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT PATT GROUND text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (7/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonPattGrndClear = (Button) convertView.findViewById(R.id.environ_surficial_button_pattGrnd_clear);
@@ -805,14 +805,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// EDITTEXT PATT AREA
 			//
-			// DESCRIPTION
+			// Text field for "Patterned Area"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (8/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPatternArea = (EditText)convertView.findViewById(R.id.environ_surficial_editText_patternArea);
@@ -831,14 +831,14 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			/////////////////////////////////////
 			// NOTES
 			//
-			// DESCRIPTION
+			// Text field for "Environs Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextEnvironNote = (EditText)convertView.findViewById(R.id.environ_surficial_editText_environNote);
