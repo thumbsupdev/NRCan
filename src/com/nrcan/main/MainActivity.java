@@ -244,36 +244,36 @@ public class MainActivity extends ListActivity {
 	private EditAction editAction = new EditAction();
 
 	private EditActionInterface[] editActions = new EditActionInterface[] {
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction0(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction1(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction2(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction3(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction4(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction5(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction6(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction7(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction8(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction9(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction10(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction11(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction12(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction13(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction14(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction15(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction16(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction17(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction18(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction19(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction20(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction21(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction22(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction23(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction24(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction25(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction26(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction27(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction28(x); } },
-			new EditActionInterface() { public void runEdit(int x) { editAction.editAction29(x); } }
+			new EditActionInterface() { public void runEdit() { editAction.editAction0(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction1(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction2(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction3(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction4(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction5(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction6(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction7(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction8(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction9(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction10(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction11(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction12(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction13(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction14(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction15(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction16(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction17(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction18(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction19(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction20(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction21(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction22(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction23(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction24(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction25(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction26(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction27(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction28(); } },
+			new EditActionInterface() { public void runEdit() { editAction.editAction29(); } }
 	};
 
 	private CellAction cellAction = new CellAction();
@@ -351,6 +351,7 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		context = this;
 		databaseHandler = new DatabaseHandler(this);
 		pldb = new PicklistDatabaseHandler(this);
 
@@ -682,8 +683,8 @@ public class MainActivity extends ListActivity {
 		cellActions[flipper.getDisplayedChild()].runCell();
 	}
 
-	public void editActionControl(int x) {
-		editActions[flipper.getDisplayedChild()].runEdit(x);
+	public void editActionControl() {
+		editActions[flipper.getDisplayedChild()].runEdit();
 	}
 
 	public void newActionControl() {
@@ -786,7 +787,7 @@ public class MainActivity extends ListActivity {
 						swapButton = ((Button)v);
 						swapButton.setEnabled(false);
 					}
-					else{
+					else {
 						AlertDialog.Builder builder = new AlertDialog.Builder(context);
 						builder.setTitle(R.string.earthmatSurficialDialog);
 						builder.setMessage(R.string.earthmatSurficialDialogMessage);
@@ -799,7 +800,6 @@ public class MainActivity extends ListActivity {
 						final AlertDialog dialog = builder.create();
 						dialog.show();
 					}
-
 				}
 			});
 		}
@@ -1201,7 +1201,7 @@ public class MainActivity extends ListActivity {
 
 	public interface EditActionInterface
 	{
-		public void runEdit(int x);
+		public void runEdit();
 	}
 
 	public interface CellActionInterface
@@ -1738,7 +1738,7 @@ public class MainActivity extends ListActivity {
 	}
 
 	public class EditAction {
-		public void editAction0(int x) {
+		public void editAction0() {
 			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(1);
 			newFlag = false;
@@ -1748,8 +1748,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction1(int x) { }
-		public void editAction2(int x) {
+		public void editAction1() { }
+		public void editAction2() {
 			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(3);
 			newFlag = false;
@@ -1759,8 +1759,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction3(int x) { }
-		public void editAction4(int x) {
+		public void editAction3() { }
+		public void editAction4() {
 			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(5);
 			newFlag = false;
@@ -1770,8 +1770,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction5(int x) { }
-		public void editAction6(int x) {
+		public void editAction5() { }
+		public void editAction6() {
 			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(7);
 			newFlag = false;
@@ -1781,16 +1781,15 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction7(int x) { }
-		public void editAction8(int x) {
-			nrCanId1 = x;
-			adap10.clear();
-			metadataModel.getEntity().setNrcanId1(x);
-			metadataModel.readRow();
+		public void editAction7() { }
+		public void editAction8() {
+			//nrCanId1 = x;
+			//adap10.clear();
+			//metadataModel.getEntity().setNrcanId1(x);
+			//metadataModel.readRow();
+			//adap10.notifyDataSetChanged();
 
 			flipper.setDisplayedChild(9);
-			adap10.notifyDataSetChanged();
-
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.VISIBLE);
@@ -1798,8 +1797,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction9(int x) { }
-		public void editAction10(int x) {
+		public void editAction9() { }
+		public void editAction10() {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
 			newFlag = false;
@@ -1809,8 +1808,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction11(int x) { }
-		public void editAction12(int x) {
+		public void editAction11() { }
+		public void editAction12() {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
 			newFlag = false;
@@ -1820,8 +1819,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction13(int x) { }
-		public void editAction14(int x) {
+		public void editAction13() { }
+		public void editAction14() {
 			nrCanId3 = photoModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(15);
 			newFlag = false;
@@ -1831,8 +1830,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction15(int x) { }
-		public void editAction16(int x) {
+		public void editAction15() { }
+		public void editAction16() {
 			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(17);
 			newFlag = false;
@@ -1842,8 +1841,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction17(int x) { }
-		public void editAction18(int x) {
+		public void editAction17() { }
+		public void editAction18() {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
 			newFlag = false;
@@ -1853,8 +1852,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction19(int x) { }
-		public void editAction20(int x) {
+		public void editAction19() { }
+		public void editAction20() {
 			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(21);
 			newFlag = false;
@@ -1864,8 +1863,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction21(int x) { }
-		public void editAction22(int x) {
+		public void editAction21() { }
+		public void editAction22() {
 			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(23);
 			newFlag = false;
@@ -1875,8 +1874,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction23(int x) { }
-		public void editAction24(int x) {
+		public void editAction23() { }
+		public void editAction24() {
 			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(25);
 			newFlag = false;
@@ -1886,8 +1885,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction25(int x) { }
-		public void editAction26(int x) {
+		public void editAction25() { }
+		public void editAction26() {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
 			newFlag = false;
@@ -1897,9 +1896,9 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction27(int x) { }
-		public void editAction28(int x) { }
-		public void editAction29(int x) { }
+		public void editAction27() { }
+		public void editAction28() { }
+		public void editAction29() { }
 	}
 
 	public class NewAction {
@@ -1948,13 +1947,40 @@ public class MainActivity extends ListActivity {
 
 		public void newAction7() { }
 		public void newAction8() {
-			nrCanId1 = metadataModel.getEntity().getNrcanId1();
-			flipper.setDisplayedChild(9);
-			newFlag = true;
-			button2.setVisibility(View.VISIBLE);
-			button1.setVisibility(View.VISIBLE);
-			mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
-			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			if(pldb.isBedrockLoaded()) {
+				flipper.setDisplayedChild(9);
+				newFlag = true;
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.VISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			}
+			
+			if(pldb.isSurficialLoaded())
+			{
+
+				flipper.setDisplayedChild(9);
+				newFlag = true;
+				button2.setVisibility(View.VISIBLE);
+				button1.setVisibility(View.VISIBLE);
+				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
+				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
+			}
+			if(!pldb.isBedrockLoaded() && !pldb.isSurficialLoaded()) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+				builder.setTitle(R.string.noPicklistTitle);
+				builder.setMessage(R.string.noPicklistLoaded);
+				builder.setPositiveButton("Okay",
+						new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						openOptionsMenu(); 
+					}
+				});
+				AlertDialog dialog = builder.create();
+				dialog.show();
+			}
+			
+			
 
 
 		}
@@ -2166,39 +2192,19 @@ public class MainActivity extends ListActivity {
 
 		public void saveAction8() { }
 		public void saveAction9() {
-			//check to see if anything has been done on the form page yet
-			//if its a NEW form, set nrcanID1 on save
-			//run insert row to save current fields entered
-			//then advance to station list (22)
-
-			//if you reached the form by hitting edit, the nrcanid1 already is set
-			//you will update the already populate fields in the database
-			//then advance to station list(22)
-
-			//in both cases, a project type *bedrock or surficial will be set
-			//and this information is needed as it effects if you go to
-			//station(22 bedrock) or station (24 surficial)
-
-			//a .equals is performed on .getPrjct_type() to determine which project type has been set
-			//if a project type was NOT set and save was initiated, I would suggest a modal dialog
-			//pop up reminding them to select it. For now I will just not code the advancement to
-			// flipper 22 or 24 respectivly. 
 			if(newFlag)
 			{
 				metadataModel.insertRow();
-				nrCanId1= metadataModel.getEntity().getNrcanId1();
+				nrCanId1 = metadataModel.getEntity().getNrcanId1();
 				newFlag = false;
-
-
-
 			}
 			else
 			{
 				metadataModel.updateRow();
-
-
 			}
+			
 			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
+				setupDetailsBedrock();
 				flipper.setDisplayedChild(22);
 				button2.setVisibility(View.VISIBLE);
 				button1.setVisibility(View.INVISIBLE);
@@ -2206,25 +2212,21 @@ public class MainActivity extends ListActivity {
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				newFlag = false;
 
-			}else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+			} else if (metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("surficial")){
+				setupDetailsSurficial();
 				flipper.setDisplayedChild(24);
 				button2.setVisibility(View.VISIBLE);
 				button1.setVisibility(View.INVISIBLE);
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				newFlag = false;
-			}else{
+			} else {
 				//maybe set dialog box to remind entering project type to advance with save
 				button2.setVisibility(View.VISIBLE);
 				button1.setVisibility(View.VISIBLE);
 				mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 				topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 			}
-
-
-
-
-
 		}
 
 		public void saveAction10() { }
@@ -2232,19 +2234,14 @@ public class MainActivity extends ListActivity {
 			if(newFlag)
 			{
 				mineralBedrockModel.insertRow();
-				nrCanId4= mineralBedrockModel.getEntity().getNrcanId4();
+				nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 				newFlag = false;
-
-
-
 			}
 			else
 			{
 				mineralBedrockModel.updateRow();
-
 			}
-
-
+			
 			flipper.setDisplayedChild(10);
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.INVISIBLE);
@@ -2259,9 +2256,6 @@ public class MainActivity extends ListActivity {
 				pFlowSurficialModel.insertRow();
 				nrCanId4= pFlowSurficialModel.getEntity().getNrcanId4();
 				newFlag = false;
-
-
-
 			}
 			else
 			{

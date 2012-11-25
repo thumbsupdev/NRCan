@@ -20,7 +20,7 @@ public class ListController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	private Activity activity;
 	private String title;
-	private ArrayList<String> elements = new ArrayList<String>();
+	private ArrayList<ArrayList<String>> elements = new ArrayList<ArrayList<String>>();
 
 	public ListController(Context context, Activity activity, String title) {
 		this.mInflater = LayoutInflater.from(context);
@@ -66,12 +66,12 @@ public class ListController extends BaseAdapter implements Filterable {
 			convertView = mInflater.inflate(R.layout.cell_list, null);
 			
 			holder.textView = (TextView) convertView.findViewById(R.id.cell_list_textViewTitle);
-			holder.textView.setText(elements.get(position));
+			holder.textView.setText(elements.get(position).get(1));
 			
 			holder.button = (Button) convertView.findViewById(R.id.cell_list_buttonEdit);
 			holder.button.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					((MainActivity)activity).editActionControl(position + 1);
+					((MainActivity)activity).editActionControl();
 				}
 			});
 			
@@ -91,7 +91,7 @@ public class ListController extends BaseAdapter implements Filterable {
 		return null;
 	}
 
-	public void setElements(ArrayList<String> tmp) {
+	public void setElements(ArrayList<ArrayList<String>> tmp) {
 		elements = tmp;
 		notifyDataSetChanged();
 	}

@@ -182,4 +182,31 @@ public class PicklistDatabaseHandler extends SQLiteOpenHelper {
             database.close();
         }
     }
+    public boolean isBedrockLoaded(){
+    	SQLiteDatabase database = this.getWritableDatabase();
+
+        try {
+        	database.query("lutBEDEarthmatRocktype", null, null,  null, null,null, null);
+           
+        } catch(SQLException sqle) {
+        	database.close();
+        	return false;
+        } 
+        database.close();
+        return true;
+    }
+    
+    public boolean isSurficialLoaded(){
+    	SQLiteDatabase database = this.getWritableDatabase();
+
+        try {
+        	database.query("lutSUREarthmatLith2", null, null,  null, null,null, null);
+            
+        } catch(SQLException sqle) {
+        	database.close();
+        	return false;
+        } 
+        database.close();
+        return true;
+    }
 }

@@ -143,26 +143,56 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return resultQuery;
 	}
 
-	public ArrayList<String> populateMetadataList() {
-		ArrayList<String> projects = new ArrayList<String>();
+	public ArrayList<ArrayList<String>> populateMetadataList() {
+		int num = 0;
+		ArrayList<ArrayList<String>> projects = new ArrayList<ArrayList<String>>();
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor c = db.rawQuery("SELECT * FROM metadata ORDER BY nrcanId1 ASC", null);
 
 		if (c != null)
 		{
 			while(c.moveToNext()) {
-				String name = c.getString(c.getColumnIndex("prjct_name"));
-				String code = c.getString(c.getColumnIndex("prjct_code"));
-				projects.add(name + " - " + code);
+				String value = c.getString(c.getColumnIndex("nrcanid1"));
+				String pcode = c.getString(c.getColumnIndex("prjct_code"));
+				String gcode = c.getString(c.getColumnIndex("geolcode"));
+				projects.get(num).add(value);
+				projects.get(num).add(pcode + " - " + gcode);
+				num++;
 			}
 		}
 		else
 		{
-			projects.add("empty...");
+			projects.get(num).add("empty...");
 		}
 
 		c.close();
 		db.close();
 		return projects;
+	}
+
+	public ArrayList<ArrayList<String>> populateList(String table, String col, int id, String targetColumn1, String targetColumn2) {
+		int num = 0;
+		ArrayList<ArrayList<String>> tmp = new ArrayList<ArrayList<String>>();
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor c = db.rawQuery("SELECT * FROM " + table + " WHERE " + col + " = " + id + " ORDER BY " + col + " ASC", null);
+
+		if (c != null)
+		{
+			while(c.moveToNext()) {
+				String value1 = c.getString(c.getColumnIndex(targetColumn1));
+				String value2 = c.getString(c.getColumnIndex(targetColumn2));
+				tmp.get(num).add(value1);
+				tmp.get(num).add(value2);
+				num++;
+			}
+		}
+		else
+		{
+			tmp.get(num).add("empty...");
+		}
+
+		c.close();
+		db.close();
+		return tmp;
 	}
 }

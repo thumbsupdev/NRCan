@@ -271,5 +271,7 @@
     <string name="C">C</string>
     <string name="L">L</string>
     <string name="P">P</string>
+    <string name="noPicklistLoaded">You have not yet loaded a Picklist! Please select the picklist button from the pop-up menu!</string>
+    <string name="noPicklistTitle">Picklist Required</string>
 
 </resources>

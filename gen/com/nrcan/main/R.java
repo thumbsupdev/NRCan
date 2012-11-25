@@ -699,6 +699,8 @@ public final class R {
         public static final int mineral_label_occur=0x7f0400d6;
         public static final int mineral_label_percent=0x7f0400d8;
         public static final int mineral_label_size=0x7f0400d1;
+        public static final int noPicklistLoaded=0x7f0400ea;
+        public static final int noPicklistTitle=0x7f0400eb;
         public static final int pFlowSurficialDialog=0x7f0400e1;
         public static final int pFlowSurficialDialogMessage=0x7f0400e2;
         public static final int percent=0x7f0400e6;
