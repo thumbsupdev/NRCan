@@ -23,7 +23,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class PhotoController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
-	private Activity activity;
+	//private Activity activity;
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
@@ -32,7 +32,7 @@ public class PhotoController extends BaseAdapter implements Filterable {
 
 	public PhotoController(Context context, Activity activity, PhotoEntity photoEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		this.activity = activity;
+		//this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
@@ -213,5 +213,12 @@ public class PhotoController extends BaseAdapter implements Filterable {
 	public void setPLSurficial() {
 		plNames.clear();
 		plNames.add("lutSURPhotoCategory");
+	}
+	
+	public void clear() {
+		photoEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
 	}
 }

@@ -21,7 +21,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class MetadataController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
-	private Activity activity;
+	//private Activity activity;
 	private Context context;
 	private PicklistDatabaseHandler pldb;
 	private MetadataEntity metadataEntity;
@@ -29,7 +29,7 @@ public class MetadataController extends BaseAdapter implements Filterable {
 
 	public MetadataController(Context context, Activity activity, MetadataEntity metadataEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		this.activity = activity;
+		//this.activity = activity;
 		this.context = context;
 		this.tab = 1;
         this.pldb = pldb;
@@ -314,6 +314,13 @@ public class MetadataController extends BaseAdapter implements Filterable {
 	public void setTab(int tabNum) {
 		this.tab = tabNum;
 		notifyDataSetChanged();
+	}
+	
+	public void clear() {
+		metadataEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
 	}
 	
 	/*

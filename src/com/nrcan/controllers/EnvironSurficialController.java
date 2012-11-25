@@ -32,7 +32,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	private int tab;
 	private PicklistDatabaseHandler pldb;
 	private EnvironSurficialEntity environSurficialEntity;
-	
+
 	private boolean permafrostBoolean = false;
 	private boolean gossanBoolean = false;
 	private boolean boulderBoolean = false;
@@ -42,7 +42,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	private boolean groundCover2Boolean = false;
 	private String vegetationTemp;
 	private String groundCoverTemp;
-	
+
 	public EnvironSurficialController(Context context, Activity activity, EnvironSurficialEntity environSurficialEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
 		this.activity = activity;
@@ -67,16 +67,29 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(tab == 1)
 		{
+			environSurficialEntity.setPfPresent("T");
+			System.out.println("1: " + environSurficialEntity.getPfPresent());
 			permafrostBoolean = environSurficialEntity.getPfPresent().equalsIgnoreCase("T");
+			if(permafrostBoolean)
+				System.out.println("T1");
+			else
+				System.out.println("F1");
+
+			System.out.println("1: " + environSurficialEntity.getPfPresent());
+			permafrostBoolean = environSurficialEntity.getPfPresent().equalsIgnoreCase("F");
+			if(permafrostBoolean)
+				System.out.println("T2");
+			else
+				System.out.println("F2");
 			/*
 			if(environSurficialEntity.getPfPresent().equalsIgnoreCase("T"))
 				permafrostBoolean = true;
 			else
 				permafrostBoolean = false;
-			*/
+			 */
 
 			convertView = mInflater.inflate(R.layout.environ_surficial1, null);
-			
+
 			/////////////////////////////////////
 			// SPINNER RELIEF
 			//
@@ -129,7 +142,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setSlope(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT AZIMUTH
 			//
@@ -155,7 +168,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setAspect(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// CHECKBOX PERMAFROS
 			//
@@ -224,7 +237,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// CONCAT EDITTEXT INDICATORS
 			//
@@ -272,7 +285,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					notifyDataSetChanged();
 				}
 			});*/
-			
+
 			/////////////////////////////////////
 			// EDITTEXT PERMAFROST DEPTH
 			//
@@ -298,7 +311,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setPfDepth(s.toString());
 				}
 			});
-			
+
 		}
 		else if (tab == 2)
 		{
@@ -349,7 +362,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT MINERALIZATION OF IMPORTANCE
 			//
@@ -375,7 +388,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setGossanMat(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER PERCENT BEDROCK
 			//
@@ -521,7 +534,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// PERCENT EDITTEXT VEGETATION
 			//
@@ -547,7 +560,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setVegetation(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// PERCENT BUTTON VEGETATION
 			//
@@ -568,7 +581,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					notifyDataSetChanged();
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER BOULDERS
 			//
@@ -615,7 +628,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			checkBoxBoulderField.setChecked(boulderBoolean);
 			//setCheckPermafrost(tmp);
 
-			
+
 			/////////////////////////////////////
 			//  WHAT THE HELL IS THIS
 			//
@@ -650,7 +663,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER BOULDERFIELD
 			//
@@ -683,7 +696,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		else if (tab == 4)
 		{
 			convertView = mInflater.inflate(R.layout.environ_surficial4, null);
-			
+
 			/////////////////////////////////////
 			// PERECENT SPINNER GROUND COVER
 			//
@@ -760,7 +773,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// PERCENT EDITTEXT GROUND COVER 
 			//
@@ -787,7 +800,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
-			
+
 			/////////////////////////////////////
 			// PERCENT BUTTON GROUND COVER  CLEAR
 			//
@@ -809,7 +822,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
-			
+
 			/////////////////////////////////////
 			// CONCAT SPINNER PATT GROUND
 			//
@@ -847,7 +860,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// CONCAT EDITTEXT PATT GROUND
 			//
@@ -895,8 +908,8 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 				}
 			});
 
-			
-			
+
+
 			/////////////////////////////////////
 			// EDITTEXT PATT AREA
 			//
@@ -927,7 +940,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		else if (tab == 5)
 		{
 			convertView = mInflater.inflate(R.layout.environ_surficial5, null);
-			
+
 			/////////////////////////////////////
 			// NOTES
 			//
@@ -977,7 +990,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		{
 			lin1.setVisibility(LinearLayout.INVISIBLE);
 		}
-		
+
 		return isChecked;
 	}
 }

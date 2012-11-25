@@ -443,6 +443,13 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 		notifyDataSetChanged();
 		return true;
 	}
+	
+	public void clear() {
+		pflowSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 
 
 	

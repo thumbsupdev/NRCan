@@ -563,4 +563,11 @@ public class StructureController extends BaseAdapter implements Filterable {
 		plNames.add("lutSURStrucStrain");
 		plNames.add("lutSURStrucFlattening");
 	}
+	
+	public void clear() {
+		structureEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 }

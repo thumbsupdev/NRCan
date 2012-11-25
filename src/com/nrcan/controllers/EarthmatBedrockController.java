@@ -1204,4 +1204,10 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 		notifyDataSetChanged();
 		return true;
 	}
+	
+	public void clear() {
+		earthmatBedrockEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	}
 }

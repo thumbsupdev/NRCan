@@ -565,9 +565,11 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
-
-
 	
-
+	public void clear() {
+		soilProSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
 	
+	}
 }

@@ -39,6 +39,7 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 		this.pldb = pldb;
 		this.tab = 1;
 	}
+	
 
 	public int getCount() {
 		return 1;
@@ -1390,6 +1391,13 @@ public class EarthmatSurficialController extends BaseAdapter implements Filterab
 		return true;
 	}
 
+	public void clear() {
+		earthmatSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+		erratic1Boolean = true;
+		erratic2Boolean = false;
+	}
 	
 
 }

@@ -611,7 +611,12 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
-
+	public void clear() {
+		stationSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 	
 
 }

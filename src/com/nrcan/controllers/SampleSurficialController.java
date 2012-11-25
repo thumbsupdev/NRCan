@@ -409,4 +409,11 @@ public class SampleSurficialController extends BaseAdapter implements
 		return true;
 	}
 	
+	public void clear() {
+		sampleSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
+	
 }

@@ -513,4 +513,11 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+	
+	public void clear() {
+		stationBedrockEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 }

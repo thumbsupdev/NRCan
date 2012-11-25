@@ -297,4 +297,12 @@ public class MABedrockController extends BaseAdapter implements Filterable {
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+	
+
+	public void clear() {
+		maBedrockEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 }

@@ -320,4 +320,11 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 		notifyDataSetChanged();
 		return true;
 	}
+	
+	public void clear() {
+		sampleBedrockEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 }

@@ -312,4 +312,11 @@ public class MineralBedrockController extends BaseAdapter implements Filterable 
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+	
+	public void clear() {
+		mineralBedrockEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	
+	}
 }
