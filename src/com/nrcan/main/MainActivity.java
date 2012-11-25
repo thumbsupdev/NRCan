@@ -498,8 +498,8 @@ public class MainActivity extends ListActivity {
 		setupButtons();
 
 		flipper.setDisplayedChild(8);
-		//button2.setVisibility(View.INVISIBLE);
-		//button1.setVisibility(View.INVISIBLE);
+		button2.setVisibility(View.INVISIBLE);
+		button1.setVisibility(View.INVISIBLE);
 		mainTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		selectionFlag = false;
 		newFlag = false;
@@ -1844,11 +1844,13 @@ public class MainActivity extends ListActivity {
 
 		public void editAction8(int x) {
 			nrCanId1 = x;//metadataModel.getEntity().getNrcanId1();
+			adap10.clear();
 			metadataModel.getEntity().setNrcanId1(x);
 			metadataModel.readRow();
-			adap9.notifyDataSetChanged();
 			
 			flipper.setDisplayedChild(9);
+			adap10.notifyDataSetChanged();
+			
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.VISIBLE);

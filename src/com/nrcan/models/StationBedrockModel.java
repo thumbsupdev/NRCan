@@ -73,8 +73,10 @@ public class StationBedrockModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { STATIONBEDROCK_TABLE_NAME, STATIONBEDROCK_NRCANID2, String.valueOf(stationBedrock.getNrcanId2()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { STATIONBEDROCK_TABLE_NAME, STATIONBEDROCK_NRCANID2, String.valueOf(stationBedrock.getNrcanId2()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		String[] tmp = new String[] { STATIONBEDROCK_NRCANID2, String.valueOf(stationBedrock.getNrcanId2()) };
+		dbHandler.executeQuery("SELECT * FROM " + STATIONBEDROCK_TABLE_NAME + " WHERE ", tmp);
 
 		stationBedrock.setEntity(dbHandler.getSplitRow(0));
 	}

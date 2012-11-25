@@ -51,9 +51,13 @@ public class MineralBedrockModel {
 	}
 	
 	public void readRow() {
-		String[] tmp = new String[] { MINERALBEDROCK_TABLE_NAME, MINERALBEDROCK_NRCANID4, String.valueOf(mineralbedrock.getNrcanId4()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { MINERALBEDROCK_TABLE_NAME, MINERALBEDROCK_NRCANID4, String.valueOf(mineralbedrock.getNrcanId4()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
+		String[] tmp = new String[] { MINERALBEDROCK_NRCANID4, String.valueOf(mineralbedrock.getNrcanId4()) };
+		dbHandler.executeQuery("SELECT * FROM " + MINERALBEDROCK_TABLE_NAME + " WHERE ", tmp);
+
+		
 		mineralbedrock.setEntity(dbHandler.getSplitRow(0));
 	}
 

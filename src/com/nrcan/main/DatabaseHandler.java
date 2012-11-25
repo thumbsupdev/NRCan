@@ -60,13 +60,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 	 */
 
+	/*
 	public void executeQuery(String query) {
 		SQLiteDatabase db = getWritableDatabase();
-
-		/*
-        if(query == null) {
-            throw new IllegalArgumentException("query is null");
-        }*/
 
 		try {
 			Cursor cursor = db.rawQuery(query, null);
@@ -90,29 +86,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		} finally {
 			db.close();
 		}
-	}
+	}*/
 
 	public void executeQuery(String query, String[] selectionArgs) {
+		int count;
+		ArrayList<String> tmp = new ArrayList<String>();
 		SQLiteDatabase db = getWritableDatabase();
-		Cursor cursor = db.rawQuery(query + selectionArgs[0] + " = " + selectionArgs[1], null);
+		Cursor c = db.rawQuery(query, selectionArgs);
+		
+		if(c != null) {
+			c.moveToNext();
+			count = c.getColumnCount();
 
-		if(cursor != null) {
-			resultQuery = new ArrayList<String>();
-			String columnNames[] = cursor.getColumnNames();
-			StringBuilder results = new StringBuilder();
-
-			while(cursor.moveToNext()) {
-				for(String s : columnNames) {
-					results.append(cursor.getString(cursor.getColumnIndex(s)) + "\t");
-				}
-				resultQuery.add(results.toString().trim());
-			}
+			for(int i = 0; i < count; i++)
+				tmp.add(c.getString(i));
+		}
+		else
+		{
+			System.out.println("empty?");
 		}
 
-		cursor.close();
+		c.close();
 		db.close();
+		resultQuery = tmp;
 	}
 
+	/*
 	public String getRow(int index) {
 		if(index < 0) {
 			Log.v("getRow()", "index is below 0");
@@ -120,7 +119,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 
 		return resultQuery.get(index);
-	}
+	}*/
 
 	public void createTable(String query) {
 		SQLiteDatabase db = getWritableDatabase();
@@ -130,12 +129,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 
+	
 	public String[] getSplitRow(int index) {
-		String[] t = resultQuery.get(index).split("\t");
+		System.out.println(resultQuery.get(index));
+		String[] t = resultQuery.get(index).split("\\t");
 		for(int i = 0; i < t.length; i++)
 			System.out.println(t[i]);
-		
-		return resultQuery.get(index).split("\t");
+
+		return resultQuery.get(index).split("\\t");
 	}
 
 	public ArrayList<String> getList() {

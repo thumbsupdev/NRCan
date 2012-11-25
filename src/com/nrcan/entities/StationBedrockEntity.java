@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class StationBedrockEntity {
 	private int nrcanId2;
 	private int nrcanId1;
@@ -31,6 +33,36 @@ public class StationBedrockEntity {
 	public StationBedrockEntity(){
 		clearEntity();
 	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId2 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId1 = Integer.parseInt(contentValues.get(1));
+		this.id = contentValues.get(2);
+		this.stationId = contentValues.get(3);
+		this.travNo = contentValues.get(4);
+		this.visitDate = contentValues.get(5);
+		this.visitTime = contentValues.get(6);
+		this.latitude = contentValues.get(7);
+		this.longitude = contentValues.get(8);
+		this.easting = contentValues.get(9);
+		this.northing = contentValues.get(10);
+		this.datumZone = contentValues.get(11);
+		this.elevation = contentValues.get(12);
+		this.elevMethod = contentValues.get(13);
+		this.entryType = contentValues.get(14);
+		this.pDop = contentValues.get(15);
+		this.satsUsed = contentValues.get(16);
+		this.obsType = contentValues.get(17);
+		this.ocQuality = contentValues.get(18);
+		this.physEnv = contentValues.get(19);
+		this.ocSize = contentValues.get(20);
+		this.notes = contentValues.get(21);
+		this.slsNotes = contentValues.get(22);
+		this.airPhoto = contentValues.get(23);
+		this.partner = contentValues.get(24);
+		this.metaId = contentValues.get(25);
+    }
+	
 	
 	public void setEntity (String[] contentValues) {
 		this.nrcanId2 = Integer.parseInt(contentValues[0]);

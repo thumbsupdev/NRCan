@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class MABedrockEntity {
 	private int nrcanId3;
 	private int nrcanId2;
@@ -16,6 +18,21 @@ public class MABedrockEntity {
 	public MABedrockEntity(){
 		clearEntity();
 	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId2 = Integer.parseInt(contentValues.get(1));
+		this.stationID = contentValues.get(2);
+		this.maNo = contentValues.get(3);
+		this.manID = contentValues.get(4);
+		this.ma = contentValues.get(5);
+		this.unit = contentValues.get(6);
+		this.mineral = contentValues.get(7);
+		this.mode = contentValues.get(8);
+		this.distribute = contentValues.get(9);
+		this.notes = contentValues.get(10);
+	}
+	
 	
 	public void setEntity (String[] contentValues) {
 		this.nrcanId3 = Integer.parseInt(contentValues[0]);

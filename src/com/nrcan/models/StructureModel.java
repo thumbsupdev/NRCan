@@ -67,8 +67,11 @@ public class StructureModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { STRUCTURE_TABLE_NAME, STRUCTURE_NRCANID4, String.valueOf(structure.getNrcanId4()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { STRUCTURE_TABLE_NAME, STRUCTURE_NRCANID4, String.valueOf(structure.getNrcanId4()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		
+		String[] tmp = new String[] { STRUCTURE_NRCANID4, String.valueOf(structure.getNrcanId4()) };
+		dbHandler.executeQuery("SELECT * FROM " + STRUCTURE_TABLE_NAME + " WHERE ", tmp);
 
 		structure.setEntity(dbHandler.getSplitRow(0));
 	}

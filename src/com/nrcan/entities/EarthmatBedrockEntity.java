@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class EarthmatBedrockEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -34,6 +36,39 @@ public class EarthmatBedrockEntity {
 	
 	public EarthmatBedrockEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationID = contentValues.get(2);
+		this.earthmatLT = contentValues.get(3);
+		this.earthmatNo = contentValues.get(4);
+		this.earthmatID = contentValues.get(5);
+		this.lithGroup = contentValues.get(6);
+		this.lithType = contentValues.get(7);
+		this.lithDetail = contentValues.get(8);
+		this.mapUnit = contentValues.get(9);
+		this.occurAs = contentValues.get(10);
+		this.modStruc = contentValues.get(11);
+		this.modTexture = contentValues.get(12);
+		this.modComp = contentValues.get(13);
+		this.grcrySize = contentValues.get(14);
+		this.defFabric = contentValues.get(15);
+		this.bedThick = contentValues.get(16);
+		this.mineral = contentValues.get(17);
+		this.minNote = contentValues.get(18);
+		this.colourF = contentValues.get(19);
+		this.colourW = contentValues.get(20);
+		this.colourInd = contentValues.get(21);
+		this.magSuscept = contentValues.get(22);
+		this.fossils = contentValues.get(23);
+		this.fossilNote = contentValues.get(24);
+		this.contact = contentValues.get(25);
+		this.contactUp = contentValues.get(26);
+		this.contactLow = contentValues.get(27);
+		this.interp = contentValues.get(28);
+		this.interpConf = contentValues.get(29);
 	}
 	
 	public void setEntity (String[] contentValues) {

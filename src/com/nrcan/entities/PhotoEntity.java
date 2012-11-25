@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class PhotoEntity {
 	private int nrcanId3;
 	private int nrcanId2;
@@ -15,6 +17,20 @@ public class PhotoEntity {
 	
 	public PhotoEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId2 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.photoId = contentValues.get(3);
+		this.photoNo = contentValues.get(4);
+		this.category = contentValues.get(5);
+		this.fileNo = contentValues.get(6);
+		this.fileName = contentValues.get(7);
+		this.direction = contentValues.get(8);
+		this.caption = contentValues.get(9);
+		this.linkId = contentValues.get(10);
 	}
 	
 	public void setEntity (String[] contentValues) {

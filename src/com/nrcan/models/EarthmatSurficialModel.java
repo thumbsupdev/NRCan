@@ -111,9 +111,13 @@ public class EarthmatSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_NRCANID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { EARTHMATSURFICIAL_TABLE_NAME, EARTHMATSURFICIAL_NRCANID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
+		String[] tmp = new String[] { EARTHMATSURFICIAL_NRCANID3, String.valueOf(earthmatsurficial.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + EARTHMATSURFICIAL_TABLE_NAME + " WHERE ", tmp);
+
+		
 		earthmatsurficial.setEntity(dbHandler.getSplitRow(0));
 	}
 

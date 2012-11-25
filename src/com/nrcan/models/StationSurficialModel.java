@@ -77,8 +77,11 @@ public class StationSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { STATIONSURFICIAL_TABLE_NAME, STATIONSURFICIAL_NRCANID2, String.valueOf(stationSurficial.getNrcanId2()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { STATIONSURFICIAL_TABLE_NAME, STATIONSURFICIAL_NRCANID2, String.valueOf(stationSurficial.getNrcanId2()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		
+		String[] tmp = new String[] { STATIONSURFICIAL_NRCANID2, String.valueOf(stationSurficial.getNrcanId2()) };
+		dbHandler.executeQuery("SELECT * FROM " + STATIONSURFICIAL_TABLE_NAME + " WHERE ", tmp);
 
 		stationSurficial.setEntity(dbHandler.getSplitRow(0));
 	}

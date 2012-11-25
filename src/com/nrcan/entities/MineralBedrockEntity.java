@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class MineralBedrockEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -19,6 +21,24 @@ public class MineralBedrockEntity {
 	
 	public MineralBedrockEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationID = contentValues.get(2);
+		this.earthmatID = contentValues.get(3);
+		this.mineralID = contentValues.get(4);
+		this.mineralNo = contentValues.get(5);
+		this.mineral = contentValues.get(6);
+		this.form = contentValues.get(7);
+		this.habit = contentValues.get(8);
+		this.occurrence = contentValues.get(9);
+		this.colour = contentValues.get(10);
+		this.sizeMinmm = contentValues.get(11);
+		this.SizeMaxmm = contentValues.get(12);
+		this.mode = contentValues.get(13);
+		this.notes = contentValues.get(14);
 	}
 	
 	public void setEntity (String[] contentValues) {

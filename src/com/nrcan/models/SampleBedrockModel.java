@@ -45,8 +45,11 @@ public class SampleBedrockModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { SAMPLEBEDROCK_TABLE_NAME, SAMPLEBEDROCK_NRCANID4, String.valueOf(sampleBedrock.getNrcanId4()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { SAMPLEBEDROCK_TABLE_NAME, SAMPLEBEDROCK_NRCANID4, String.valueOf(sampleBedrock.getNrcanId4()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		
+		String[] tmp = new String[] { SAMPLEBEDROCK_NRCANID4, String.valueOf(sampleBedrock.getNrcanId4()) };
+		dbHandler.executeQuery("SELECT * FROM " + SAMPLEBEDROCK_TABLE_NAME + " WHERE ", tmp);
 
 		sampleBedrock.setEntity(dbHandler.getSplitRow(0));
 	}

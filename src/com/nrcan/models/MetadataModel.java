@@ -48,11 +48,10 @@ public class MetadataModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { METADATA_NRCANID1, String.valueOf(metadata.getNrcanId1()) };
-		dbHandler.executeQuery("SELECT * FROM " + METADATA_TABLE_NAME + " WHERE ", tmp);
-		//metadata.setEntity(dbHandler.executeQuery("SELECT * FROM " + METADATA_TABLE_NAME + " WHERE ", tmp));
+		String[] tmp = new String[] { String.valueOf(metadata.getNrcanId1()) };
+		dbHandler.executeQuery("SELECT * FROM " + METADATA_TABLE_NAME + " WHERE " + METADATA_NRCANID1 + " = ?", tmp);
 		
-		metadata.setEntity(dbHandler.getSplitRow(0));
+		metadata.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {

@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class EarthmatSurficialEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -50,6 +52,55 @@ public class EarthmatSurficialEntity {
 	public EarthmatSurficialEntity(){
 		clearEntity();
 	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.earthMatLt = contentValues.get(3);
+		this.earthMatNo = contentValues.get(4);
+		this.earthMatId = contentValues.get(5);
+		this.lithGroup = contentValues.get(6);
+		this.lithType = contentValues.get(7);
+		this.lithDetail = contentValues.get(8);
+		this.mapUnit = contentValues.get(9);
+		this.sufform = contentValues.get(10);
+		this.unitNo = contentValues.get(11);
+		this.matrixMod = contentValues.get(12);
+		this.matrix = contentValues.get(13);
+		this.jointing = contentValues.get(14);
+		this.compaction = contentValues.get(15);
+		this.oxidation = contentValues.get(16);
+		this.h2oContent = contentValues.get(17);
+		this.fissilty = contentValues.get(18);
+		this.hclReact = contentValues.get(19);
+		this.clastModal = contentValues.get(20);
+		this.clastMin = contentValues.get(21);
+		this.clastMax = contentValues.get(22);
+		this.clastPct = contentValues.get(23);
+		this.clastForm = contentValues.get(24);
+		this.sorting = contentValues.get(25);
+		this.modalRnd = contentValues.get(26);
+		this.maxRound = contentValues.get(27);
+		this.minRound = contentValues.get(28);
+		this.thickType = contentValues.get(29);
+		this.thickMin = contentValues.get(30);
+		this.thickMax = contentValues.get(31);
+		this.colour = contentValues.get(32);
+		this.lwrContact = contentValues.get(33);
+		this.intContact = contentValues.get(34);
+		this.latContact = contentValues.get(35);
+		this.erraticTyp = contentValues.get(36);
+		this.erraticPer = contentValues.get(37);
+		this.landForm = contentValues.get(38);
+		this.primeStruc = contentValues.get(39);
+		this.scndStruc = contentValues.get(40);
+		this.wayUp = contentValues.get(41);
+		this.notes = contentValues.get(42);
+		this.interp = contentValues.get(43);
+		this.interpConf = contentValues.get(44);
+	}
+	
 	
 	public void setEntity (String[] contentValues) {
 		this.nrcanId4 = Integer.parseInt(contentValues[0]);

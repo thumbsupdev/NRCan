@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class EnvironSurficialEntity {
 	private int nrcanId3;
 	private int nrcanId2;
@@ -26,6 +28,31 @@ public class EnvironSurficialEntity {
 	
 	public EnvironSurficialEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId3 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId2 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.drainage = contentValues.get(3);
+		this.slope = contentValues.get(4);
+		this.aspect = contentValues.get(5);
+		this.pfPresent = contentValues.get(6);
+		this.pfIndic = contentValues.get(7);
+		this.pfDepth = contentValues.get(8);
+		this.gossanPres = contentValues.get(9);
+		this.gossanMat = contentValues.get(10);
+		this.bRock = contentValues.get(11);
+		this.exposure = contentValues.get(12);
+		this.vegetation = contentValues.get(13);
+		this.boulders = contentValues.get(14);
+		this.bouldFld = contentValues.get(15);
+		this.boFldTyp = contentValues.get(16);
+		this.grndCover = contentValues.get(17);
+		this.pcentCover = contentValues.get(18);
+		this.patternGrn = contentValues.get(19);
+		this.patArea = contentValues.get(20);
+		this.notes = contentValues.get(21);
 	}
 	
 	public void setEntity (String[] contentValues) {

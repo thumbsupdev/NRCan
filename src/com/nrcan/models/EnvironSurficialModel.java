@@ -65,8 +65,11 @@ public class EnvironSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { ENVIRONSURFICIAL_TABLE_NAME, ENVIRONSURFICIAL_NRCANID3, String.valueOf(environsurficial.getNrcanId3()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { ENVIRONSURFICIAL_TABLE_NAME, ENVIRONSURFICIAL_NRCANID3, String.valueOf(environsurficial.getNrcanId3()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		
+		String[] tmp = new String[] { ENVIRONSURFICIAL_NRCANID3, String.valueOf(environsurficial.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + ENVIRONSURFICIAL_TABLE_NAME + " WHERE ", tmp);
 
 		environsurficial.setEntity(dbHandler.getSplitRow(0));
 	}

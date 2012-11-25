@@ -67,8 +67,10 @@ public class SoilProSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { SOILPROSURFICIAL_TABLE_NAME, SOILPROSURFICIAL_NRCANID3, String.valueOf(soilproSurficial.getNrcanId3()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { SOILPROSURFICIAL_TABLE_NAME, SOILPROSURFICIAL_NRCANID3, String.valueOf(soilproSurficial.getNrcanId3()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		String[] tmp = new String[] { SOILPROSURFICIAL_NRCANID3, String.valueOf(soilproSurficial.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + SOILPROSURFICIAL_TABLE_NAME + " WHERE ", tmp);
 
 		soilproSurficial.setEntity(dbHandler.getSplitRow(0));
 	}

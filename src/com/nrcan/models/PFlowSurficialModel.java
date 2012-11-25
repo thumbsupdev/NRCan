@@ -55,9 +55,13 @@ public class PFlowSurficialModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { PFLOWSURFICIAL_TABLE_NAME, PFLOWSURFICIAL_NRCANID4, String.valueOf(pflowsurficial.getNrcanId4()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { PFLOWSURFICIAL_TABLE_NAME, PFLOWSURFICIAL_NRCANID4, String.valueOf(pflowsurficial.getNrcanId4()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
+		String[] tmp = new String[] { PFLOWSURFICIAL_NRCANID4, String.valueOf(pflowsurficial.getNrcanId4()) };
+		dbHandler.executeQuery("SELECT * FROM " + PFLOWSURFICIAL_TABLE_NAME + " WHERE ", tmp);
+
+		
 		pflowsurficial.setEntity(dbHandler.getSplitRow(0));
 	}
 

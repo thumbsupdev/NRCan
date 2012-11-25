@@ -81,9 +81,12 @@ public class EarthmatBedrockModel {
 	}
 
 	public void readRow() {
-		String[] tmp = new String[] { EARTHMATBEDROCK_TABLE_NAME, EARTHMATBEDROCK_NRCANID3, String.valueOf(earthmatbedrock.getNrcanId3()) };
-		dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
+		//String[] tmp = new String[] { EARTHMATBEDROCK_TABLE_NAME, EARTHMATBEDROCK_NRCANID3, String.valueOf(earthmatbedrock.getNrcanId3()) };
+		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
 
+		String[] tmp = new String[] { EARTHMATBEDROCK_NRCANID3, String.valueOf(earthmatbedrock.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + EARTHMATBEDROCK_TABLE_NAME + " WHERE ", tmp);
+		
 		earthmatbedrock.setEntity(dbHandler.getSplitRow(0));
 	}
 

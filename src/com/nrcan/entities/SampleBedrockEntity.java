@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class SampleBedrockEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -16,6 +18,21 @@ public class SampleBedrockEntity {
 	
 	public SampleBedrockEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.earthMatId = contentValues.get(3);
+		this.sampleNo = contentValues.get(4);
+		this.sampleType = contentValues.get(5);
+		this.purpose = contentValues.get(6);
+		this.format = contentValues.get(7);
+		this.azimuth = contentValues.get(8);
+		this.dipplunge = contentValues.get(9);
+		this.surface = contentValues.get(10);
+		this.notes = contentValues.get(11);
 	}
 	
 	public void setEntity (String[] contentValues) {

@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class StructureEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -27,6 +29,32 @@ public class StructureEntity {
 	
 	public StructureEntity(){
 		clearEntity();
+	}
+	
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.earthMatID = contentValues.get(3);
+		this.structId = contentValues.get(4);
+		this.structNo = contentValues.get(5);
+		this.strucClass = contentValues.get(6);
+		this.strucType = contentValues.get(7);
+		this.detail = contentValues.get(8);
+		this.method = contentValues.get(9);
+		this.format = contentValues.get(10);
+		this.attitude = contentValues.get(11);
+		this.younging = contentValues.get(12);
+		this.generation = contentValues.get(13);
+		this.strain = contentValues.get(14);
+		this.flattening = contentValues.get(15);
+		this.related = contentValues.get(16);
+		this.fabric = contentValues.get(17);
+		this.sense = contentValues.get(18);
+		this.azimuth = contentValues.get(19);
+		this.dipplunge = contentValues.get(20);
+		this.symang = contentValues.get(21);
+		this.notes = contentValues.get(22);
 	}
 	
 	public void setEntity (String[] contentValues) {

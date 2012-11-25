@@ -1,5 +1,7 @@
 package com.nrcan.entities;
 
+import java.util.ArrayList;
+
 public class PFlowSurficialEntity {
 	private int nrcanId4;
 	private int nrcanId3;
@@ -21,6 +23,25 @@ public class PFlowSurficialEntity {
 	
 	public PFlowSurficialEntity(){
 		clearEntity();
+	}
+	public void setEntity (ArrayList<String> contentValues) {
+		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.stationId = contentValues.get(2);
+		this.earthMatId = contentValues.get(3);
+		this.pFlowId = contentValues.get(4);
+		this.pFlowNo = contentValues.get(5);
+		this.pfClass = contentValues.get(6);
+		this.pfFeature = contentValues.get(7);
+		this.pfSense = contentValues.get(8);
+		this.method = contentValues.get(9);
+		this.pfAzimuth = contentValues.get(10);
+		this.notes = contentValues.get(11);
+		this.relage = contentValues.get(12);
+		this.numIndic = contentValues.get(13);
+		this.definition = contentValues.get(14);
+		this.relation = contentValues.get(15);
+		this.notes_1 = contentValues.get(16);
 	}
 	
 	public void setEntity (String[] contentValues) {
