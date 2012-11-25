@@ -6,7 +6,6 @@ import com.nrcan.entities.StationSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
@@ -24,8 +23,7 @@ import android.widget.Filterable;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class StationSurficialController extends BaseAdapter implements
-		Filterable {
+public class StationSurficialController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	//private Activity activity;
 	private Context context;
@@ -100,11 +98,7 @@ public class StationSurficialController extends BaseAdapter implements
 			// [] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
-			Button buttonDate = (Button) convertView
-					.findViewById(R.id.station_surficial_button_date);
-			
-			
-			
+			Button buttonDate = (Button) convertView.findViewById(R.id.station_surficial_button_date);
 			
 			/////////////////////////////////////
 			// EDITTEXT ELEVATION

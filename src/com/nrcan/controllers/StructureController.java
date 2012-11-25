@@ -56,9 +56,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 		if (tab == 1) {
 			convertView = mInflater.inflate(R.layout.structure_1, null);
 			
+			/////////////////////////////////////
+			// SPINNER CLASS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (1/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerClass = (Spinner) convertView.findViewById(R.id.structure_spinner_class);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1(plNames.get(0)));
+			sp1.setNewElement(pldb, plNames.get(0), 1, null,null);
+			sp1.addSpace();
 			spinnerClass.setAdapter(sp1);
 			spinnerClass.setSelection(sp1.getPosition(structureEntity.getStrucClass()));
 			spinnerClass.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -76,9 +91,23 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER TYPE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (2/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.structure_spinner_type);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol2(plNames.get(1), structureEntity.getStrucClass()));
+			sp2.setNewElement(pldb, plNames.get(1), 2, structureEntity.getStrucClass(),null);
 			spinnerType.setAdapter(sp2);
 			spinnerType.setSelection(sp2.getPosition(structureEntity.getStrucType()));
 			spinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -94,9 +123,23 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER DETAIL
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (3/3)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.structure_spinner_detail);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol3(plNames.get(2), structureEntity.getStrucClass(), structureEntity.getStrucType()));
+			sp3.setNewElement(pldb, plNames.get(2), 3, structureEntity.getStrucClass(), structureEntity.getStrucType());
 			spinnerDetail.setAdapter(sp3);
 			spinnerDetail.setSelection(sp3.getPosition(structureEntity.getDetail()));
 			spinnerDetail.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -113,9 +156,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.structure_2, null);
 			
+			/////////////////////////////////////
+			// SPINNER METHOD
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (1/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerMethod = (Spinner) convertView.findViewById(R.id.structure_spinner_method);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1(plNames.get(3)));
+			sp1.setNewElement(pldb, plNames.get(3), 1, null,null);
+			sp1.addSpace();
 			spinnerMethod.setAdapter(sp1);
 			spinnerMethod.setSelection(sp1.getPosition(structureEntity.getMethod()));
 			spinnerMethod.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -125,9 +183,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER FORMAT
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (2/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.structure_spinner_format);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1(plNames.get(4)));
+			sp2.setNewElement(pldb, plNames.get(4), 1, null,null);
+			sp2.addSpace();
 			spinnerFormat.setAdapter(sp2);
 			spinnerFormat.setSelection(sp1.getPosition(structureEntity.getFormat()));
 			spinnerFormat.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -137,6 +210,19 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// EDITTEXT STRIKE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (3/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextStrike = (EditText) convertView.findViewById(R.id.structure_text_strike);
 			editTextStrike.setText(structureEntity.getAzimuth());
 			editTextStrike.addTextChangedListener(new TextWatcher() {
@@ -150,6 +236,19 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// EDITTEXT DIP
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 2 - ELEMENT (4/4)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextDip = (EditText) convertView.findViewById(R.id.structure_text_dip);
 			editTextDip.setText(structureEntity.getDipplunge());
 			editTextDip.addTextChangedListener(new TextWatcher() {
@@ -166,9 +265,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 		} else if (tab == 3) {
 			convertView = mInflater.inflate(R.layout.structure_3, null);
 			
+			/////////////////////////////////////
+			// SPINNER ATTITUDE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (1/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerAttitude = (Spinner) convertView.findViewById(R.id.structure_spinner_attitude);
 			SpinnerController sp1 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp1.setElements(pldb.getCol1(plNames.get(5)));
+			sp1.setNewElement(pldb, plNames.get(5), 1, null,null);
+			sp1.addSpace();
 			spinnerAttitude.setAdapter(sp1);
 			spinnerAttitude.setSelection(sp1.getPosition(structureEntity.getAttitude()));
 			spinnerAttitude.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -178,9 +292,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER YOUNGING
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (2/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerYounging = (Spinner) convertView.findViewById(R.id.structure_spinner_younging);
 			SpinnerController sp2 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp2.setElements(pldb.getCol1(plNames.get(6)));
+			sp2.setNewElement(pldb, plNames.get(6), 1, null,null);
+			sp2.addSpace();
 			spinnerYounging.setAdapter(sp2);
 			spinnerYounging.setSelection(sp2.getPosition(structureEntity.getYounging()));
 			spinnerYounging.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -190,9 +319,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER GENERATION
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (3/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerGeneration = (Spinner) convertView.findViewById(R.id.structure_spinner_generation);
 			SpinnerController sp3 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp3.setElements(pldb.getCol1(plNames.get(7)));
+			sp3.setNewElement(pldb, plNames.get(7), 1, null,null);
+			sp3.addSpace();
 			spinnerGeneration.setAdapter(sp3);
 			spinnerGeneration.setSelection(sp3.getPosition(structureEntity.getGeneration()));
 			spinnerGeneration.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -202,9 +346,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER STRAIN
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (4/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerStrain = (Spinner) convertView.findViewById(R.id.structure_spinner_strain);
 			SpinnerController sp4 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp4.setElements(pldb.getCol1(plNames.get(8)));
+			sp4.setNewElement(pldb, plNames.get(8), 1, null,null);
+			sp4.addSpace();
 			spinnerStrain.setAdapter(sp4);
 			spinnerStrain.setSelection(sp4.getPosition(structureEntity.getStrain()));
 			spinnerStrain.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -214,9 +373,24 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// SPINNER FLATTENING
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (5/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			Spinner spinnerFlattening = (Spinner) convertView.findViewById(R.id.structure_spinner_flattening);
 			SpinnerController sp5 = new SpinnerController(context, android.R.layout.simple_spinner_item);
 			sp5.setElements(pldb.getCol1(plNames.get(9)));
+			sp5.setNewElement(pldb, plNames.get(9), 1, null,null);
+			sp5.addSpace();
 			spinnerFlattening.setAdapter(sp5);
 			spinnerFlattening.setSelection(sp5.getPosition(structureEntity.getFlattening()));
 			spinnerFlattening.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -226,6 +400,19 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// EDITTEXT RELATED
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 3 - ELEMENT (6/6)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextRelated = (EditText) convertView.findViewById(R.id.structure_editText_related);
 			editTextRelated.setText(structureEntity.getFlattening());
 			editTextRelated.addTextChangedListener(new TextWatcher() {
@@ -242,6 +429,19 @@ public class StructureController extends BaseAdapter implements Filterable {
 		} else if (tab == 4) {
 			convertView = mInflater.inflate(R.layout.structure_4, null);
 
+			/////////////////////////////////////
+			// EDITTEXT FABRIC
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (1/2)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextFabric = (EditText) convertView.findViewById(R.id.structure_text_fabric);
 			editTextFabric.setText(structureEntity.getFabric());
 			editTextFabric.addTextChangedListener(new TextWatcher() {
@@ -255,6 +455,19 @@ public class StructureController extends BaseAdapter implements Filterable {
 				}
 			});
 			
+			/////////////////////////////////////
+			// EDITTEXT SENSE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 4 - ELEMENT (2/2)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextSense = (EditText) convertView.findViewById(R.id.structure_text_sense);
 			editTextSense.setText(structureEntity.getSense());
 			editTextSense.addTextChangedListener(new TextWatcher() {
@@ -270,7 +483,20 @@ public class StructureController extends BaseAdapter implements Filterable {
 			
 		} else if (tab == 5) {
 			convertView = mInflater.inflate(R.layout.structure_5, null);
-
+			
+			/////////////////////////////////////
+			// EDITTEXT NOTE
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 5 - ELEMENT (1/1)
+			/////////////////////////////////////
+			// [] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [X] ALEX YEUNG
+			/////////////////////////////////////
 			EditText editTextNote = (EditText) convertView.findViewById(R.id.structure_text_note);
 			editTextNote.setText(structureEntity.getNotes());
 			editTextNote.addTextChangedListener(new TextWatcher() {

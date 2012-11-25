@@ -26,27 +26,7 @@ public class StructureEntity {
 	private String notes;
 	
 	public StructureEntity(){
-		this.stationId = "";
-		this.earthMatID = "";
-		this.structId = "";
-		this.structNo = "";
-		this.strucClass = "";
-		this.strucType = "";
-		this.detail = "";
-		this.method = "";
-		this.format = "";
-		this.attitude = "";
-		this.younging = "";
-		this.generation = "";
-		this.strain = "";
-		this.flattening = "";
-		this.related = "";
-		this.fabric = "";
-		this.sense = "";
-		this.azimuth = "";
-		this.dipplunge = "";
-		this.symang = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -73,6 +53,30 @@ public class StructureEntity {
 		this.dipplunge = contentValues[20];
 		this.symang = contentValues[21];
 		this.notes = contentValues[22];
+	}
+	
+	public void clearEntity() {
+		this.stationId = "";
+		this.earthMatID = "";
+		this.structId = "";
+		this.structNo = "";
+		this.strucClass = "";
+		this.strucType = "";
+		this.detail = "";
+		this.method = "";
+		this.format = "";
+		this.attitude = "";
+		this.younging = "";
+		this.generation = "";
+		this.strain = "";
+		this.flattening = "";
+		this.related = "";
+		this.fabric = "";
+		this.sense = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.symang = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId4() {

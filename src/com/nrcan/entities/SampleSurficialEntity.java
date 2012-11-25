@@ -20,21 +20,7 @@ public class SampleSurficialEntity {
 	private String notes;
 	
 	public SampleSurficialEntity(){
-		this.stationId = "";
-		this.earthMatId = "";
-		this.sampleId = "";
-		this.sampleNo = "";
-		this.sampleType = "";
-		this.purpose = "";
-		this.format = "";
-		this.sampleDep = "";
-		this.azimuth = "";
-		this.dipplunge = "";
-		this.surface = "";
-		this.horizon = "";
-		this.state = "";
-		this.duplicate = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -55,6 +41,24 @@ public class SampleSurficialEntity {
 		this.state = contentValues[14];
 		this.duplicate = contentValues[15];
 		this.notes = contentValues[16];
+	}
+	
+	public void clearEntity() {
+		this.stationId = "";
+		this.earthMatId = "";
+		this.sampleId = "";
+		this.sampleNo = "";
+		this.sampleType = "";
+		this.purpose = "";
+		this.format = "";
+		this.sampleDep = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.surface = "";
+		this.horizon = "";
+		this.state = "";
+		this.duplicate = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId4() {

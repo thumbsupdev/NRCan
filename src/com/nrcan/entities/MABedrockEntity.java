@@ -14,15 +14,7 @@ public class MABedrockEntity {
 	private String notes;
 	
 	public MABedrockEntity(){
-		this.stationID = "";
-		this.maNo = "";
-		this.manID = "";
-		this.ma = "";
-		this.unit = "";
-		this.mineral = "";
-		this.mode = "";
-		this.distribute = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -37,6 +29,18 @@ public class MABedrockEntity {
 		this.mode = contentValues[8];
 		this.distribute = contentValues[9];
 		this.notes = contentValues[10];
+	}
+	
+	public void clearEntity(){
+		this.stationID = "";
+		this.maNo = "";
+		this.manID = "";
+		this.ma = "";
+		this.unit = "";
+		this.mineral = "";
+		this.mode = "";
+		this.distribute = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId3() {

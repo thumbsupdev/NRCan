@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="number" >
             </EditText>
         </LinearLayout>
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="numberDecimal" />
         </LinearLayout>
 
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="0"
+        android:hint="@string/hints_zero"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="0"
+        android:hint="@string/hints_zero"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -148,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="0"
+        android:hint="@string/hints_zero"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -164,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="0"
+        android:hint="@string/hints_zero"
         android:inputType="numberDecimal" />
 
 </LinearLayout>

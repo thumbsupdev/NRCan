@@ -1,11 +1,8 @@
 package com.nrcan.controllers;
 
-
-
 import com.nrcan.entities.SampleSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 

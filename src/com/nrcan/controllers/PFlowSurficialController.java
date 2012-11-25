@@ -1,10 +1,8 @@
 package com.nrcan.controllers;
 
-
 import com.nrcan.entities.PFlowSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
-
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,7 +17,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
@@ -28,7 +25,6 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 	//private Activity activity;
 	private Context context;
 	private int tab;
-	
 	private PicklistDatabaseHandler pldb;
 	private PFlowSurficialEntity pflowSurficialEntity;
 	
@@ -38,7 +34,6 @@ public class PFlowSurficialController  extends BaseAdapter implements Filterable
 		this.context = context;
 		this.tab = 1;
 		this.pldb = pldb;
-		
 		this.pflowSurficialEntity = pflowSurficialEntity;
 	}
 

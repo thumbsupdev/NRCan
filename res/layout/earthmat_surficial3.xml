@@ -26,6 +26,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:baselineAligned="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
      	android:padding="10dp"
@@ -49,7 +50,7 @@
                 android:id="@+id/earthmat_surficial_editText_from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="numberDecimal"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -73,7 +74,7 @@
                 android:id="@+id/earthmat_surficial_editText_to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="numberDecimal"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"

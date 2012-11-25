@@ -18,19 +18,7 @@ public class MetadataEntity {
     private String metaid;
     
     public MetadataEntity() {
-        this.prjct_name = "";
-        this.prjct_code = "";
-        this.prjct_lead = "";
-        this.prjct_type = "";
-        this.geolcode = "";
-        this.geologist = "";
-        this.mappath = "";
-        this.prj_name = "";
-        this.prj_type = "";
-        this.prj_datum = "";
-        this.digcamera = "";
-        this.stnstartno = "";
-        this.metaid = "";
+        clearEntity();
     }
     
     public void setEntity(String[] contentValues) {
@@ -48,6 +36,22 @@ public class MetadataEntity {
         this.digcamera = contentValues[11];
         this.stnstartno = contentValues[12];
         this.metaid = contentValues[13];
+    }
+    
+    public void clearEntity(){
+    	this.prjct_name = "";
+        this.prjct_code = "";
+        this.prjct_lead = "";
+        this.prjct_type = "";
+        this.geolcode = "";
+        this.geologist = "";
+        this.mappath = "";
+        this.prj_name = "";
+        this.prj_type = "";
+        this.prj_datum = "";
+        this.digcamera = "";
+        this.stnstartno = "";
+        this.metaid = "";
     }
 
 	public int getNrcanId1() {

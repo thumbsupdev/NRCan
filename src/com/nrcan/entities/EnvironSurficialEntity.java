@@ -25,26 +25,7 @@ public class EnvironSurficialEntity {
 	private String notes;
 	
 	public EnvironSurficialEntity(){
-		this.stationId = "";
-		this.drainage = "";
-		this.slope = "";
-		this.aspect = "";
-		this.pfPresent = "";
-		this.pfIndic = "";
-		this.pfDepth = "";
-		this.gossanPres = "";
-		this.gossanMat = "";
-		this.bRock = "";
-		this.exposure = "";
-		this.vegetation = "";
-		this.boulders = "";
-		this.bouldFld = "";
-		this.boFldTyp = "";
-		this.grndCover = "";
-		this.pcentCover = "";
-		this.patternGrn = "";
-		this.patArea = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -70,6 +51,29 @@ public class EnvironSurficialEntity {
 		this.patternGrn = contentValues[19];
 		this.patArea = contentValues[20];
 		this.notes = contentValues[21];
+	}
+	
+	public void clearEntity(){
+		this.stationId = "";
+		this.drainage = "";
+		this.slope = "";
+		this.aspect = "";
+		this.pfPresent = "";
+		this.pfIndic = "";
+		this.pfDepth = "";
+		this.gossanPres = "";
+		this.gossanMat = "";
+		this.bRock = "";
+		this.exposure = "";
+		this.vegetation = "";
+		this.boulders = "";
+		this.bouldFld = "";
+		this.boFldTyp = "";
+		this.grndCover = "";
+		this.pcentCover = "";
+		this.patternGrn = "";
+		this.patArea = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId3() {

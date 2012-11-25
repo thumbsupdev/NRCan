@@ -20,21 +20,7 @@ public class PFlowSurficialEntity {
 	private String notes_1;
 	
 	public PFlowSurficialEntity(){
-		this.stationId = "";
-		this.earthMatId = "";
-		this.pFlowId = "";
-		this.pFlowNo = "";
-		this.pfClass = "";
-		this.pfFeature = "";
-		this.pfSense = "";
-		this.method = "";
-		this.pfAzimuth = "";
-		this.notes = "";
-		this.relage = "";
-		this.numIndic = "";
-		this.definition = "";
-		this.relation = "";
-		this.notes_1 = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -55,6 +41,24 @@ public class PFlowSurficialEntity {
 		this.definition = contentValues[14];
 		this.relation = contentValues[15];
 		this.notes_1 = contentValues[16];
+	}
+	
+	public void clearEntity() {
+		this.stationId = "";
+		this.earthMatId = "";
+		this.pFlowId = "";
+		this.pFlowNo = "";
+		this.pfClass = "";
+		this.pfFeature = "";
+		this.pfSense = "";
+		this.method = "";
+		this.pfAzimuth = "";
+		this.notes = "";
+		this.relage = "";
+		this.numIndic = "";
+		this.definition = "";
+		this.relation = "";
+		this.notes_1 = "";
 	}
 	
 	public int getNrcanId4() {

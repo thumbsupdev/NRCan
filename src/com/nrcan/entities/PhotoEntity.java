@@ -14,15 +14,7 @@ public class PhotoEntity {
 	private String linkId;
 	
 	public PhotoEntity(){
-		this.stationId = "";
-		this.photoId = "";
-		this.photoNo = "";
-		this.category = "";
-		this.fileNo = "";
-		this.fileName = "";
-		this.direction = "";
-		this.caption = "";
-		this.linkId = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -37,6 +29,18 @@ public class PhotoEntity {
 		this.direction = contentValues[8];
 		this.caption = contentValues[9];
 		this.linkId = contentValues[10];
+	}
+	
+	public void clearEntity() {
+		this.stationId = "";
+		this.photoId = "";
+		this.photoNo = "";
+		this.category = "";
+		this.fileNo = "";
+		this.fileName = "";
+		this.direction = "";
+		this.caption = "";
+		this.linkId = "";
 	}
 	
 	public int getNrcanId3() {

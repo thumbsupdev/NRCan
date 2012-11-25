@@ -55,7 +55,7 @@ public class EarthmatBedrockModel {
 			EARTHMATBEDROCK_OCCURAS + " TEXT," +
 			EARTHMATBEDROCK_MODSTRUC + " TEXT," +
 			EARTHMATBEDROCK_MODTEXTURE + " TEXT," +
-			EARTHMATBEDROCK_MODCOMP + " TEXT" +
+			EARTHMATBEDROCK_MODCOMP + " TEXT," +
 			EARTHMATBEDROCK_GRCRYSIZE + " TEXT, " +
 			EARTHMATBEDROCK_DEFFABRIC + " TEXT, " +
 			EARTHMATBEDROCK_BEDTHICK + " TEXT, " +
@@ -66,7 +66,7 @@ public class EarthmatBedrockModel {
 			EARTHMATBEDROCK_COLOURIND + " TEXT," +
 			EARTHMATBEDROCK_MAGSUSCEPT + " TEXT," +
 			EARTHMATBEDROCK_FOSSILS + " TEXT," +
-			EARTHMATBEDROCK_FOSSILNOTE + " TEXT" +
+			EARTHMATBEDROCK_FOSSILNOTE + " TEXT," +
 			EARTHMATBEDROCK_CONTACT + " TEXT," +
 			EARTHMATBEDROCK_CONTACTUP + " TEXT," +
 			EARTHMATBEDROCK_CONTACTLOW + " TEXT," +
@@ -120,9 +120,9 @@ public class EarthmatBedrockModel {
 		values.put(EARTHMATBEDROCK_INTERPCONF, " ");
 
 		long rowID = dbHandler.insertRow(EARTHMATBEDROCK_TABLE_NAME, null, values);
-		
+
 		earthmatbedrock.setNrcanId3((int)rowID);
-		
+
 		updateRow();
 	}
 
@@ -135,7 +135,7 @@ public class EarthmatBedrockModel {
 		values.put(EARTHMATBEDROCK_LITHGROUP,  earthmatbedrock.getLithGroup());
 		values.put(EARTHMATBEDROCK_LITHTYPE,  earthmatbedrock.getLithType());
 		values.put(EARTHMATBEDROCK_LITHDETAIL,  earthmatbedrock.getLithDetail());
-		values.put(EARTHMATBEDROCK_MAPUNIT,  earthmatbedrock.getMapUnit());	            
+		values.put(EARTHMATBEDROCK_MAPUNIT,  earthmatbedrock.getMapUnit());
 		values.put(EARTHMATBEDROCK_OCCURAS,  earthmatbedrock.getOccurAs());
 		values.put(EARTHMATBEDROCK_MODSTRUC,  earthmatbedrock.getModStruc());
 		values.put(EARTHMATBEDROCK_MODTEXTURE,  earthmatbedrock.getModTexture());
@@ -143,7 +143,7 @@ public class EarthmatBedrockModel {
 		values.put(EARTHMATBEDROCK_GRCRYSIZE,  earthmatbedrock.getGrcrySize());
 		values.put(EARTHMATBEDROCK_DEFFABRIC,  earthmatbedrock.getDefFabric());
 		values.put(EARTHMATBEDROCK_BEDTHICK,  earthmatbedrock.getBedThick());
-		values.put(EARTHMATBEDROCK_MINERAL,  earthmatbedrock.getMineral());	            
+		values.put(EARTHMATBEDROCK_MINERAL,  earthmatbedrock.getMineral());
 		values.put(EARTHMATBEDROCK_MINNOTE,  earthmatbedrock.getMinNote());
 		values.put(EARTHMATBEDROCK_COLOURF,  earthmatbedrock.getColourF());
 		values.put(EARTHMATBEDROCK_COLOURW,  earthmatbedrock.getColourW());
@@ -156,7 +156,7 @@ public class EarthmatBedrockModel {
 		values.put(EARTHMATBEDROCK_CONTACTLOW,  earthmatbedrock.getContactLow());
 		values.put(EARTHMATBEDROCK_INTERP,  earthmatbedrock.getInterp());
 		values.put(EARTHMATBEDROCK_INTERPCONF,  earthmatbedrock.getInterpConf());
-		
+
 		String whereClause = EARTHMATBEDROCK_NRCANID3 + " = ?";
 		String[] whereArgs = new String[] {
 				String.valueOf(earthmatbedrock.getNrcanId3())
@@ -164,7 +164,7 @@ public class EarthmatBedrockModel {
 
 		dbHandler.updateRow(EARTHMATBEDROCK_TABLE_NAME, values, whereClause, whereArgs);
 	}
-	
+
 	public EarthmatBedrockEntity getEntity() {
 		return earthmatbedrock;
 	}
@@ -172,5 +172,4 @@ public class EarthmatBedrockModel {
 	public static String getCreateTableStatement() {
 		return EARTHMATBEDROCK_TABLE_CREATE;
 	}
-
 }

@@ -18,19 +18,7 @@ public class MineralBedrockEntity {
 	private String notes;
 	
 	public MineralBedrockEntity(){
-		this.stationID = "";
-		this.earthmatID = "";
-		this.mineralID = "";
-		this.mineralNo = "";
-		this.mineral = "";
-		this.form = "";
-		this.habit = "";
-		this.occurrence = "";
-		this.colour = "";
-		this.sizeMinmm = "";
-		this.SizeMaxmm = "";
-		this.mode = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -49,6 +37,22 @@ public class MineralBedrockEntity {
 		this.SizeMaxmm = contentValues[12];
 		this.mode = contentValues[13];
 		this.notes = contentValues[14];
+	}
+	
+	public void clearEntity() {
+		this.stationID = "";
+		this.earthmatID = "";
+		this.mineralID = "";
+		this.mineralNo = "";
+		this.mineral = "";
+		this.form = "";
+		this.habit = "";
+		this.occurrence = "";
+		this.colour = "";
+		this.sizeMinmm = "";
+		this.SizeMaxmm = "";
+		this.mode = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId4() {

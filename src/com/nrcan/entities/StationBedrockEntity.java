@@ -29,30 +29,7 @@ public class StationBedrockEntity {
 	private String metaId;
 	
 	public StationBedrockEntity(){
-		this.id = "";
-		this.stationId = "";
-		this.travNo = "";
-		this.visitDate = "";
-		this.visitTime = "";
-		this.latitude = "";
-		this.longitude = "";
-		this.easting = "";
-		this.northing = "";
-		this.datumZone = "";
-		this.elevation = "";
-		this.elevMethod = "";
-		this.entryType = "";
-		this.pDop = "";
-		this.satsUsed = "";
-		this.obsType = "";
-		this.ocQuality = "";
-		this.physEnv = "";
-		this.ocSize = "";
-		this.notes = "";
-		this.slsNotes = "";
-		this.airPhoto = "";
-		this.partner = "";
-		this.metaId = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -83,6 +60,33 @@ public class StationBedrockEntity {
 		this.partner = contentValues[24];
 		this.metaId = contentValues[25];
     }
+	
+	public void clearEntity(){
+		this.id = "";
+		this.stationId = "";
+		this.travNo = "";
+		this.visitDate = "";
+		this.visitTime = "";
+		this.latitude = "";
+		this.longitude = "";
+		this.easting = "";
+		this.northing = "";
+		this.datumZone = "";
+		this.elevation = "";
+		this.elevMethod = "";
+		this.entryType = "";
+		this.pDop = "";
+		this.satsUsed = "";
+		this.obsType = "";
+		this.ocQuality = "";
+		this.physEnv = "";
+		this.ocSize = "";
+		this.notes = "";
+		this.slsNotes = "";
+		this.airPhoto = "";
+		this.partner = "";
+		this.metaId = "";
+	}
 	
 	public int getNrcanId2() {
 		return nrcanId2;

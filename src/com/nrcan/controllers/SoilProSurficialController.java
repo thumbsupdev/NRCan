@@ -1,7 +1,5 @@
 package com.nrcan.controllers;
 
-
-
 import com.nrcan.entities.SoilProSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
@@ -20,19 +18,17 @@ import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 
-
-public class SoilProSurficialController extends BaseAdapter implements
-		Filterable {
+public class SoilProSurficialController extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
 	//private Activity activity;
-	private Context context;
+	//private Context context;
 	private int tab;
-	private PicklistDatabaseHandler pldb;
+	//private PicklistDatabaseHandler pldb;
 	private SoilProSurficialEntity soilProSurficialEntity;
 
 	public SoilProSurficialController(Context context, Activity activity,SoilProSurficialModel soilproModel,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		this.context = context;
+		//this.context = context;
 		this.tab = 1;
 		this.soilProSurficialEntity = soilproModel.getEntity();
 	}

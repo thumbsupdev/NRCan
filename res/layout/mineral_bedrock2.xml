@@ -57,7 +57,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>
@@ -82,7 +82,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:hint="0"
+                android:hint="@string/hints_zero"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceLarge" >
             </EditText>

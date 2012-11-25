@@ -67,7 +67,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:inputType="number"
-            android:hint="0"
+            android:hint="@string/hints_zero"
             android:textAppearance="?android:attr/textAppearanceLarge" >
         </EditText>
     </LinearLayout>
@@ -93,7 +93,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:inputType="number"
-            android:hint="0"
+            android:hint="@string/hints_zero"
             android:textAppearance="?android:attr/textAppearanceLarge" >
         </EditText>
     </LinearLayout>

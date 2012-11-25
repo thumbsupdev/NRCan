@@ -15,16 +15,7 @@ public class SampleBedrockEntity {
 	private String notes;
 	
 	public SampleBedrockEntity(){
-		this.stationId = "";
-		this.earthMatId = "";
-		this.sampleNo = "";
-		this.sampleType = "";
-		this.purpose = "";
-		this.format = "";
-		this.azimuth = "";
-		this.dipplunge = "";
-		this.surface = "";
-		this.notes = "";
+		clearEntity();
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -40,6 +31,19 @@ public class SampleBedrockEntity {
 		this.dipplunge = contentValues[9];
 		this.surface = contentValues[10];
 		this.notes = contentValues[11];
+	}
+	
+	public void clearEntity(){
+		this.stationId = "";
+		this.earthMatId = "";
+		this.sampleNo = "";
+		this.sampleType = "";
+		this.purpose = "";
+		this.format = "";
+		this.azimuth = "";
+		this.dipplunge = "";
+		this.surface = "";
+		this.notes = "";
 	}
 	
 	public int getNrcanId4() {

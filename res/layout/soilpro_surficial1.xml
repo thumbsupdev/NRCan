@@ -326,7 +326,7 @@
        	   android:layout_marginRight="20dp"
        	   android:layout_gravity = "right"
            android:inputType="number"
-           android:text="-0" >
+           android:text="@string/hints_zero" >
 
     </EditText>
 

@@ -27,11 +27,12 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class EnvironSurficialController  extends BaseAdapter implements Filterable {
 	private LayoutInflater mInflater;
-	//private Activity activity;
+	private Activity activity;
 	private Context context;
 	private int tab;
-
 	private PicklistDatabaseHandler pldb;
+	private EnvironSurficialEntity environSurficialEntity;
+	
 	private boolean permafrostBoolean = false;
 	private boolean gossanBoolean = false;
 	private boolean boulderBoolean = false;
@@ -41,12 +42,10 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	private boolean groundCover2Boolean = false;
 	private String vegetationTemp;
 	private String groundCoverTemp;
-
-	private EnvironSurficialEntity environSurficialEntity;
-
-	public EnvironSurficialController(Context context, Activity activity,EnvironSurficialEntity environSurficialEntity,PicklistDatabaseHandler pldb) {
+	
+	public EnvironSurficialController(Context context, Activity activity, EnvironSurficialEntity environSurficialEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
-		//this.activity = activity;
+		this.activity = activity;
 		this.context = context;
 		this.tab = 1;
 		this.environSurficialEntity = environSurficialEntity;
@@ -68,22 +67,24 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(tab == 1)
 		{
+			permafrostBoolean = environSurficialEntity.getPfPresent().equalsIgnoreCase("T");
+			/*
 			if(environSurficialEntity.getPfPresent().equalsIgnoreCase("T"))
 				permafrostBoolean = true;
 			else
 				permafrostBoolean = false;
+			*/
 
 			convertView = mInflater.inflate(R.layout.environ_surficial1, null);
-			
 			
 			/////////////////////////////////////
 			// SPINNER RELIEF
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (1/7)
+			// VERIFIED - TAB 1 - ELEMENT (1/8)
 			/////////////////////////////////////
-			// [] JORDAN KUROSKY
+			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
 			// [] PIERRE LAFOREST-GRANT
@@ -98,7 +99,6 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			spinnerRelief.setSelection(sp1.getPosition(environSurficialEntity.getDrainage()));
 			spinnerRelief.setOnItemSelectedListener(new OnItemSelectedListener() {
 				public void onNothingSelected(AdapterView<?> arg0) {}
-
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					environSurficialEntity.setDrainage(parent.getItemAtPosition(position).toString());
 				}
@@ -109,9 +109,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (2/7)
+			// VERIFIED - TAB 1 - ELEMENT (2/8)
 			/////////////////////////////////////
-			// [] JORDAN KUROSKY
+			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
 			// [] PIERRE LAFOREST-GRANT
@@ -135,9 +135,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (3/7)
+			// VERIFIED - TAB 1 - ELEMENT (3/8)
 			/////////////////////////////////////
-			// [] JORDAN KUROSKY
+			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
 			// [] PIERRE LAFOREST-GRANT
@@ -155,15 +155,13 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setAspect(s.toString());
 				}
 			});
-
-
-
+			
 			/////////////////////////////////////
 			// CHECKBOX PERMAFROS
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (4/7)
+			// VERIFIED - TAB 1 - ELEMENT (4/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
@@ -175,16 +173,8 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			checkBoxPermafrost.setChecked(permafrostBoolean);
 			//setCheckPermafrost(tmp);
 
-			LinearLayout layoutPermafrost = (LinearLayout)convertView.findViewById(R.id.environ_layout_permafrost);
-			if(permafrostBoolean)
-				layoutPermafrost.setVisibility(LinearLayout.VISIBLE);
-			else
-				layoutPermafrost.setVisibility(LinearLayout.INVISIBLE);
-
 			checkBoxPermafrost.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-				public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					LinearLayout layoutPermafrost = (LinearLayout)((MainActivity)context).findViewById(R.id.environ_layout_permafrost);
 					if(isChecked){
 						layoutPermafrost.setVisibility(LinearLayout.VISIBLE);
@@ -193,7 +183,6 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					else{
 						layoutPermafrost.setVisibility(LinearLayout.INVISIBLE);
 						environSurficialEntity.setPfPresent("F");
-						//setCheckPermafrost(isChecked);
 					}
 				}
 			});
@@ -203,7 +192,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (5/7)
+			// VERIFIED - TAB 1 - ELEMENT (5/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
@@ -235,16 +224,15 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 					}
 				}
 			});
-
-
+			
 			/////////////////////////////////////
 			// CONCAT EDITTEXT INDICATORS
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (6/7)
+			// VERIFIED - TAB 1 - ELEMENT (6/8)
 			/////////////////////////////////////
-			// [] JORDAN KUROSKY
+			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
 			// [] PIERRE LAFOREST-GRANT
@@ -262,15 +250,37 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setPfIndic(s.toString());
 				}
 			});
+
+			/*
+			/////////////////////////////////////
+			// CONCAT BUTTON INDICATORS
+			//
+			// DESCRIPTION
+			/////////////////////////////////////
+			// VERIFIED - TAB 1 - ELEMENT (7/8)
+			/////////////////////////////////////
+			// [X] JORDAN KUROSKY
+			// [] JAMIE POSPIECH
+			// [] DEREK ELLIOTT
+			// [] PIERRE LAFOREST-GRANT
+			// [] ALEX YEUNG
+			/////////////////////////////////////
+			Button buttonIndic = (Button) convertView.findViewById(R.id);
+			buttonIndic.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					environSurficialEntity.setPfIndic("");
+					notifyDataSetChanged();
+				}
+			});*/
 			
 			/////////////////////////////////////
 			// EDITTEXT PERMAFROST DEPTH
 			//
 			// DESCRIPTION
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (7/7)
+			// VERIFIED - TAB 1 - ELEMENT (8/8)
 			/////////////////////////////////////
-			// [] JORDAN KUROSKY
+			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
 			// [] PIERRE LAFOREST-GRANT
@@ -288,8 +298,7 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 						environSurficialEntity.setPfDepth(s.toString());
 				}
 			});
-
-
+			
 		}
 		else if (tab == 2)
 		{
@@ -421,13 +430,9 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 			spinnerExposureType.setAdapter(sp2);
 			spinnerExposureType.setSelection(sp2.getPosition(environSurficialEntity.getExposure()));
 			spinnerExposureType.setOnItemSelectedListener(new OnItemSelectedListener() {
-				public void onNothingSelected(AdapterView<?> arg0) {
-
-				}
-
+				public void onNothingSelected(AdapterView<?> arg0) { }
 				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 					environSurficialEntity.setExposure(parent.getItemAtPosition(position).toString());
-					System.out.println(parent.getItemAtPosition(position));
 				}
 			});
 		}
@@ -962,17 +967,17 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		notifyDataSetChanged();
 	}
 
-	/*
-	public boolean setCheckPermafrost(boolean isChecked){
-		LinearLayout lin1 = (LinearLayout)activity.findViewById(R.id.environ_layout_permafrost);
+	public boolean setCheckPermafrost(boolean isChecked) {
+		LinearLayout lin1 = (LinearLayout) activity.findViewById(R.id.environ_layout_permafrost);
 		if(isChecked)
+		{
 			lin1.setVisibility(LinearLayout.VISIBLE);
+		}
 		else
+		{
 			lin1.setVisibility(LinearLayout.INVISIBLE);
-		//setCheckPermafrost(isChecked);
+		}
+		
 		return isChecked;
 	}
-	 */
-
-
 }

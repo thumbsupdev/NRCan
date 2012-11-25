@@ -1189,7 +1189,6 @@ public class EarthmatBedrockController extends BaseAdapter implements Filterable
 	}
 
 	public boolean setTab(int tabNum) {
-
 		if(this.tab == 1){
 			if(earthmatBedrockEntity.getLithGroup().equalsIgnoreCase("")){
 				return false;

@@ -44,7 +44,7 @@
             android:id="@+id/mineral_bedrock_editText_percent"
             android:layout_width="80dp"
             android:layout_marginLeft="20dp"
-            android:hint="0"
+            android:hint="@string/hints_zero"
             android:inputType="numberDecimal"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge" >
