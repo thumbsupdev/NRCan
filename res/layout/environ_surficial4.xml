@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
     </LinearLayout>
 
     <LinearLayout
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,7 +151,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:hint="@string/environ_label_patternArea" />
+            android:hint="@string/environ_label_patternArea"
+            android:inputType="text" />
     </LinearLayout>
 
 </LinearLayout>

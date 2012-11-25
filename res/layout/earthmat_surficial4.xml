@@ -104,7 +104,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.9"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
     </LinearLayout>
 
     <LinearLayout

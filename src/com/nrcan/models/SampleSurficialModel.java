@@ -55,10 +55,8 @@ public class SampleSurficialModel {
 	}
 
 	public void readRow() {
-		//String[] tmp = new String[] { SAMPLESURFICIAL_TABLE_NAME, SAMPLESURFICIAL_NRCANID4, String.valueOf(sampleSurficial.getNrcanId4()) };
-		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
-		String[] tmp = new String[] { SAMPLESURFICIAL_NRCANID4, String.valueOf(sampleSurficial.getNrcanId4()) };
-		dbHandler.executeQuery("SELECT * FROM " + SAMPLESURFICIAL_TABLE_NAME + " WHERE ", tmp);
+		String[] tmp = new String[] { String.valueOf(sampleSurficial.getNrcanId4()) };
+		dbHandler.executeQuery("SELECT * FROM " + SAMPLESURFICIAL_TABLE_NAME + " WHERE " + SAMPLESURFICIAL_NRCANID4 + " = ?", tmp);
 		
 		sampleSurficial.setEntity(dbHandler.getSplitRow(0));
 	}

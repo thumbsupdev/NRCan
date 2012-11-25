@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </LinearLayout>
 
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </LinearLayout>
 
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </LinearLayout>
 

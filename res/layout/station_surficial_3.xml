@@ -48,7 +48,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="@string/station_label_interpretation" />
+        android:hint="@string/station_label_interpretation"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/station_surficial_label_airphoto"
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
             android:inputType="text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:hint="@string/station_label_airphoto" />
 
         <Button
@@ -101,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
             android:inputType="text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:hint="@string/station_label_mapsheet" />
 
         <Button

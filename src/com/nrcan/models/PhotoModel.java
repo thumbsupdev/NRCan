@@ -43,12 +43,8 @@ public class PhotoModel {
 	}
 
 	public void readRow() {
-		//String[] tmp = new String[] { PHOTO_TABLE_NAME, PHOTO_NRCANID3, String.valueOf(photo.getNrcanId3()) };
-		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
-
-		String[] tmp = new String[] { PHOTO_NRCANID3, String.valueOf(photo.getNrcanId3()) };
-		dbHandler.executeQuery("SELECT * FROM " + PHOTO_TABLE_NAME + " WHERE ", tmp);
-
+		String[] tmp = new String[] { String.valueOf(photo.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + PHOTO_TABLE_NAME + " WHERE " + PHOTO_NRCANID3 + " = ?", tmp);
 		
 		photo.setEntity(dbHandler.getSplitRow(0));
 	}

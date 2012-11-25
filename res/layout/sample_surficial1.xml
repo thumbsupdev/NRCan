@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </LinearLayout>
     
@@ -91,7 +91,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:hint="@string/sample_label_horizon" />
+            android:hint="@string/sample_label_horizon"
+            android:inputType="text" />
     </LinearLayout>
     
       <LinearLayout

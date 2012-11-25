@@ -94,6 +94,7 @@
             android:layout_marginLeft="20dp"
         	android:layout_marginRight="20dp"
         	android:textAppearance="?android:attr/textAppearanceLarge"
-        	android:hint="@string/structure_label_related" />
+        	android:hint="@string/structure_label_related"
+        	android:inputType="text" />
 
 </LinearLayout>

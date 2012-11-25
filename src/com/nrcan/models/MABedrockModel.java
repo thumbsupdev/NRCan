@@ -43,12 +43,9 @@ public class MABedrockModel {
 	}
 
 	public void readRow() {
-		//String[] tmp = new String[] { MABEDROCK_TABLE_NAME, MABEDROCK_NRCANID3, String.valueOf(mabedrock.getNrcanId3()) };
-		//dbHandler.executeQuery(PreparedStatements.READ_FIRST_ROW, tmp);
-
-		String[] tmp = new String[] { MABEDROCK_NRCANID3, String.valueOf(mabedrock.getNrcanId3()) };
-		dbHandler.executeQuery("SELECT * FROM " + MABEDROCK_TABLE_NAME + " WHERE ", tmp);
-
+		String[] tmp = new String[] { String.valueOf(mabedrock.getNrcanId3()) };
+		dbHandler.executeQuery("SELECT * FROM " + MABEDROCK_TABLE_NAME + " WHERE " + MABEDROCK_NRCANID3 + " = ?", tmp);
+		
 		mabedrock.setEntity(dbHandler.getSplitRow(0));
 	}
 

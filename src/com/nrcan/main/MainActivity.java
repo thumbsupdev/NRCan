@@ -510,7 +510,7 @@ public class MainActivity extends ListActivity {
 
 		swapButton = (Button)findViewById(R.id.tab_host_5_button1);
 		swapButton.setEnabled(false);
-		
+
 		adap9.setElements(databaseHandler.populateMetadataList());
 
 		//setupDetailsBedrock();
@@ -1280,10 +1280,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void backAction8() {
-			//First page.. no back button. 
-		}
-
+		public void backAction8() { }
 		public void backAction9() {
 			flipper.setDisplayedChild(8);
 			button2.setVisibility(View.INVISIBLE);
@@ -1465,7 +1462,6 @@ public class MainActivity extends ListActivity {
 	}
 
 	public class CellAction {
-
 		public void cellAction0() {
 			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 
@@ -1478,10 +1474,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction1() {
-			//no cells in form page
-		}
-
+		public void cellAction1() { }
 		public void cellAction2() {
 			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 
@@ -1494,10 +1487,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction3() {
-			//no cells in form page
-		}
-
+		public void cellAction3() { }
 		public void cellAction4() {
 			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 
@@ -1510,10 +1500,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction5() {
-			//no cells in form page
-		}
-
+		public void cellAction5() { }
 		public void cellAction6() {
 			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 
@@ -1526,10 +1513,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction7() {
-			//no cells in form page
-		}
-
+		public void cellAction7() { }
 		public void cellAction8() {
 
 			nrCanId1= metadataModel.getEntity().getNrcanId1();
@@ -1551,10 +1535,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction9() {
-			//no cells in form page
-		}
-
+		public void cellAction9() { }
 		public void cellAction10() {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
@@ -1569,10 +1550,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction11() {
-			//no cells in form page
-		}
-
+		public void cellAction11() { }
 		public void cellAction12() {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
@@ -1587,10 +1565,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction13() {
-			//no cells in form page
-		}
-
+		public void cellAction13() { }
 		public void cellAction14() {
 			nrCanId3 = photoModel.getEntity().getNrcanId3();
 
@@ -1603,10 +1578,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction15() {
-			//no cells in form page
-		}
-
+		public void cellAction15() { }
 		public void cellAction16() {
 			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 
@@ -1619,10 +1591,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction17() {
-			//no cells in form page
-		}
-
+		public void cellAction17() { }
 		public void cellAction18() {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
@@ -1637,10 +1606,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction19() {
-			//no cells in form page
-		}
-
+		public void cellAction19() { }
 		public void cellAction20() {
 			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 
@@ -1653,10 +1619,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction21() {
-			//no cells in form page
-		}
-
+		public void cellAction21() { }
 		public void cellAction22() {
 			nrCanId2= stationBedrockModel.getEntity().getNrcanId2();
 
@@ -1672,10 +1635,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction23() {
-			//no cells in form page
-		}
-
+		public void cellAction23() { }
 		public void cellAction24() {
 			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 
@@ -1688,10 +1648,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction25() {
-			//no cells in form page
-		}
-
+		public void cellAction25() { }
 		public void cellAction26() {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
@@ -1706,20 +1663,16 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void cellAction27() {
-			//no cells in form page
-		}
-
+		public void cellAction27() { }
 		public void cellAction28() {
-
 			if(metadataModel.getEntity().getPrjct_type().equalsIgnoreCase("bedrock")){
-				if(detail==0){
+				if(detail==0) {
 					flipper.setDisplayedChild(0);
 				}
-				else if(detail==1){
+				else if(detail==1) {
 					flipper.setDisplayedChild(6);
 				}
-				else if (detail==2){
+				else if (detail==2) {
 					flipper.setDisplayedChild(14);
 				}
 
@@ -1785,7 +1738,6 @@ public class MainActivity extends ListActivity {
 	}
 
 	public class EditAction {
-
 		public void editAction0(int x) {
 			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(1);
@@ -1796,10 +1748,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction1(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction1(int x) { }
 		public void editAction2(int x) {
 			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(3);
@@ -1810,10 +1759,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction3(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction3(int x) { }
 		public void editAction4(int x) {
 			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(5);
@@ -1824,10 +1770,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction5(int x) {
-
-		}
-
+		public void editAction5(int x) { }
 		public void editAction6(int x) {
 			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(7);
@@ -1838,19 +1781,16 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction7(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction7(int x) { }
 		public void editAction8(int x) {
-			nrCanId1 = x;//metadataModel.getEntity().getNrcanId1();
+			nrCanId1 = x;
 			adap10.clear();
 			metadataModel.getEntity().setNrcanId1(x);
 			metadataModel.readRow();
-			
+
 			flipper.setDisplayedChild(9);
 			adap10.notifyDataSetChanged();
-			
+
 			newFlag = false;
 			button2.setVisibility(View.VISIBLE);
 			button1.setVisibility(View.VISIBLE);
@@ -1858,10 +1798,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction9(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction9(int x) { }
 		public void editAction10(int x) {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
@@ -1872,10 +1809,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction11(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction11(int x) { }
 		public void editAction12(int x) {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
@@ -1886,10 +1820,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction13(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction13(int x) { }
 		public void editAction14(int x) {
 			nrCanId3 = photoModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(15);
@@ -1900,10 +1831,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction15(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction15(int x) { }
 		public void editAction16(int x) {
 			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(17);
@@ -1914,10 +1842,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction17(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction17(int x) { }
 		public void editAction18(int x) {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
@@ -1928,10 +1853,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction19(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction19(int x) { }
 		public void editAction20(int x) {
 			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(21);
@@ -1942,10 +1864,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction21(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction21(int x) { }
 		public void editAction22(int x) {
 			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(23);
@@ -1956,10 +1875,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction23(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction23(int x) { }
 		public void editAction24(int x) {
 			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(25);
@@ -1970,10 +1886,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction25(int x) {
-			//no edit functionality on form
-		}
-
+		public void editAction25(int x) { }
 		public void editAction26(int x) {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
@@ -1984,21 +1897,12 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void editAction27(int x) {
-			//no edit functionality on form
-		}
-
-		public void editAction28(int x) {
-			//a list with no edit on list
-		}
-
-		public void editAction29(int x) {
-			//a list with no edit on list
-		}
+		public void editAction27(int x) { }
+		public void editAction28(int x) { }
+		public void editAction29(int x) { }
 	}
 
 	public class NewAction {
-
 		public void newAction0() {
 			nrCanId3 = earthmatBedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(1);
@@ -2009,10 +1913,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction1() {
-			//no new functionality on form
-		}
-
+		public void newAction1() { }
 		public void newAction2() {
 			nrCanId3 = earthmatSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(3);
@@ -2023,10 +1924,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction3() {
-			//no new functionality on form
-		}
-
+		public void newAction3() { }
 		public void newAction4() {
 			nrCanId3 = environSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(5);
@@ -2037,10 +1935,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction5() {
-			//no new functionality on form
-		}
-
+		public void newAction5() { }
 		public void newAction6() {
 			nrCanId3 = mABedrockModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(7);
@@ -2051,10 +1946,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction7() {
-			//no new functionality on form
-		}
-
+		public void newAction7() { }
 		public void newAction8() {
 			nrCanId1 = metadataModel.getEntity().getNrcanId1();
 			flipper.setDisplayedChild(9);
@@ -2067,10 +1959,7 @@ public class MainActivity extends ListActivity {
 
 		}
 
-		public void newAction9() {
-			//no new functionality on form
-		}
-
+		public void newAction9() { }
 		public void newAction10() {
 			nrCanId4 = mineralBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(11);
@@ -2081,10 +1970,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction11() {
-			//no new functionality on form
-		}
-
+		public void newAction11() { }
 		public void newAction12() {
 			nrCanId4 = pFlowSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(13);
@@ -2095,10 +1981,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction13() {
-			//no new functionality on form
-		}
-
+		public void newAction13() { }
 		public void newAction14() {
 			nrCanId3 = photoModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(15);
@@ -2109,10 +1992,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction15() {
-			//no new functionality on form
-		}
-
+		public void newAction15() { }
 		public void newAction16() {
 			nrCanId4 = sampleBedrockModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(17);
@@ -2123,10 +2003,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction17() {
-			//no new functionality on form
-		}
-
+		public void newAction17() { }
 		public void newAction18() {
 			nrCanId4 = sampleSurficialModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(19);
@@ -2137,10 +2014,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction19() {
-			//no new functionality on form
-		}
-
+		public void newAction19() { }
 		public void newAction20() {
 			nrCanId3 = soilProSurficialModel.getEntity().getNrcanId3();
 			flipper.setDisplayedChild(21);
@@ -2151,10 +2025,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction21() {
-			//no new functionality on form
-		}
-
+		public void newAction21() { }
 		public void newAction22() {
 			nrCanId2 = stationBedrockModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(23);
@@ -2165,10 +2036,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction23() {
-			//no new functionality on form
-		}
-
+		public void newAction23() { }
 		public void newAction24() {
 			nrCanId2 = stationSurficialModel.getEntity().getNrcanId2();
 			flipper.setDisplayedChild(25);
@@ -2179,10 +2047,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction25() {
-			//no new functionality on form
-		}
-
+		public void newAction25() { }
 		public void newAction26() {
 			nrCanId4 = structureModel.getEntity().getNrcanId4();
 			flipper.setDisplayedChild(27);
@@ -2193,25 +2058,13 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void newAction27() {
-			//no new functionality on form
-		}
-
-		public void newAction28() {
-			//no new functionality on this particular list
-		}
-
-		public void newAction29() {
-			//no new functionality on this particular list
-		}
+		public void newAction27() { }
+		public void newAction28() { }
+		public void newAction29() { }
 	}
 
 	public class SaveAction {
-
-		public void saveAction0() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction0() { }
 		public void saveAction1() {
 			if(newFlag)
 			{
@@ -2236,10 +2089,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction2() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction2() { }
 		public void saveAction3() {
 			if(newFlag)
 			{
@@ -2264,10 +2114,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction4() {
-
-		}
-
+		public void saveAction4() { }
 		public void saveAction5() {
 			if(newFlag)
 			{
@@ -2292,10 +2139,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction6() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction6() { }
 		public void saveAction7() {
 			if(newFlag)
 			{
@@ -2320,10 +2164,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction8() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction8() { }
 		public void saveAction9() {
 			//check to see if anything has been done on the form page yet
 			//if its a NEW form, set nrcanID1 on save
@@ -2386,10 +2227,7 @@ public class MainActivity extends ListActivity {
 
 		}
 
-		public void saveAction10() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction10() { }
 		public void saveAction11() {
 			if(newFlag)
 			{
@@ -2414,10 +2252,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction12() {
-
-		}
-
+		public void saveAction12() { }
 		public void saveAction13() {
 			if(newFlag)
 			{
@@ -2442,10 +2277,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction14() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction14() { }
 		public void saveAction15() {
 			if(newFlag)
 			{
@@ -2470,10 +2302,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction16() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction16() { }
 		public void saveAction17() {
 			if(newFlag)
 			{
@@ -2498,10 +2327,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction18() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction18() { }
 		public void saveAction19() {
 			if(newFlag)
 			{
@@ -2526,10 +2352,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction20() {
-
-		}
-
+		public void saveAction20() { }
 		public void saveAction21() {
 			if(newFlag)
 			{
@@ -2554,10 +2377,7 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction22() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction22() { }
 		public void saveAction23() {
 			if(newFlag)
 			{
@@ -2583,10 +2403,7 @@ public class MainActivity extends ListActivity {
 
 		}
 
-		public void saveAction24() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction24() { }
 		public void saveAction25() {
 			if(newFlag)
 			{
@@ -2612,11 +2429,7 @@ public class MainActivity extends ListActivity {
 
 		}
 
-
-		public void saveAction26() {
-			//no save functionality on list view with cells
-		}
-
+		public void saveAction26() { }
 		public void saveAction27() {
 			if(newFlag)
 			{
@@ -2641,13 +2454,8 @@ public class MainActivity extends ListActivity {
 			topTitle.setText(titles[flipper.getDisplayedChild()].toString());
 		}
 
-		public void saveAction28() {
-			//no save functionality on list view with cells
-		}
-
-		public void saveAction29() {
-			//no save functionality on list view with cells
-		}
+		public void saveAction28() { }
+		public void saveAction29() { }
 	}
 
 	public static HashMap<String, Integer> getBedrock() {
@@ -2662,7 +2470,7 @@ public class MainActivity extends ListActivity {
 	public void setNRCANID2(int id) { nrCanId2 = id; }
 	public void setNRCANID3(int id) { nrCanId3 = id; }
 	public void setNRCANID4(int id) { nrCanId4 = id; }
-	*/
+	 */
 
 	/*
     public ArrayList<String> readRows() {
@@ -2674,22 +2482,22 @@ public class MainActivity extends ListActivity {
 	public ArrayList<String> updateMetadataList() {
 		ArrayList<String> results = new ArrayList<String>();
 		ArrayList<String> tmp = new ArrayList<String>();
-		
+
 		databaseHandler.executeQuery("SELECT prjct_name, prjct_code FROM METADATA");
 		results = databaseHandler.getList();
-		
+
 		for(int i = 0; i < results.size(); i++)
 		{
 			tmp.add(results.get(i) + " - " + results);
 		}
-		
+
 		return null;
 	}*/
-	
+
 	public ArrayList<String> updateList(String table, String col) {
 		return null;
 	}
-    
+
 	/************************************************************************************
 	 * 
 	 * ANIMATION HELPER CLASS
