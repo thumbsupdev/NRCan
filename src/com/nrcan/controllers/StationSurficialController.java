@@ -1,21 +1,25 @@
 package com.nrcan.controllers;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.nrcan.entities.StationSurficialEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -29,9 +33,8 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 	private Context context;
 	private int tab;
 	private PicklistDatabaseHandler pldb;
-	private ArrayList<String> e = new ArrayList<String>();
-	
 	private StationSurficialEntity stationSurficialEntity;
+    private GPSController gpsController;
 
 	public StationSurficialController(Context context, Activity activity,StationSurficialEntity stationSurficialEntity,PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -40,6 +43,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 		this.tab = 1;	
 		this.stationSurficialEntity = stationSurficialEntity;
 		this.pldb = pldb;
+		doGPS();
 	}
 
 	public int getCount() {
@@ -56,9 +60,9 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (tab == 1) {
-			
+
 			convertView = mInflater.inflate(R.layout.station_surficial_1, null);
-			
+
 			/////////////////////////////////////
 			// EDITTEXT TRAV NO
 			//
@@ -84,7 +88,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setTravNo(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// BUTTON VISIT DATE
 			//
@@ -98,8 +102,15 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			// [] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
+			setDate();
 			Button buttonDate = (Button) convertView.findViewById(R.id.station_surficial_button_date);
-			
+			buttonDate.setText(stationSurficialEntity.getVisitDate());
+			buttonDate.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					spawnDateDialog();
+				}
+			});
+
 			/////////////////////////////////////
 			// EDITTEXT ELEVATION
 			//
@@ -119,13 +130,10 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 				public void onTextChanged(CharSequence s, int start, int before, int count) { }
 				public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 				public void afterTextChanged(Editable s) {
-					if (s.length() == 0)
-						stationSurficialEntity.setElevation("");
-					else
-						stationSurficialEntity.setElevation(s.toString());
+					stationSurficialEntity.setElevation((s.length() == 0) ? "" : s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER ELEVATION METHOD
 			//
@@ -152,8 +160,8 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 					stationSurficialEntity.setElevMethod(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
-			
+
+
 			/////////////////////////////////////
 			// EDITTEXT EASTING
 			//
@@ -179,7 +187,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setEasting(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT NORTHING
 			//
@@ -205,7 +213,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setNorthing(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT LATITUDE
 			//
@@ -231,7 +239,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setLatitude(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT LONGITUDE
 			//
@@ -258,10 +266,10 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 				}
 			});
 
-			
+
 		} else if (tab == 2) {
 			convertView = mInflater.inflate(R.layout.station_surficial_2, null);
-			
+
 			/////////////////////////////////////
 			// SPINNER OBSERVATION TYPE
 			//
@@ -288,7 +296,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 					stationSurficialEntity.setObsType(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER ENTRY TYPE
 			//
@@ -315,7 +323,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 					stationSurficialEntity.setEntryType(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER LEGEND VAL
 			//
@@ -343,10 +351,10 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 				}
 			});
 
-			
+
 		} else if (tab == 3) {
 			convertView = mInflater.inflate(R.layout.station_surficial_3, null);
-			
+
 			/////////////////////////////////////
 			// SPINNER SITE QUALITY
 			//
@@ -373,7 +381,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 					stationSurficialEntity.setOcQuality(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// SPINNER PHYS. ENVIRON
 			//
@@ -400,8 +408,8 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 					stationSurficialEntity.setPhysEnv(parent.getItemAtPosition(position).toString());
 				}
 			});
-			
-			
+
+
 			/////////////////////////////////////
 			// EDITTEXT INTERPRETATION - SITE SIZE?
 			//
@@ -427,7 +435,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setOcSize(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT AIR PHOTO
 			//
@@ -453,7 +461,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setAirPhoto(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// BUTTON AIR PHOTO
 			//
@@ -468,8 +476,8 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonAirPhoto = (Button) convertView.findViewById(R.id.station_surficial_button_airphoto);
-			
-			
+
+
 			/////////////////////////////////////
 			// EDITTEXT MAP SHEET
 			//
@@ -495,7 +503,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setMapSheet(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// BUTTON MAP SHEET
 			//
@@ -510,8 +518,8 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonMapSheet = (Button) convertView.findViewById(R.id.station_surficial_button_mapsheet);
-			
-			
+
+
 		} else if (tab == 4) {
 			convertView = mInflater.inflate(R.layout.station_surficial_4, null);
 
@@ -540,7 +548,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setNotes(s.toString());
 				}
 			});
-			
+
 			/////////////////////////////////////
 			// EDITTEXT PARTNER
 			//
@@ -566,12 +574,12 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 						stationSurficialEntity.setPartner(s.toString());
 				}
 			});
-			
-			
-			
+
+
+
 		} else if (tab == 5) {
 			convertView = mInflater.inflate(R.layout.station_surficial_5, null);
-			
+
 			/////////////////////////////////////
 			// EDIT TEXT SINCE LAST STATION
 			//
@@ -611,12 +619,48 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+
+	public void spawnDateDialog() {
+		Calendar cal = Calendar.getInstance();
+
+		DatePickerDialog dateDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+			public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				Time time = new Time();
+				time.set(dayOfMonth, monthOfYear, year);
+				String date = DateFormat.format("MMMM dd, yyyy", time.toMillis(true)).toString();
+				stationSurficialEntity.setVisitDate(date);
+			}
+		}, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+
+		dateDialog.setMessage("Please select a date");
+		dateDialog.show();
+	}
+	
+	public void setDate() {
+		Time time = new Time();
+		time.setToNow();
+		String date = DateFormat.format("MMMM dd, yyyy", time.toMillis(true)).toString();
+		stationSurficialEntity.setVisitDate(date);
+		stationSurficialEntity.setVisitTime(DateFormat.format("hh:mm:ss", time.toMillis(true)).toString());
+	}
+	
+	private void doGPS() {
+        if(gpsController == null) {
+            gpsController = new GPSController(context);
+            gpsController.turnOnGPS();
+            gpsController.requestGPSData();
+            stationSurficialEntity.setLatitude(String.valueOf(gpsController.getLatitude()));
+            stationSurficialEntity.setLongitude(String.valueOf(gpsController.getLongitude()));
+            stationSurficialEntity.setElevation(String.valueOf(gpsController.getElevation()));
+        } else {
+            gpsController.turnOffGPS();
+            gpsController = null;
+        }
+	}
+
 	public void clear() {
 		stationSurficialEntity.clearEntity();
 		tab = 1;
 		notifyDataSetChanged();
-	
 	}
-	
-
 }

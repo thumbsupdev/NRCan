@@ -18,7 +18,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/environ_layout_permafrost"
+        android:id="@+id/environ_layout_gossan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

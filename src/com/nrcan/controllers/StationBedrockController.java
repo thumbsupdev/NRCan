@@ -1,19 +1,25 @@
 package com.nrcan.controllers;
 
+import java.util.Calendar;
+
 import com.nrcan.entities.StationBedrockEntity;
 import com.nrcan.main.PicklistDatabaseHandler;
 import com.nrcan.main.R;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -27,6 +33,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 	private int tab;
 	private PicklistDatabaseHandler pldb;
 	private StationBedrockEntity stationBedrockEntity;
+    private GPSController gpsController;
 
 	public StationBedrockController(Context context, Activity activity, StationBedrockEntity stationBedrockEntity, PicklistDatabaseHandler pldb) {
 		this.mInflater = LayoutInflater.from(context);
@@ -35,6 +42,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		this.tab = 1;
 		this.stationBedrockEntity = stationBedrockEntity;
 		this.pldb = pldb;
+		doGPS();
 	}
 
 	public int getCount() {
@@ -92,7 +100,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			// [] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
+			setDate();
 			Button buttonDate = (Button) convertView.findViewById(R.id.station_button_date);
+			buttonDate.setText(stationBedrockEntity.getVisitDate());
+			buttonDate.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					spawnDateDialog();
+				}
+			});
 			
 			/////////////////////////////////////
 			// EDITTEXT ELEVATION
@@ -512,6 +527,45 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 	public void setTab(int tabNum) {
 		this.tab = tabNum;
 		notifyDataSetChanged();
+	}
+
+	public void spawnDateDialog() {
+		Calendar cal = Calendar.getInstance();
+
+		DatePickerDialog dateDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+			public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+				Time time = new Time();
+				time.set(dayOfMonth, monthOfYear, year);
+				String date = DateFormat.format("MMMM dd, yyyy", time.toMillis(true)).toString();
+				stationBedrockEntity.setVisitDate(date);
+				notifyDataSetChanged();
+			}
+		}, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+
+		dateDialog.setMessage("Please select a date");
+		dateDialog.show();
+	}
+	
+	public void setDate() {
+		Time time = new Time();
+		time.setToNow();
+		String date = DateFormat.format("MMMM dd, yyyy", time.toMillis(true)).toString();
+		stationBedrockEntity.setVisitDate(date);
+        stationBedrockEntity.setVisitTime(DateFormat.format("hh:mm:ss", time.toMillis(true)).toString());
+	}
+	
+	private void doGPS() {
+        if(gpsController == null) {
+            gpsController = new GPSController(context);
+            gpsController.turnOnGPS();
+            gpsController.requestGPSData();
+            stationBedrockEntity.setLatitude(String.valueOf(gpsController.getLatitude()));
+            stationBedrockEntity.setLongitude(String.valueOf(gpsController.getLongitude()));
+            stationBedrockEntity.setElevation(String.valueOf(gpsController.getElevation()));
+        } else {
+            gpsController.turnOffGPS();
+            gpsController = null;
+        }
 	}
 	
 	public void clear() {
