@@ -63,7 +63,6 @@ public class StationBedrockEntity {
 		this.metaId = contentValues.get(25);
     }
 	
-	
 	public void setEntity (String[] contentValues) {
 		this.nrcanId2 = Integer.parseInt(contentValues[0]);
 		this.nrcanId1 = Integer.parseInt(contentValues[1]);

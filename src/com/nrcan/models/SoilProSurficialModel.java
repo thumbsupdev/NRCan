@@ -69,7 +69,7 @@ public class SoilProSurficialModel {
 		String[] tmp = new String[] { String.valueOf(soilproSurficial.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + SOILPROSURFICIAL_TABLE_NAME + " WHERE " + SOILPROSURFICIAL_NRCANID3 + " = ?", tmp);
 		
-		soilproSurficial.setEntity(dbHandler.getSplitRow(0));
+		soilproSurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -106,6 +106,7 @@ public class SoilProSurficialModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(SOILPROSURFICIAL_NRCANID2, soilproSurficial.getNrcanId2());
 		values.put(SOILPROSURFICIAL_SOILPROID, soilproSurficial.getSoilProId());
 		values.put(SOILPROSURFICIAL_STATIONID, soilproSurficial.getStationId());
 		values.put(SOILPROSURFICIAL_OHRZ, soilproSurficial.getO_hrz());

@@ -43,7 +43,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 		this.tab = 1;	
 		this.stationSurficialEntity = stationSurficialEntity;
 		this.pldb = pldb;
-		doGPS();
+		//doGPS();
 	}
 
 	public int getCount() {

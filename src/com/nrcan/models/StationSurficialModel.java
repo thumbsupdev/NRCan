@@ -79,7 +79,7 @@ public class StationSurficialModel {
 		String[] tmp = new String[] { String.valueOf(stationSurficial.getNrcanId2()) };
 		dbHandler.executeQuery("SELECT * FROM " + STATIONSURFICIAL_TABLE_NAME + " WHERE " + STATIONSURFICIAL_NRCANID2 + " = ?", tmp);
 		
-		stationSurficial.setEntity(dbHandler.getSplitRow(0));
+		stationSurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -121,6 +121,7 @@ public class StationSurficialModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(STATIONSURFICIAL_NRCANID1, stationSurficial.getNrcanId1());
 		values.put(STATIONSURFICIAL_ID, stationSurficial.getId());
 		values.put(STATIONSURFICIAL_STATIONID, stationSurficial.getStationId());
 		values.put(STATIONSURFICIAL_TRAVNO, stationSurficial.getTravNo());

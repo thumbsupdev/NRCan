@@ -75,7 +75,7 @@ public class StationBedrockModel {
 		String[] tmp = new String[] { String.valueOf(stationBedrock.getNrcanId2()) };
 		dbHandler.executeQuery("SELECT * FROM " + STATIONBEDROCK_TABLE_NAME + " WHERE " + STATIONBEDROCK_NRCANID2 + " = ?", tmp);
 		
-		stationBedrock.setEntity(dbHandler.getSplitRow(0));
+		stationBedrock.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -115,6 +115,7 @@ public class StationBedrockModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(STATIONBEDROCK_NRCANID1, stationBedrock.getNrcanId1());
 		values.put(STATIONBEDROCK_ID, stationBedrock.getId());
 		values.put(STATIONBEDROCK_STATIONID, stationBedrock.getStationId());
 		values.put(STATIONBEDROCK_TRAVNO, stationBedrock.getTravNo());

@@ -113,7 +113,7 @@ public class EarthmatSurficialModel {
 		String[] tmp = new String[] { String.valueOf(earthmatsurficial.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + EARTHMATSURFICIAL_TABLE_NAME + " WHERE " + EARTHMATSURFICIAL_NRCANID3 + " = ?", tmp);
 		
-		earthmatsurficial.setEntity(dbHandler.getSplitRow(0));
+		earthmatsurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -172,6 +172,7 @@ public class EarthmatSurficialModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(EARTHMATSURFICIAL_NRCANID2, earthmatsurficial.getNrcanId2());
 		values.put(EARTHMATSURFICIAL_STATION_ID, earthmatsurficial.getStationId());
 		values.put(EARTHMATSURFICIAL_EARTHMATLT,  earthmatsurficial.getEarthMatLt());
 		values.put(EARTHMATSURFICIAL_EARTHMATNO,  earthmatsurficial.getEarthMatNo());

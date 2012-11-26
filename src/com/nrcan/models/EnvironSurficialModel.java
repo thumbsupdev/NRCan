@@ -67,7 +67,7 @@ public class EnvironSurficialModel {
 		String[] tmp = new String[] { String.valueOf(environsurficial.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + ENVIRONSURFICIAL_TABLE_NAME + " WHERE " + ENVIRONSURFICIAL_NRCANID3 + " = ?", tmp);	
 
-		environsurficial.setEntity(dbHandler.getSplitRow(0));
+		environsurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -103,6 +103,7 @@ public class EnvironSurficialModel {
 	
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(ENVIRONSURFICIAL_NRCANID2, environsurficial.getNrcanId2());
 		values.put(ENVIRONSURFICIAL_STATION_ID, environsurficial.getStationId());
 		values.put(ENVIRONSURFICIAL_DRAINAGE, environsurficial.getDrainage());
 		values.put(ENVIRONSURFICIAL_SLOPE, environsurficial.getSlope());

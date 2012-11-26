@@ -57,7 +57,7 @@ public class SampleSurficialModel {
 		String[] tmp = new String[] { String.valueOf(sampleSurficial.getNrcanId4()) };
 		dbHandler.executeQuery("SELECT * FROM " + SAMPLESURFICIAL_TABLE_NAME + " WHERE " + SAMPLESURFICIAL_NRCANID4 + " = ?", tmp);
 		
-		sampleSurficial.setEntity(dbHandler.getSplitRow(0));
+		sampleSurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -88,6 +88,7 @@ public class SampleSurficialModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(SAMPLESURFICIAL_NRCANID3, sampleSurficial.getNrcanId3());
 		values.put(SAMPLESURFICIAL_STATIONID, sampleSurficial.getStationId());
 		values.put(SAMPLESURFICIAL_EARTHMATID, sampleSurficial.getEarthMatId());
 		values.put(SAMPLESURFICIAL_SAMPLEID, sampleSurficial.getSampleId());

@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.MineralBedrockEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class MineralBedrockModel {
 	private DatabaseHandler dbHandler;
@@ -54,7 +53,7 @@ public class MineralBedrockModel {
 		String[] tmp = new String[] { String.valueOf(mineralbedrock.getNrcanId4()) };
 		dbHandler.executeQuery("SELECT * FROM " + MINERALBEDROCK_TABLE_NAME + " WHERE " + MINERALBEDROCK_NRCANID4 + " = ?", tmp);
 		
-		mineralbedrock.setEntity(dbHandler.getSplitRow(0));
+		mineralbedrock.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -83,6 +82,7 @@ public class MineralBedrockModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(MINERALBEDROCK_NRCANID3, mineralbedrock.getNrcanId3());
 		values.put(MINERALBEDROCK_STATION_ID, mineralbedrock.getStationID());
 		values.put(MINERALBEDROCK_EARRTHMATID, mineralbedrock.getEarthmatID());
 		values.put(MINERALBEDROCK_MINERALID , mineralbedrock.getMineralID());

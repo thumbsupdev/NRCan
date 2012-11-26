@@ -2,7 +2,6 @@ package com.nrcan.models;
 
 import android.content.ContentValues;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.PhotoEntity;
 
 public class PhotoModel {
@@ -46,7 +45,7 @@ public class PhotoModel {
 		String[] tmp = new String[] { String.valueOf(photo.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + PHOTO_TABLE_NAME + " WHERE " + PHOTO_NRCANID3 + " = ?", tmp);
 		
-		photo.setEntity(dbHandler.getSplitRow(0));
+		photo.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -71,6 +70,7 @@ public class PhotoModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(PHOTO_NRCANID2, photo.getNrcanId2());
 		values.put(PHOTO_STATIONID, photo.getStationId());
 		values.put(PHOTO_PHOTOID, photo.getPhotoId());
 		values.put(PHOTO_PHOTONO, photo.getPhotoNo());

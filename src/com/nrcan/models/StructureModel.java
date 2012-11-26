@@ -69,7 +69,7 @@ public class StructureModel {
 		String[] tmp = new String[] { String.valueOf(structure.getNrcanId4()) };
 		dbHandler.executeQuery("SELECT * FROM " + STRUCTURE_TABLE_NAME + " WHERE " + STRUCTURE_NRCANID4 + " = ?", tmp);
 		
-		structure.setEntity(dbHandler.getSplitRow(0));
+		structure.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -106,6 +106,7 @@ public class StructureModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(STRUCTURE_NRCANID3, structure.getNrcanId3());
 		values.put(STRUCTURE_STATIONID, structure.getStationId());
 		values.put(STRUCTURE_EARTHMATID, structure.getEarthMatID());
 		values.put(STRUCTURE_STRUCTID, structure.getStructId());

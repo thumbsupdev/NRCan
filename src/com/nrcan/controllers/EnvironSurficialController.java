@@ -863,4 +863,10 @@ public class EnvironSurficialController  extends BaseAdapter implements Filterab
 		this.tab = tabNum;
 		notifyDataSetChanged();
 	}
+
+	public void clear() {
+		environSurficialEntity.clearEntity();
+		tab = 1;
+		notifyDataSetChanged();
+	}
 }

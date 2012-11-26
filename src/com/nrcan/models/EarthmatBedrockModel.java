@@ -83,7 +83,7 @@ public class EarthmatBedrockModel {
 		String[] tmp = new String[] { String.valueOf(earthmatbedrock.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + EARTHMATBEDROCK_TABLE_NAME + " WHERE " + EARTHMATBEDROCK_NRCANID3 + " = ?", tmp);
 		
-		earthmatbedrock.setEntity(dbHandler.getSplitRow(0));
+		earthmatbedrock.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -127,6 +127,7 @@ public class EarthmatBedrockModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(EARTHMATBEDROCK_NRCANID2, earthmatbedrock.getNrcanId2());
 		values.put(EARTHMATBEDROCK_STATION_ID, earthmatbedrock.getStationID());
 		values.put(EARTHMATBEDROCK_EARTHMATLT,  earthmatbedrock.getEarthmatLT());
 		values.put(EARTHMATBEDROCK_EARTHMATNO,  earthmatbedrock.getEarthmatNo());

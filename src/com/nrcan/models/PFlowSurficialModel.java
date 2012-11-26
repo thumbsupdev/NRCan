@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.PFlowSurficialEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class PFlowSurficialModel {
 	private DatabaseHandler dbHandler;
@@ -58,7 +57,7 @@ public class PFlowSurficialModel {
 		String[] tmp = new String[] { String.valueOf(pflowsurficial.getNrcanId4()) };
 		dbHandler.executeQuery("SELECT * FROM " + PFLOWSURFICIAL_TABLE_NAME + " WHERE " + PFLOWSURFICIAL_NRCANID4 + " = ?", tmp);
 		
-		pflowsurficial.setEntity(dbHandler.getSplitRow(0));
+		pflowsurficial.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -89,6 +88,7 @@ public class PFlowSurficialModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(PFLOWSURFICIAL_NRCANID3, pflowsurficial.getNrcanId3());
 		values.put(PFLOWSURFICIAL_STATION_ID, pflowsurficial.getStationId());
 		values.put(PFLOWSURFICIAL_EARTHMATID, pflowsurficial.getEarthMatId());
 		values.put(PFLOWSURFICIAL_PFLOWID, pflowsurficial.getpFlowId());

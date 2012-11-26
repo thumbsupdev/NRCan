@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.MABedrockEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class MABedrockModel {
 	private DatabaseHandler dbHandler;
@@ -46,7 +45,7 @@ public class MABedrockModel {
 		String[] tmp = new String[] { String.valueOf(mabedrock.getNrcanId3()) };
 		dbHandler.executeQuery("SELECT * FROM " + MABEDROCK_TABLE_NAME + " WHERE " + MABEDROCK_NRCANID3 + " = ?", tmp);
 		
-		mabedrock.setEntity(dbHandler.getSplitRow(0));
+		mabedrock.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -71,6 +70,7 @@ public class MABedrockModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(MABEDROCK_NRCANID2, mabedrock.getNrcanId2());
 		values.put(MABEDROCK_STATION_ID, mabedrock.getStationID());
 		values.put(MABEDROCK_MANO, mabedrock.getMaNo());
 		values.put(MABEDROCK_MANID, mabedrock.getManID());

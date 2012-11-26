@@ -3,8 +3,8 @@ package com.nrcan.entities;
 import java.util.ArrayList;
 
 public class EarthmatSurficialEntity {
-	private int nrcanId4;
 	private int nrcanId3;
+	private int nrcanId2;
 	private String stationId;
 	private String earthMatLt;
 	private String earthMatNo;
@@ -54,8 +54,8 @@ public class EarthmatSurficialEntity {
 	}
 	
 	public void setEntity (ArrayList<String> contentValues) {
-		this.nrcanId4 = Integer.parseInt(contentValues.get(0));
-		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
+		this.nrcanId3 = Integer.parseInt(contentValues.get(0));
+		this.nrcanId2 = Integer.parseInt(contentValues.get(1));
 		this.stationId = contentValues.get(2);
 		this.earthMatLt = contentValues.get(3);
 		this.earthMatNo = contentValues.get(4);
@@ -103,8 +103,8 @@ public class EarthmatSurficialEntity {
 	
 	
 	public void setEntity (String[] contentValues) {
-		this.nrcanId4 = Integer.parseInt(contentValues[0]);
-		this.nrcanId3 = Integer.parseInt(contentValues[1]);
+		this.nrcanId3 = Integer.parseInt(contentValues[0]);
+		this.nrcanId2 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];
 		this.earthMatLt = contentValues[3];
 		this.earthMatNo = contentValues[4];
@@ -196,17 +196,17 @@ public class EarthmatSurficialEntity {
 		this.interpConf = "";
 	}
 	
-	public int getNrcanId4() {
-		return nrcanId4;
-	}
-	public void setNrcanId4(int nrcanId4) {
-		this.nrcanId4 = nrcanId4;
-	}
 	public int getNrcanId3() {
 		return nrcanId3;
 	}
 	public void setNrcanId3(int nrcanId3) {
 		this.nrcanId3 = nrcanId3;
+	}
+	public int getNrcanId2() {
+		return nrcanId2;
+	}
+	public void setNrcanId2(int nrcanId2) {
+		this.nrcanId2 = nrcanId2;
 	}
 	public String getStationId() {
 		return stationId;

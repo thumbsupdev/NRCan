@@ -49,7 +49,7 @@ public class SampleBedrockModel {
 		String[] tmp = new String[] { String.valueOf(sampleBedrock.getNrcanId4()) };
 		dbHandler.executeQuery("SELECT * FROM " + SAMPLEBEDROCK_TABLE_NAME + " WHERE " + SAMPLEBEDROCK_NRCANID4 + " = ?", tmp);
 		
-		sampleBedrock.setEntity(dbHandler.getSplitRow(0));
+		sampleBedrock.setEntity(dbHandler.getList());
 	}
 
 	public void insertRow() {
@@ -76,6 +76,7 @@ public class SampleBedrockModel {
 
 	public void updateRow() {
 		ContentValues values = new ContentValues();
+		values.put(SAMPLEBEDROCK_NRCANID3, sampleBedrock.getNrcanId3());
 		values.put(SAMPLEBEDROCK_STATIONID, sampleBedrock.getStationId());
 		values.put(SAMPLEBEDROCK_EARTHMATID, sampleBedrock.getEarthMatId());
 		values.put(SAMPLEBEDROCK_SAMPLEID, sampleBedrock.getSampleId());

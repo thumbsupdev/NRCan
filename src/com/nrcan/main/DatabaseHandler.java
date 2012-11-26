@@ -129,7 +129,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 
-	
+/*	
 	public String[] getSplitRow(int index) {
 		System.out.println(resultQuery.get(index));
 		String[] t = resultQuery.get(index).split("\\t");
@@ -137,7 +137,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			System.out.println(t[i]);
 
 		return resultQuery.get(index).split("\\t");
-	}
+	}*/
 
 	public ArrayList<String> getList() {
 		return resultQuery;
