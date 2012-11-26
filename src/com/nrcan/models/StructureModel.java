@@ -56,7 +56,7 @@ public class StructureModel {
 			STRUCTURE_AZIMUTH + " TEXT," +
 			STRUCTURE_DIPPLUNGE + " TEXT," +
 			STRUCTURE_SYMANG + " TEXT," +
-			STRUCTURE_NOTES + " TEXT" +				
+			STRUCTURE_NOTES + " TEXT" +	
 			");";
 
 	public StructureModel(DatabaseHandler dbHandler) {
