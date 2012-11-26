@@ -56,14 +56,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Type" - Column 1 of lutBEDSampleType Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.sample_bedrock_spinner_type);
@@ -83,14 +83,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT SPINNER PURPOSE
 			//
-			// DESCRIPTION
+			// Drop-down for "Purpose" - Column 1 of lutBEDSamplePurpose Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPurpose = (Spinner) convertView.findViewById(R.id.sample_bedrock_spinner_purpose);
@@ -120,14 +120,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT EDITTEXT PURPOSE
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER PURPOSE
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPurpose = (EditText) convertView.findViewById(R.id.sample_bedrock_text_purpose);
@@ -146,14 +146,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// CONCAT BUTTON PURPOSE
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT PURPOSE text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_bedrock_button_purpose);
@@ -170,14 +170,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER FORMAT
 			//
-			// DESCRIPTION
+			// Drop-down for "Format" - Column 1 of lutBEDGeneralStrucFormat Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.sample_bedrock_spinner_format);
@@ -197,14 +197,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT AZIMUTH
 			//
-			// DESCRIPTION
+			// Text field for "Azimuth"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAzimuth = (EditText) convertView.findViewById(R.id.sample_bedrock_editText_azimuth);
@@ -223,14 +223,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT DIP/PLUNGE
 			//
-			// DESCRIPTION
+			// Text field for "Dip/Plunge"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDipPlunge = (EditText) convertView.findViewById(R.id.sample_bedrock_editText_dipPlunge);
@@ -249,14 +249,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER SURFACE
 			//
-			// DESCRIPTION
+			// Drop-down for "Surface" - Column 1 of lutBEDSampleSurface Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSurface = (Spinner) convertView.findViewById(R.id.sample_bedrock_spinner_surface);
@@ -279,14 +279,14 @@ public class SampleBedrockController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT NOTES (254)
 			//
-			// DESCRIPTION
+			// Text field for "Notes"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNote = (EditText) convertView.findViewById(R.id.sample_bedrock_text_note);

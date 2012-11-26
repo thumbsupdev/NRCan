@@ -59,14 +59,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER CLASS
 			//
-			// DESCRIPTION
+			// Drop-down for "Class" - Column 1 of plNames[0] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerClass = (Spinner) convertView.findViewById(R.id.structure_spinner_class);
@@ -94,14 +94,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Type" - Column 2 of plNames[1] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.structure_spinner_type);
@@ -126,14 +126,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER DETAIL
 			//
-			// DESCRIPTION
+			// Drop-down for "Detail" - Column 3 of plNames[2] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerDetail = (Spinner) convertView.findViewById(R.id.structure_spinner_detail);
@@ -159,14 +159,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER METHOD
 			//
-			// DESCRIPTION
+			// Drop-down for "Method" - Column 1 of plNames[3] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerMethod = (Spinner) convertView.findViewById(R.id.structure_spinner_method);
@@ -186,14 +186,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER FORMAT
 			//
-			// DESCRIPTION
+			// Drop-down for "Format" - Column 1 of plNames[4] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.structure_spinner_format);
@@ -211,16 +211,16 @@ public class StructureController extends BaseAdapter implements Filterable {
 			});
 			
 			/////////////////////////////////////
-			// EDITTEXT STRIKE
+			// EDITTEXT AZIMUTH
 			//
-			// DESCRIPTION
+			// Text field for "Azimuth"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextStrike = (EditText) convertView.findViewById(R.id.structure_text_strike);
@@ -239,14 +239,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT DIP
 			//
-			// DESCRIPTION
+			// Text field for "Dip/Plunge"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDip = (EditText) convertView.findViewById(R.id.structure_text_dip);
@@ -268,14 +268,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER ATTITUDE
 			//
-			// DESCRIPTION
+			// Drop-down for "Attitude" - Column 1 of plNames[5] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerAttitude = (Spinner) convertView.findViewById(R.id.structure_spinner_attitude);
@@ -295,14 +295,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER YOUNGING
 			//
-			// DESCRIPTION
+			// Drop-down for "Younging" - Column 1 of plNames[6] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerYounging = (Spinner) convertView.findViewById(R.id.structure_spinner_younging);
@@ -322,14 +322,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER GENERATION
 			//
-			// DESCRIPTION
+			// Drop-down for "Generation" - Column 1 of plNames[7] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (3/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerGeneration = (Spinner) convertView.findViewById(R.id.structure_spinner_generation);
@@ -349,14 +349,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER STRAIN
 			//
-			// DESCRIPTION
+			// Drop-down for "Strain" - Column 1 of plNames[8] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (4/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerStrain = (Spinner) convertView.findViewById(R.id.structure_spinner_strain);
@@ -376,14 +376,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER FLATTENING
 			//
-			// DESCRIPTION
+			// Drop-down for "Flattening" - Column 1 of plNames[9] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (5/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFlattening = (Spinner) convertView.findViewById(R.id.structure_spinner_flattening);
@@ -403,14 +403,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT RELATED
 			//
-			// DESCRIPTION
+			// Text field for "Related"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (6/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextRelated = (EditText) convertView.findViewById(R.id.structure_editText_related);
@@ -432,14 +432,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT FABRIC
 			//
-			// DESCRIPTION
+			// Text field for "Fabric"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/2)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextFabric = (EditText) convertView.findViewById(R.id.structure_text_fabric);
@@ -458,14 +458,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT SENSE
 			//
-			// DESCRIPTION
+			// Text field for "Sense"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (2/2)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextSense = (EditText) convertView.findViewById(R.id.structure_text_sense);
@@ -487,14 +487,14 @@ public class StructureController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT NOTE
 			//
-			// DESCRIPTION
+			// Text field for "Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNote = (EditText) convertView.findViewById(R.id.structure_text_note);

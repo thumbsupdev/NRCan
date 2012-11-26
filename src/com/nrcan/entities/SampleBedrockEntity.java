@@ -7,6 +7,7 @@ public class SampleBedrockEntity {
 	private int nrcanId3;
 	private String stationId;
 	private String earthMatId;
+	private String sampleId;
 	private String sampleNo;
 	private String sampleType;
 	private String purpose;
@@ -25,14 +26,15 @@ public class SampleBedrockEntity {
 		this.nrcanId3 = Integer.parseInt(contentValues.get(1));
 		this.stationId = contentValues.get(2);
 		this.earthMatId = contentValues.get(3);
-		this.sampleNo = contentValues.get(4);
-		this.sampleType = contentValues.get(5);
-		this.purpose = contentValues.get(6);
-		this.format = contentValues.get(7);
-		this.azimuth = contentValues.get(8);
-		this.dipplunge = contentValues.get(9);
-		this.surface = contentValues.get(10);
-		this.notes = contentValues.get(11);
+		this.sampleId = contentValues.get(4);
+		this.sampleNo = contentValues.get(5);
+		this.sampleType = contentValues.get(6);
+		this.purpose = contentValues.get(7);
+		this.format = contentValues.get(8);
+		this.azimuth = contentValues.get(9);
+		this.dipplunge = contentValues.get(10);
+		this.surface = contentValues.get(11);
+		this.notes = contentValues.get(12);
 	}
 	
 	public void setEntity (String[] contentValues) {
@@ -40,19 +42,21 @@ public class SampleBedrockEntity {
 		this.nrcanId3 = Integer.parseInt(contentValues[1]);
 		this.stationId = contentValues[2];
 		this.earthMatId = contentValues[3];
-		this.sampleNo = contentValues[4];
-		this.sampleType = contentValues[5];
-		this.purpose = contentValues[6];
-		this.format = contentValues[7];
-		this.azimuth = contentValues[8];
-		this.dipplunge = contentValues[9];
-		this.surface = contentValues[10];
-		this.notes = contentValues[11];
+		this.sampleId = contentValues[4];
+		this.sampleNo = contentValues[5];
+		this.sampleType = contentValues[6];
+		this.purpose = contentValues[7];
+		this.format = contentValues[8];
+		this.azimuth = contentValues[9];
+		this.dipplunge = contentValues[10];
+		this.surface = contentValues[11];
+		this.notes = contentValues[12];
 	}
 	
 	public void clearEntity(){
 		this.stationId = "";
 		this.earthMatId = "";
+		this.sampleId = "";
 		this.sampleNo = "";
 		this.sampleType = "";
 		this.purpose = "";
@@ -86,6 +90,12 @@ public class SampleBedrockEntity {
 	}
 	public void setEarthMatId(String earthMatId) {
 		this.earthMatId = earthMatId;
+	}
+	public String getSampleId() {
+		return sampleId;
+	}
+	public void setSampleId(String sampleId) {
+		this.sampleId = sampleId;
 	}
 	public String getSampleNo() {
 		return sampleNo;

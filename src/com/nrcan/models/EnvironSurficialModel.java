@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.EnvironSurficialEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class EnvironSurficialModel {
 	private DatabaseHandler dbHandler;

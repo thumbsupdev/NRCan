@@ -61,14 +61,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// SPINNER TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Type" - Column 1 of lutSURSampleType Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerType = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_type);
@@ -88,14 +88,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// CONCAT SPINNER PURPOSE
 			//
-			// DESCRIPTION
+			// Drop-down for "Purpose" - Column 1 of lutSURSamplePurpose Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPurpose = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_purpose);
@@ -123,16 +123,16 @@ public class SampleSurficialController extends BaseAdapter implements
 			});
 			
 			/////////////////////////////////////
-			// SPINNER 
+			// CONCAT EDITTEXT PURPOSE
 			//
-			// DESCRIPTION
+			// Text field concatenates selections from SPINNER PURPOSE
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPurpose = (EditText) convertView.findViewById(R.id.sample_surficial_editText_purpose);
@@ -151,14 +151,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// CONCAT BUTTON PURPOSE
 			//
-			// DESCRIPTION
+			// Button clears EDITTEXT PURPOSE text field
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Button buttonPurpose = (Button) convertView.findViewById(R.id.sample_surficial_button_purpose);
@@ -174,14 +174,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// EDITTEXT HORIZON
 			//
-			// DESCRIPTION
+			// Text field for "Horizon"
 			/////////////////////////////////////
-			// VERIFIED - TAB 1 - ELEMENT (1/6)
+			// VERIFIED - TAB 1 - ELEMENT (5/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextHorizon = (EditText) convertView.findViewById(R.id.sample_surficial_editText_horizon);
@@ -200,14 +200,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// EDITTEXT DEPTH
 			//
-			// DESCRIPTION
+			// Text field for "Depth/Interval(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/6)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepth = (EditText) convertView.findViewById(R.id.sample_surficial_editText_depthInterval);
@@ -231,14 +231,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// SPINNER SAMPLE STATE
 			//
-			// DESCRIPTION
+			// Drop-down for "Sample State" - Column 1 of lutSURSampleState Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSampleState = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_sampleState);
@@ -258,14 +258,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// SPINNER FORMAT
 			//
-			// DESCRIPTION
+			// Drop-down for "Format" - Column 1 of lutSURGeneralStrucFormat Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerFormat = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_format);
@@ -285,14 +285,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// EDITTEXT AZIMUTH
 			//
-			// DESCRIPTION
+			// Text field for "Azimuth"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAzimuth = (EditText) convertView.findViewById(R.id.sample_surficial_editText_azimuth);
@@ -311,14 +311,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// EDITTEXT DIP/PLUNGE
 			//
-			// DESCRIPTION
+			// Text field for "Dip/Plunge"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDipPlunge = (EditText) convertView.findViewById(R.id.sample_surficial_editText_dipPlunge);
@@ -337,14 +337,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// SPINNER SURFACE
 			//
-			// DESCRIPTION
+			// Drop-down for "Surface" - Column 1 of lutSURSampleSurface Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/5)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSurface = (Spinner) convertView.findViewById(R.id.sample_surficial_spinner_surface);
@@ -366,14 +366,14 @@ public class SampleSurficialController extends BaseAdapter implements
 			/////////////////////////////////////
 			// NOTES
 			//
-			// DESCRIPTION
+			// Text field for "Notes"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNotes = (EditText) convertView.findViewById(R.id.sample_surficial_editText_notes);

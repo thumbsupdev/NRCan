@@ -53,14 +53,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT O THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "O-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextOHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_oHrzThick);
@@ -77,16 +77,16 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			});
 			
 			/////////////////////////////////////
-			// EDITTEXT LF THICKNESS
+			// EDITTEXT LFH THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "LFH-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLFHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_lfhHrzThick);
@@ -105,14 +105,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT A THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "A-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_aHrzThick);
@@ -131,14 +131,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT B THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "B-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextBHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_bHrzThick);
@@ -157,14 +157,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT C THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "C-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextCHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_cHrzThick);
@@ -183,14 +183,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT R THICKNESS
 			//
-			// DESCRIPTION
+			// Text field for "R-Hrz Thickness"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextRHrzThick = (EditText) convertView.findViewById(R.id.soilpro_text_rHrzThick);
@@ -209,14 +209,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT O QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "O-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (7/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextOHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_oHrzQual);
@@ -233,16 +233,16 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			});
 			
 			/////////////////////////////////////
-			// EDITTEXT LF QUALIFIER
+			// EDITTEXT LFH QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "LFH-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (8/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLFHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_lfhHrzQual);
@@ -261,14 +261,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT A QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "A-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (9/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_aHrzQual);
@@ -287,14 +287,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT B QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "B-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (10/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextBHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_bHrzQual);
@@ -311,16 +311,16 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			});
 			
 			/////////////////////////////////////
-			// EDITTEXT CQUALIFIER
+			// EDITTEXT C QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "C-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (11/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextCHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_cHrzQual);
@@ -340,14 +340,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT R QUALIFIER
 			//
-			// DESCRIPTION
+			// Text field for "R-Hrz Hrz Qualifier"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (12/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextRHrzQual = (EditText) convertView.findViewById(R.id.soilpro_text_rHrzQual);
@@ -366,14 +366,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT ATOP
 			//
-			// DESCRIPTION
+			// Text field for "Depth 1"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (13/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepth1 = (EditText) convertView.findViewById(R.id.soilpro_text_depth1);
@@ -392,14 +392,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT BTOP
 			//
-			// DESCRIPTION
+			// Text field for "Depth 2"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (14/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepth2 = (EditText) convertView.findViewById(R.id.soilpro_text_depth2);
@@ -418,14 +418,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT CTOP
 			//
-			// DESCRIPTION
+			// Text field for "Depth 3"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (15/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepth3 = (EditText) convertView.findViewById(R.id.soilpro_text_depth3);
@@ -444,14 +444,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT RTOP
 			//
-			// DESCRIPTION
+			// Text field for "Depth 4"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (16/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDepth4 = (EditText) convertView.findViewById(R.id.soilpro_text_depth4);
@@ -470,14 +470,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT TOTAL PROFILE/TOTTHICK
 			//
-			// DESCRIPTION
+			// Text field for "Total Profile"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (17/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextTotalProfile = (EditText) convertView.findViewById(R.id.soilpro_text_totalProfile);
@@ -494,16 +494,16 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			});
 			
 			/////////////////////////////////////
-			// EDITTEXT NO IDEA
+			// EDITTEXT BOTTOM TEXTFIELD
 			//
-			// DESCRIPTION
+			// Text field for "Bottom text field"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (18/18)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextUnknownBottom = (EditText) convertView.findViewById(R.id.soilpro_text_unknownBottomText);
@@ -526,14 +526,14 @@ public class SoilProSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT NOTES
 			//
-			// DESCRIPTION
+			// Text field for "Notes"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNotes = (EditText) convertView.findViewById(R.id.soilpro_surficial_editText_notes);

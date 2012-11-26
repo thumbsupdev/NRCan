@@ -42,7 +42,7 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 		this.tab = 1;
 		this.stationBedrockEntity = stationBedrockEntity;
 		this.pldb = pldb;
-		//doGPS();
+		doGPS();
 	}
 
 	public int getCount() {
@@ -64,14 +64,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT TRAVERSE
 			//
-			// DESCRIPTION
+			// Text field for "Trav"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextTrav = (EditText) convertView.findViewById(R.id.station_text_traverse);
@@ -90,14 +90,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// BUTTON DATE
 			//
-			// DESCRIPTION
+			// Button to select date
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			setDate();
@@ -112,14 +112,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT ELEVATION
 			//
-			// DESCRIPTION
+			// Text field for "Elevation(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextElev = (EditText) convertView.findViewById(R.id.station_text_elevation);
@@ -138,14 +138,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER ELEVATION METHOD
 			//
-			// DESCRIPTION
+			// Drop-down for "Method" - Column 1 of lutBEDStationElevmethod Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_spinner_elevation);
@@ -165,14 +165,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT EASTING
 			//
-			// DESCRIPTION
+			// Text field for "Easting(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextEasting = (EditText) convertView.findViewById(R.id.station_text_easting);
@@ -191,14 +191,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT NORTHING
 			//
-			// DESCRIPTION
+			// Text field for "Northing(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNorthing = (EditText) convertView.findViewById(R.id.station_text_northing);
@@ -217,14 +217,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT LATITUDE
 			//
-			// DESCRIPTION
+			// Text field for "Latitude"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (7/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLatitude = (EditText) convertView.findViewById(R.id.station_text_latitude);
@@ -243,14 +243,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT LONGITUDE
 			//
-			// DESCRIPTION
+			// Text field for "Longitude"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (8/8)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLongitude = (EditText) convertView.findViewById(R.id.station_text_longitude);
@@ -272,14 +272,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER OBSERVATION TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Observation Type" - Column 1 of lutBEDStationObstype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerObsType = (Spinner) convertView.findViewById(R.id.station_spinner_obstype);
@@ -299,14 +299,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER ENTRY TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Entry Type" - Column 1 of lutBEDStationEntrytype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerEntryType = (Spinner) convertView.findViewById(R.id.station_spinner_entryType);
@@ -326,14 +326,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER OUTCROP QUALITY
 			//
-			// DESCRIPTION
+			// Drop-down for "Outcrop Quality" - Column 1 of lutBEDStationOutcropqual Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerOCQuality = (Spinner) convertView.findViewById(R.id.station_spinner_outcropqual);
@@ -353,14 +353,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT OUTCROP SIZE
 			//
-			// DESCRIPTION
+			// Text field for "Outcrop Size"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (4/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextOutcropSize = (EditText) convertView.findViewById(R.id.station_text_outcropsize);
@@ -379,14 +379,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// SPINNER PHYSICAL ENVIRONMENT
 			//
-			// DESCRIPTION
+			// Drop-down for "Phys. Environ" - Column 1 of lutBEDStationPhysenviron Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (5/5)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPhysEnviron = (Spinner) convertView.findViewById(R.id.station_spinner_physenviron);
@@ -409,14 +409,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT AIR PHOTO
 			//
-			// DESCRIPTION
+			// Text field for "Air Photo"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (1/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAirPhoto = (EditText) convertView.findViewById(R.id.station_text_airphoto);
@@ -435,14 +435,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT PARTNER
 			//
-			// DESCRIPTION
+			// Text field for "Partner"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/2)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPartner = (EditText) convertView.findViewById(R.id.station_editText_partner);
@@ -464,14 +464,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT STATION NOTE (254)
 			//
-			// DESCRIPTION
+			// Text field for "Station Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextStationNote = (EditText) convertView.findViewById(R.id.station_text_stationnote);
@@ -493,14 +493,14 @@ public class StationBedrockController extends BaseAdapter implements Filterable 
 			/////////////////////////////////////
 			// EDITTEXT SLS NOTE (254)
 			//
-			// DESCRIPTION
+			// Text field for "Since last station Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [X] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLastStationNote = (EditText) convertView.findViewById(R.id.station_text_sincelaststationnote);

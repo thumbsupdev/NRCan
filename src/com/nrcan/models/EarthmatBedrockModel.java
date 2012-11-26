@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.EarthmatBedrockEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class EarthmatBedrockModel {
 	private DatabaseHandler dbHandler;

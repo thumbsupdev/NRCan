@@ -43,7 +43,7 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 		this.tab = 1;	
 		this.stationSurficialEntity = stationSurficialEntity;
 		this.pldb = pldb;
-		//doGPS();
+		doGPS();
 	}
 
 	public int getCount() {
@@ -66,14 +66,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT TRAV NO
 			//
-			// DESCRIPTION
+			// Text field for "Trav"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextTrav = (EditText) convertView.findViewById(R.id.station_surficial_text_traverse);
@@ -92,14 +92,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// BUTTON VISIT DATE
 			//
-			// DESCRIPTION
+			// Button to select date
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			setDate();
@@ -114,14 +114,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT ELEVATION
 			//
-			// DESCRIPTION
+			// Text field for "Elevation(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextElev = (EditText) convertView.findViewById(R.id.station_surficial_text_elevation);
@@ -137,14 +137,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER ELEVATION METHOD
 			//
-			// DESCRIPTION
+			// Drop-down for "Method" - Column 1 of lutSURStationElevmethod Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerElev = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_elevation);
@@ -165,14 +165,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT EASTING
 			//
-			// DESCRIPTION
+			// Text field for "Easting(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (5/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextEasting = (EditText) convertView.findViewById(R.id.station_surficial_text_easting);
@@ -191,14 +191,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT NORTHING
 			//
-			// DESCRIPTION
+			// Text field for "Northing(m)"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (6/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextNorthing = (EditText) convertView.findViewById(R.id.station_surficial_text_northing);
@@ -217,14 +217,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT LATITUDE
 			//
-			// DESCRIPTION
+			// Text field for "Latitude"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (7/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLatitude = (EditText) convertView.findViewById(R.id.station_surficial_text_latitude);
@@ -243,14 +243,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT LONGITUDE
 			//
-			// DESCRIPTION
+			// Text field for "Longitude"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (8/8)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLongitude = (EditText) convertView.findViewById(R.id.station_surficial_text_longitude);
@@ -273,14 +273,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER OBSERVATION TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Observation Type" - Column 1 of lutSURStationObsType Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerObsType = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_obstype);
@@ -300,14 +300,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER ENTRY TYPE
 			//
-			// DESCRIPTION
+			// Drop-down for "Entry Type" - Column 1 of lutSURStationEntrytype Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (2/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerEntrytype = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_entryType);
@@ -327,14 +327,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER LEGEND VAL
 			//
-			// DESCRIPTION
+			// Drop-down for "Legend Value" - Column 1 of lutSURStationLegendval Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (3/3)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerLegendValue = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_legendvalue);
@@ -358,14 +358,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER SITE QUALITY
 			//
-			// DESCRIPTION
+			// Drop-down for "Site Qual." - Column 1 of lutSURStationSitequality Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerSiteQual = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_sitequal);
@@ -385,14 +385,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// SPINNER PHYS. ENVIRON
 			//
-			// DESCRIPTION
+			// Drop-down for "Phys. Environ" - Column 1 of lutSURStationPhysenv Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (2/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerPhysEnviron = (Spinner) convertView.findViewById(R.id.station_surficial_spinner_physenviron);
@@ -411,16 +411,16 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 
 
 			/////////////////////////////////////
-			// EDITTEXT INTERPRETATION - SITE SIZE?
+			// EDITTEXT INTERPRETATION
 			//
-			// DESCRIPTION
+			// Text field for "Interpretation"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (3/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextInterpretation = (EditText) convertView.findViewById(R.id.station_surficial_editText_interpretation);
@@ -439,14 +439,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT AIR PHOTO
 			//
-			// DESCRIPTION
+			// Text field for "Air Photo"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (4/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextAirPhoto = (EditText) convertView.findViewById(R.id.station_surficial_text_airphoto);
@@ -465,30 +465,30 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// BUTTON AIR PHOTO
 			//
-			// DESCRIPTION
+			// Button to load last photo
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (5/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
-			Button buttonAirPhoto = (Button) convertView.findViewById(R.id.station_surficial_button_airphoto);
+			//Button buttonAirPhoto = (Button) convertView.findViewById(R.id.station_surficial_button_airphoto);
 
 
 			/////////////////////////////////////
 			// EDITTEXT MAP SHEET
 			//
-			// DESCRIPTION
+			// Text field for "Map Sheet"
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (6/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextMapSheet = (EditText) convertView.findViewById(R.id.station_surficial_text_mapsheet);
@@ -507,17 +507,17 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// BUTTON MAP SHEET
 			//
-			// DESCRIPTION
+			// Button to load last map sheet
 			/////////////////////////////////////
 			// VERIFIED - TAB 3 - ELEMENT (7/7)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
-			Button buttonMapSheet = (Button) convertView.findViewById(R.id.station_surficial_button_mapsheet);
+			//Button buttonMapSheet = (Button) convertView.findViewById(R.id.station_surficial_button_mapsheet);
 
 
 		} else if (tab == 4) {
@@ -526,14 +526,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT STATION NOTE
 			//
-			// DESCRIPTION
+			// Text field for "Station Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (1/2)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextStationNote = (EditText) convertView.findViewById(R.id.station_surficial_text_stationnote);
@@ -552,14 +552,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDITTEXT PARTNER
 			//
-			// DESCRIPTION
+			// Text field for "Partner"
 			/////////////////////////////////////
 			// VERIFIED - TAB 4 - ELEMENT (2/2)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPartner = (EditText) convertView.findViewById(R.id.station_surficial_editText_partner);
@@ -583,14 +583,14 @@ public class StationSurficialController extends BaseAdapter implements Filterabl
 			/////////////////////////////////////
 			// EDIT TEXT SINCE LAST STATION
 			//
-			// DESCRIPTION
+			// Text field for "Since last station Note"
 			/////////////////////////////////////
 			// VERIFIED - TAB 5 - ELEMENT ()
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextLastStationNote = (EditText) convertView.findViewById(R.id.station_surficial_text_sincelaststationnote);

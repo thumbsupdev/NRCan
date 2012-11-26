@@ -59,14 +59,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// SPINNER CATEGORY
 			//
-			// DESCRIPTION
+			// Drop-down for "Category" - Column 1 of plNames[0] Picklist
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (1/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			Spinner spinnerCategory = (Spinner) convertView.findViewById(R.id.photo_spinner_category);
@@ -87,14 +87,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT PHOTONAME/FILENAME
 			//
-			// DESCRIPTION
+			// Text field for "File Name"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (2/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextPhotoName = (EditText) convertView.findViewById(R.id.photo_text_filename);
@@ -113,14 +113,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT PHOTO FILE NUMBER
 			//
-			// DESCRIPTION
+			// Text field for "File Number"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (3/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextFileNumber = (EditText) convertView.findViewById(R.id.photo_text_filenumber);
@@ -139,14 +139,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT DIRECTION
 			//
-			// DESCRIPTION
+			// Text field for "Direction"
 			/////////////////////////////////////
 			// VERIFIED - TAB 1 - ELEMENT (4/4)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextDirection = (EditText) convertView.findViewById(R.id.photo_text_direction);
@@ -168,14 +168,14 @@ public class PhotoController extends BaseAdapter implements Filterable {
 			/////////////////////////////////////
 			// EDITTEXT CAPTION
 			//
-			// DESCRIPTION
+			// Text field for "Caption"
 			/////////////////////////////////////
 			// VERIFIED - TAB 2 - ELEMENT (1/1)
 			/////////////////////////////////////
 			// [] JORDAN KUROSKY
 			// [] JAMIE POSPIECH
 			// [] DEREK ELLIOTT
-			// [] PIERRE LAFOREST-GRANT
+			// [X] PIERRE LAFOREST-GRANT
 			// [X] ALEX YEUNG
 			/////////////////////////////////////
 			EditText editTextCaption = (EditText) convertView.findViewById(R.id.photo_text_caption);

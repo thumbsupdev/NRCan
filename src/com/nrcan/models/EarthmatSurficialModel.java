@@ -3,7 +3,6 @@ package com.nrcan.models;
 import android.content.ContentValues;
 import com.nrcan.entities.EarthmatSurficialEntity;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 
 public class EarthmatSurficialModel {
 	private DatabaseHandler dbHandler;

@@ -2,7 +2,6 @@ package com.nrcan.models;
 
 import android.content.ContentValues;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.StructureEntity;
 
 public class StructureModel {

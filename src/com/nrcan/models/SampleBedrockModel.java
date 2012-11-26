@@ -2,7 +2,6 @@ package com.nrcan.models;
 
 import android.content.ContentValues;
 import com.nrcan.main.DatabaseHandler;
-import com.nrcan.values.PreparedStatements;
 import com.nrcan.entities.SampleBedrockEntity;
 
 public class SampleBedrockModel {
@@ -14,6 +13,7 @@ public class SampleBedrockModel {
 	private static final String SAMPLEBEDROCK_NRCANID3 = "nrcanId3";
 	private static final String SAMPLEBEDROCK_STATIONID = "stationId";
 	private static final String SAMPLEBEDROCK_EARTHMATID = "earthMatId";
+	private static final String SAMPLEBEDROCK_SAMPLEID = "sampleId";
 	private static final String SAMPLEBEDROCK_SAMPLENO = "sampleNo";
 	private static final String SAMPLEBEDROCK_SAMPLETYPE = "sampleType";
 	private static final String SAMPLEBEDROCK_PURPOSE = "purpose";
@@ -28,6 +28,7 @@ public class SampleBedrockModel {
 			SAMPLEBEDROCK_NRCANID3 + " INTEGER, " +
 			SAMPLEBEDROCK_STATIONID + " TEXT," +
 			SAMPLEBEDROCK_EARTHMATID + " TEXT," +
+			SAMPLEBEDROCK_SAMPLEID + " TEXT," +
 			SAMPLEBEDROCK_SAMPLENO + " TEXT,"+
 			SAMPLEBEDROCK_SAMPLETYPE + " TEXT," +
 			SAMPLEBEDROCK_PURPOSE  + " TEXT," +
@@ -56,6 +57,7 @@ public class SampleBedrockModel {
 		values.put(SAMPLEBEDROCK_NRCANID3, 0);
 		values.put(SAMPLEBEDROCK_STATIONID, " ");
 		values.put(SAMPLEBEDROCK_EARTHMATID, " ");
+		values.put(SAMPLEBEDROCK_SAMPLEID, " ");
 		values.put(SAMPLEBEDROCK_SAMPLENO, " ");
 		values.put(SAMPLEBEDROCK_SAMPLETYPE, " ");
 		values.put(SAMPLEBEDROCK_PURPOSE, " ");
@@ -76,6 +78,7 @@ public class SampleBedrockModel {
 		ContentValues values = new ContentValues();
 		values.put(SAMPLEBEDROCK_STATIONID, sampleBedrock.getStationId());
 		values.put(SAMPLEBEDROCK_EARTHMATID, sampleBedrock.getEarthMatId());
+		values.put(SAMPLEBEDROCK_SAMPLEID, sampleBedrock.getSampleId());
 		values.put(SAMPLEBEDROCK_SAMPLENO, sampleBedrock.getSampleNo());
 		values.put(SAMPLEBEDROCK_SAMPLETYPE, sampleBedrock.getSampleType());
 		values.put(SAMPLEBEDROCK_PURPOSE, sampleBedrock.getPurpose());
